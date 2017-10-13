@@ -10,7 +10,6 @@
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 <title>煎饼铺，一个有趣的公众号</title>
 </head>
-
 <body oncontextmenu="return false" onselectstart="return false">
 	    <button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="javascript:history.go(-1)">返回</button>
 	<div id="container">
@@ -50,7 +49,13 @@
          $("#clear").on("click",function(e){
        	e.preventDefault();
        	$("#input").val('');
-      	$("#output").val('')
+      	$("#output").val('');
+      	 //提示
+		  layer.open({
+		    content: '已清空'
+		    ,skin: 'msg'
+		    ,time: 2 //2秒后自动关闭
+		  });
         });
 </script>
 </html>

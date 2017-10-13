@@ -63,7 +63,13 @@
         $("#clear").on("click",function(e){
        	e.preventDefault();
        	$("#input").val('');
-      	$("#output").val('')
+      	$("#output").val('')；
+      	//提示
+		  layer.open({
+		    content: '已清空'
+		    ,skin: 'msg'
+		    ,time: 2 //2秒后自动关闭
+		  });
         });
 
 </script>
