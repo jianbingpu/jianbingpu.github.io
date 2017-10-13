@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="js/layer_mobile/need/layer.css" type="text/css" rel="stylesheet">
+<script src="js/layer_mobile/layer.js"></script>
+<script src="js/underscore-min.js"></script>
+<script src="js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="css/tool.css" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<title>煎饼铺，一个有趣的公众号</title>
+</head>
+
+<body oncontextmenu="return false" onselectstart="return false">
+	    <button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="javascript:history.go(-1)">返回</button>
+	<div id="container">
+	<h3>微信公众号关键词回复工具</h3><hr>
+	    <p id="info">
+	        1、输入关键词回复内容，点击生成 <br><br>
+	        2、点击输出区域，会自动全选方便复制 <br><br>
+	    </p>
+	    <p>输入：</p>
+	    <textarea onclick="this.focus();this.select();" class="tarea" id="input" style="float:none">
+恭喜你，解锁了一个新技能
+
+你要的，~(˘▾˘~)╭☞<a alt="คิดถึง" href="https://www.hotapp.cn/shouqian" >二维码合并</a>
+———————————————
+煎饼铺，一个有趣的公众号
+	    </textarea>
+	    <p>输出：</p>
+	    <textarea onclick="this.setSelectionRange(0, this.value.length);" class="tarea" id="output" style="float:none" readonly></textarea>
+	    <button id="create" type="button" style="background-color:#00C74A; border-radius:20px;" >转义</button>
+	    <button id="create2" type="button" style="background-color:#00C74A; border-radius:20px;" >反转义</button>
+	    <button  id="clear" type="button" style="background-color:#FF4500; border-radius:20px;" onclick=" javascript:window.location.reload()">清空</button>
+	</div>
+</body>
+
+ <script>
+        if(!(/(android|iphone|ipad|PlayBook|BB10)/i).test(window.navigator.userAgent)){
+        
+        }
+        
+       var $content=$("#input");
+	 var $result=$("#output");
+	 $("#create").on("click",function(e){
+		e.preventDefault();
+		$result.val(_.escape($content.val()));
+        });
+        
+        $("#create2").on("click",function(e){
+             e.preventDefault();
+             $result.val(_.unescape($content.val()));
+         });
+</script>
+</html>
