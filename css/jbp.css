@@ -348,7 +348,16 @@ li{
 	margin-right:auto;
 	border:1px solid #FFFFFF;
 	}	
-	
+.icon{
+	width:210px;
+	height:210px;
+	margin-right:0px;
+	display:block;
+	margin-left:0px;
+	background-position:center;
+	background-repeat:no-repeat;
+	float:left;
+	}
 #bg_vip{
 	background-color:#2ad8b9;}
 	
