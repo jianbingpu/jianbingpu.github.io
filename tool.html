@@ -23,7 +23,7 @@
 	    <p>输出：</p>
 	    <input onclick="this.setSelectionRange(0, this.value.length);" id="output" readonly>
 	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">生成</button>
-	    	    <button type="button" style="background-color:#FF4500; border-radius:20px;" onclick=" javascript:window.location.reload()" id="clear">清空</button>
+	    	    <button type="button" style="background-color:#FF4500; border-radius:20px;"  id="clear">清空</button>
 	   
 	</div>
 </body>
@@ -31,7 +31,7 @@
         if(!(/(android|iphone|ipad|PlayBook|BB10)/i).test(window.navigator.userAgent)){
         
         }
-        
+
        function generateSmall(){
 	    var str = [];
 	    for(var i=97; i<123; i++){
@@ -58,6 +58,12 @@
 		}
 		
 		$result.val(str);
+        });
+        
+        $("#clear").on("click",function(e){
+       	e.preventDefault();
+       	$("#input").val('');
+      	$("#output").val('')
         });
 
 </script>

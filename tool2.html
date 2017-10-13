@@ -20,18 +20,12 @@
 	        2、点击输出区域，会自动全选方便复制 <br><br>
 	    </p>
 	    <p>输入：</p>
-	    <textarea onclick="this.focus();this.select();" class="tarea" id="input" style="float:none">
-恭喜你，解锁了一个新技能
-
-你要的，~(˘▾˘~)╭☞<a alt="คิดถึง" href="https://www.hotapp.cn/shouqian" >二维码合并</a>
-———————————————
-煎饼铺，一个有趣的公众号
-	    </textarea>
+	    <textarea onclick="this.focus();this.select();" class="tarea" id="input" style="float:none"></textarea>
 	    <p>输出：</p>
 	    <textarea onclick="this.setSelectionRange(0, this.value.length);" class="tarea" id="output" style="float:none" readonly></textarea>
 	    <button id="create" type="button" style="background-color:#00C74A; border-radius:20px;" >转义</button>
 	    <button id="create2" type="button" style="background-color:#00C74A; border-radius:20px;" >反转义</button>
-	    <button  id="clear" type="button" style="background-color:#FF4500; border-radius:20px;" onclick=" javascript:window.location.reload()">清空</button>
+	    <button  id="clear" type="button" style="background-color:#FF4500; border-radius:20px;" >清空</button>
 	</div>
 </body>
 
@@ -39,7 +33,8 @@
         if(!(/(android|iphone|ipad|PlayBook|BB10)/i).test(window.navigator.userAgent)){
         
         }
-        
+       
+
        var $content=$("#input");
 	 var $result=$("#output");
 	 $("#create").on("click",function(e){
@@ -51,5 +46,11 @@
              e.preventDefault();
              $result.val(_.unescape($content.val()));
          });
+         
+         $("#clear").on("click",function(e){
+       	e.preventDefault();
+       	$("#input").val('');
+      	$("#output").val('')
+        });
 </script>
 </html>
