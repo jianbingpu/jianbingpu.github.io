@@ -54,7 +54,7 @@
 		}
 		// 替换字母
 		for (i=0; i<26; i++) {
-			str=str.replace(strAz[i], strAzColor[i]+" ");
+			str=str.replace(new RegExp(strAz[i],'g'), strAzColor[i]+" ");
 		}
 		
 		$result.val(str);
