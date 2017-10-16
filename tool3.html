@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="js/layer_mobile/need/layer.css" type="text/css" rel="stylesheet">
+<script src="js/layer_mobile/layer.js"></script>
+<script src="js/underscore-min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/clipboard.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/tool.css" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<title>煎饼铺，一个有趣的公众号</title>
+<script>
+$(function() {
+    var clipboard = new Clipboard('#copy');
+
+    clipboard.on('success', function(e) {
+    	e.clearSelection();
+    	tip("拷贝成功");
+    });
+
+    clipboard.on('error', function(e) {
+    	e.clearSelection();
+    	tip("拷贝失败，请手动复制");
+    });
+    
+});
+</script>
+</head>
+<body oncontextmenu="return false";onselectstart="return false">
+	<button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
+	<div id="container">
+	<h3>花样文字生成工具</h3><hr>
+	    <p id="info">
+	        1、输入关键词内容，点击转换<br><br>
+	        2、点击复制按钮，会复制输出的内容<br><br>
+	        3、粘贴你想设置的地方，例如：QQ昵称，微信昵称，公众号文章中等<br><br>
+	    </p>
+	    <p>输入：</p>
+	    <textarea class="tarea" id="input" style="float:none"></textarea>
+	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
+	    <!--<textarea onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" class="tarea" id="output" style="float:none" readonly></textarea>-->
+	    <textarea  class="tarea" id="output" readonly> </textarea>
+	    
+	    选择类型：
+		<select id="type" style="background-color:#4682B4; border-radius:10px;" >
+		<option value="⃓">分裂字样</option>
+		<option value="̄">上横线字样</option>
+		<option value="⃛">上点点字样</option>
+		<option value="⃡">横向箭头字样</option>
+		<option value="⃕">跳跃箭头字样</option>
+		<option value="̥">气泡字样</option>
+		<option selected value="҉">雾霾字样</option>
+		<option value="⃣">边框字样</option>
+		<option value="⃠">禁止字样</option>
+		<option value="⃝">圈圈字样</option>
+		<option value="⁶⁶⁶">666字样</option>
+		</select>
+	    <button id="create" type="button" style="background-color:#00C74A; border-radius:20px;" >转换</button>
+	    <button  id="clear" type="button" style="background-color:#FF4500; border-radius:20px;" >清空</button>
+	</div>
+</body>
+
+ <script>
+	
+ 	function back() {
+ 		this.location.href="gj.html";
+ 	}
+ 	
+       var $content=$("#input");
+	 var $result=$("#output");
+	 $("#create").on("click",function(e){
+		e.preventDefault();
+		
+		var rowArrays = $content.val().split("");
+		var type = $("#type").val();
+		var result="";
+		for (i=0; i<rowArrays.length; i++) {
+			var str =rowArrays[i]
+			str = deleteAll(str, "\r");
+			str = deleteAll(str, " ");
+
+			if (str  != "" && str != "\r" && str != "\n") {
+				result += str+type;
+			} else {
+				result += str;
+			}
+		
+		}
+	
+		$result.val(result);
+	
+        });
+        
+        
+        
+	function deleteAll(srcStr, aStr) {
+		return replaceAllChar(srcStr, aStr, "");
+	}
+	
+	function replaceAllChar(srcStr, aStr, bStr) {
+		while (srcStr.indexOf(aStr) >= 0) {
+			srcStr = srcStr.replace(aStr, bStr);
+		}
+		
+		return srcStr;
+	}
+
+         
+         $("#clear").on("click",function(e){
+       	e.preventDefault();
+       	$("#input").val('');
+      	$("#output").val(' ');
+      	 //提示
+		tip("已清空");
+        });
+        
+        function tip(msg) {
+	          //提示
+		  layer.open({
+		    content: msg
+		    ,skin: 'msg'
+		    ,time: 2 //2秒后自动关闭
+		  });
+	}
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?fde0c666ad3f56940be693a64daa20f2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>
