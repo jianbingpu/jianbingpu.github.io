@@ -8,7 +8,14 @@
 
 <title>煎饼铺，一个有趣的公众号</title>
  <script>
-</script>
+        if(!(/(Safari)/i).test(window.navigator.userAgent)){
+        	  //信息框
+		  layer.open({
+		    content: '请在Safari浏览器中打开此页面'
+		    ,btn: '我知道了'
+		  });
+        }
+    </script>
 <style type="text/css">
 </style>
 </head>
@@ -24,7 +31,7 @@
     </div>
     
     <div class="space"></div>
-   
+    <div class="tip">使用前需要安装应用：Workflow，并且在Safari浏览器中打开此页面</div>
     <ul>
        
         <li>
