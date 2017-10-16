@@ -11,7 +11,7 @@
 <title>煎饼铺，一个有趣的公众号</title>
 </head>
 <body oncontextmenu="return false" onselectstart="return false">
-	    <button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="javascript:history.go(-1)">返回</button>
+	<button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
 	<div id="container">
 	<h3>微信公众号关键词回复工具</h3><hr>
 	    <p id="info">
@@ -19,9 +19,9 @@
 	        2、点击输出区域，会自动全选方便复制 <br><br>
 	    </p>
 	    <p>输入：</p>
-	    <textarea onclick="this.focus();this.select();" class="tarea" id="input" style="float:none"></textarea>
+	    <textarea class="tarea" id="input" style="float:none"></textarea>
 	    <p>输出：</p>
-	    <textarea onclick="this.setSelectionRange(0, this.value.length);" class="tarea" id="output" style="float:none" readonly></textarea>
+	    <textarea onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" class="tarea" id="output" style="float:none" readonly></textarea>
 	    <button id="create" type="button" style="background-color:#00C74A; border-radius:20px;" >转义</button>
 	    <button id="create2" type="button" style="background-color:#00C74A; border-radius:20px;" >反转义</button>
 	    <button  id="clear" type="button" style="background-color:#FF4500; border-radius:20px;" >清空</button>
@@ -29,11 +29,9 @@
 </body>
 
  <script>
-        if(!(/(android|iphone|ipad|PlayBook|BB10)/i).test(window.navigator.userAgent)){
-        
-        }
-       
-
+ 	function back() {
+ 		this.location.href="gj.html";
+ 	}
        var $content=$("#input");
 	 var $result=$("#output");
 	 $("#create").on("click",function(e){
