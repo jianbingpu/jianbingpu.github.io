@@ -36,14 +36,8 @@ $(function() {
 	        2、点击复制按钮，会复制输出的内容<br><br>
 	        3、粘贴你想设置的地方，例如：QQ昵称，微信昵称，公众号文章中等<br><br>
 	    </p>
-	    <p>输入：</p>
-	    <textarea class="tarea" id="input" style="float:none"></textarea>
-	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
-	    <!--<textarea onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" class="tarea" id="output" style="float:none" readonly></textarea>-->
-	    <textarea  class="tarea" id="output" readonly> </textarea>
-	    
-	    选择类型：
-		<select id="type" style="width:120px;height:35px;font-size:20px;background-color:#e6e6e6; border-radius:10px;" >
+	    <p>输入：
+	    <select id="type" style="width:120px;height:22px;font-size:10px;background-color:#e6e6e6; border-radius:10px;" >
 		<option value="⃓" selected >分裂字样</option>
 		<option value="҈">出汗字样</option>
 		<option value="͟">横条字样</option>
@@ -59,6 +53,12 @@ $(function() {
 		<option value="⃝">圈圈字样</option>
 		<option value="⁶⁶⁶">666字样</option>
 		</select>
+	    </p>
+	    <textarea class="tarea" id="input" style="float:none"></textarea>
+	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
+	    <!--<textarea onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" class="tarea" id="output" style="float:none" readonly></textarea>-->
+	    <textarea  class="tarea" id="output" readonly> </textarea>
+	   
 	    <button id="create" type="button" style="background-color:#00C74A; border-radius:20px;" >转换</button>
 	    <button  id="clear" type="button" style="background-color:#FF4500; border-radius:20px;" >清空</button>
 	</div>
