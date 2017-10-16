@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="js/layer_mobile/need/layer.css" type="text/css" rel="stylesheet">
+<script src="js/layer_mobile/layer.js"></script>
+<script src="js/underscore-min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/clipboard.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/tool.css" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<title>煎饼铺,一个有趣的公众号</title>
+<script>
+
+</script>
+</head>
+<body  oncontextmenu="return false;" onselectstart="return false">
+	<button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
+	<div id="container">
+	<center>
+		微信指数已升级为小程序	<br>
+		长按下图识别图中小程序码即可使用	<br>
+		<img src="img/zhishu.png">
+	</center>
+	</div>
+</body>
+ <script>
+ 
+ 	function back() {
+ 		this.location.href="gj.html";
+ 	}
+ 	
+       function generateSmall(){
+	    var str = [];
+	    for(var i=97; i<123; i++){
+	        str.push(String.fromCharCode(i));
+	    }
+	    return str;
+	}
+       var numUp=new Array("⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹");
+       var numDn=new Array("₀","₁","₂","₃","₄","₅","₆","₇","₈","₉");
+       var strAzColor=new Array("🇦","🇧","🇨","🇩","🇪","🇫","🇬","🇭","🇮","🇯","🇰","🇱","🇲","🇳","🇴","🇵","🇶","🇷","🇸","🇹","🇺","🇻","🇼","🇽","🇾","🇿");
+       var strAz = generateSmall();
+       var $content=$("#input");
+	 var $result=$("#output");
+	 $("#createUp").on("click",function(e){
+	 	$result.val('');
+		e.preventDefault();
+		var str = $content.val().toLowerCase();
+		// 替换数字
+		for (i=0; i<10; i++) {
+			str=str.replace(new RegExp(i,'g'), numUp[i]);
+		}
+		// 替换字母
+		for (i=0; i<26; i++) {
+			str=str.replace(new RegExp(strAz[i],'g'), strAzColor[i]+" ");
+		}
+		
+		$result.val(str);
+        });
+        
+        $("#createDn").on("click",function(e){
+        	$result.val('');
+		e.preventDefault();
+		var str = $content.val().toLowerCase();
+		// 替换数字
+		for (i=0; i<10; i++) {
+			str=str.replace(new RegExp(i,'g'), numDn[i]);
+		}
+		// 替换字母
+		for (i=0; i<26; i++) {
+			str=str.replace(new RegExp(strAz[i],'g'), strAzColor[i]+" ");
+		}
+		
+		$result.val(str);
+        });
+        
+        $("#clear").on("click",function(e){
+       	e.preventDefault();
+       	$("#input").val('');
+      	$("#output").val(' ');
+      	tip("已清空");
+        });
+        
+        function tip(msg) {
+	          //提示
+		  layer.open({
+		    content: msg
+		    ,skin: 'msg'
+		    ,time: 2 //2秒后自动关闭
+		  });
+	}
+
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?fde0c666ad3f56940be693a64daa20f2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>
