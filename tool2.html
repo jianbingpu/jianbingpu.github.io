@@ -6,9 +6,26 @@
 <script src="js/layer_mobile/layer.js"></script>
 <script src="js/underscore-min.js"></script>
 <script src="js/jquery.js"></script>
+<script src="js/clipboard.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/tool.css" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 <title>煎饼铺，一个有趣的公众号</title>
+<script>
+$(function() {
+    var clipboard = new Clipboard('#copy');
+
+    clipboard.on('success', function(e) {
+    	e.clearSelection();
+    	tip("拷贝成功");
+    });
+
+    clipboard.on('error', function(e) {
+    	e.clearSelection();
+    	tip("拷贝失败，请手动复制");
+    });
+    
+});
+</script>
 </head>
 <body oncontextmenu="return false";onselectstart="return false">
 	<button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
@@ -19,10 +36,11 @@
 	        2、点击输出区域，会自动全选方便复制 <br><br>
 	        3、输出内容粘贴到关键词回复区，点击保存，再次点击编辑，再保存即可<br><br>
 	    </p>
-	    <p>输入：<button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="insertTemp()">添加模板</button></p>
+	    <p>输入：<button type="button" style="background-color:#FFC74A; border-radius:10px;" onclick="insertTemp()">添加模板</button></p>
 	    <textarea class="tarea" id="input" style="float:none"></textarea>
-	    <p>输出：</p>
-	    <textarea onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" class="tarea" id="output" style="float:none" readonly></textarea>
+	    <p>输出：<button type="button" style="background-color:#FFC74A; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
+	    <!--<textarea onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" class="tarea" id="output" style="float:none" readonly></textarea>-->
+	    <textarea  class="tarea" id="output" readonly> </textarea>
 	    <button id="create" type="button" style="background-color:#00C74A; border-radius:20px;" >转义</button>
 	    <button id="create2" type="button" style="background-color:#00C74A; border-radius:20px;" >反转义</button>
 	    <button  id="clear" type="button" style="background-color:#FF4500; border-radius:20px;" >清空</button>
@@ -56,11 +74,16 @@
        	$("#input").val('');
       	$("#output").val('');
       	 //提示
+		tip("已清空");
+        });
+        
+        function tip(msg) {
+	          //提示
 		  layer.open({
-		    content: '已清空'
+		    content: msg
 		    ,skin: 'msg'
 		    ,time: 2 //2秒后自动关闭
 		  });
-        });
+	}
 </script>
 </html>
