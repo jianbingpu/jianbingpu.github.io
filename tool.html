@@ -6,9 +6,26 @@
 <script src="js/layer_mobile/layer.js"></script>
 <script src="js/underscore-min.js"></script>
 <script src="js/jquery.js"></script>
+<script src="js/clipboard.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/tool.css" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 <title>煎饼铺,一个有趣的公众号</title>
+<script>
+$(function() {
+    var clipboard = new Clipboard('#sd');
+
+    clipboard.on('success', function(e) {
+    	e.clearSelection();
+    	tip("拷贝成功");
+    });
+
+    clipboard.on('error', function(e) {
+    	e.clearSelection();
+    	tip("拷贝失败，请手动复制");
+    });
+    
+});
+</script>
 </head>
 <body  oncontextmenu="return false;" onselectstart="return false">
 	    <button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
@@ -20,8 +37,8 @@
 	    </p>
 	    <p>输入：</p>
 	    <input type="text" name="name" id="input" maxlength="25">
-	    <p>输出：</p>
-	    <input onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" id="output" readonly>
+	    <p>输出：<a style="background-color:#00FFFF; border-radius:10px;" data-clipboard-target="#output"  id="sd">copy</a></p>
+	    <input onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" id="output" readonly >
 	    <br><br><br>
 	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="createUp">生成¹³¹⁴</button>
 	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="createDn">生成₁₃₁₄</button>
@@ -84,13 +101,17 @@
        	e.preventDefault();
        	$("#input").val('');
       	$("#output").val('');
-      	//提示
+      	tip("已清空");
+        });
+        
+        function tip(msg) {
+	          //提示
 		  layer.open({
-		    content: '已清空'
+		    content: msg
 		    ,skin: 'msg'
 		    ,time: 2 //2秒后自动关闭
 		  });
-        });
+	}
 
 </script>
 </html>
