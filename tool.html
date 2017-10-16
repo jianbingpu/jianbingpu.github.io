@@ -21,7 +21,7 @@
 	    <p>输入：</p>
 	    <input type="text" name="name" id="input" maxlength="25">
 	    <p>输出：</p>
-	    <input onclick="this.setSelectionRange(0, this.value.length);" id="output" readonly>
+	    <input onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" id="output">
 	    <br><br><br>
 	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="createUp">生成¹³¹⁴</button>
 	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="createDn">生成₁₃₁₄</button>
