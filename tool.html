@@ -49,6 +49,7 @@
        var $content=$("#input");
 	 var $result=$("#output");
 	 $("#createUp").on("click",function(e){
+	 	$result.val('');
 		e.preventDefault();
 		var str = $content.val().toLowerCase();
 		// 替换数字
@@ -64,6 +65,7 @@
         });
         
         $("#createDn").on("click",function(e){
+        	$result.val('');
 		e.preventDefault();
 		var str = $content.val().toLowerCase();
 		// 替换数字
