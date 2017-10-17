@@ -33,7 +33,7 @@ $(function() {
 	<div id="container">
 	<h3>智能机器人</h3><hr>
 	    <p id="info">
-	        1、输入你的问题（例如：北京天气，笑话，苹果的英文），点击发送 <br><br>
+	        1、输入你的问题（例如：北京天气，笑话，苹果的英文<a href="javascript:tutorial();">详细教程</a>），点击发送 <br><br>
 	        2、点击复制按钮，会复制输出的内容<br><br>
 	    </p>
 	    <p>输入：</p>
@@ -50,6 +50,26 @@ $(function() {
  
  	function back() {
  		this.location.href="gj.html";
+ 	}
+ 	
+ 	function tutorial() {
+ 		var cont = "生活百科：爱迪生的简介<br>";
+ 		cont += "问答百科：天为什么是蓝的<br>";
+ 		cont += "中英互译：苹果英语怎么说<br>";
+ 		cont += "数字计算：3乘以3是多少<br>";
+ 		cont += "聊天对话：我生病了有点难受<br>";
+ 		cont += "笑话大全：讲个笑话<br>";
+ 		cont += "故事大全：讲个故事；讲个白雪公主的故事吧<br>";
+ 		cont += "星座运势：天蝎座资料；天蝎座运势；天蝎座性格<br>";
+ 		cont += "脑筋急转弯：脑筋急转弯<br>";
+ 		cont += "歇后语：歇后语<br>";
+ 		cont += "绕口令：绕口令<br>";
+ 		cont += "顺口溜：顺口溜<br>";
+ 		cont += "天气查询：北京天气；广东天气<br>";
+ 		cont += "快递查询：查询快递123456789<br>";
+ 		cont += "日期查询：今天农历多少；明年母亲节日期<br>";
+ 		cont += "城市邮编：北京邮编；包头邮编是什么";
+ 		pop("机器人教程", cont);
  	}
 
        var $content=$("#input");
@@ -114,6 +134,18 @@ $(function() {
 		    content: msg
 		    ,skin: 'msg'
 		    ,time: 2 //2秒后自动关闭
+		  });
+	}
+	
+	function pop(title, msg) {
+		 //自定义标题风格
+		  layer.open({
+		    title: [
+		     title,
+		      'margin-top:0px;margin-bottom:0px;background-color: #FFC74A; color:#fff;'
+		    ]
+		    ,content: msg
+		    ,time: 10
 		  });
 	}
 
