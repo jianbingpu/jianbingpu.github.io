@@ -79,6 +79,10 @@ $(function() {
 	 $("#send").on("click",function(e){
 	 	var url = "http://www.tuling123.com/openapi/api?key="+keyStr+"&info="+encodeURI($content.val());
 	 	//window.open(url);
+	 	if ($.trim($content.val()) == "") {
+	 		tip("请输入内容");
+	 		return;
+	 	}
 	 	$.ajax({
 			  url: url,
 			  cache: false,
