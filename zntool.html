@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="js/layer_mobile/need/layer.css" type="text/css" rel="stylesheet">
+<script src="js/layer_mobile/layer.js"></script>
+<script src="js/underscore-min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/json2.js"></script>
+<script src="js/clipboard.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/tool.css" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<title>煎饼铺,一个有趣的公众号</title>
+<script>
+$(function() {
+    var clipboard = new Clipboard('#copy');
+
+    clipboard.on('success', function(e) {
+    	e.clearSelection();
+    	tip("拷贝成功");
+    });
+
+    clipboard.on('error', function(e) {
+    	e.clearSelection();
+    	tip("拷贝失败，请手动复制");
+    });
+    
+});
+</script>
+</head>
+<body  oncontextmenu="return false;" onselectstart="return false">
+	    <button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
+	<div id="container">
+	<h3>智能机器人</h3><hr>
+	    <p id="info">
+	        1、输入你的问题（例如：北京天气，笑话，苹果的英文），点击发送 <br><br>
+	        2、点击复制按钮，会复制输出的内容<br><br>
+	    </p>
+	    <p>输入：</p>
+	    <input type="text" name="name" id="input" maxlength="25">
+	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
+	    <textarea  class="tarea" id="output" readonly> </textarea>
+	    <br><br><br>
+	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="send">发送</button>
+	    <button type="button" style="background-color:#FF4500; border-radius:20px;"  id="clear">清空</button>
+	   
+	</div>
+</body>
+ <script>
+ 
+ 	function back() {
+ 		this.location.href="gj.html";
+ 	}
+
+       var $content=$("#input");
+	 var $result=$("#output");
+	 var keyStr = "36f6d443eebb468194081058a118f14e";
+
+	 $("#send").on("click",function(e){
+	 	var url = "http://www.tuling123.com/openapi/api?key="+keyStr+"&info="+encodeURI($content.val());
+	 	//window.open(url);
+	 	$.ajax({
+			  url: url,
+			  cache: false,
+			  type: 'get',
+			  dataType: 'JSON',//here
+			  success: function (data) {
+			  	//var result =JSON.stringify(data);
+			  	//alert(data.code);
+			  	if(data.code == 40001) {
+			  		tip("参数key错误");
+			  		return;
+			  	} else if(data.code == 40002) {
+			  		tip("请求内容info为空");
+			  		return;
+			  	} else if(data.code == 40004) {
+			  		tip("当天请求次数已使用完");
+			  		return;
+			  	} else if(data.code == 40007) {
+			  		tip("数据格式异常/请按规定的要求进行加密");
+			  		return;
+			  	} else {
+			  		//tip("请求成功");
+					if(!!data.text) {
+						$result.val(data.text+"\n");
+					}
+					
+					if(!!data.url) {
+						$result.val($result.val()+data.url);
+					}
+					
+			  		if(!!data.list) {
+			  			var lst = data.list;
+						$.each(lst, function(idx, obj) {
+							$result.val($result.val()+obj.article+"\n"+obj.source+"\n"+obj.detailurl);
+						});
+					}
+			  	}
+
+			  }
+		});
+        });
+        
+        $("#clear").on("click",function(e){
+       	e.preventDefault();
+       	$("#input").val('');
+      	$("#output").val(' ');
+      	tip("已清空");
+        });
+        
+        function tip(msg) {
+	          //提示
+		  layer.open({
+		    content: msg
+		    ,skin: 'msg'
+		    ,time: 2 //2秒后自动关闭
+		  });
+	}
+
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?464d7e308b0fdd9fb407887891784488";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>
