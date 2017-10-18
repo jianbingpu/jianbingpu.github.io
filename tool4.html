@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="js/layer_mobile/need/layer.css" type="text/css" rel="stylesheet">
+<script src="js/layer_mobile/layer.js"></script>
+<script src="js/underscore-min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/clipboard.min.js"></script>
+<script type="text/javascript" src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>
+<link rel="stylesheet" type="text/css" href="css/tool.css" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<title>煎饼铺,一个有趣的公众号</title>
+<script>
+$(function() {
+    var clipboard = new Clipboard('#copy');
+
+    clipboard.on('success', function(e) {
+    	e.clearSelection();
+    	tip("拷贝成功");
+    });
+
+    clipboard.on('error', function(e) {
+    	e.clearSelection();
+    	tip("拷贝失败，请手动复制");
+    });
+    
+});
+</script>
+</head>
+<body  oncontextmenu="return false;" onselectstart="return false">
+	    <button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
+	<div id="container">
+	<h3>今天吃什么生成工具</h3><hr>
+	    <p id="info">
+	        1、点击吃什么，快速轮播菜单，点击停止，系统随机选择一个。<br><br>
+	        2、点击截屏按钮，会截屏当前菜单，可以发给好友作证。<br><br>
+	    </p>
+	    <p>吃什么？</p>
+	    <textarea  class="tarea" id="output" readonly style="font-size:85px;line-height:85px;"> </textarea>
+	    <br><br><br>
+	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">吃什么</button>
+	    <button type="button" style="background-color:#FF4500; border-radius:20px;"  id="screen" >截屏</button>
+	    <a id="down" src="" download="" style="display:none"></a>
+	</div>
+</body>
+ <script>
+ 
+ 	function back() {
+ 		this.location.href="gj.html";
+ 	}
+ 	
+       var strType=new Array("盖浇饭","砂锅","大排档","米线","满汉全席","西餐","麻辣烫","自助餐","炒面","快餐","水果","西北风","馄饨","火锅","烧烤","泡面","速冻水饺","日本料理","涮羊肉","味千拉面","肯德基","面包","扬州炒饭","自助餐","茶餐厅","海底捞","咖啡","比萨","麦当劳","兰州拉面","沙县小吃","烤鱼","海鲜","铁板烧","韩国料理","粥","快餐","东南亚菜","甜点","农家菜","川菜","粤菜","湘菜","本帮菜","竹笋烤肉");
+    	 var t;
+	 var $result=$("#output");
+	 var flg = true;
+	 $("#create").on("click",function(e){
+	 	e.preventDefault();
+		if (flg) {
+			flg = false;
+			$('#create').html('停止');
+			start();
+		} else {
+			flg = true;
+			$('#create').html('吃什么');
+			stop();
+		}
+        });
+       	
+      // 循环菜单
+	function start() {
+		i = Math.floor(Math.random() * strType.length-1);
+		$result.val(strType[i]);
+		t = setTimeout(start, 10);
+	}
+
+	// 停止跳动
+	function stop() {
+		clearTimeout(t);
+		t = 0;
+	}
+        
+        $("#clear").on("click",function(e){
+       	e.preventDefault();
+      	$("#output").val(' ');
+      	tip("已清空");
+        });
+        
+        function tip(msg) {
+	          //提示
+		  layer.open({
+		    content: msg
+		    ,skin: 'msg'
+		    ,time: 2 //2秒后自动关闭
+		  });
+	}
+	
+
+	$("#screen").on("click",function(e){
+                        event.preventDefault();
+                        html2canvas(document.body, {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                        canvas.id = "mycanvas";  
+                        //document.body.appendChild(canvas);
+                        //生成base64图片数据  
+                        var dataUrl = canvas.toDataURL();
+                   	$('#down').attr('href', dataUrl);
+		  	   	$('#down').attr('download', new Date().getTime()+".png");
+		  	   	
+		  	   	setTimeout(function () {
+		  	   		document.getElementById("down").click();
+		  	   		tip("截屏成功");
+		  	   	},1000);
+		  	     //setTimeout(function () {$('#down').trigger('click'); },1000);
+                        //var newImg = document.createElement("img");
+                        //newImg.src =  dataUrl;
+                        //document.body.appendChild(newImg);
+                        }
+                    });
+                });
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?464d7e308b0fdd9fb407887891784488";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>
