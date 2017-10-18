@@ -106,13 +106,19 @@ $(function() {
                         //document.body.appendChild(canvas);
                         //生成base64图片数据  
                         var dataUrl = canvas.toDataURL();
-                   	$('#down').attr('href', dataUrl);
-		  	   	$('#down').attr('download', new Date().getTime()+".png");
+                       
+                        tip("截屏成功，手动保存");
+		  	     setTimeout(function () {
+                        		window.open(dataUrl);
+                        },1000);
+                       
+                   	//$('#down').attr('href', dataUrl);
+		  	   	//$('#down').attr('download', new Date().getTime()+".png");
 		  	   	
-		  	   	setTimeout(function () {
+		  	   	/*setTimeout(function () {
 		  	   		document.getElementById("down").click();
 		  	   		tip("截屏成功");
-		  	   	},1000);
+		  	   	},1000);*/
 		  	     //setTimeout(function () {$('#down').trigger('click'); },1000);
                         //var newImg = document.createElement("img");
                         //newImg.src =  dataUrl;
