@@ -88,6 +88,8 @@ $(function() {
 			  cache: false,
 			  type: 'get',
 			  dataType: 'JSON',//here
+			  beforeSend: function(){layer.open({type: 2})},
+			  complete: function(){layer.closeAll();},
 			  success: function (data) {
 			  	//var result =JSON.stringify(data);
 			  	//alert(data.code);
