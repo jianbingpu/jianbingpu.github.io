@@ -30,19 +30,31 @@ $(function() {
 
     clipboardPlus.on('success', function(e) {
     	e.clearSelection();
+    	// 拷贝后，隐藏
     	$("#outputPlus").css({"display":"none"});
-    	tip("拷贝成功");
+    	
+   	 if (addNo>=10) {
+		tip("累加拷贝次数最大10次");
+	 } else{
+		tip("累加拷贝成功");
+	 }
+    	 addNo++;
     });
 
     clipboardPlus.on('error', function(e) {
     	e.clearSelection();
+    	// 拷贝后，隐藏
     	$("#outputPlus").css({"display":"none"});
-    	tip("拷贝失败，请手动复制");
+    	tip("累加拷贝失败，请手动复制");
     });
     
      $("#copyPlus").on("click",function(e){
      	if ($.trim($("#output").val()) != "") {
+     		// 显示后，才可以拷贝
      		$("#outputPlus").css({"display":"inline"});
+     		if (addNo>=10) {
+     			return;
+     		}
      		$("#outputPlus").val($("#outputPlus").val()+"\n"+$("#input").val()+"：\n"+$("#output").val());
      	}
       });
@@ -60,7 +72,8 @@ $(function() {
 	    <p>输入：</p>
 	    <input type="text" name="name" id="input" maxlength="25">
 	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button>
-	    <button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#outputPlus"  id="copyPlus">复制+</button>
+	    <button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#outputPlus"  id="copyPlus">累加复制</button>
+	    <button type="button" style="width:60px;height:22px;font-size:10px;background-color:#FF4500; border-radius:10px;"  id="clearPlus">清空累加</button>
 	    </p>
 	    <textarea  class="tarea" id="output" readonly> </textarea>
 	    <textarea  class="tarea" id="outputPlus" readonly style="display:none"> </textarea>
@@ -100,7 +113,7 @@ $(function() {
 	 var $result=$("#output");
 	 var urlStr = "http://www.tuling123.com/openapi/api?key=";
 	 var keyStr = "36f6d443eebb468194081058a118f14e";
-	 
+	 var addNo = 0;
 	 $("#send").on("click",function(e){
 	 	var url = urlStr +keyStr+"&info="+encodeURI($content.val());
 	 	//window.open(url);
@@ -159,6 +172,12 @@ $(function() {
        	$("#input").val('');
       	$("#output").val(' ');
       	tip("已清空");
+        });
+        $("#clearPlus").on("click",function(e){
+       	e.preventDefault();
+       	addNo = 0;
+      	$("#outputPlus").val(' ');
+      	tip("已清空累加数据");
         });
         
         function tip(msg) {
