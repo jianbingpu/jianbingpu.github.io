@@ -174,11 +174,21 @@ $(function() {
       	$("#output").val(' ');
       	tip("已清空");
         });
+        
         $("#clearPlus").on("click",function(e){
        	e.preventDefault();
-       	addNo = 0;
-      	$("#outputPlus").val(' ');
-      	tip("已清空累加数据");
+       	
+       	  //询问框
+		  layer.open({
+		    content: '您确定要清空已累加数据吗？<br>放心，剪贴板的内容不会清空。'
+		    ,btn: ['好的', '取消']
+		    ,yes: function(index){
+		       addNo = 0;
+      		$("#outputPlus").val(' ');
+      		tip("已清空累加数据");
+		      layer.close(index);
+		    }
+		  });
         });
         
         function tip(msg) {
