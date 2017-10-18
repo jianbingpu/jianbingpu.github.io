@@ -79,6 +79,10 @@ $(function() {
 	// 停止跳动
 	function stop() {
 		clearTimeout(t);
+		if ($result.val()=="") {
+			i = Math.floor(Math.random() * strType.length-1);
+			$result.val(strType[i]);
+		}
 		t = null;
 	}
         
