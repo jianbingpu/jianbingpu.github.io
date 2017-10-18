@@ -25,6 +25,25 @@ $(function() {
     	tip("拷贝失败，请手动复制");
     });
     
+    
+    var clipboardPlus = new Clipboard('#copyPlus');
+
+    clipboardPlus.on('success', function(e) {
+    	e.clearSelection();
+    	tip("拷贝成功");
+    	alert("2");
+    });
+
+    clipboardPlus.on('error', function(e) {
+    	e.clearSelection();
+    	tip("拷贝失败，请手动复制");
+    });
+    
+     $("#copyPlus").on("click",function(e){
+     	if ($.trim($("#output").val()) != "") {
+     		$("#outputPlus").val($("#outputPlus").val()+"\n"+$("#input").val()+"：\n"+$("#output").val());
+     	}
+      });
 });
 </script>
 </head>
@@ -38,8 +57,11 @@ $(function() {
 	    </p>
 	    <p>输入：</p>
 	    <input type="text" name="name" id="input" maxlength="25">
-	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
+	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button>
+	    <button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#outputPlus"  id="copyPlus">复制+</button>
+	    </p>
 	    <textarea  class="tarea" id="output" readonly> </textarea>
+	    <textarea  class="tarea" id="outputPlus" readonly style="width:0px;height:0px"> </textarea>
 	    <br><br><br>
 	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="send">发送</button>
 	    <button type="button" style="background-color:#FF4500; border-radius:20px;"  id="clear">清空</button>
@@ -74,10 +96,11 @@ $(function() {
 
        var $content=$("#input");
 	 var $result=$("#output");
+	 var urlStr = "http://www.tuling123.com/openapi/api?key=";
 	 var keyStr = "36f6d443eebb468194081058a118f14e";
-
+	 
 	 $("#send").on("click",function(e){
-	 	var url = "http://www.tuling123.com/openapi/api?key="+keyStr+"&info="+encodeURI($content.val());
+	 	var url = urlStr +keyStr+"&info="+encodeURI($content.val());
 	 	//window.open(url);
 	 	if ($.trim($content.val()) == "") {
 	 		tip("请输入内容");
@@ -106,6 +129,8 @@ $(function() {
 			  		tip("数据格式异常/请按规定的要求进行加密");
 			  		return;
 			  	} else {
+			  		// 滚动条归位
+			  		$result.scrollTop(0);
 			  		//tip("请求成功");
 					if(!!data.text) {
 						$result.val(data.text+"\n");
