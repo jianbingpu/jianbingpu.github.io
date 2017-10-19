@@ -86,7 +86,7 @@ $(function() {
  				}
  			}
  			
- 			if (menuArr.length<=1) {
+ 			if (menuArr == "" || menuArr == null || menuArr.length<=1) {
  				tip("请至少输入2个菜单");
  			} else if(!!window.localStorage){
  				// 写入菜单
