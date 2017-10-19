@@ -75,9 +75,11 @@ $(function() {
  			if(!!window.localStorage){
  				// 写入菜单
             		localStorage.setItem("jbp_tool_diymenu","");
+            		layer.closeAll();
             		tip("自定义菜单已经清空");
+ 			} else {
+ 				layer.closeAll();
  			}
- 			//layer.closeAll();
  		});
  		
  		$("#addMenu").on("click",function(e){
@@ -99,12 +101,13 @@ $(function() {
  			} else if(!!window.localStorage){
  				// 写入菜单
             		localStorage.setItem("jbp_tool_diymenu", menuArr);
+            		layer.closeAll();
             		tip("自定义菜单已经存储");
  			} else {
+ 				layer.closeAll();
  				tip("你的设备不支持自定义内容");
  			}
  			
- 			//layer.closeAll();
 	 	 });
  	}
  	
@@ -118,6 +121,7 @@ $(function() {
 		    ]
 		    ,content: msg
 		    ,time: 0
+		    ,btn:"关闭"
 		  });
 	}
 	
