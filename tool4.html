@@ -47,7 +47,14 @@ $(function() {
 </body>
  <script>
  
- 	function back() {
+ 	 var menu;
+       var sysData=new Array("盖浇饭","砂锅","麻辣香锅","汉堡王","包子","河南烩面","大排档","米粉米线","鸭雪粉丝汤","烙饼卷带鱼","麦当劳","饺子","麻辣烫","煎饼","炒饼炒面","羊蝎子","呷哺呷哺","水煮鱼","馄饨","火锅","烧烤","泡面","肯德基","驴肉火烧","吉野家","味千拉面","鱼头泡饼","面包","肉夹馍凉皮","披萨","山西刀削面","兰州拉面","沙县小吃","烤鱼","海鲜","铁板烧","韩国料理","喝粥","日本料理");
+    	 var t;
+	 var $result=$("#output");
+	 var flg = true;
+	 var repeatItem;
+	 
+	 function back() {
  		this.location.href="gj.html";
  	}
  	
@@ -65,7 +72,6 @@ $(function() {
 	  repeatItem="";
 	  return false;
 	}
-
 
  	function diy() {
  		var cont = '<p id="info">1、输入数据，以空格分隔<br>2、点击模板，读取系统默认数据<br>3、点击添加，系统会保存自定义数据<br>4、点击清空，系统会清空自定义数据</p>';
@@ -149,26 +155,6 @@ $(function() {
  		});
  	}
 
- 	function pop(title, msg) {
-		 //自定义标题风格
-		 layer.open({
-		    type: 3,
-		    title: [
-		     title,
-		      'margin-top:0px;margin-bottom:0px;border-radius:0px;background-color: #FFC74A; color:#fff;'
-		    ]
-		    ,content: msg
-		    ,time: 0
-		    ,btn:"关闭"
-		  });
-	}
-	
- 	 var menu;
-       var sysData=new Array("盖浇饭","砂锅","麻辣香锅","汉堡王","包子","河南烩面","大排档","米粉米线","鸭雪粉丝汤","烙饼卷带鱼","麦当劳","饺子","麻辣烫","煎饼","炒饼炒面","羊蝎子","呷哺呷哺","水煮鱼","馄饨","火锅","烧烤","泡面","肯德基","驴肉火烧","吉野家","味千拉面","鱼头泡饼","面包","肉夹馍凉皮","披萨","山西刀削面","兰州拉面","沙县小吃","烤鱼","海鲜","铁板烧","韩国料理","喝粥","日本料理");
-    	 var t;
-	 var $result=$("#output");
-	 var flg = true;
-	 var repeatItem;
 	  $("#diy").on("click",function(e){
 	  	diy();
 	  });
@@ -229,6 +215,19 @@ $(function() {
 		  });
 	}
 
+ 	function pop(title, msg) {
+		 //自定义标题风格
+		 layer.open({
+		    type: 3,
+		    title: [
+		     title,
+		      'margin-top:0px;margin-bottom:0px;border-radius:0px;background-color: #FFC74A; color:#fff;'
+		    ]
+		    ,content: msg
+		    ,time: 0
+		    //,btn:"关闭"
+		  });
+	}
 	/*$("#screen").on("click",function(e){
                         event.preventDefault();
                         html2canvas(document.body, {
