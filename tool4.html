@@ -39,7 +39,7 @@ $(function() {
 	    </p>
 	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
 	    <textarea  class="tarea" id="output" readonly style="font-size:70px;line-height:70px;"> </textarea>
-	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">吃什么</button>
+	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">随机一个</button>
 	    <button type="button" style="background-color:#4682B4; border-radius:20px;" id="diy">自定义</button>
 	    <!--<button type="button" style="background-color:#FF4500; border-radius:20px;"  id="screen" >截屏</button>
 	    <a id="down" src="" download="" style="display:none"></a>-->
@@ -55,8 +55,8 @@ $(function() {
  		var cont = '<p id="info">1、手动输入菜单，以空格分隔即可<br>2、点击确定，系统会保存自定义数据<br>3、点击清空，系统会清空自定义数据</p>';
  		cont += '<textarea  class="tarea" id="menu" ></textarea>';
  		cont += "<br><br>";
- 		cont += '<button type="button" style="width:80px;height:30px;background-color:#00C74A; border-radius:20px;" id="addMenu">确定</button>';
- 		cont += '<button type="button" style="width:80px;height:30px;background-color:#FF4500; border-radius:20px;" id="clearMenu">清空</button>';
+ 		cont += '<button type="button" style="width:60px;height:30px;background-color:#00C74A; border-radius:20px;" id="addMenu">确定</button>';
+ 		cont += '<button type="button" style="width:60px;height:30px;background-color:#FF4500; border-radius:20px;" id="clearMenu">清空</button>';
  		pop("自定义菜单", cont);
  		
  		if(!!window.localStorage){
