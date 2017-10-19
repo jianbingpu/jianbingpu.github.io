@@ -33,9 +33,9 @@ $(function() {
 	<div id="container">
 	<h3>随机抽取生成工具</h3><hr>
 	    <p id="info">
-	        1、点击开始，快速轮播系统默认的数据，点击停止，系统随机抽取一个。<br><br>
-	        2、滚动时点击复制按钮，会复制当前一个滚动数据，粘贴的时候才会得知是什么(另一种玩法)。<br><br>
-	        3、点击自定义按钮，可以自定义数据。输入任意内容，变为一个随机抽取的工具，比如：输入聚餐人的名字，抽取今天谁买单。<br><br>
+	        1、点击开始，快速轮播系统默认的数据，点击停止，系统随机抽取一个<br><br>
+	        2、滚动时点击复制按钮，会复制当前一个滚动数据，粘贴的时候才会得知是什么(另一种玩法)<br><br>
+	        3、点击自定义按钮，可以自定义数据。输入任意内容，变为一个随机抽取的工具，比如：输入聚餐人的名字，抽取今天谁买单<br><br>
 	    </p>
 	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
 	    <textarea  class="tarea" id="output" readonly style="font-size:70px;line-height:70px;"> </textarea>
@@ -52,7 +52,7 @@ $(function() {
  	}
  	
  	function diy() {
- 		var cont = '<p id="info">1、输入数据，以空格分隔。<br>2、点击模板读取系统默认数据。<br>3、点击确定，系统会保存自定义数据<br>4、点击清空，系统会清空自定义数据</p>';
+ 		var cont = '<p id="info">1、输入数据，以空格分隔<br>2、点击模板，读取系统默认数据<br>3、点击确定，系统会保存自定义数据<br>4、点击清空，系统会清空自定义数据</p>';
  		cont += '<p>输入：<button type="button" style="width:40px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;"   id="default">模板</button></p>';	
  		cont += '<textarea  class="tarea" id="menu" ></textarea>';
  		cont += "<br>";
