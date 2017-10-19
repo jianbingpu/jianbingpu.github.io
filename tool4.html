@@ -51,6 +51,18 @@ $(function() {
  		this.location.href="gj.html";
  	}
  	
+	// 重复检测
+	function isRepeat(arr){
+	   var hash = {};
+	   for(var i in arr) {
+	      if(hash[arr[i]])
+	        return true;
+	      hash[arr[i]] = true;
+	  }
+	  return false;
+	}
+
+
  	function diy() {
  		var cont = '<p id="info">1、输入数据，以空格分隔<br>2、点击模板，读取系统默认数据<br>3、点击添加，系统会保存自定义数据<br>4、点击清空，系统会清空自定义数据</p>';
  		cont += '<p>输入：<button type="button" style="width:40px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;"   id="default">模板</button></p>';	
@@ -91,14 +103,11 @@ $(function() {
  			if (menuArr == "" || menuArr == null || menuArr.length<=1) {
  				tip("请至少输入2个数据");
  			} else if(!!window.localStorage){
- 				var len1 = menuArr.length;
- 				$.unique(menuArr);
- 				var len2 = menuArr.length;
- 				
- 				if (len1 != len2) {
+ 			 	//这个不能用只能删除DOM的重复元素，字符串有问题
+ 				//$.unique(menuArr);
+ 				if ( isRepeat(menuArr)) {
  					tip("有重复项目");
  				} else {
- 					$.unique(menuArr);
 	 				// 写入菜单
 	            		localStorage.setItem("jbp_tool_diymenu", menuArr);
 	            		layer.closeAll();
