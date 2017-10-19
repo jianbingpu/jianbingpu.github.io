@@ -70,27 +70,8 @@ $(function() {
  		} else {
  			$("#menu").val("");
  		}
- 		
- 		$("#clearMenu").on("click",function(e){
- 		
-  		// 询问框
-		  layer.open({
-		    content: '您确定要清空自定义菜单吗？'
-		    ,btn: ['好的', '取消']
-		    ,yes: function(index){
- 			if(!!window.localStorage){
- 				// 写入菜单
-            		localStorage.setItem("jbp_tool_diymenu","");
-            		layer.closeAll();
- 			} 
-			layer.close(index);
- 			layer.closeAll();
-		      tip("自定义菜单已经清空");
-		    }
-		  });
 
- 		});
- 		
+ 		// 添加DIY
  		$("#addMenu").on("click",function(e){
  			var menuStr = $("#menu").val();
  			menuStr = menuStr.replace(/ /g," ").replace(/,/g,"")
@@ -118,8 +99,27 @@ $(function() {
  			}
  			
 	 	 });
+	 	
+	 	// 清空DIY
+	 	$("#clearMenu").on("click",function(e){
+	 		
+	  		// 询问框
+			  layer.open({
+			    content: '您确定要清空自定义菜单吗？'
+			    ,btn: ['好的', '取消']
+			    ,yes: function(index){
+	 			if(!!window.localStorage){
+	 				// 写入菜单
+	            		localStorage.setItem("jbp_tool_diymenu","");
+	 			} 
+				layer.close(index);
+	 			layer.closeAll();
+			      tip("自定义菜单已经清空");
+			    }
+			  });
+	 	});
  	}
- 	
+
  	function pop(title, msg) {
 		 //自定义标题风格
 		 layer.open({
