@@ -91,10 +91,19 @@ $(function() {
  			if (menuArr == "" || menuArr == null || menuArr.length<=1) {
  				tip("请至少输入2个数据");
  			} else if(!!window.localStorage){
- 				// 写入菜单
-            		localStorage.setItem("jbp_tool_diymenu", menuArr);
-            		layer.closeAll();
-            		tip("自定义数据已经存储");
+ 				var len1 = menuArr.length;
+ 				$.unique(menuArr);
+ 				var len2 = menuArr.length;
+ 				
+ 				if (len1 != len2) {
+ 					tip("有重复项目");
+ 				} else {
+ 					$.unique(menuArr);
+	 				// 写入菜单
+	            		localStorage.setItem("jbp_tool_diymenu", menuArr);
+	            		layer.closeAll();
+	            		tip("自定义数据已经存储");
+            		}
  			} else {
  				layer.closeAll();
  				tip("你的设备不支持自定义数据");
