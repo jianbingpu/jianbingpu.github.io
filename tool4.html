@@ -52,7 +52,7 @@ $(function() {
  	}
  	
  	function diy() {
- 		var cont = '<p id="info">1、手动输入菜单，以空格分隔即可<br>2、点击确定，系统会保存自定义菜单数据</p>';
+ 		var cont = '<p id="info">1、手动输入菜单，以空格分隔即可<br>2、点击确定，系统会保存菜单数据</p>';
  		cont += '<textarea  class="tarea" id="menu" ></textarea>';
  		cont += "<br><br>";
  		cont += '<button type="button" style="width:80px;height:30px;background-color:#00C74A; border-radius:20px;" id="addMenu">确定</button>';
@@ -111,6 +111,7 @@ $(function() {
 	 			if(!!window.localStorage){
 	 				// 写入菜单
 	            		localStorage.setItem("jbp_tool_diymenu","");
+	            		$result.val("");
 	 			} 
 				layer.close(index);
 			      tip("自定义菜单已经清空");
