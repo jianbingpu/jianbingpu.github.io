@@ -33,13 +33,13 @@ $(function() {
 	<div id="container">
 	<h3>今天吃什么生成工具</h3><hr>
 	    <p id="info">
-	        1、点击吃什么，快速轮播系统菜单，点击停止，系统随机选择一个。<br><br>
-	        2、点击复制按钮，会复制当前一个滚动菜单，粘贴的时候才会得知是什么。<br><br>
-	        3、点击自定义按钮，可以定制自己的菜单。输入任意内容，也可以变为一个随机抽取的工具，比如今天谁买单，输入聚餐人的名字。<br><br>
+	        1、点击开始，快速轮播系统自带菜单数据，点击停止，系统抽取一个菜单。<br><br>
+	        2、点击复制按钮，会复制当前一个滚动数据，粘贴的时候才会得知是什么(另一种玩法)。<br><br>
+	        3、点击自定义按钮，可以自定义数据。输入任意内容，变为一个随机抽取的工具，比如：输入聚餐人的名字，抽取今天谁买单。<br><br>
 	    </p>
 	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
 	    <textarea  class="tarea" id="output" readonly style="font-size:70px;line-height:70px;"> </textarea>
-	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">随机一个</button>
+	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">开始</button>
 	    <button type="button" style="background-color:#4682B4; border-radius:20px;" id="diy">自定义</button>
 	    <!--<button type="button" style="background-color:#FF4500; border-radius:20px;"  id="screen" >截屏</button>
 	    <a id="down" src="" download="" style="display:none"></a>-->
@@ -52,12 +52,12 @@ $(function() {
  	}
  	
  	function diy() {
- 		var cont = '<p id="info">1、手动输入菜单，以空格分隔即可<br>2、点击确定，系统会保存自定义数据<br>3、点击清空，系统会清空自定义数据</p>';
+ 		var cont = '<p id="info">1、手动输入数据，以空格分隔即可<br>2、点击确定，系统会保存自定义数据<br>3、点击清空，系统会清空自定义数据</p>';
  		cont += '<textarea  class="tarea" id="menu" ></textarea>';
  		cont += "<br><br>";
  		cont += '<button type="button" style="width:60px;height:30px;background-color:#00C74A; border-radius:20px;" id="addMenu">确定</button>';
  		cont += '<button type="button" style="width:60px;height:30px;background-color:#FF4500; border-radius:20px;" id="clearMenu">清空</button>';
- 		pop("自定义菜单", cont);
+ 		pop("自定义数据", cont);
  		
  		if(!!window.localStorage){
 			// 写入菜单
@@ -92,10 +92,10 @@ $(function() {
  				// 写入菜单
             		localStorage.setItem("jbp_tool_diymenu", menuArr);
             		layer.closeAll();
-            		tip("自定义菜单已经存储");
+            		tip("自定义数据已经存储");
  			} else {
  				layer.closeAll();
- 				tip("你的设备不支持自定义内容");
+ 				tip("你的设备不支持自定义数据");
  			}
  			
 	 	 });
@@ -105,7 +105,7 @@ $(function() {
 	 		
 	  		// 询问框
 			  layer.open({
-			    content: '您确定要清空自定义菜单吗？'
+			    content: '您确定要清空自定义数据吗？'
 			    ,btn: ['好的', '取消']
 			    ,yes: function(index){
 	 			if(!!window.localStorage){
@@ -114,7 +114,7 @@ $(function() {
 	            		$("#menu").val("");
 	 			} 
 				layer.close(index);
-			      tip("自定义菜单已经清空");
+			      tip("自定义数据已经清空");
 			    }
 			  });
 	 	});
