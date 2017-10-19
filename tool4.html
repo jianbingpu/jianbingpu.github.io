@@ -52,7 +52,8 @@ $(function() {
  	}
  	
  	function diy() {
- 		var cont = '<p id="info">1、手动输入数据，以空格分隔即可<br>2、点击确定，系统会保存自定义数据<br>3、点击清空，系统会清空自定义数据</p>';
+ 		var cont = '<p id="info">1、输入数据，以空格分隔。<br>2、点击模板读取系统默认数据。<br>3、点击确定，系统会保存自定义数据<br>4、点击清空，系统会清空自定义数据</p>';
+ 		cont += '<p>输入：<button type="button" style="width:40px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;"   id="default">模板</button></p>';	
  		cont += '<textarea  class="tarea" id="menu" ></textarea>';
  		cont += "<br><br>";
  		cont += '<button type="button" style="width:60px;height:30px;background-color:#00C74A; border-radius:20px;" id="addMenu">确定</button>';
@@ -60,12 +61,13 @@ $(function() {
  		pop("自定义数据", cont);
  		
  		if(!!window.localStorage){
-			// 写入菜单
+			// 读取自定义数据
 			var diyMenu = localStorage.getItem("jbp_tool_diymenu");
-			if (diyMenu != null && diyMenu != undefined) {
+			if (diyMenu != null && diyMenu != undefined && diyMenu != "") {
         			$("#menu").val(diyMenu.toString().replace(/,/g," ").replace("null",""));
         		} else {
         			$("#menu").val("");
+        			//$("#menu").val(sysData.toString().replace(/,/g," ").replace("null",""));
         		}
  		} else {
  			$("#menu").val("");
@@ -118,6 +120,11 @@ $(function() {
 			    }
 			  });
 	 	});
+	 	
+	 		// 添加DIY
+ 		$("#default").on("click",function(e){
+ 			$("#menu").val(sysData.toString().replace(/,/g," ").replace("null",""));
+ 		});
  	}
 
  	function pop(title, msg) {
@@ -135,7 +142,7 @@ $(function() {
 	}
 	
  	 var menu;
-       var strType=new Array("盖浇饭","砂锅","麻辣香锅","汉堡王","包子","河南烩面","大排档","米粉米线","鸭雪粉丝汤","烙饼卷带鱼","麦当劳","饺子","麻辣烫","煎饼","炒饼炒面","羊蝎子","呷哺呷哺","水煮鱼","馄饨","火锅","烧烤","泡面","肯德基","驴肉火烧","吉野家","味千拉面","鱼头泡饼","面包","肉夹馍凉皮","披萨","山西刀削面","兰州拉面","沙县小吃","烤鱼","海鲜","铁板烧","韩国料理","喝粥","日本料理");
+       var sysData=new Array("盖浇饭","砂锅","麻辣香锅","汉堡王","包子","河南烩面","大排档","米粉米线","鸭雪粉丝汤","烙饼卷带鱼","麦当劳","饺子","麻辣烫","煎饼","炒饼炒面","羊蝎子","呷哺呷哺","水煮鱼","馄饨","火锅","烧烤","泡面","肯德基","驴肉火烧","吉野家","味千拉面","鱼头泡饼","面包","肉夹馍凉皮","披萨","山西刀削面","兰州拉面","沙县小吃","烤鱼","海鲜","铁板烧","韩国料理","喝粥","日本料理");
     	 var t;
 	 var $result=$("#output");
 	 var flg = true;
@@ -168,7 +175,7 @@ $(function() {
 			menuArr = menuArr.split(",");
 			menu = menuArr
 		} else {
-			menu = strType;
+			menu = sysData;
 		}
 		i = Math.floor(Math.random() * menu.length);
 		$result.val(menu[i]);
