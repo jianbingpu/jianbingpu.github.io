@@ -55,10 +55,14 @@ $(function() {
 	function isRepeat(arr){
 	   var hash = {};
 	   for(var i in arr) {
-	      if(hash[arr[i]])
-	        return true;
+	      if(hash[arr[i]]) {
+	      	repeatItem = arr[i];
+	        	return true;
+	       }
 	      hash[arr[i]] = true;
 	  }
+	  
+	  repeatItem="";
 	  return false;
 	}
 
@@ -106,7 +110,7 @@ $(function() {
  			 	//这个不能用只能删除DOM的重复元素，字符串有问题
  				//$.unique(menuArr);
  				if ( isRepeat(menuArr)) {
- 					tip("有重复项目");
+ 					tip("有重复项目"+"【"+repeatItem+"】");
  				} else {
 	 				// 写入菜单
 	            		localStorage.setItem("jbp_tool_diymenu", menuArr);
@@ -164,7 +168,7 @@ $(function() {
     	 var t;
 	 var $result=$("#output");
 	 var flg = true;
-	 
+	 var repeatItem;
 	  $("#diy").on("click",function(e){
 	  	diy();
 	  });
