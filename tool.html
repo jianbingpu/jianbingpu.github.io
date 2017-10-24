@@ -29,7 +29,7 @@ $(function() {
 });
 </script>
 </head>
-<body  oncontextmenu="return false;" onselectstart="return false">
+<body  oncontextmenu="return false;">
 	    <button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
 	<div id="container">
 	<h3>微信彩色昵称标记生成工具</h3><hr>
@@ -76,6 +76,7 @@ $(function() {
 		for (i=0; i<10; i++) {
 			str=str.replace(new RegExp(i,'g'), numUp[i]);
 		}
+
 		// 替换字母
 		for (i=0; i<26; i++) {
 			str=str.replace(new RegExp(strAz[i],'g'), strAzColor[i]+" ");
@@ -92,6 +93,7 @@ $(function() {
 		for (i=0; i<10; i++) {
 			str=str.replace(new RegExp(i,'g'), numDn[i]);
 		}
+		
 		// 替换字母
 		for (i=0; i<26; i++) {
 			str=str.replace(new RegExp(strAz[i],'g'), strAzColor[i]+" ");
