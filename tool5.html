@@ -44,8 +44,8 @@ $(function() {
 	    <!--<input onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" id="output" readonly >-->
 	    <input id="output" readonly value=" ">
 	    <br><br>
-	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="createSmall">生成小写</button>
-	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="createBig">生成大写</button>
+	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="createSmall">生成ʲᵒᵉ</button>
+	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="createBig">生成ᴶᴼᴱ</button>
 	    <button type="button" style="background-color:#FF4500; border-radius:20px;"  id="clear">清空</button>
 	   
 	</div>
@@ -76,7 +76,7 @@ $(function() {
 
 		// 替换字母
 		for (i=0; i<26; i++) {
-			str=str.replace(new RegExp(strAz[i],'g'), strAzSmall[i]+" ");
+			str=str.replace(new RegExp(strAz[i],'g'), strAzSmall[i]);
 		}
 		
 		$result.val(str);
@@ -89,7 +89,7 @@ $(function() {
 		
 		// 替换字母
 		for (i=0; i<26; i++) {
-			str=str.replace(new RegExp(strAz[i],'g'), strAzBig[i]+" ");
+			str=str.replace(new RegExp(strAz[i],'g'), strAzBig[i]);
 		}
 		
 		$result.val(str);
