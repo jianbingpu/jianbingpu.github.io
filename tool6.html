@@ -57,33 +57,53 @@ $(function() {
  	
        var $content=$("#input");
 	 var $result=$("#output");
+    	 var t;
+    	 var result;
+	 var flg = true;
+	 
 	 $("#encode").on("click",function(e){
 		e.preventDefault();
 		
 		var base = new Base64();
-		var result;
 		var str = $content.val();
 		for(i=0; i<2; i++) {
 			str = base.encode(str);
 		}
-		$result.val(str);
+		result = str;
+		j=0;
+		start();
         });
+        
+       var j=0;
+        // 打字效果
+	function start() {
+		if (j <= result.length) {
+			$result.val(result.slice(0, j++) + '|');
+			t = setTimeout('start()', 10);
+		} else {
+			$result.val(result);
+			clearTimeout(t);
+			tip("操作完成！");
+		}
+	}
         
         $("#decode").on("click",function(e){
              e.preventDefault();
              
              var base = new Base64();
-		var result;
 		var str = $content.val();
 		for(i=0; i<2; i++) {
 			str = base.decode(str);
 		}
-             $result.val(str);
+		result = str;
+		j=0;
+		start();
          });
         
          
          $("#clear").on("click",function(e){
        	e.preventDefault();
+       	clearTimeout(t);
        	$("#input").val('');
       	$("#output").val(' ');
       	 //提示
