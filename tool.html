@@ -55,6 +55,11 @@ $(function() {
  		this.location.href="gj.html";
  	}
  	
+ 	function replaceAll(srcStr, aStr, bStr) {
+		srcStr = srcStr.replace(new RegExp(aStr,'gi'), bStr);
+		return srcStr;
+	}
+	
        function generateSmall(){
 	    var str = [];
 	    for(var i=97; i<123; i++){
@@ -74,12 +79,12 @@ $(function() {
 		var str = $content.val().toLowerCase();
 		// 替换数字
 		for (i=0; i<10; i++) {
-			str=str.replace(new RegExp(i,'g'), numUp[i]);
+			str = replaceAll(str, i, numUp[i]);
 		}
 
 		// 替换字母
 		for (i=0; i<26; i++) {
-			str=str.replace(new RegExp(strAz[i],'g'), strAzColor[i]+" ");
+			str = replaceAll(str, strAz[i], strAzColor[i]+" ");
 		}
 		
 		$result.val(str);
@@ -91,12 +96,12 @@ $(function() {
 		var str = $content.val().toLowerCase();
 		// 替换数字
 		for (i=0; i<10; i++) {
-			str=str.replace(new RegExp(i,'g'), numDn[i]);
+			str = replaceAll(str, i, numDn[i]);
 		}
 		
 		// 替换字母
 		for (i=0; i<26; i++) {
-			str=str.replace(new RegExp(strAz[i],'g'), strAzColor[i]+" ");
+			str = replaceAll(str, strAz[i], strAzColor[i]+" ");
 		}
 		
 		$result.val(str);
