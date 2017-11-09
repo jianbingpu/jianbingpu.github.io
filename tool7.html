@@ -93,11 +93,8 @@ $(function() {
 				for (j=0; j<26; j++) {
 					str = replaceAll(str, strAz[j], strAzColor[j]);
 				}
-				if (i<rowArrays.length-1) {
-					result +=  str+"\n";
-				} else {
-					result +=  str;
-				}
+				
+				result +=  "\n"+str;
 				
 			} else {
 				result += str;
