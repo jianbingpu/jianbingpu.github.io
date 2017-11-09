@@ -61,14 +61,6 @@ $(function() {
 		return srcStr;
 	}
 	
-	function replaceAllChar(srcStr, aStr, bStr) {
-		while (srcStr.indexOf(aStr) >= 0) {
-			srcStr = srcStr.replace(aStr, bStr);
-		}
-		
-		return srcStr;
-	}
-	
       function generateSmall(){
 	    var str = [];
 	    for(var i=97; i<123; i++){
@@ -122,8 +114,6 @@ $(function() {
       	$("#output").val(' ');
       	tip("已清空");
         });
-        
-        
         
 	function deleteAll(srcStr, aStr) {
 		return replaceAllChar(srcStr, aStr, "");
