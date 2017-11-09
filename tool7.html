@@ -61,17 +61,9 @@ $(function() {
 		return srcStr;
 	}
 	
-      function generateSmall(){
-	    var str = [];
-	    for(var i=97; i<123; i++){
-	        str.push(String.fromCharCode(i));
-	    }
-	    return str;
-	}
-	
-	var strAz = generateSmall();
 	var $content=$("#input");
 	var $result=$("#output");
+	var strAz=new Array("㉠","㉡","㉢","㉣","㉤","㉥","㉦","㉧","㉨","㉩","㉪","㉫","㉬","㉭","㉮","㉯","㉰","㉱","㉲","㉳","㉴","㉵","㉶","㉷","㉸","㉹");
 	var strAzColor=new Array("🇦","🇧","🇨","🇩","🇪","🇫","🇬","🇭","🇮","🇯","🇰","🇱","🇲","🇳","🇴","🇵","🇶","🇷","🇸","🇹","🇺","🇻","🇼","🇽","🇾","🇿");
 	$("#create").on("click",function(e){
 	 	$result.val('');
@@ -94,7 +86,11 @@ $(function() {
 					str = replaceAll(str, strAz[j], strAzColor[j]);
 				}
 				
-				result +=  "\n"+str;
+				if (i<rowArrays.length-1) {
+					result +=  str+"\n";
+				} else {
+					result +=  str;
+				}
 				
 			} else {
 				result += str;
