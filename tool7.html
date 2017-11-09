@@ -37,7 +37,7 @@ $(function() {
 	        1、输入想要的名字（例如：joe），点击生成 <br><br>
 	        2、文字会自动变为竖排昵称<br><br>
 	        3、点击复制按钮，会复制输出的内容<br><br>
-	        4、针对安卓手机修改微信昵称有效，苹果会变为一行
+	        4、安卓手机修改微信昵称有效
 	    </p>
 	    <p>输入：</p>
 	    <input type="text" name="name" id="input" maxlength="25">
@@ -61,23 +61,52 @@ $(function() {
 		return srcStr;
 	}
 	
-
+	function replaceAllChar(srcStr, aStr, bStr) {
+		while (srcStr.indexOf(aStr) >= 0) {
+			srcStr = srcStr.replace(aStr, bStr);
+		}
+		
+		return srcStr;
+	}
+	
+      function generateSmall(){
+	    var str = [];
+	    for(var i=97; i<123; i++){
+	        str.push(String.fromCharCode(i));
+	    }
+	    return str;
+	}
+	
+	var strAz = generateSmall();
 	var $content=$("#input");
 	var $result=$("#output");
+	var strAzColor=new Array("🇦","🇧","🇨","🇩","🇪","🇫","🇬","🇭","🇮","🇯","🇰","🇱","🇲","🇳","🇴","🇵","🇶","🇷","🇸","🇹","🇺","🇻","🇼","🇽","🇾","🇿");
 	$("#create").on("click",function(e){
 	 	$result.val('');
 		e.preventDefault();
+		var rowArrays = $content.val();
 		// 替换字母
-		var rowArrays = $content.val().split("");
+		for (i=0; i<26; i++) {
+			rowArrays = replaceAll(rowArrays, strAzColor[i], strAz[i]);
+		}
+		
 		var result="";
-		tip(rowArrays.length);
+		rowArrays = deleteAll(rowArrays, "\r");
+		rowArrays = deleteAll(rowArrays, "\n");
+		rowArrays = deleteAll(rowArrays, " ");
 		for (i=0; i<rowArrays.length; i++) {
-			var str =rowArrays[i];
-			str = deleteAll(str, "\r");
-			str = deleteAll(str, " ");
-
-			if (str  != "" && str != "\r" && str != "\n") {
-				result += str+"\n";
+			var str = rowArrays[i];
+			if (str  != "") {
+				// 替换字母
+				for (j=0; j<26; j++) {
+					str = replaceAll(str, strAz[j], strAzColor[j]);
+				}
+				if (i<rowArrays.length-1) {
+					result +=  str+"\n";
+				} else {
+					result +=  str;
+				}
+				
 			} else {
 				result += str;
 			}
