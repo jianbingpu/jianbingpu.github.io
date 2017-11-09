@@ -9,7 +9,7 @@
 <script src="js/clipboard.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/tool.css" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-<title>花样文字生成工具</title>
+<title>竖排昵称生成工具</title>
 <meta name="keywords" content="微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
 <meta name="description" content="煎饼铺，一个有趣的公众号">
 <script>
@@ -25,56 +25,50 @@ $(function() {
     	e.clearSelection();
     	tip("拷贝失败，请手动复制");
     });
+    
 });
 </script>
 </head>
-<body oncontextmenu="return false";>
-	<button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
+<body  oncontextmenu="return false;">
+	    <button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
 	<div id="container">
-	<h3>花样文字生成工具</h3><hr>
+	<h3>竖排昵称生成工具</h3><hr>
 	    <p id="info">
-	        1、输入关键词内容，点击转换<br><br>
-	        2、点击复制按钮，会复制输出的内容<br><br>
-	        3、这里会部分显示不正确，设定到QQ昵称，微信昵称，编辑内容等，若正常显示即可<br><br>
+	        1、输入想要的名字（例如：joe），点击生成 <br><br>
+	        2、文字会自动变为竖排昵称
+	        3、点击复制按钮，会复制输出的内容
+	        4、只针对安卓手机修改有效，苹果会变为一行
 	    </p>
-	    <p>输入：
-	    <select id="type" style="width:120px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" >
-		<option value="⃓" selected >分裂字样</option>
-		<option value="҈">出汗字样</option>
-		<option value="̄">上横线字样</option>
-		<option value="⃛">上点点字样</option>
-		<option value="⃡">横向箭头字样</option>
-		<option value="⃕">跳跃箭头字样</option>
-		<option value="̥">气泡字样</option>
-		<option value="҉">雾霾字样</option>
-		<option value="⃣">边框字样</option>
-		<option value="⃠">禁止字样</option>
-		<option value="⃝">圈圈字样</option>
-		<option value="⁶⁶⁶">666字样</option>
-		</select>
-	    </p>
-	    <textarea class="tarea" id="input" style="float:none"></textarea>
+	    <p>输入：</p>
+	    <input type="text" name="name" id="input" maxlength="25">
 	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
-	    <!--<textarea onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" class="tarea" id="output" style="float:none" readonly></textarea>-->
+	    <!--<input onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" id="output" readonly >-->
 	    <textarea  class="tarea" id="output" readonly> </textarea>
-	    <button id="create" type="button" style="background-color:#00C74A; border-radius:20px;" >转换</button>
-	    <button  id="clear" type="button" style="background-color:#FF4500; border-radius:20px;" >清空</button>
+	    <br><br>
+	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">生成</button>
+	    <button type="button" style="background-color:#FF4500; border-radius:20px;"  id="clear">清空</button>
+	   
 	</div>
 </body>
-
  <script>
-	
+ 
  	function back() {
  		this.location.href="gj.html";
  	}
  	
-       var $content=$("#input");
-	 var $result=$("#output");
-	 $("#create").on("click",function(e){
+ 	function replaceAll(srcStr, aStr, bStr) {
+		srcStr = srcStr.replace(new RegExp(aStr,'gi'), bStr);
+		return srcStr;
+	}
+	
+
+	var $content=$("#input");
+	var $result=$("#output");
+	$("#create").on("click",function(e){
+	 	$result.val('');
 		e.preventDefault();
-		
-		var rowArrays = $content.val().split("");
-		var type = $("#type").val();
+		// 替换字母
+		var rowArrays = $content.val();
 		var result="";
 		for (i=0; i<rowArrays.length; i++) {
 			var str =rowArrays[i];
@@ -82,15 +76,21 @@ $(function() {
 			str = deleteAll(str, " ");
 
 			if (str  != "" && str != "\r" && str != "\n") {
-				result += str+type;
+				result += str+"\n";
 			} else {
 				result += str;
 			}
-		
 		}
-	
+		
 		$result.val(result);
-	
+        });
+        
+        
+        $("#clear").on("click",function(e){
+       	e.preventDefault();
+       	$("#input").val('');
+      	$("#output").val(' ');
+      	tip("已清空");
         });
         
         
@@ -98,7 +98,7 @@ $(function() {
 	function deleteAll(srcStr, aStr) {
 		return replaceAllChar(srcStr, aStr, "");
 	}
-	
+
 	function replaceAllChar(srcStr, aStr, bStr) {
 		while (srcStr.indexOf(aStr) >= 0) {
 			srcStr = srcStr.replace(aStr, bStr);
@@ -106,17 +106,9 @@ $(function() {
 		
 		return srcStr;
 	}
-
-         
-         $("#clear").on("click",function(e){
-       	e.preventDefault();
-       	$("#input").val('');
-      	$("#output").val(' ');
-      	 //提示
-		tip("已清空");
-        });
-        
-        function tip(msg) {
+	
+	
+	function tip(msg) {
 	          //提示
 		  layer.open({
 		    content: msg
@@ -124,7 +116,9 @@ $(function() {
 		    ,time: 2 //2秒后自动关闭
 		  });
 	}
+
 </script>
+
 <script>
 var _hmt = _hmt || [];
 (function() {
