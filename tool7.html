@@ -68,7 +68,7 @@ $(function() {
 	 	$result.val('');
 		e.preventDefault();
 		// 替换字母
-		var rowArrays = $content.val();
+		var rowArrays = $content.val().split("");
 		var result="";
 		for (i=0; i<rowArrays.length; i++) {
 			var str =rowArrays[i];
