@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="js/layer_mobile/need/layer.css" type="text/css" rel="stylesheet">
+<script src="js/layer_mobile/layer.js"></script>
+<script src="js/underscore-min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/clipboard.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/tool.css" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<title>表情爆炸工具</title>
+<meta name="keywords" content="微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
+<meta name="description" content="煎饼铺，一个有趣的公众号">
+<script>
+$(function() {
+    var clipboard = new Clipboard('#copy');
+
+    clipboard.on('success', function(e) {
+    	e.clearSelection();
+    	tip("拷贝成功");
+    });
+
+    clipboard.on('error', function(e) {
+    	e.clearSelection();
+    	tip("拷贝失败，请手动复制");
+    });
+    
+});
+</script>
+</head>
+<body  oncontextmenu="return true;">
+	    <button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
+	<div id="container">
+	<h3>表情爆炸工具</h3><hr>
+	    <p id="info">
+	        1、输入想要放大的表情或者文字<br><br>
+	        2、选择爆炸数量，点击生成<br><br>
+	        3、点击复制按钮，会复制输出的内容<br><br>
+	        4、粘贴到微信，QQ使用即可
+	    </p>
+	    <p>输入：💣<input type="radio" id="copyCnt10" name="copyCnt" value="10" checked style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="copyCnt10">10</label>
+	    &nbsp;<input type="radio" id="copyCnt50" name="copyCnt" value="50" style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="copyCnt50"> 50</label>
+	    &nbsp;<input type="radio" id="copyCnt100" name="copyCnt" value="100" style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="copyCnt100">100</label>
+	    &nbsp;<input type="checkbox" id="isSplit" value="true" checked style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="isSplit">空格分隔</label></p>
+	    <input type="text" name="name" id="input" maxlength="25">
+	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
+	    <!--<input onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" id="output" readonly >-->
+	    <textarea  class="tarea" id="output" readonly> </textarea>
+	    <br><br>
+	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">生成</button>
+	    <button type="button" style="background-color:#FF4500; border-radius:20px;"  id="clear">清空</button>
+	   	
+	</div>
+</body>
+ <script>
+ 
+ 	function back() {
+ 		this.location.href="gj.html";
+ 	}
+ 	
+ 	function replaceAll(srcStr, aStr, bStr) {
+		srcStr = srcStr.replace(new RegExp(aStr,'gi'), bStr);
+		return srcStr;
+	}
+	
+	var $content=$("#input");
+	var $result=$("#output");
+	var $isSplit=$("#isSplit");
+	$("#create").on("click",function(e){
+	 	$result.val('');
+		e.preventDefault();
+		var inputVal = $content.val();
+
+		inputVal = deleteAll(inputVal, "\r");
+		inputVal = deleteAll(inputVal, "\n");
+		inputVal = deleteAll(inputVal, " ");
+		if (inputVal == "" ) {
+			tip("请输入内容");	
+		}
+		var cnt = $("input[name='copyCnt']:checked").val();
+		var result = "";
+		
+		if ($isSplit.attr('checked')) {
+			for (i=0; i<cnt; i++) {
+				result += inputVal+" ";
+			}
+		} else {
+			for (i=0; i<cnt; i++) {
+				result += inputVal;
+			}
+		}
+
+		$result.val(result);
+        });
+        
+        
+        $("#clear").on("click",function(e){
+       	e.preventDefault();
+       	$("#input").val('');
+      	$("#output").val(' ');
+      	tip("已清空");
+        });
+        
+	function deleteAll(srcStr, aStr) {
+		return replaceAllChar(srcStr, aStr, "");
+	}
+
+	function replaceAllChar(srcStr, aStr, bStr) {
+		while (srcStr.indexOf(aStr) >= 0) {
+			srcStr = srcStr.replace(aStr, bStr);
+		}
+		
+		return srcStr;
+	}
+	
+	
+	function tip(msg) {
+	          //提示
+		  layer.open({
+		    content: msg
+		    ,skin: 'msg'
+		    ,time: 2 //2秒后自动关闭
+		  });
+	}
+
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?464d7e308b0fdd9fb407887891784488";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>
