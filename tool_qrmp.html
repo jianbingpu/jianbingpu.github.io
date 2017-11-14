@@ -12,7 +12,7 @@
 <script src="js/clipboard.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/tool.css" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-<title>二维码生成工具</title>
+<title>二维码名片生成工具</title>
 <meta name="keywords" content="微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
 <meta name="description" content="煎饼铺，一个有趣的公众号">
 <script>
@@ -36,13 +36,29 @@ $(function() {
 <body  oncontextmenu="return true;">
 	    <button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
 	<div id="container">
-	<h3>二维码生成工具</h3><hr>
+	<h3>二维码名片生成工具</h3><hr>
 	    <p id="info">
-	        1、输入想要转为二维码的内容，点击生成<br><br>
+	        1、输入你的个人信息，点击生成<br><br>
 	        2、长按图片保存到手机或者直接转发
 	    </p>
 	    <p>输入：</p>
-	    <textarea  class="tarea2" id="input" maxlength="50"> </textarea>
+	    <!--
+	    姓名：<input type="text" name="name" id="name" maxlength="10" style="width:80%"><br>
+	    电话：<input type="text" name="name" id="tel_cell" maxlength="11"style="width:80%"><br>
+	    座机：<input type="text" name="name" id="tel_work" maxlength="12"style="width:80%"><br>
+	    公司：<input type="text" name="name" id="org" maxlength="30"style="width:80%"><br>
+	    部门：<input type="text" name="name" id="role" maxlength="20"style="width:80%"><br>
+	    职位：<input type="text" name="name" id="title" maxlength="20"style="width:80%"><br>
+	    地址：<input type="text" name="name" id="adr" maxlength="30"style="width:80%"><br>
+	    网址：<input type="text" name="name" id="url" maxlength="35"style="width:80%"><br>
+	    邮箱：<input type="text" name="name" id="email" maxlength="35"style="width:80%"><br>
+	    备注：<input type="text" name="name" id="note" maxlength="35"style="width:80%"><br>
+	    -->
+ 	    姓名：<input type="text" name="name" id="name" maxlength="10" style="width:80%"><br>
+	    电话：<input type="text" name="name" id="tel_cell" maxlength="11"style="width:80%"><br>
+	    公司：<input type="text" name="name" id="org" maxlength="10"style="width:80%"><br>
+	    网址：<input type="text" name="name" id="url" maxlength="25"style="width:80%"><br>
+	    备注：<input type="text" name="name" id="note" maxlength="25"style="width:80%"><br>
 	    <p>输出：</p>
 	    <br>
 	    <p id="qrCode"></p>
@@ -65,14 +81,35 @@ $(function() {
 		return srcStr;
 	}
 	
-	var $content=$("#input");
-
+	var temp = "BEGIN:VCARD"+"\n"+
+	"VERSION:3.0"+"\n"+
+	"FN:#name"+"\n"+
+	"TEL;CELL;VOICE:#tel_cell"+"\n"+
+	"TEL;WORK;VOICE:#tel_work"+"\n"+
+	"EMAIL;PREF;INTERNET:#email"+"\n"+
+	"ROLE:#role"+"\n"+
+	"TITLE:#title"+"\n"+
+	"ADR;WORK;POSTAL:#adr"+"\n"+
+	"URL:#url"+"\n"+
+	"NOTE:#note"+"\n"+
+	"ORG:#org"+"\n"+
+	"END:VCARD";
+	
+	 temp = "BEGIN:VCARD"+"\n"+
+	"VERSION:3.0"+"\n"+
+	"FN:#name"+"\n"+
+	"TEL;CELL;VOICE:#tel_cell"+"\n"+
+	"URL:#url"+"\n"+
+	"NOTE:#note"+"\n"+
+	"ORG:#org"+"\n"+
+	"END:VCARD";
+	
 	
 	/**
 	 * 生成二维码
 	 */
-	function showMyQrCode() {
-		var vcard_text = $content.val();
+	function showMyQrCode(str) {
+		var vcard_text = str;
 		var logo = "./img/jbpLogo.jpg";
 		$('#qrCodeImg').attr('src','');
 		$("#qrCode").html('');
@@ -104,15 +141,27 @@ $(function() {
 	}
 	
 	$("#create").on("click",function(e){
-
 		e.preventDefault();
-		var inputVal = $content.val();
-		
-		inputVal = deleteAll(inputVal, "\r");
-		inputVal = deleteAll(inputVal, "\n");
-		inputVal = deleteAll(inputVal, " ");
-		if (inputVal == "" ) {
-			tip("请输入内容");
+		/*var name = $("#name").val();
+		var tel_cell = $("#tel_cell").val();
+		var tel_work = $("#tel_work").val();
+		var email = $("#email").val();
+		var role = $("#role").val();		
+		var title = $("#title").val();		
+		var adr = $("#adr").val();
+		var url = $("#url").val();
+		var org = $("#org").val();
+		var note = $("#note").val();
+		*/
+		var name = $("#name").val();
+		var tel_cell = $("#tel_cell").val();
+		var url = $("#url").val();
+		var org = $("#org").val();
+		var note = $("#note").val();
+		name = deleteAll(name, " ");
+		tel_cell = deleteAll(tel_cell, " ");
+		if (name == "" || tel_cell == "" ) {
+			tip("请至少输入姓名和电话");
 			return;	
 		}
 		/*new QRCode(document.getElementById("qrcode_1"), {
@@ -123,7 +172,27 @@ $(function() {
 			colorLight : '#ffffff',
 			correctLevel : QRCode.CorrectLevel.H
 		});*/
-		showMyQrCode();
+		
+		var str = temp;
+		/*
+		str =  replaceAll(str, "#name", name);
+		str =  replaceAll(str, "#tel_cell", tel_cell);
+		str =  replaceAll(str, "#tel_work", tel_work);
+		str =  replaceAll(str, "#email", email);
+		str =  replaceAll(str, "#role", role);
+		str =  replaceAll(str, "#title", title);
+		str =  replaceAll(str, "#adr", adr);
+		str =  replaceAll(str, "#url", url);
+		str =  replaceAll(str, "#org", org);
+		str =  replaceAll(str, "#note", note);
+		*/
+		
+		str =  replaceAll(str, "#name", name);
+		str =  replaceAll(str, "#tel_cell", tel_cell);
+		str =  replaceAll(str, "#url", url);
+		str =  replaceAll(str, "#org", org);
+		str =  replaceAll(str, "#note", note);
+		showMyQrCode(str);
         });
         
         
