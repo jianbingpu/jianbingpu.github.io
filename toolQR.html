@@ -8,7 +8,7 @@
 <script src="js/jquery.js"></script>
 <script src="js/jquery.qrcode.js"></script>
 <script src="js/utf.js"></script>
-<script src="js/qrcode.min.js"></script>
+<!--<script src="js/qrcode.min.js"></script>-->
 <script src="js/clipboard.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/tool.css" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
@@ -46,7 +46,7 @@ $(function() {
 	    <p>输出：</p>
 	    <p id="qrcode-vcard"></p>
 	    <img class="qrcodeimg" id='qrcodeImg' style="margin: 0px 19px auto;"/>
-	    <div id="qrcode_1" style="width:250px; height:250px;margin: 0px 19px auto;"></div>
+	    <!--<div id="qrcode_1" style="width:250px; height:250px;margin: 0px 19px auto;"></div>-->
 	    <br><br>
 	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">生成</button>
 	    <button type="button" style="background-color:#FF4500; border-radius:20px;"  id="clear">清空</button>
@@ -96,7 +96,8 @@ $(function() {
 			width : picwidth,               //二维码的宽度
 			height : picheight,              //二维码的高度
 			background : "#FFFFFF",       //二维码的后景色
-			foreground : "#00C74A",        //二维码的前景色
+			//foreground : "#00C74A",        //二维码的前景色
+			foreground : "#000000",        //二维码的前景色
 			src: logo             //二维码中间的图片
 		}).hide();	
 		 var canvas=qrcode.find('canvas').get(0);  
@@ -115,14 +116,14 @@ $(function() {
 			tip("请输入内容");
 			return;	
 		}
-		new QRCode(document.getElementById("qrcode_1"), {
+		/*new QRCode(document.getElementById("qrcode_1"), {
 			width: 250,
 			height: 250,
 			text: inputVal,
 			colorDark : '#00C74A',
 			colorLight : '#ffffff',
 			correctLevel : QRCode.CorrectLevel.H
-		});
+		});*/
 		showMyQrCode();
         });
         
