@@ -105,7 +105,24 @@ table {
         line-height: 18px;
         border-radius: 10px;
         }
-
+        
+.tarea2 {
+        width: 99%;
+        height: 80px;
+        border: #e6e6e6 3px solid;
+        border-color: #ddd #e6e6e6 #e6e6e6 #ddd;
+        margin-bottom: 12px;
+        box-shadow: inset 1px 1px 1px #eee;
+        padding: 4px;
+        font-size: 16px;
+        line-height: 18px;
+        border-radius: 10px;
+        }
+        
 .tarea:focus {
+        border-color: #ccc #ddd #ddd #ccc;
+         }
+         
+.tarea2:focus {
         border-color: #ccc #ddd #ddd #ccc;
          }
