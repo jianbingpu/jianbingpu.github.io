@@ -39,14 +39,14 @@ $(function() {
 	<h3>二维码生成工具</h3><hr>
 	    <p id="info">
 	        1、输入想要转为二维码的内容，点击生成<br><br>
-	        2、长按图片保存到手机，转发到微信，QQ使用即可
+	        2、长按图片保存到手机或者直接转发
 	    </p>
 	    <p>输入：</p>
 	    <textarea  class="tarea2" id="input" maxlength="50"> </textarea>
 	    <p>输出：</p>
 	    <br>
-	    <p id="qrcode-vcard"></p>
-	    <img class="qrcodeimg" id='qrcodeImg' style="margin: 0px 19px auto;"/>
+	    <p id="qrCode"></p>
+	    <img  id='qrCodeImg' style="margin: 0px 19px auto;"/>
 	    <!--<div id="qrcode_1" style="width:250px; height:250px;margin: 0px 19px auto;"></div>-->
 	    <br><br>
 	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">生成</button>
@@ -76,8 +76,8 @@ $(function() {
 	function showMyQrCode() {
 		var vcard_text = $content.val();
 		var logo = "./img/jbpLogo.jpg";
-		$('#qrcodeImg').attr('src','');
-		$("#qrcode-vcard").html('');
+		$('#qrCodeImg').attr('src','');
+		$("#qrCode").html('');
 		generateQrCode("canvas", 250, 250, vcard_text, logo);
 	
 	}
@@ -91,7 +91,7 @@ $(function() {
 	 * @params logo logo地址
 	 */
 	function generateQrCode(rendermethod, picwidth, picheight, text, logo) {
-		var qrcode = $("#qrcode-vcard").qrcode({
+		var qrcode = $("#qrCode").qrcode({
 			render : rendermethod,    //设置渲染方式，有table（IE兼容）和canvas，使用canvas方式渲染性能相对来说比较好
 			text : text,    //扫描二维码后显示的内容,可以直接填一个网址，扫描二维码后自动跳向该链接
 			width : picwidth,               //二维码的宽度
@@ -102,7 +102,7 @@ $(function() {
 			src: logo             //二维码中间的图片
 		}).hide();	
 		 var canvas=qrcode.find('canvas').get(0);  
-		 $('#qrcodeImg').attr('src', canvas.toDataURL('image/jpg')) 
+		 $('#qrCodeImg').attr('src', canvas.toDataURL('image/jpg')) 
 	}
 	
 	$("#create").on("click",function(e){
@@ -132,8 +132,8 @@ $(function() {
         $("#clear").on("click",function(e){
        	e.preventDefault();
        	$("#input").val('');
-      	$('#qrcodeImg').attr('src', '');
-      	$("#qrcode-vcard").html('');
+      	$('#qrCodeImg').attr('src', '');
+      	$("#qrCode").html('');
       	tip("已清空");
         });
         
