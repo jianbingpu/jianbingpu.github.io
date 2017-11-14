@@ -201,7 +201,11 @@ $(function() {
         
         $("#clear").on("click",function(e){
        	e.preventDefault();
-       	$("#input").val('');
+		$("#name").val('');
+		$("#tel_cell").val('');
+		$("#url").val('');
+		$("#org").val('');
+		$("#note").val('');
       	$('#qrCodeImg').attr('src', '');
       	$("#qrCode").html('');
       	tip("已清空");
