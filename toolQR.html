@@ -8,6 +8,7 @@
 <script src="js/jquery.js"></script>
 <script src="js/jquery.qrcode.js"></script>
 <script src="js/utf.js"></script>
+<script src="js/qrcode.min.js"></script>
 <script src="js/clipboard.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/tool.css" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
@@ -16,6 +17,7 @@
 <meta name="description" content="煎饼铺，一个有趣的公众号">
 <script>
 $(function() {
+
     var clipboard = new Clipboard('#copy');
 
     clipboard.on('success', function(e) {
@@ -43,7 +45,8 @@ $(function() {
 	    <textarea  class="tarea2" id="input" maxlength="50"> </textarea>
 	    <p>输出：</p>
 	    <p id="qrcode-vcard"></p>
-	    <img class="qrcodeimg" id='qrcodeImg' style="margin: 0px 19px auto;"/>	
+	    <img class="qrcodeimg" id='qrcodeImg' style="margin: 0px 19px auto;"/>
+	    <div id="qrcode_1" style="width:250px; height:250px;margin: 0px 19px auto;"></div>
 	    <br><br>
 	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">生成</button>
 	    <button type="button" style="background-color:#FF4500; border-radius:20px;"  id="clear">清空</button>
@@ -65,6 +68,7 @@ $(function() {
 	var $result=$("#output");
 	var $isSplit=$("#isSplit");
 	
+	
 	/**
 	 * 生成二维码
 	 */
@@ -74,6 +78,7 @@ $(function() {
 		$('#qrcodeImg').attr('src','');
 		$("#qrcode-vcard").html('');
 		generateQrCode("canvas", 250, 250, vcard_text, logo);
+	
 	}
 	
 	/** 
@@ -110,7 +115,14 @@ $(function() {
 			tip("请输入内容");
 			return;	
 		}
-		
+		new QRCode(document.getElementById("qrcode_1"), {
+			width: 250,
+			height: 250,
+			text: inputVal,
+			colorDark : '#00C74A',
+			colorLight : '#ffffff',
+			correctLevel : QRCode.CorrectLevel.H
+		});
 		showMyQrCode();
         });
         
