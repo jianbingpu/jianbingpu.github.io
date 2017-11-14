@@ -199,7 +199,7 @@ li{
 .border{
 	width:490px;
 	height:290px;
-	border:rgba(0,0,0,1.00) solid 1px;
+	border:rgba(0,0,0,1.00) solid 0px;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:-180px;}
