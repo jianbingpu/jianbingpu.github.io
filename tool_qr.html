@@ -76,6 +76,7 @@ $(function() {
 		var logo = "./img/jbpLogo.jpg";
 		$('#qrCodeImg').attr('src','');
 		$("#qrCode").html('');
+		$("#qrCodeImg").show();
 		generateQrCode("canvas", 250, 250, vcard_text, logo);
 	
 	}
@@ -132,6 +133,7 @@ $(function() {
        	$("#input").val('');
       	$('#qrCodeImg').attr('src', '');
       	$("#qrCode").html('');
+      	$("#qrCodeImg").hide();
       	tip("已清空");
         });
         
