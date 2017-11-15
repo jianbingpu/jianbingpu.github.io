@@ -6,9 +6,8 @@
 <script src="js/layer_mobile/layer.js"></script>
 <script src="js/underscore-min.js"></script>
 <script src="js/jquery.js"></script>
-<script src="js/jquery.qrcode.js"></script>
 <script src="js/utf.js"></script>
-<!--<script src="js/qrcode.min.js"></script>-->
+<script src="js/jquery.qrcode.js"></script>
 <script src="js/clipboard.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/tool.css" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
@@ -64,9 +63,7 @@ $(function() {
 
 	    <p>输出：</p>
 	    <br>
-	    <p id="qrCode"></p>
-	    <img id='qrCodeImg' style="margin: 0px 19px auto;"/>
-	    <!--<div id="qrcode_1" style="width:250px; height:250px;margin: 0px 19px auto;"></div>-->
+	    <div id="qrcodeCanvas"></div>
 	    <br><br>
 	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">生成</button>
 	    <button type="button" style="background-color:#FF4500; border-radius:20px;"  id="clear">清空</button>
@@ -113,35 +110,33 @@ $(function() {
 	 */
 	function showMyQrCode(str) {
 		var vcard_text = str;
-		var logo = "./img/jbpLogo.jpg";
-		$('#qrCodeImg').attr('src','');
-		$("#qrCode").html('');
-		$("#qrCodeImg").show();
+		var logo = "./img/jbpLogo.png";
+		$("#qrcodeCanvas").html('');
+		//$("#qrcodeCanvas").show();
 		generateQrCode("canvas", 250, 250, vcard_text, logo);
 	
 	}
+
 	
 	/** 
 	 * 生成二维码
-	 * @params rendermethod 加头像必须convas,生成方式 渲染方式有table方式（IE兼容）和canvas方式, 
-	 * @params picwidth 二维码宽
-	 * @params picheight 二维码高
+	 * @params renderMethod 加头像必须convas,生成方式 渲染方式有table方式（IE兼容）和canvas方式, 
+	 * @params picWidth 二维码宽
+	 * @params picHeight 二维码高
 	 * @params text 内容
 	 * @params logo logo地址
 	 */
-	function generateQrCode(rendermethod, picwidth, picheight, text, logo) {
-		var qrcode = $("#qrCode").qrcode({
-			render : rendermethod,    //设置渲染方式，有table（IE兼容）和canvas，使用canvas方式渲染性能相对来说比较好
-			text : text,    //扫描二维码后显示的内容,可以直接填一个网址，扫描二维码后自动跳向该链接
-			width : picwidth,               //二维码的宽度
-			height : picheight,              //二维码的高度
-			background : "#FFFFFF",       //二维码的后景色
-			//foreground : "#00C74A",        //二维码的前景色
+	function generateQrCode(renderMethod, picWidth, picHeight, text, logo) {
+	
+		$("#qrcodeCanvas").qrcode({
+			render : renderMethod,    //设置渲染方式，有table和canvas，使用canvas方式渲染性能相对来说比较好
+			text : text,    //扫描了二维码后的内容显示,在这里也可以直接填一个网址，扫描二维码后
+			width : picWidth,               //二维码的宽度
+			height : picHeight,              //二维码的高度
+			background : "#ffffff",       //二维码的后景色
 			foreground : "#000000",        //二维码的前景色
-			src: logo             //二维码中间的图片
-		}).hide();	
-		 var canvas=qrcode.find('canvas').get(0);  
-		 $('#qrCodeImg').attr('src', canvas.toDataURL('image/jpg')) 
+			src: logo            //二维码中间的图片
+		});
 	}
 	
 	$("#create").on("click",function(e){
@@ -168,14 +163,6 @@ $(function() {
 			tip("请至少输入姓名和电话");
 			return;	
 		}
-		/*new QRCode(document.getElementById("qrcode_1"), {
-			width: 250,
-			height: 250,
-			text: inputVal,
-			colorDark : '#00C74A',
-			colorLight : '#ffffff',
-			correctLevel : QRCode.CorrectLevel.H
-		});*/
 		
 		var str = temp;
 		/*
@@ -207,9 +194,8 @@ $(function() {
 		$("#url").val('');
 		$("#org").val('');
 		$("#note").val('');
-      	$('#qrCodeImg').attr('src', '');
-      	$("#qrCodeImg").hide();
-      	$("#qrCode").html('');
+      	$("#qrcodeCanvas").html('');
+      	//$("#qrcodeCanvas").hide();
       	tip("已清空");
         });
         
