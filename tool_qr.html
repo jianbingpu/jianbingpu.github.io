@@ -35,14 +35,10 @@ $(function() {
 		// 读取自定义数据
 		var diyLogo = localStorage.getItem("jbp_tool_qrlogo");
 		if (diyLogo != null && diyLogo != undefined && diyLogo != "") {
-    			$('#imgView').attr('src', diyLogo);
-    		} else {
-    			$('#imgView').attr('src', logo);
-    		}
-	} else {
-		$('#imgView').attr('src', logo);
-	}
-    
+    			logo = diyLogo;
+    		} 
+	} 
+	$('#imgView').attr('src', logo);
 });
 </script>
 </head>
