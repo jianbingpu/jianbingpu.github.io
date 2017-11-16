@@ -55,7 +55,7 @@ for(function(a){
 					c.width=b.width,c.height=b.height,d=c.getContext("2d"),
 			b.src&&(e=new Image(),e.crossOrigin ='anonymous',e.src=b.src,e.onload=function(){
 						d.drawImage(e,(b.width-b.imgWidth)/2,(b.height-b.imgHeight)/2,
-								b.imgWidth,b.imgHeight);drawCallback();}),f=b.width/a.getModuleCount(),
+								b.imgWidth,b.imgHeight);/*drawCallback();*/}),f=b.width/a.getModuleCount(),
 								g=b.height/a.getModuleCount(),h=0;h<a.getModuleCount();h++)
 						{for(i=0;i<a.getModuleCount();i++){
 				d.fillStyle=a.isDark(h,i)?b.foreground:b.background,
