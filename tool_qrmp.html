@@ -99,8 +99,8 @@ $(function() {
 	        }  
 		     //以图片宽度为200进行压缩  
 		    lrz(that.files[0], {  
-		         width: 500,
-		         height: 500
+		         width: 200,
+		         height: 200
 		       }).then(function (rst) {  
 		            logo = rst.base64;//压缩后的base值 
 		            $('#imgView').attr('src', logo);
@@ -167,7 +167,7 @@ $(function() {
 		setTimeout(function() {
 			var canvas = qrcode.find('canvas').get(0); 
 			$('#qrcodeImg').attr('src', canvas.toDataURL('image/jpg'));
-		},0);
+		},200);
 	}
 	
 	$("#create").on("click",function(e){
