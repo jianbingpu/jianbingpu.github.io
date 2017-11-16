@@ -69,7 +69,7 @@ $(function() {
     	}
     	
 	var $content=$("#input");
-
+	var qrcode
 	
 	/**
 	 * 生成二维码
@@ -87,7 +87,7 @@ $(function() {
 	
 	/** 
 	 * 生成二维码
-	 * @params renderMethod 加头像必须convas,生成方式 渲染方式有table方式（IE兼容）和canvas方式, 
+	 * @params renderMethod 加头像必须canvas,生成方式 渲染方式有table方式（IE兼容）和canvas方式, 
 	 * @params picWidth 二维码宽
 	 * @params picHeight 二维码高
 	 * @params text 内容
@@ -95,7 +95,7 @@ $(function() {
 	 */
 	function generateQrCode(renderMethod, picWidth, picHeight, text, logo) {
 	
-		var qrcode = $("#qrcodeCanvas").qrcode({
+		qrcode = $("#qrcodeCanvas").qrcode({
 			render : renderMethod,    //设置渲染方式，有table和canvas，使用canvas方式渲染性能相对来说比较好
 			text : text,    //扫描了二维码后的内容显示,在这里也可以直接填一个网址，扫描二维码后
 			width : picWidth,               //二维码的宽度
@@ -103,10 +103,14 @@ $(function() {
 			background : "#ffffff",       //二维码的后景色
 			foreground : "#000000",        //二维码的前景色
 			src: logo            //二维码中间的图片
-		}).hide();
+		}).show();
 		
-		var canvas = qrcode.find('canvas').get(0);  
-		$('#qrcodeImg').attr('src', canvas.toDataURL('image/jpg')) 
+
+	}
+	
+	function drawCallback() {
+		var canvas = qrcode.find('canvas').get(0); 
+		$('#qrcodeImg').attr('src', canvas.toDataURL('image/jpg'));
 	}
 	
 	$("#create").on("click",function(e){
