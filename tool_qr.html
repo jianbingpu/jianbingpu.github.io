@@ -83,12 +83,11 @@ $(function() {
 	        }  
 		     //以图片宽度为200进行压缩  
 		    lrz(that.files[0], {  
-		         width: 200,
-		         height: 200
+		         width: 500,
+		         height: 500
 		       }).then(function (rst) {  
 		            logo = rst.base64;//压缩后的base值 
 		            $('#imgView').attr('src', logo);
-		            tip("logo上传成功，输入内容开始生成二维码");
 			 }); 
 	}
 		
