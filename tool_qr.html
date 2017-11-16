@@ -30,7 +30,19 @@ $(function() {
     	e.clearSelection();
     	tip("拷贝失败，请手动复制");
     });
-    $('#imgView').attr('src', logo);
+    
+    if(!!window.localStorage){
+		// 读取自定义数据
+		var diyLogo = localStorage.getItem("jbp_tool_qrlogo");
+		if (diyLogo != null && diyLogo != undefined && diyLogo != "") {
+    			$('#imgView').attr('src', diyLogo);
+    		} else {
+    			$('#imgView').attr('src', logo);
+    		}
+	} else {
+		$('#imgView').attr('src', logo);
+	}
+    
 });
 </script>
 </head>
@@ -40,7 +52,7 @@ $(function() {
 	<h3>二维码生成工具</h3><hr>
 	    <p id="info">
 	        1、输入想要转为二维码的内容<br><br>
-	        2、上传二维码的logo图片，点击生成<br><br>
+	        2、上传二维码的logo(自动记忆最近设定)，点击生成<br><br>
 	        3、长按图片保存到手机或者直接转发
 	    </p>
 	    <p>输入：<button type="button" id="btn" onclick="toFile()" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;">上传logo</button><input type="file" id="file" style="display:none;"  accept="image/*"/ onchange="fileChange(this)"> <img  id='imgView' style="width:22px;height:22px;background-color:#fff;vertical-align: top;margin: 10px; "/></p>
@@ -88,6 +100,7 @@ $(function() {
 		       }).then(function (rst) {  
 		            logo = rst.base64;//压缩后的base值 
 		            $('#imgView').attr('src', logo);
+		            localStorage.setItem("jbp_tool_qrlogo", logo);
 			 }); 
 	}
 		
