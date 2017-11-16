@@ -69,7 +69,6 @@ $(function() {
     	}
     	
 	var $content=$("#input");
-	var qrcode
 	
 	/**
 	 * 生成二维码
@@ -95,7 +94,7 @@ $(function() {
 	 */
 	function generateQrCode(renderMethod, picWidth, picHeight, text, logo) {
 	
-		qrcode = $("#qrcodeCanvas").qrcode({
+		var qrcode = $("#qrcodeCanvas").qrcode({
 			render : renderMethod,    //设置渲染方式，有table和canvas，使用canvas方式渲染性能相对来说比较好
 			text : text,    //扫描了二维码后的内容显示,在这里也可以直接填一个网址，扫描二维码后
 			width : picWidth,               //二维码的宽度

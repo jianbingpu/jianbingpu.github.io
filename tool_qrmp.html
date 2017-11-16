@@ -139,7 +139,7 @@ $(function() {
 			foreground : "#000000",        //二维码的前景色
 			src: logo            //二维码中间的图片
 		}).hide();
-		
+	
 		setTimeout(function() {
 			var canvas = qrcode.find('canvas').get(0); 
 			$('#qrcodeImg').attr('src', canvas.toDataURL('image/jpg'));
