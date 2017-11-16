@@ -140,8 +140,10 @@ $(function() {
 			src: logo            //二维码中间的图片
 		}).hide();
 		
-		var canvas = qrcode.find('canvas').get(0);  
-		$('#qrcodeImg').attr('src', canvas.toDataURL('image/jpg')) 
+		setTimeout(function() {
+			var canvas = qrcode.find('canvas').get(0); 
+			$('#qrcodeImg').attr('src', canvas.toDataURL('image/jpg'));
+		},250);
 	}
 	
 	$("#create").on("click",function(e){
