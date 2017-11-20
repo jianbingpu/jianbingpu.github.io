@@ -17,9 +17,9 @@
 $(function() {
 	if(!!window.localStorage){
 		var scrollTopVal = localStorage.getItem("jbp_tool_srcollTop");
+		localStorage.setItem("jbp_tool_srcollTop","");
 		if (scrollTopVal != undefined && scrollTopVal != "" && scrollTopVal != "") {
 	      	$("html,body").animate({scrollTop:scrollTopVal + "px"}, 300);
-	      	localStorage.removeItem("jbp_tool_srcollTop");
 	      }
       }
 });
