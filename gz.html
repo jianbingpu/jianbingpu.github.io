@@ -13,11 +13,8 @@
 	// 画面跳转
 	function redirectTo(page) {
 	        if(!(/(Safari)/i).test(window.navigator.userAgent)){
-	        	  //信息框
-			  layer.open({
-			    content: '请在Safari浏览器中打开此页面'
-			    ,btn: '我知道了'
-			  });
+	        	  // 信息框
+			  tip('请在Safari浏览器中打开此页面');
 	        }
 		this.location.href = page;
 	}
