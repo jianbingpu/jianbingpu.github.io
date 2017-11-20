@@ -23,6 +23,7 @@ CACHE:
 /js/lrz.all.bundle.js
 /js/underscore-min.js
 /js/utf.js
+/js/jbp.js
 
 /js/layer_mobile/layer.js
 /js/layer_mobile/need/layer.css
