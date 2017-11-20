@@ -35,3 +35,12 @@
 	    }
 	    return str;
 	}
+	
+	//animated:固定词，infinite:循环，x:是特效名
+	function addAnimate(objNm, x, isLoop) {
+		var animateStr = x + ' animated ';
+		if (isLoop) {animateStr+="infinite"}
+	    $('#'+objNm).addClass(animateStr).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+	      $(this).toggleClass(animateStr);
+	    });
+	}

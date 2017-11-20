@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <link href="js/layer_mobile/need/layer.css" type="text/css" rel="stylesheet">
+<link href="css/animate.min.css" type="text/css" rel="stylesheet">
 <script src="js/layer_mobile/layer.js"></script>
 <script src="js/jquery.js"></script>
 <script src="js/jbp.js"></script>
@@ -24,6 +25,8 @@ $(function() {
 	      	$("html,body").animate({scrollTop:scrollTopVal + "px"}, 300);
 	      }
       }
+      
+      addAnimate("jbpLogo","hinge");
 });
 
 // 画面跳转
@@ -39,7 +42,7 @@ function redirectTo(page) {
 
 <body oncontextmenu="return false" onselectstart="return false">
 	<div class="nav" >
-    	<img src="img/jbpLogo.png"  class="logo">
+    	<img src="img/jbpLogo.png"  class="logo" id="jbpLogo">
         <span class="menu">
         	<span class="list"><a class="list_a" href="index.html">首页</a></span>
              <span class="list"><a class="list_a" href="gj.html" id="select">工具¹</a></span>
