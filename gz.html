@@ -4,19 +4,24 @@
 <meta charset="UTF-8">
 <link href="js/layer_mobile/need/layer.css" type="text/css" rel="stylesheet">
 <script src="js/layer_mobile/layer.js"></script>
+<script src="js/jquery.js"></script>
 <link rel="stylesheet" type="text/css" href="css/jbp.css" />
 <title>煎饼铺，一个有趣的公众号</title>
 <meta name="keywords" content="微信二维码名片, 二维码名片, 二维码生成, 微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
 <meta name="description" content="煎饼铺，一个有趣的公众号">
  <script>
-        if(!(/(Safari)/i).test(window.navigator.userAgent)){
-        	  //信息框
-		  layer.open({
-		    content: '请在Safari浏览器中打开此页面'
-		    ,btn: '我知道了'
-		  });
-        }
-    </script>
+	// 画面跳转
+	function redirectTo(page) {
+	        if(!(/(Safari)/i).test(window.navigator.userAgent)){
+	        	  //信息框
+			  layer.open({
+			    content: '请在Safari浏览器中打开此页面'
+			    ,btn: '我知道了'
+			  });
+	        }
+		this.location.href = page;
+	}
+</script>
 <style type="text/css">
 </style>
 </head>
@@ -40,14 +45,14 @@
         	<a class="tit">微信昵称角标生成器</a>
             <a class="ms">带电话样式的微信昵称生成【Joe¹³⁹¹²³⁴⁵⁶⁷⁸】</a>
             <a class="ms" id="link" href="http://mp.weixin.qq.com/s/17vcakQFlHLskHhW75X5Uw" >使用教程</a>
-            <a class="get" href="workflow://import-workflow/?url=https://workflow.is/workflows/1e470fbfb9064ec2b678b015c1328a88&name=微信昵称标记生成器">添加到Workflow</a>     
+            <a class="get"  href="javascript:;" onclick="redirectTo('workflow://import-workflow/?url=https://workflow.is/workflows/1e470fbfb9064ec2b678b015c1328a88&name=微信昵称标记生成器')">添加到Workflow</a>     
         </li> 
     
         <li>
         	<a class="tit">微信彩色昵称生成器</a>
             <a class="ms">这个样子<font color="blue">L O V E</font>¹³¹⁴ 彩色昵称带角标的生成</a>
             <a class="ms" id="link" href="http://mp.weixin.qq.com/s/LkYeue2MuWQp5eo9GQ5f7w" >使用教程</a>
-            <a class="get" href="workflow://import-workflow/?url=https://workflow.is/workflows/98c6a16519414d06a9cf885b7e008ace&name=微信彩色昵称生成器">添加到Workflow</a>     
+            <a class="get" href="javascript:;" onclick="redirectTo('workflow://import-workflow/?url=https://workflow.is/workflows/98c6a16519414d06a9cf885b7e008ace&name=微信彩色昵称生成器')">添加到Workflow</a>     
         </li> 
     </ul>
     <div class="bottom">新奇|技术|资讯|知识|分享</div>
