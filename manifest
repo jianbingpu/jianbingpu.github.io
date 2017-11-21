@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#v1.1.7
+#v1.2.0
 
 CACHE:
 
@@ -26,8 +26,6 @@ CACHE:
 /js/underscore-min.js
 /js/utf.js
 /js/jbp.js
-/js/jquery.fullpage.min.js
-/js/jquery-ui-1.10.3.min.js
 
 
 /js/layer_mobile/layer.js
