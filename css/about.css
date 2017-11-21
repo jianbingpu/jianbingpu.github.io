@@ -285,7 +285,7 @@ body{text-align:center;padding:80px;padding-top: 0;overflow:hidden}
 	        animation:steer 5s linear infinite;
 }
 .road-wrap .lane{
-	width:50px;
+	width:60px;
 	margin:auto;
 }
 .road-wrap .lane>div{
