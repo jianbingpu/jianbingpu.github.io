@@ -16,13 +16,13 @@
 
 <script type="text/javascript">
         $(function () {
-            GetLimitNum();
-             addAnimate("todayNum","headShake",true);
-             addAnimate("carNum","swing",true);
+            getLimitNum();
+            addAnimate("todayNum","headShake",true);
+            addAnimate("carNum","swing",true);
         })
 
         //限行方法
-        function GetLimitNum() {
+        function getLimitNum() {
             //获取当天日期
             var dt = new Date().format("yyyy-MM-dd");
             var startDate = "2012-10-08";//开始星期，周一的日期
