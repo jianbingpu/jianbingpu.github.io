@@ -34,7 +34,7 @@
             addAnimate("todayNum","headShake",true);
             addAnimate("carNum","swing",true);
             
-            //autoPlayMusic();
+            autoPlayMusic();
         });
         
 	// 音乐播放
@@ -104,7 +104,7 @@
 			  		// tip("请求成功");
 					if(!!data.text) {
 						var dataArrays  = data.text.split(",");
-						var result="【天气预报】<br>";
+						var result="天气预报：<br>";
 						for (i=0; i<dataArrays.length; i++) {
 							result+=dataArrays[i]+"<br>"
 						}
