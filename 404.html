@@ -25,40 +25,39 @@
         'use strict';
 
 	var canvas = document.getElementById('test'),
-	    ctx = canvas.getContext('2d'),
-	    height = undefined,
-	    width = undefined,
-	    particles = undefined;
+	ctx = canvas.getContext('2d'),
+	height = undefined,
+	width = undefined,
+	particles = undefined;
 
 	var step = 8;
-
 	var init = function init() {
-	    height = window.innerHeight;
-	    width = window.innerWidth;
+	height = window.innerHeight;
+	width = window.innerWidth;
 
-	    canvas.height = height;
-	    canvas.width = width;
+	canvas.height = height;
+	canvas.width = width;
 
-	    var fontSize = Math.min(height, width) / 3;
+	var fontSize = Math.min(height, width) / 3;
 
-	    ctx.font = fontSize + 'px Arial';
-	    ctx.textAlign = 'center';
-	    ctx.fillText('煎饼铺', width / 2, height / 2 + fontSize /4);
+	ctx.font = fontSize + 'px Arial';
+	ctx.textAlign = 'center';
+	ctx.fillText('煎饼铺', width / 2, height / 2 + fontSize /4);
 
-	    var data = ctx.getImageData(0, 0, width, height).data;
-	    var data32 = new Uint32Array(data.buffer);
+	var data = ctx.getImageData(0, 0, width, height).data;
+	var data32 = new Uint32Array(data.buffer);
 
-	    particles = [];
+	particles = [];
 
-	    for (var x = 0; x < width; x += step) {
-	        for (var y = 0; y < height; y += step) {
-	            var color = data32[y * width + x];
+	for (var x = 0; x < width; x += step) {
+	    for (var y = 0; y < height; y += step) {
+	        var color = data32[y * width + x];
 
-	            if (color != 0) {
-	                particles.push({ x: x, y: y });
-	            }
+	        if (color != 0) {
+	            particles.push({ x: x, y: y });
 	        }
 	    }
+	}
 	};
 
 	init();
