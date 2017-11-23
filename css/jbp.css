@@ -332,38 +332,31 @@ li{
 	background-repeat:no-repeat;
 	float:left;
 	}
-#bg_vip{
-	background-color:#2ad8b9;}
 	
-#icon_vip{
-	background-image:url("../img/vip.png");}
 	
-#bg_wechat1{
-	background-color:#2fbf68}
-	
-#icon_wechat1{
-	background-image:url("../img/wechat.png");}
-	
-#bg_wechat2{
-	background-color:#6551e4;}
-	
-#bg_wechat3{
-	background-color:#1e1c1c;}
+#bg_NAVY{background-color:#001f3f;}
+#bg_BLUE{background-color:#0074D9;}
+#bg_AQUA{background-color:#7FDBFF;}
+#bg_TEAL{background-color:#39CCCC;}
+#bg_OLIVE{background-color:#3D9970;}
+#bg_GREEN{background-color:#2ECC40;}
+#bg_LIME{background-color:#01FF70;}
+#bg_YELLOW{background-color:#FFDC00;}
+#bg_ORANGE{background-color:#FF851B;}
+#bg_RED{background-color:#FF4136;}
+#bg_MAROON{background-color:#85144b;}
+#bg_FUCHSIA{background-color:#F012BE;}
+#bg_PURPLE{background-color:#B10DC9;}
+#bg_BLACK{background-color:#111111;}
+#bg_GRAY{background-color:#AAAAAA;}
+#bg_SILVER_BLACK{background-color:#4C4C4C;}
 
-#bg_wechat4{
-	background-color:#333636}
 	
-#icon_wechat3{
-	background-image:url("../img/wechat.png");}
-	
-#icon_wechat2{
-	background-image:url("../img/wechat.png");}
-	
-#bg_ch{
-	background-color:#585c67}
-	
-#icon_ch{
-	background-image:url("../img/phone.png");}
+#icon_vip{background-image:url("../img/vip.png");}
+#icon_wechat{background-image:url("../img/wechat.png");}
+#icon_phone{background-image:url("../img/phone.png");}
+
+
 	
 .twjc{
 	text-align:center;
