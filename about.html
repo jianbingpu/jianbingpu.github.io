@@ -17,7 +17,7 @@
 
 <script type="text/javascript">
         $(function () {
-		var geolocation = new BMap.Geolocation();
+		/*var geolocation = new BMap.Geolocation();
   		var gc = new BMap.Geocoder(); 
 		geolocation.getCurrentPosition(function(r){
 			if(this.getStatus() == BMAP_STATUS_SUCCESS){
@@ -30,20 +30,21 @@
 				//TODO
 			}        
 			},{enableHighAccuracy: true})
-			
-            addAnimate("todayNum","headShake",true);
-            addAnimate("carNum","swing",true);
-
+		*/
+		getLimitNum();
+             addAnimate("todayNum","headShake",true);
+             addAnimate("carNum","swing",true);
         });
 	
+	/*
        function callback(cityName){
 		if (cityName.indexOf("北京")>=0){
 			 getLimitNum();
 		}
 		// 获得当地天气
 		getWeather(cityName);
-	}
-	
+	}*/
+	/*
 	function getWeather(cityName) {
 		var urlStr = "http://www.tuling123.com/openapi/api?key=";
 		var keyStr = "36f6d443eebb468194081058a118f14e";
@@ -83,7 +84,7 @@
 			  	}
 			  }
 		});
-	}
+	}*/
 	
         //限行方法
         function getLimitNum() {
@@ -153,9 +154,9 @@
     </script>
 </head>
 <body>
-	<audio style="display:none; height: 0" id="bg-music" autoplay="autoplay" loop="loop">
+	<!--<audio style="display:none; height: 0" id="bg-music" autoplay="autoplay" loop="loop">
 		<source src="mp3/car.mp3" type="audio/mpeg">
-	</audio>
+	</audio>-->
 	<br><br><br><br><br><br>
 	
 	<div class="car">
