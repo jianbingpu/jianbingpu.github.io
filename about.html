@@ -33,38 +33,8 @@
 			
             addAnimate("todayNum","headShake",true);
             addAnimate("carNum","swing",true);
-            
-            autoPlayMusic();
-        });
-        
-	// 音乐播放
-	function autoPlayMusic() {
-	    // 自动播放音乐效果，解决浏览器或者APP自动播放问题
-	    function musicInBrowserHandler() {
-	        musicPlay(true);
-	        document.body.removeEventListener('touchstart', musicInBrowserHandler);
-	    }
-	    document.body.addEventListener('touchstart', musicInBrowserHandler);
 
-	    // 自动播放音乐效果，解决微信自动播放问题
-	    function musicInWeixinHandler() {
-	        musicPlay(true);
-	        document.addEventListener("WeixinJSBridgeReady", function () {
-	            musicPlay(true);
-	        }, false);
-	        document.removeEventListener('DOMContentLoaded', musicInWeixinHandler);
-	    }
-	    document.addEventListener('DOMContentLoaded', musicInWeixinHandler);
-	}
-	function musicPlay(isPlay) {
-	    var media = document.querySelector('#bg-music');
-	    if (isPlay && media.paused) {
-	        media.play();
-	    }
-	    if (!isPlay && !media.paused) {
-	        media.pause();
-	    }
-	}
+        });
 	
        function callback(cityName){
 		if (cityName.indexOf("北京")>=0){
@@ -184,7 +154,7 @@
 </head>
 <body>
 	<audio style="display:none; height: 0" id="bg-music" autoplay="autoplay" loop="loop">
-	<source src="mp3/car.mp3" type="audio/mpeg">
+		<source src="mp3/car.mp3" type="audio/mpeg">
 	</audio>
 	<br><br><br><br><br><br>
 	
