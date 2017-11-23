@@ -7,7 +7,16 @@
 		layer.open({
 			content: msg
 			,skin: 'msg'
-			,time: 2 //2秒后自动关闭
+			,time: 2//2秒后自动关闭
+		});
+	}
+	
+	function tip(msg, second) {
+		//提示
+		layer.open({
+			content: msg
+			,skin: 'msg'
+			,time: second//2秒后自动关闭
 		});
 	}
 	

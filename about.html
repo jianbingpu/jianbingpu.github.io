@@ -9,6 +9,7 @@
 <script src="js/layer_mobile/layer.js"></script>
 <script src="js/jquery.js"></script>
 <script src="js/jbp.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=32f38c9491f2da9eb61106aaab1e9739"></script>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 <title>煎饼铺，一个有趣的公众号</title>
 <meta name="keywords" content="微信二维码名片, 二维码名片, 二维码生成, 微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
@@ -16,11 +17,63 @@
 
 <script type="text/javascript">
         $(function () {
-            getLimitNum();
+		var myCity = new BMap.LocalCity();
+		myCity.get(myFun);
+		
             addAnimate("todayNum","headShake",true);
             addAnimate("carNum","swing",true);
         })
 
+       function myFun(result){
+		var cityName = result.name;
+		if (cityName.indexOf("北京")>=0){
+			 getLimitNum();
+		}
+		// 获得当地天气
+		getWeather(cityName);
+	}
+	
+	function getWeather(cityName) {
+		var urlStr = "http://www.tuling123.com/openapi/api?key=";
+		var keyStr = "36f6d443eebb468194081058a118f14e";
+	 	var url = urlStr +keyStr+"&info="+encodeURI(cityName+"天气");
+	 	$.ajax({
+			  url: url,
+			  cache: false,
+			  type: 'get',
+			  dataType: 'JSON',//here
+			  beforeSend: function(){},
+			  complete: function(){},
+			  success: function (data) {
+			  	//var result =JSON.stringify(data);
+			  	//alert(data.code);
+			  	if(data.code == 40001) {
+			  		//tip("参数key错误");
+			  		return;
+			  	} else if(data.code == 40002) {
+			  		//tip("请求内容info为空");
+			  		return;
+			  	} else if(data.code == 40004) {
+			  		//tip("当天请求次数已使用完");
+			  		return;
+			  	} else if(data.code == 40007) {
+			  		//tip("数据格式异常/请按规定的要求进行加密");
+			  		return;
+			  	} else {
+			  		// tip("请求成功");
+					if(!!data.text) {
+						var dataArrays  = data.text.split(",");
+						var result="";
+						for (i=0; i<dataArrays.length; i++) {
+							result+=dataArrays[i]+"<br>"
+						}
+						tip(result, 6);
+					}
+			  	}
+			  }
+		});
+	}
+	
         //限行方法
         function getLimitNum() {
             //获取当天日期
