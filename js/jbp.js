@@ -11,7 +11,7 @@
 		});
 	}
 	
-	function tip(msg, second) {
+	function tip2(msg, second) {
 		//ÌבÊ¾
 		layer.open({
 			content: msg
