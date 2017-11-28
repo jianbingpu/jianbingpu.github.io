@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html manifest="manifest2">
+<head>
+<meta charset="UTF-8">
+<link href="js/layer_mobile/need/layer.css" type="text/css" rel="stylesheet">
+<script src="js/layer_mobile/layer.js"></script>
+<script src="js/underscore-min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/lrz.all.bundle.js"></script>
+<script src="js/utf.js"></script>
+<script src="js/jquery.qrcode.js"></script>
+<script src="js/libcanvas.js"></script>
+<script src="js/jbp.js"></script>
+<!--<script src="js/qrcode.min.js"></script>-->
+<script src="js/clipboard.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/tool.css" />
+<link rel="stylesheet" type="text/css" href="css/animate.min.css" >
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<title>圆形头像生成工具</title>
+<meta name="keywords" content="微信二维码名片, 二维码名片, 二维码生成, 微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
+<meta name="description" content="煎饼铺，一个有趣的公众号">
+<script>
+$(function() {
+
+    var clipboard = new Clipboard('#copy');
+
+    clipboard.on('success', function(e) {
+    	e.clearSelection();
+    	tip("拷贝成功");
+    });
+
+    clipboard.on('error', function(e) {
+    	e.clearSelection();
+    	tip("拷贝失败，请手动复制");
+    });
+    
+	$('#imgView').attr('src', logo);
+});
+</script>
+</head>
+<body  oncontextmenu="return true;">
+	 <button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
+	<div id="container">
+	<h3>圆形头像生成工具</h3><hr>
+	    <p id="info">
+	        1、上传一张图片，点击生成<br><br>
+	        2、长按图片保存到手机或者直接转发
+	    </p>
+	    <p>输入：<button type="button" id="btn" onclick="toFile()" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;">上传图片</button><input type="file" id="file" style="display:none;"  accept="image/*"/ onchange="fileChange(this)"> <img  id='imgView' style="width:22px;height:22px;background-color:#fff;vertical-align: top;margin: 10px; "/></p>
+	    <p>输出：</p>
+	    <br>
+	    <div id="prev" style="display:none"><canvas id="canvas" width="400" height="400"></canvas></div>
+	    
+	    <img  id='preImg' style="max-width:100%;"/>
+	    <br><br>
+	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">生成</button>
+	    <button type="button" style="background-color:#FF4500; border-radius:20px;"  id="clear">清空</button>
+	   	
+	</div>
+</body>
+<script type="text/javascript">
+	var canvas;
+	var img;
+	var file;
+	var logo = "data:image/jpeg;base64,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";
+	
+	var readImage = function (file, callback) {
+		var reader = new FileReader()
+		reader.addEventListener('loadend', function (e) {
+			if (e.target.readyState == FileReader.DONE) {
+				var img = new Image();
+				// 用原图
+				img.src = e.target.result;
+				// 用压缩后的图
+				// img.src = logo;
+				img.onload = function () {
+					callback(img);
+				};
+			}
+		}, false);
+
+		reader.readAsDataURL(file);
+	};
+	
+	
+	// 封装了一个简单的方法
+	function circleImg(ctx, img, x, y, r) {
+	   // 开始绘制
+	   //ctx.beginPath();
+	    //ctx.fillStyle = 'rgba(255, 255, 255, 0)';
+	    ctx.save();
+	    var d =2 * r;
+	    var cx = x + r;
+	    var cy = y + r;
+	    ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+	    ctx.clip();
+	    ctx.drawImage(img, x, y, d, d);
+	    ctx.restore();
+	    //ctx.closePath();
+	  }
+	
+	function createImg(that) {
+		//var file = that.files[0];
+		file = that;
+		if(!file || !/image\/\w+/.test(file.type)){   
+			tip("请上传图片"); 
+			return false; 
+		}
+		readImage(file, function (upimg) {
+			img = upimg;
+			canvas = document.querySelector("#canvas");
+			// 读取背景图
+			// canvas = libcanvas.createCanvasBasedOnImg(img);
+			// canvas.id = "roundCanvas";
+			if (img && canvas) {
+			
+				// 生成圆角图片
+				/*libcanvas.pasteImg(canvas, img);
+				libcanvas.roundCanvas(canvas, 50);*/
+				
+				// 生成圆形图片
+				var context = canvas.getContext("2d");
+				circleImg(context, img, 0, 0, 200);
+				
+				setTimeout(function() {
+					$("#preImg").show();
+					$("#preImg").attr('src', canvas.toDataURL('image/jpg'));
+					addAnimate("preImg","hinge");
+				},200);
+			}
+		});
+	}
+	window.onload = function() {
+		if ( typeof(FileReader) === 'undefined' ){
+			tip("抱歉，你的浏览器不支持 FileReader！");
+			$("#create").hide();
+		}
+	}
+	
+	function toFile(){
+		document.getElementById("file").click();
+	}
+	
+	function fileChange(that){
+		var filepath=$(that).val(); 
+		if (filepath == "") {  
+		    return;  
+		}  
+		var extStart=filepath.lastIndexOf(".");  
+		var ext=filepath.substring(extStart,filepath.length).toUpperCase();  
+		if(".jpg|.png|.bmp|.jpeg".toUpperCase().indexOf(ext.toUpperCase())==-1){  
+		   tip("只允许上传jpg、png、bmp、jpeg格式的图片");
+		   return false;  
+		}
+		
+		file = that.files[0];
+		//以图片宽度为200进行压缩  
+		lrz(file, {  
+			width: 200,
+			height: 200
+		}).then(function (rst) {  
+			logo = rst.base64;//压缩后的base值 
+			$('#imgView').attr('src', logo);
+		});
+		
+		//createImg(file);
+	}
+
+	
+	$("#create").on("click",function(e){
+		e.preventDefault();
+		createImg(file);
+        });
+        
+        
+        $("#clear").on("click",function(e){
+       	e.preventDefault();
+       	$("#file").attr('src', '');
+      	$("#preImg").attr('src', '');
+      	$("#preImg").hide();
+      	tip("已清空");
+        });
+        
+
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?464d7e308b0fdd9fb407887891784488";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>
