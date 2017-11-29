@@ -70,6 +70,7 @@ $(function() {
 		//图片方向角 added by lzk
 		var Orientation = null;
 		reader.addEventListener('loadend', function (e) {
+		alert(1)
 			if (e.target.readyState == FileReader.DONE) {
 
 				//获取照片方向角属性，用户旋转控制
@@ -87,7 +88,7 @@ $(function() {
 				img.src = e.target.result;
 				// 用压缩后的图
 				// img.src = logo;
-				
+				alert(2)
 				var expectWidth = img.naturalWidth;
 				var expectHeight = img.naturalHeight;
 				
@@ -105,6 +106,7 @@ $(function() {
 				//document.body.appendChild(canvas);
 				ctx.drawImage(img, 0, 0, expectWidth, expectHeight);
 				var base64 = null;
+				alert(3)
 				//修复ios
 				if (navigator.userAgent.match(/iphone/i)) {
 					//console.log('iphone');
@@ -115,6 +117,7 @@ $(function() {
 						switch(Orientation){
 						 	case 6://需要顺时针（向左）90度旋转
 						 		tip('自动旋转处理，需要顺时针（向左）90度旋转');
+						 		alert(4)
 						 		rotateImg(img,'left',canvas);
 						 		break;
 						 	case 8://需要逆时针（向右）90度旋转
@@ -168,8 +171,11 @@ $(function() {
 				img.src = base64;
 
 				img.onload = function () {
-					callback(img);
+					setTimeout(function() {
+						callback(img);
+					},200);
 				};
+				
 			}
 		}, false);
 
@@ -178,7 +184,7 @@ $(function() {
 	
 	//对图片旋转处理 added by lzk
 	function rotateImg(img, direction,canvas) {  
-			//alert(img);
+		  alert(img);
 	        //最小与最大旋转方向，图片旋转4次后回到原方向  
 	        var min_step = 0;  
 	        var max_step = 3;  
@@ -236,6 +242,7 @@ $(function() {
 	                ctx.drawImage(img, -width, 0);  
 	                break;  
 	        }  
+	        alert("OK")
 	    } 
 	    
 	// 封装了一个简单的方法
@@ -261,11 +268,9 @@ $(function() {
 			tip("请上传图片"); 
 			return false; 
 		}
-		alert("2")
-		try {
+		
 		readImage(file, function (upimg) {
 			img = upimg;
-			alert(img);
 			var canvas = document.querySelector("#canvas");
 			// 读取背景图
 			// canvas = libcanvas.createCanvasBasedOnImg(img);
@@ -281,14 +286,12 @@ $(function() {
 				circleImg(context, img, 0, 0, 200);
 				
 				setTimeout(function() {
-				alert("ok")
 					$("#preImg").show();
 					$("#preImg").attr('src', canvas.toDataURL('image/jpg'));
 					addAnimate("preImg","hinge");
 				},200);
 			}
 		});
-		}catch(err) {alert("err")}
 	}
 	window.onload = function() {
 		if ( typeof(FileReader) === 'undefined' ){
@@ -329,7 +332,6 @@ $(function() {
 	
 	$("#create").on("click",function(e){
 		e.preventDefault();
-		alert("1")
 		createImg(file);
         });
         
