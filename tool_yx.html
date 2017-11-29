@@ -182,12 +182,12 @@ $(function() {
 	};
 	
 	//对图片旋转处理 added by lzk
-	function rotateImg(img, direction,canvas) {  
+	function rotateImg(img, direction, canvas) {  
 	        //最小与最大旋转方向，图片旋转4次后回到原方向  
 	        var min_step = 0;  
 	        var max_step = 3;  
 	        //var img = document.getElementById(pid);  
-	        if (img == null)return;  
+	        if (img == null){alert(img); return; }
 	        //img的高度和宽度不能在img元素隐藏后获取，否则会出错  
 	        var height = img.height;  
 	        var width = img.width;  
