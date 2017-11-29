@@ -113,9 +113,8 @@ $(function() {
 							tip('自动旋转处理');
 							switch(Orientation){
 							 	case 6://需要顺时针（向左）90度旋转
-							 		tip('需要顺时针（向左）90度旋转1');
-							 		//rotateImg(this,'left',canvas);
-							 		rotateImg(this,'right',canvas);
+							 		tip('需要顺时针（向左）90度旋转');
+							 		rotateImg(this,'left',canvas);
 							 		break;
 							 	case 8://需要逆时针（向右）90度旋转
 							 		tip('需要顺时针（向右）90度旋转');
@@ -165,7 +164,10 @@ $(function() {
 						base64 = canvas.toDataURL("image/jpeg");
 					}
 					$("#myImage").attr("src", base64);
-					callback(img);
+					setTimeout(function() {
+						callback(img);
+					},500);
+
 				};
 			}
 		}, false);
@@ -233,8 +235,8 @@ $(function() {
 	                ctx.drawImage(img, -width, 0);  
 	                break;  
 	        }  
-	        tip("ok")
-	    }  
+	    } 
+	    
 	// 封装了一个简单的方法
 	function circleImg(ctx, img, x, y, r) {
 	   // 开始绘制
