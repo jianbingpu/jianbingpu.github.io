@@ -111,16 +111,14 @@ $(function() {
  			
  			if (menuArr == "" || menuArr == null || menuArr.length<=1) {
  				tip("请至少输入2个数据");
- 			} else if(!!window.localStorage){
+ 			} else if(!window.isPrivateMode && !!window.localStorage){
  			 	//这个不能用只能删除DOM的重复元素，字符串有问题
  				//$.unique(menuArr);
  				if ( isRepeat(menuArr)) {
  					tip("有重复项目"+"【"+repeatItem+"】");
  				} else {
 	 				// 写入菜单
-	 				if(!window.isPrivateMode && !!window.localStorage){
-	            			localStorage.setItem("jbp_tool_diymenu", menuArr);
-	            		}
+					localStorage.setItem("jbp_tool_diymenu", menuArr);
 	            		layer.closeAll();
 	            		tip("自定义数据已经存储");
             		}
