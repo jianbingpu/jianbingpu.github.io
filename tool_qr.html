@@ -33,7 +33,7 @@ $(function() {
     	tip("拷贝失败，请手动复制");
     });
     
-    if(!!window.localStorage){
+    if(!window.isPrivateMode && !!window.localStorage){
 		// 读取自定义数据
 		var diyLogo = localStorage.getItem("jbp_tool_qrlogo");
 		if (diyLogo != null && diyLogo != undefined && diyLogo != "") {
@@ -89,7 +89,9 @@ $(function() {
 		       }).then(function (rst) {  
 		            logo = rst.base64;//压缩后的base值 
 		            $('#imgView').attr('src', logo);
-		            localStorage.setItem("jbp_tool_qrlogo", logo);
+		            if(!window.isPrivateMode && !!window.localStorage){
+		            	localStorage.setItem("jbp_tool_qrlogo", logo);
+		            }
 			 }); 
 	}
 		

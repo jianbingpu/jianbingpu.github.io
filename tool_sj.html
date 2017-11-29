@@ -81,7 +81,7 @@ $(function() {
  		cont += '<button type="button" style="width:60px;height:30px;background-color:#FF4500; border-radius:20px;" id="clearMenu">清空</button>';
  		pop("自定义数据", cont);
  		
- 		if(!!window.localStorage){
+ 		if(!window.isPrivateMode && !!window.localStorage){
 			// 读取自定义数据
 			var diyMenu = localStorage.getItem("jbp_tool_diymenu");
 			if (diyMenu != null && diyMenu != undefined && diyMenu != "") {
@@ -118,7 +118,9 @@ $(function() {
  					tip("有重复项目"+"【"+repeatItem+"】");
  				} else {
 	 				// 写入菜单
-	            		localStorage.setItem("jbp_tool_diymenu", menuArr);
+	 				if(!window.isPrivateMode && !!window.localStorage){
+	            			localStorage.setItem("jbp_tool_diymenu", menuArr);
+	            		}
 	            		layer.closeAll();
 	            		tip("自定义数据已经存储");
             		}
@@ -137,11 +139,11 @@ $(function() {
 			    content: '您确定要清空自定义数据吗？'
 			    ,btn: ['好的', '取消']
 			    ,yes: function(index){
-	 			if(!!window.localStorage){
+	 			if(!window.isPrivateMode && !!window.localStorage){
 	 				// 写入菜单
 	            		localStorage.setItem("jbp_tool_diymenu","");
-	            		$("#menu").val("");
 	 			} 
+	 			$("#menu").val("");
 				layer.close(index);
 			      tip("自定义数据已经清空");
 			    }
@@ -176,11 +178,15 @@ $(function() {
       // 循环菜单
 	function start() {
 		// 确定数据来源
-		var menuArr = localStorage.getItem("jbp_tool_diymenu");
-		
-		if (!!menuArr) {
-			menuArr = menuArr.split(",");
-			menu = menuArr
+		if(!window.isPrivateMode && !!window.localStorage){
+			var menuArr = localStorage.getItem("jbp_tool_diymenu");
+			
+			if (!!menuArr) {
+				menuArr = menuArr.split(",");
+				menu = menuArr
+			} else {
+				menu = sysData;
+			}
 		} else {
 			menu = sysData;
 		}

@@ -14,7 +14,7 @@
 <script>
 // 初期化
 $(function() {
-	if(!!window.localStorage){
+	if(!window.isPrivateMode && !!window.localStorage){
 		var scrollTopVal = localStorage.getItem("jbp_tool_srcollTop");
 		localStorage.setItem("jbp_tool_srcollTop","");
 		localStorage.removeItem("jbp_tool_srcollTop");
@@ -28,7 +28,7 @@ $(function() {
 
 // 画面跳转
 function redirectTo(page) {
-	if(!!window.localStorage){
+	if(!window.isPrivateMode && !!window.localStorage){
 		localStorage.setItem("jbp_tool_srcollTop", document.body.scrollTop);
 	}
 	jump(page);

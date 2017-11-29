@@ -1,3 +1,11 @@
+	try {
+	    localStorage.setItem('jbp_tool_isPrivateMode', '1');
+	    localStorage.removeItem('jbp_tool_isPrivateMode');
+	    window.isPrivateMode = false;
+	} catch(e) {
+	    window.isPrivateMode = true;
+	}
+	
 	function back() {
 		this.location.href="gj.html";
 	}
