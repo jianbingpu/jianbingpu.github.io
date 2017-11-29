@@ -167,7 +167,9 @@ $(function() {
 					base64 = canvas.toDataURL("image/jpeg");
 				}
 				// 启动自动旋转后的图片
-				img2.src = base64;
+				setTimeout(function() {
+					img2.src = base64;
+				},250);
 				
 			}
 		}, false);
