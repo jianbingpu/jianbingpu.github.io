@@ -262,6 +262,7 @@ $(function() {
 			return false; 
 		}
 		alert("2")
+		try {
 		readImage(file, function (upimg) {
 			img = upimg;
 			alert(img);
@@ -287,6 +288,7 @@ $(function() {
 				},200);
 			}
 		});
+		}catch(err) {alert("err")}
 	}
 	window.onload = function() {
 		if ( typeof(FileReader) === 'undefined' ){
