@@ -261,6 +261,7 @@ $(function() {
 			tip("请上传图片"); 
 			return false; 
 		}
+		alert("2")
 		readImage(file, function (upimg) {
 			img = upimg;
 			alert(img);
@@ -326,6 +327,7 @@ $(function() {
 	
 	$("#create").on("click",function(e){
 		e.preventDefault();
+		alert("1")
 		createImg(file);
         });
         
