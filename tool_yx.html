@@ -167,14 +167,13 @@ $(function() {
 					
 					base64 = canvas.toDataURL("image/jpeg");
 				}
+				
+				// 注册事件
+				img.onload = function () {
+					callback(img);
+				};
 				// 启动自动旋转后的图片
 				img.src = base64;
-
-				img.onload = function () {
-					setTimeout(function() {
-						callback(img);
-					},200);
-				};
 				
 			}
 		}, false);
@@ -184,7 +183,6 @@ $(function() {
 	
 	//对图片旋转处理 added by lzk
 	function rotateImg(img, direction,canvas) {  
-		  alert(img);
 	        //最小与最大旋转方向，图片旋转4次后回到原方向  
 	        var min_step = 0;  
 	        var max_step = 3;  
@@ -270,6 +268,7 @@ $(function() {
 		}
 		
 		readImage(file, function (upimg) {
+		alert("read");
 			img = upimg;
 			var canvas = document.querySelector("#canvas");
 			// 读取背景图
