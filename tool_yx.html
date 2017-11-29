@@ -102,6 +102,7 @@ $(function() {
 					var ctx = canvas.getContext("2d");
 					canvas.width = expectWidth;
 					canvas.height = expectHeight;
+					document.body.appendChild(canvas);
 					ctx.drawImage(this, 0, 0, expectWidth, expectHeight);
 					var base64 = null;
 					//修复ios
