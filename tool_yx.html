@@ -70,7 +70,6 @@ $(function() {
 		//图片方向角 added by lzk
 		var Orientation = null;
 		reader.addEventListener('loadend', function (e) {
-		alert(1)
 			if (e.target.readyState == FileReader.DONE) {
 
 				//获取照片方向角属性，用户旋转控制
@@ -88,7 +87,6 @@ $(function() {
 				img.src = e.target.result;
 				// 用压缩后的图
 				// img.src = logo;
-				alert(2)
 				var expectWidth = img.naturalWidth;
 				var expectHeight = img.naturalHeight;
 				
@@ -106,7 +104,6 @@ $(function() {
 				//document.body.appendChild(canvas);
 				ctx.drawImage(img, 0, 0, expectWidth, expectHeight);
 				var base64 = null;
-				alert(3)
 				//修复ios
 				if (navigator.userAgent.match(/iphone/i)) {
 					//console.log('iphone');
@@ -117,7 +114,6 @@ $(function() {
 						switch(Orientation){
 						 	case 6://需要顺时针（向左）90度旋转
 						 		tip('自动旋转处理，需要顺时针（向左）90度旋转');
-						 		alert(4)
 						 		rotateImg(img,'left',canvas);
 						 		break;
 						 	case 8://需要逆时针（向右）90度旋转
@@ -168,13 +164,13 @@ $(function() {
 					base64 = canvas.toDataURL("image/jpeg");
 				}
 				
-				// 注册事件
-				img.onload = function () {
-					callback(img);
-				};
+				var img2 = new Image();
 				// 启动自动旋转后的图片
-				img.src = base64;
-				
+				img2.src = base64;
+				// 注册事件
+				img2.onload = function () {
+					callback(img2);
+				};				
 			}
 		}, false);
 
@@ -187,7 +183,7 @@ $(function() {
 	        var min_step = 0;  
 	        var max_step = 3;  
 	        //var img = document.getElementById(pid);  
-	        if (img == null){alert(img); return; }
+	        if (img == null){return; }
 	        //img的高度和宽度不能在img元素隐藏后获取，否则会出错  
 	        var height = img.height;  
 	        var width = img.width;  
@@ -240,7 +236,6 @@ $(function() {
 	                ctx.drawImage(img, -width, 0);  
 	                break;  
 	        }  
-	        alert("OK")
 	    } 
 	    
 	// 封装了一个简单的方法
@@ -268,7 +263,6 @@ $(function() {
 		}
 		
 		readImage(file, function (upimg) {
-		alert("read");
 			img = upimg;
 			var canvas = document.querySelector("#canvas");
 			// 读取背景图
