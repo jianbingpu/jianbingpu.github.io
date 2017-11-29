@@ -71,7 +71,6 @@ $(function() {
 		var Orientation = null;
 		reader.addEventListener('loadend', function (e) {
 			if (e.target.readyState == FileReader.DONE) {
-
 				//获取照片方向角属性，用户旋转控制
 				EXIF.getData(file, function() {
 				   // alert(EXIF.pretty(this));
@@ -82,7 +81,11 @@ $(function() {
 				});
 
 				var img = new Image();
-				
+				var img2 = new Image();
+				// 注册事件
+				img2.onload = function () {
+					callback(img2);
+				};
 				// 用原图
 				img.src = e.target.result;
 				// 用压缩后的图
@@ -163,14 +166,9 @@ $(function() {
 					
 					base64 = canvas.toDataURL("image/jpeg");
 				}
-				
-				var img2 = new Image();
 				// 启动自动旋转后的图片
 				img2.src = base64;
-				// 注册事件
-				img2.onload = function () {
-					callback(img2);
-				};				
+				
 			}
 		}, false);
 
