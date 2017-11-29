@@ -28,6 +28,7 @@ CACHE:
 /js/utf.js
 /js/jbp.js
 /js/libcanvas.js
+/js/exif.js
 
 /js/layer_mobile/layer.js
 /js/layer_mobile/need/layer.css
