@@ -115,6 +115,7 @@ $(function() {
 							 	case 6://需要顺时针（向左）90度旋转
 							 		tip('需要顺时针（向左）90度旋转1');
 							 		//rotateImg(this,'left',canvas);
+							 		rotateImg(this,'right',canvas);
 							 		break;
 							 	case 8://需要逆时针（向右）90度旋转
 							 		tip('需要顺时针（向右）90度旋转');
@@ -231,6 +232,7 @@ $(function() {
 	                ctx.drawImage(img, -width, 0);  
 	                break;  
 	        }  
+	        tip("ok")
 	    }  
 	// 封装了一个简单的方法
 	function circleImg(ctx, img, x, y, r) {
