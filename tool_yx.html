@@ -165,6 +165,7 @@ $(function() {
 						base64 = canvas.toDataURL("image/jpeg");
 					}
 					$("#myImage").attr("src", base64);
+					img.src = base64;
 					setTimeout(function() {
 						callback(img);
 					},500);
