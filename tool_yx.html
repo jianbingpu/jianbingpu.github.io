@@ -102,7 +102,7 @@ $(function() {
 				var ctx = canvas.getContext("2d");
 				canvas.width = expectWidth;
 				canvas.height = expectHeight;
-				document.body.appendChild(canvas);
+				//document.body.appendChild(canvas);
 				ctx.drawImage(img, 0, 0, expectWidth, expectHeight);
 				var base64 = null;
 				//修复ios
@@ -115,16 +115,16 @@ $(function() {
 						switch(Orientation){
 						 	case 6://需要顺时针（向左）90度旋转
 						 		tip('自动旋转处理，需要顺时针（向左）90度旋转');
-						 		rotateImg(this,'left',canvas);
+						 		rotateImg(img,'left',canvas);
 						 		break;
 						 	case 8://需要逆时针（向右）90度旋转
 						 		tip('自动旋转处理，需要顺时针（向右）90度旋转');
-						 		rotateImg(this,'right',canvas);
+						 		rotateImg(img,'right',canvas);
 						 		break;
 						 	case 3://需要180度旋转
 						 		tip('自动旋转处理，需要180度旋转');
-								rotateImg(this,'right',canvas);//转两次
-								rotateImg(this,'right',canvas);
+								rotateImg(img,'right',canvas);//转两次
+								rotateImg(img,'right',canvas);
 								break;
 						}		
 					}
@@ -148,16 +148,16 @@ $(function() {
 						switch(Orientation){
 						 	case 6://需要顺时针（向左）90度旋转
 						 		tip('自动旋转处理，需要顺时针（向左）90度旋转');
-						 		rotateImg(this,'left',canvas);
+						 		rotateImg(img,'left',canvas);
 						 		break;
 						 	case 8://需要逆时针（向右）90度旋转
 						 		tip('自动旋转处理，需要顺时针（向右）90度旋转');
-						 		rotateImg(this,'right',canvas);
+						 		rotateImg(img,'right',canvas);
 						 		break;
 						 	case 3://需要180度旋转
 						 		tip('自动旋转处理，需要180度旋转');
-								rotateImg(this,'right',canvas);//转两次
-								rotateImg(this,'right',canvas);
+								rotateImg(img,'right',canvas);//转两次
+								rotateImg(img,'right',canvas);
 								break;
 						}		
 					}
