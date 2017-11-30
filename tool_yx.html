@@ -50,8 +50,7 @@ $(function() {
 	    <p>输入：<button type="button" id="btn" onclick="toFile()" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;">上传图片</button><input type="file" id="file" style="display:none;"  accept="image/*"/ onchange="fileChange(this)"> <img  id='imgView' style="width:22px;height:22px;background-color:#fff;vertical-align: top;margin: 10px; "/></p>
 	    <p>输出：</p>
 	    <br>
-	    <div id="prev" style="display:none"><canvas id="canvas" width="400" height="400"></canvas></div>
-	    
+	    <!--<div id="prev" style="display:none"><canvas id="canvas" width="400" height="400"></canvas></div>-->
 	    <img  id='preImg' style="max-width:100%;"/>
 	    <br><br>
 	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">生成</button>
@@ -67,115 +66,119 @@ $(function() {
 	
 	var readImage = function (file, callback) {
 		var reader = new FileReader()
-		//图片方向角 added by lzk
-		var Orientation = null;
 		reader.addEventListener('loadend', function (e) {
 			if (e.target.readyState == FileReader.DONE) {
-				//获取照片方向角属性，用户旋转控制
-				EXIF.getData(file, function() {
-				   // alert(EXIF.pretty(this));
-				    EXIF.getAllTags(this); 
-				    //alert(EXIF.getTag(this, 'Orientation')); 
-				    Orientation = EXIF.getTag(this, 'Orientation');
-				    //return;
-				});
-
 				var img = new Image();
-				var img2 = new Image();
-				// 注册事件
-				img2.onload = function () {
-					callback(img2);
-				};
 				// 用原图
 				img.src = e.target.result;
 				// 用压缩后的图
 				// img.src = logo;
-				var expectWidth = img.naturalWidth;
-				var expectHeight = img.naturalHeight;
 				
-				if (img.naturalWidth > img.naturalHeight && img.naturalWidth > 800) {
-					expectWidth = 800;
-					expectHeight = expectWidth * img.naturalHeight / img.naturalWidth;
-				} else if (img.naturalHeight > img.naturalWidth && img.naturalHeight > 1200) {
-					expectHeight = 1200;
-					expectWidth = expectHeight * img.naturalWidth / img.naturalHeight;
-				}
-				var canvas = document.createElement("canvas");
-				var ctx = canvas.getContext("2d");
-				canvas.width = expectWidth;
-				canvas.height = expectHeight;
-				//document.body.appendChild(canvas);
-				ctx.drawImage(img, 0, 0, expectWidth, expectHeight);
-				var base64 = null;
-				//修复ios
-				if (navigator.userAgent.match(/iphone/i)) {
-					//console.log('iphone');
-					//alert(expectWidth + ',' + expectHeight);
-					//如果方向角不为1，都需要进行旋转 added by lzk
-					if(Orientation != "" && Orientation != 1){
-						//tip('自动旋转处理');
-						switch(Orientation){
-						 	case 6://需要顺时针（向左）90度旋转
-						 		tip('自动旋转处理，需要顺时针（向左）90度旋转');
-						 		rotateImg(img,'left',canvas);
-						 		break;
-						 	case 8://需要逆时针（向右）90度旋转
-						 		tip('自动旋转处理，需要顺时针（向右）90度旋转');
-						 		rotateImg(img,'right',canvas);
-						 		break;
-						 	case 3://需要180度旋转
-						 		tip('自动旋转处理，需要180度旋转');
-								rotateImg(img,'right',canvas);//转两次
-								rotateImg(img,'right',canvas);
-								break;
-						}		
-					}
-					
-					/*var mpImg = new MegaPixImage(image);
-					mpImg.render(canvas, {
-						maxWidth: 800,
-						maxHeight: 1200,
-						quality: 0.8,
-						orientation: 8
-					});*/
-					base64 = canvas.toDataURL("image/jpeg");
-				}else if (navigator.userAgent.match(/Android/i)) {// 修复android
-					/*var encoder = new JPEGEncoder();
-					base64 = encoder.encode(ctx.getImageData(0, 0, expectWidth, expectHeight), 100);*/
-					base64 = canvas.toDataURL("image/jpeg");
-				}else{
-					//alert(Orientation);
-					if(Orientation != "" && Orientation != 1){
-						//tip('自动旋转处理');
-						switch(Orientation){
-						 	case 6://需要顺时针（向左）90度旋转
-						 		tip('自动旋转处理，需要顺时针（向左）90度旋转');
-						 		rotateImg(img,'left',canvas);
-						 		break;
-						 	case 8://需要逆时针（向右）90度旋转
-						 		tip('自动旋转处理，需要顺时针（向右）90度旋转');
-						 		rotateImg(img,'right',canvas);
-						 		break;
-						 	case 3://需要180度旋转
-						 		tip('自动旋转处理，需要180度旋转');
-								rotateImg(img,'right',canvas);//转两次
-								rotateImg(img,'right',canvas);
-								break;
-						}		
-					}
-					
-					base64 = canvas.toDataURL("image/jpeg");
-				}
 				// 启动自动旋转后的图片
-				setTimeout(function() {
-					img2.src = base64;
-				},250);
+				var img2 = new Image();
+				// 注册事件
+				img.onload = function () {
+					alert("go");
+					callback(img);
+				};
+				img.src = getModifyImg(img);
 				
 			}
 		}, false);
 
 		reader.readAsDataURL(file);
 	};
+	
+	function getModifyImg(img) {
+			// 图片方向角
+			var Orientation = null;
+			var expectWidth = img.naturalWidth;
+			var expectHeight = img.naturalHeight;
+			
+			//获取照片方向角属性，用户旋转控制
+			EXIF.getData(file, function() {
+			   // alert(EXIF.pretty(this));
+			    EXIF.getAllTags(this); 
+			    //alert(EXIF.getTag(this, 'Orientation')); 
+			    Orientation = EXIF.getTag(this, 'Orientation');
+			    //return;
+			});
+			
+			if (img.naturalWidth > img.naturalHeight && img.naturalWidth > 800) {
+				expectWidth = 800;
+				expectHeight = expectWidth * img.naturalHeight / img.naturalWidth;
+			} else if (img.naturalHeight > img.naturalWidth && img.naturalHeight > 1200) {
+				expectHeight = 1200;
+				expectWidth = expectHeight * img.naturalWidth / img.naturalHeight;
+			}
+			var canvas = document.createElement("canvas");
+			var ctx = canvas.getContext("2d");
+			canvas.width = expectWidth;
+			canvas.height = expectHeight;
+			//document.body.appendChild(canvas);
+			ctx.drawImage(img, 0, 0, expectWidth, expectHeight);
+			var base64 = null;
+			//修复ios
+			if (navigator.userAgent.match(/iphone/i)) {
+				//console.log('iphone');
+				//alert(expectWidth + ',' + expectHeight);
+				//如果方向角不为1，都需要进行旋转 added by lzk
+				if(Orientation != "" && Orientation != 1){
+					//tip('自动旋转处理');
+					switch(Orientation){
+					 	case 6://需要顺时针（向左）90度旋转
+					 		tip('自动旋转处理，需要顺时针（向左）90度旋转');
+					 		rotateImg(img,'left',canvas);
+					 		break;
+					 	case 8://需要逆时针（向右）90度旋转
+					 		tip('自动旋转处理，需要顺时针（向右）90度旋转');
+					 		rotateImg(img,'right',canvas);
+					 		break;
+					 	case 3://需要180度旋转
+					 		tip('自动旋转处理，需要180度旋转');
+							rotateImg(img,'right',canvas);//转两次
+							rotateImg(img,'right',canvas);
+							break;
+					}		
+				}
+				
+				/*var mpImg = new MegaPixImage(image);
+				mpImg.render(canvas, {
+					maxWidth: 800,
+					maxHeight: 1200,
+					quality: 0.8,
+					orientation: 8
+				});*/
+				base64 = canvas.toDataURL("image/jpeg");
+			}else if (navigator.userAgent.match(/Android/i)) {// 修复android
+				/*var encoder = new JPEGEncoder();
+				base64 = encoder.encode(ctx.getImageData(0, 0, expectWidth, expectHeight), 100);*/
+				base64 = canvas.toDataURL("image/jpeg");
+			}else{
+				//alert(Orientation);
+				if(Orientation != "" && Orientation != 1){
+					//tip('自动旋转处理');
+					switch(Orientation){
+					 	case 6://需要顺时针（向左）90度旋转
+					 		tip('自动旋转处理，需要顺时针（向左）90度旋转');
+					 		rotateImg(img,'left',canvas);
+					 		break;
+					 	case 8://需要逆时针（向右）90度旋转
+					 		tip('自动旋转处理，需要顺时针（向右）90度旋转');
+					 		rotateImg(img,'right',canvas);
+					 		break;
+					 	case 3://需要180度旋转
+					 		tip('自动旋转处理，需要180度旋转');
+							rotateImg(img,'right',canvas);//转两次
+							rotateImg(img,'right',canvas);
+							break;
+					}		
+				}
+				
+				base64 = canvas.toDataURL("image/jpeg");
+			}
+			return base64;
+	}
 	
 	//对图片旋转处理 added by lzk
 	function rotateImg(img, direction, canvas) {  
@@ -264,7 +267,11 @@ $(function() {
 		
 		readImage(file, function (upimg) {
 			img = upimg;
-			canvas = document.querySelector("#canvas");
+			var canvas = document.createElement("canvas");
+			canvas.width = 600;
+			canvas.height = 600;
+			//var ctx = canvas.getContext("2d");
+			//canvas = document.querySelector("#canvas");
 			// 读取背景图
 			// canvas = libcanvas.createCanvasBasedOnImg(img);
 			// canvas.id = "roundCanvas";
@@ -276,7 +283,8 @@ $(function() {
 				
 				// 生成圆形图片
 				var context = canvas.getContext("2d");
-				circleImg(context, img, 0, 0, 200);
+				// 这里的半径是canvas宽的一半
+				circleImg(context, img, 0, 0, 300);
 				
 				setTimeout(function() {
 					$("#preImg").show();
