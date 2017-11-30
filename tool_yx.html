@@ -68,20 +68,18 @@ $(function() {
 		reader.addEventListener('loadend', function (e) {
 			if (e.target.readyState == FileReader.DONE) {
 				var img = new Image();
-				
-				// 注册事件
-				img.onload = function () {
-					tip("go 1");
-					callback(img);
-				};
-				
+				// 用原图
+				img.src = e.target.result;
 				setTimeout(function() {
-					// 用原图
-					img.src = e.target.result;
 					// 用压缩后的图
 					// img.src = logo;
+					// 注册事件
+					img.onload = function () {
+						tip("go 1");
+						callback(img);
+					};
 					img.src = getModifyImg(img);
-				},1000);
+				},300);
 				
 			}
 		}, false);
@@ -177,6 +175,7 @@ $(function() {
 				
 				base64 = canvas.toDataURL("image/jpeg");
 			}
+			
 			return base64;
 	}
 	
