@@ -1,4 +1,4 @@
-	try {
+ï»¿	try {
 	    localStorage.setItem('jbp_tool_isPrivateMode', '1');
 	    localStorage.removeItem('jbp_tool_isPrivateMode');
 	    window.isPrivateMode = false;
@@ -11,20 +11,20 @@
 	}
 
 	function tip(msg) {
-		//ÌáÊ¾
+		//æç¤º
 		layer.open({
 			content: msg
 			,skin: 'msg'
-			,time: 2//2Ãëºó×Ô¶¯¹Ø±Õ
+			,time: 2//2ç§’åè‡ªåŠ¨å…³é—­
 		});
 	}
 	
 	function tip2(msg, second) {
-		//ÌáÊ¾
+		//æç¤º
 		layer.open({
 			content: msg
 			,skin: 'msg'
-			,time: second//2Ãëºó×Ô¶¯¹Ø±Õ
+			,time: second//2ç§’åè‡ªåŠ¨å…³é—­
 		});
 	}
 	
@@ -53,11 +53,34 @@
 	    return str;
 	}
 	
-	//animated:¹Ì¶¨´Ê£¬infinite:Ñ­»·£¬x:ÊÇÌØĞ§Ãû
+	//animated:å›ºå®šè¯ï¼Œinfinite:å¾ªç¯ï¼Œx:æ˜¯ç‰¹æ•ˆå
+	/*
+	ï»¿Class Name			
+	bounce	flash	pulse	rubberBand
+	shake	headShake	swing	tada
+	wobble	jello	bounceIn	bounceInDown
+	bounceInLeft	bounceInRight	bounceInUp	bounceOut
+	bounceOutDown	bounceOutLeft	bounceOutRight	bounceOutUp
+	fadeIn	fadeInDown	fadeInDownBig	fadeInLeft
+	fadeInLeftBig	fadeInRight	fadeInRightBig	fadeInUp
+	fadeInUpBig	fadeOut	fadeOutDown	fadeOutDownBig
+	fadeOutLeft	fadeOutLeftBig	fadeOutRight	fadeOutRightBig
+	fadeOutUp	fadeOutUpBig	flip flipInX	flipInY
+	flipOutX	flipOutY	lightSpeedIn	lightSpeedOut
+	rotateIn	rotateInDownLeft	rotateInDownRight	rotateInUpLeft
+	rotateInUpRight	rotateOut	rotateOutDownLeft	rotateOutDownRight
+	rotateOutUpLeft	rotateOutUpRight	swing	jackInTheBox
+	rollIn	rollOut	zoomIn	zoomInDown
+	zoomInLeft	zoomInRight	zoomInUp	zoomOut
+	zoomOutDown	zoomOutLeft	zoomOutRight	zoomOutUp
+	slideInDown	slideInLeft	slideInRight	slideInUp
+	slideOutDown	slideOutLeft	slideOutRight	slideOutUp
+	hinge
+	*/
 	function addAnimate(objNm, x, isLoop) {
 		var animateStr = x + ' animated ';
 		if (isLoop) {animateStr+="infinite"}
-	    $('#'+objNm).addClass(animateStr).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+	      $('#'+objNm).addClass(animateStr).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
 	      $(this).toggleClass(animateStr);
 	    });
 	}
