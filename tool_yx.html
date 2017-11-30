@@ -71,7 +71,7 @@ $(function() {
 				
 				// 注册事件
 				img.onload = function () {
-					tip("go");
+					tip("go 1");
 					callback(img);
 				};
 				
@@ -80,7 +80,7 @@ $(function() {
 					img.src = e.target.result;
 					// 用压缩后的图
 					// img.src = logo;
-					img.src = getModifyImg(img);
+					//img.src = getModifyImg(img);
 				},200);
 				
 			}
