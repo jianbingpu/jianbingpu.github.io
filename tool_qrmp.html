@@ -175,7 +175,7 @@ $(function() {
 		setTimeout(function() {
 			var canvas = qrcode.find('canvas').get(0); 
 			$('#qrcodeImg').attr('src', canvas.toDataURL('image/jpg'));
-			addAnimate("qrcodeImg","hinge");
+			addAnimate("qrcodeImg",  animated[Math.floor(Math.random() * animated.length)]);
 		},200);
 	}
 	

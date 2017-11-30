@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html manifest="manifest2">
+<html manifest="manifest">
 <head>
 <meta charset="UTF-8">
 <link href="js/layer_mobile/need/layer.css" type="text/css" rel="stylesheet">
@@ -265,7 +265,7 @@ $(function() {
 				setTimeout(function() {
 					$("#preImg").show();
 					$("#preImg").attr('src', canvas.toDataURL('image/jpg'));
-					addAnimate("preImg","bounceInDown");
+					addAnimate("preImg", animated[Math.floor(Math.random() * animated.length)]);
 				},200);
 			}
 		});
