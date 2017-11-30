@@ -71,15 +71,17 @@ $(function() {
 				
 				// 注册事件
 				img.onload = function () {
-					alert("go");
+					tip("go");
 					callback(img);
 				};
 				
-				// 用原图
-				img.src = e.target.result;
-				// 用压缩后的图
-				// img.src = logo;
-				img.src = getModifyImg(img);
+				setTimeout(function() {
+					// 用原图
+					img.src = e.target.result;
+					// 用压缩后的图
+					// img.src = logo;
+					img.src = getModifyImg(img);
+				},200);
 				
 			}
 		}, false);
@@ -263,8 +265,7 @@ $(function() {
 			return false; 
 		}
 		
-		readImage(file, function (upimg) {
-			img = upimg;
+		readImage(file, function (img) {
 			var canvas = document.createElement("canvas");
 			canvas.width = 600;
 			canvas.height = 600;
