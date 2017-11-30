@@ -76,6 +76,7 @@ $(function() {
 				var img = new Image();
 				// 用原图
 				img.src = e.target.result;
+				// 这里用timeout为了让第一次src的onload不响应
 				setTimeout(function() {
 					// 用压缩后的图
 					// img.src = logo;
