@@ -242,7 +242,7 @@ $(function() {
 			tip("请上传图片"); 
 			return false; 
 		}
-		
+		layer.open({type: 2});
 		readImage(file, function (img) {
 			var canvas = document.createElement("canvas");
 			canvas.width = 600;
@@ -265,6 +265,7 @@ $(function() {
 				
 				setTimeout(function() {
 					$("#preImg").show();
+					layer.closeAll();
 					$("#preImg").attr('src', canvas.toDataURL('image/jpg'));
 					addAnimate("preImg", animated[Math.floor(Math.random() * animated.length)]);
 				},200);

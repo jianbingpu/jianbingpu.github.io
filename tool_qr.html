@@ -106,6 +106,7 @@ $(function() {
 		$("#qrcodeCanvas").html('');
       	$('#qrcodeImg').attr('src', '');
       	$("#qrcodeImg").show();
+      	layer.open({type: 2});
 		generateQrCode("canvas", 250, 250, vcard_text, logo);
 	}
 
@@ -131,6 +132,7 @@ $(function() {
 		}).hide();
 		
 		setTimeout(function() {
+			layer.closeAll();
 			var canvas = qrcode.find('canvas').get(0); 
 			$('#qrcodeImg').attr('src', canvas.toDataURL('image/jpg'));
 			addAnimate("qrcodeImg",  animated[Math.floor(Math.random() * animated.length)]);
