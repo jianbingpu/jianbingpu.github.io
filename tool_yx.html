@@ -55,13 +55,19 @@ $(function() {
 	    <br><br>
 	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">生成</button>
 	    <button type="button" style="background-color:#FF4500; border-radius:20px;"  id="clear">清空</button>
-	   	
 	</div>
 </body>
 <script type="text/javascript">
 	var img;
 	var file;
 	var logo = "data:image/jpeg;base64,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";
+	
+	$(function() {
+		if ( typeof(FileReader) === 'undefined' ){
+			tip("抱歉，你的浏览器不支持 FileReader！");
+			$("#create").attr("disabled", true);
+		}
+	});
 	
 	var readImage = function (file, callback) {
 		var reader = new FileReader()
@@ -75,11 +81,10 @@ $(function() {
 					// img.src = logo;
 					// 注册事件
 					img.onload = function () {
-						tip("go 1");
 						callback(img);
 					};
-					img.src = getModifyImg(img);
-				},300);
+					img.src = modifyImg(img);
+				},200);
 				
 			}
 		}, false);
@@ -87,7 +92,7 @@ $(function() {
 		reader.readAsDataURL(file);
 	};
 	
-	function getModifyImg(img) {
+	function modifyImg(img) {
 			// 图片方向角
 			var Orientation = null;
 			var expectWidth = img.naturalWidth;
@@ -116,57 +121,28 @@ $(function() {
 			//document.body.appendChild(canvas);
 			ctx.drawImage(img, 0, 0, expectWidth, expectHeight);
 			var base64 = null;
-			//修复ios
-			if (navigator.userAgent.match(/iphone/i)) {
-				//console.log('iphone');
-				//alert(expectWidth + ',' + expectHeight);
-				//如果方向角不为1，都需要进行旋转 added by lzk
-				if(Orientation != "" && Orientation != 1){
-					//tip('自动旋转处理');
-					switch(Orientation){
-					 	case 6://需要顺时针（向左）90度旋转
-					 		tip('自动旋转处理，需要顺时针（向左）90度旋转');
-					 		rotateImg(img,'left',canvas);
-					 		break;
-					 	case 8://需要逆时针（向右）90度旋转
-					 		tip('自动旋转处理，需要顺时针（向右）90度旋转');
-					 		rotateImg(img,'right',canvas);
-					 		break;
-					 	case 3://需要180度旋转
-					 		tip('自动旋转处理，需要180度旋转');
-							rotateImg(img,'right',canvas);//转两次
-							rotateImg(img,'right',canvas);
-							break;
-					}		
-				}
-				
-				/*var mpImg = new MegaPixImage(image);
-				mpImg.render(canvas, {
-					maxWidth: 800,
-					maxHeight: 1200,
-					quality: 0.8,
-					orientation: 8
-				});*/
-				base64 = canvas.toDataURL("image/jpeg");
-			}else if (navigator.userAgent.match(/Android/i)) {// 修复android
+
+			// 修复android
+			if (navigator.userAgent.match(/Android/i)) {
 				/*var encoder = new JPEGEncoder();
 				base64 = encoder.encode(ctx.getImageData(0, 0, expectWidth, expectHeight), 100);*/
 				base64 = canvas.toDataURL("image/jpeg");
-			}else{
+			// 修复iOS or other
+			} else {
 				//alert(Orientation);
 				if(Orientation != "" && Orientation != 1){
 					//tip('自动旋转处理');
 					switch(Orientation){
 					 	case 6://需要顺时针（向左）90度旋转
-					 		tip('自动旋转处理，需要顺时针（向左）90度旋转');
+					 		//tip('自动旋转处理，需要顺时针（向左）90度旋转');
 					 		rotateImg(img,'left',canvas);
 					 		break;
 					 	case 8://需要逆时针（向右）90度旋转
-					 		tip('自动旋转处理，需要顺时针（向右）90度旋转');
+					 		//tip('自动旋转处理，需要顺时针（向右）90度旋转');
 					 		rotateImg(img,'right',canvas);
 					 		break;
 					 	case 3://需要180度旋转
-					 		tip('自动旋转处理，需要180度旋转');
+					 		//tip('自动旋转处理，需要180度旋转');
 							rotateImg(img,'right',canvas);//转两次
 							rotateImg(img,'right',canvas);
 							break;
@@ -179,7 +155,7 @@ $(function() {
 			return base64;
 	}
 	
-	//对图片旋转处理 added by lzk
+	// 对图片旋转处理
 	function rotateImg(img, direction, canvas) {  
 	        //最小与最大旋转方向，图片旋转4次后回到原方向  
 	        var min_step = 0;  
@@ -240,7 +216,7 @@ $(function() {
 	        }  
 	    } 
 	    
-	// 封装了一个简单的方法
+	// 修改为圆形图片
 	function circleImg(ctx, img, x, y, r) {
 	   // 开始绘制
 	   //ctx.beginPath();
@@ -256,6 +232,7 @@ $(function() {
 	    //ctx.closePath();
 	  }
 	
+	 // 开始生成圆形图片
 	function createImg(that) {
 		//var file = that.files[0];
 		file = that;
@@ -292,14 +269,8 @@ $(function() {
 			}
 		});
 	}
-	window.onload = function() {
-		if ( typeof(FileReader) === 'undefined' ){
-			tip("抱歉，你的浏览器不支持 FileReader！");
-			$("#create").hide();
-		}
-	}
 	
-	function toFile(){
+	function toFile() {
 		document.getElementById("file").click();
 	}
 	
