@@ -101,11 +101,12 @@
 	/**
 	 * 平台判断
 	 */
-	function getPlatform(){
-	    var ua = navigator.userAgent.toLowerCase(); 
-	    if (/iphone|ipad|ipod/.test(ua)) {
-	        return 'ios';
-	    } else if (/android/.test(ua)) {
-	        return 'android';
+	function isAndroid(){
+	    var ua = navigator.userAgent.toLowerCase();
+	    
+	    if(ua.match(/Android/i)=="android"){
+			return true;
 	    }
+	    
+	    return false;
 	};

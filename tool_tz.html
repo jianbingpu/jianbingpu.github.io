@@ -27,13 +27,10 @@ $(function() {
     	tip("拷贝失败，请手动复制");
     });
     
-    var sys = getPlatform();
     var strArray = new Array("ʚ","ɞ","✪","☆","½","━","═","﹏","✎","©","℗","®","㊣","✆","℡","™","℠","♩","♫","♡","ღ","இ","⋆","❀","จุ๊บ","િ","ી","▓","༺","༻","꧁","꧂","࿆","ྲྀ","༒","༗","࿈","༙྇","༔","༄","࿊","࿌","࿇","࿄","༓","༝","༚","࿏","༜","ྉ","༼","༽");
-    var length = 0;
-    if (sys != "android") {
-    	length = strArray.length;
-    } else {
-    	length = 28;
+    var length = strArray.length;
+    if (isAndroid()) {
+	length = 28;
     }
     var htmlCode = "";
     for (i=0; i<length; i++) {
