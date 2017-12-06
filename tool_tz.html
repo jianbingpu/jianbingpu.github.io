@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html manifest="manifest">
+<head>
+<meta charset="UTF-8">
+<link href="js/layer_mobile/need/layer.css" type="text/css" rel="stylesheet">
+<script src="js/layer_mobile/layer.js"></script>
+<script src="js/underscore-min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/clipboard.min.js"></script>
+<script src="js/jbp.js"></script>
+<link rel="stylesheet" type="text/css" href="css/tool.css" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<title>个性昵称生成工具</title>
+<meta name="keywords" content="微信透明, 透明头像, 透明昵称, 透明消息, 圆形头像, 圆形头像生成, 微信二维码名片, 二维码名片, 二维码生成, 微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
+<meta name="description" content="煎饼铺，一个有趣的公众号。微信透明, 透明头像, 透明昵称, 透明消息, 圆形头像, 圆形头像生成, 微信二维码名片, 二维码名片, 二维码生成, 微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
+<script>
+$(function() {
+    var clipboard = new Clipboard('#copy');
+
+    clipboard.on('success', function(e) {
+    	e.clearSelection();
+    	tip("拷贝成功");
+    });
+
+    clipboard.on('error', function(e) {
+    	e.clearSelection();
+    	tip("拷贝失败，请手动复制");
+    });
+    
+});
+</script>
+</head>
+<body  oncontextmenu="return true;">
+	    <button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
+	<div id="container">
+	<h3>个性昵称生成工具</h3><hr>
+	    <p id="info">
+	        1、点击特殊字符按钮，自动添加到输出区<br><br>
+	        2、点击删除按钮，删除最后添加的字符<br><br>
+	        3、点击清空按钮，清空所有的内容<br><br>
+	    </p>
+	    <p>输入：<br>
+	    <div style="height:220px;overflow-y:auto;">
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="༺" onclick="insertTemp(this)">༺</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="༻" onclick="insertTemp(this)">༻</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="ღ" onclick="insertTemp(this)">ღ</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="จุ๊บ" onclick="insertTemp(this)">จุ๊บ</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="િ" onclick="insertTemp(this)">િ</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="ી" onclick="insertTemp(this)">ી</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="▓" onclick="insertTemp(this)">▓</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="꧁" onclick="insertTemp(this)">꧁</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="꧂" onclick="insertTemp(this)">꧂</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="࿆" onclick="insertTemp(this)">࿆</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="━" onclick="insertTemp(this)">━</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="═" onclick="insertTemp(this)">═</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="✪" onclick="insertTemp(this)">✪</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="☆" onclick="insertTemp(this)">☆</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="ྲྀ" onclick="insertTemp(this)">ྲྀ</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="ʚ" onclick="insertTemp(this)">ʚ</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="ɞ" onclick="insertTemp(this)">ɞ</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="༒" onclick="insertTemp(this)">༒</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="༗" onclick="insertTemp(this)">༗</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="࿈" onclick="insertTemp(this)">࿈</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="༙྇" onclick="insertTemp(this)">༙྇</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="༄" onclick="insertTemp(this)">༄</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="࿊" onclick="insertTemp(this)">࿊</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="࿌" onclick="insertTemp(this)">࿌</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="࿇" onclick="insertTemp(this)">࿇</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="࿄" onclick="insertTemp(this)">࿄</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="༓" onclick="insertTemp(this)">༓</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="࿏" onclick="insertTemp(this)">࿏</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="༜" onclick="insertTemp(this)">༜</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="༚" onclick="insertTemp(this)">༚</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="༝" onclick="insertTemp(this)">༝</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="ྉ" onclick="insertTemp(this)">ྉ</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="༼" onclick="insertTemp(this)">༼</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="༽" onclick="insertTemp(this)">༽</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="༺" onclick="insertTemp(this)">༺</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="༻" onclick="insertTemp(this)">༻</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="இ" onclick="insertTemp(this)">இ</button> 
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="℡" onclick="insertTemp(this)">℡</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="⋆" onclick="insertTemp(this)">⋆</button> 
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="﹏✍" onclick="insertTemp(this)">﹏✍</button> 
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="⚠" onclick="insertTemp(this)">⚠</button> 
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="💯" onclick="insertTemp(this)">💯</button> 
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="❀" onclick="insertTemp(this)">❀</button> 
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="✎" onclick="insertTemp(this)">✎</button> 
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="©" onclick="insertTemp(this)">©</button> 
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="℗" onclick="insertTemp(this)">℗</button> 
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="®" onclick="insertTemp(this)">®</button> 
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="㊣" onclick="insertTemp(this)">㊣</button> 
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="✆" onclick="insertTemp(this)">✆</button> 
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="™" onclick="insertTemp(this)">™</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="℠" onclick="insertTemp(this)">℠</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="♩" onclick="insertTemp(this)">♩</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="♫" onclick="insertTemp(this)">♫</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="♥" onclick="insertTemp(this)">♥</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="♡" onclick="insertTemp(this)">♡</button>
+		<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#2ECC40; border-radius:10px;" value="☢" onclick="insertTemp(this)">☢</button>
+		</div>
+	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
+	    <!--<input onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" id="output" readonly >-->
+	    <textarea  class="tarea" id="output" readonly> </textarea>
+	    <br><br>
+	    <button type="button" style="background-color:#FF851B; border-radius:20px;" id="delete">删除</button>
+	    <button type="button" style="background-color:#FF4500; border-radius:20px;"  id="clear">清空</button>
+	   	
+	</div>
+</body>
+ <script>
+
+	var $result=$("#output");
+	$("#delete").on("click",function(e){
+		e.preventDefault();
+		var basic = $result.val();
+		$result.val(basic.substr(0, basic.length - 1)); 
+        });
+        
+        $("#clear").on("click",function(e){
+       	e.preventDefault();
+       	$("#input").val('');
+      	$("#output").val(' ');
+      	tip("已清空");
+        });
+        
+       function insertTemp(obj) {
+ 		$result.val($result.val()+obj.value);
+ 	}
+
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?464d7e308b0fdd9fb407887891784488";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>
