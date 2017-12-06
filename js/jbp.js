@@ -97,3 +97,15 @@
 	    document.getElementById('hideClick').click();
 	    document.body.removeChild(a);
 	}
+	
+	/**
+	 * 平台判断
+	 */
+	function getPlatform(){
+	    var ua = navigator.userAgent.toLowerCase(); 
+	    if (/iphone|ipad|ipod/.test(ua)) {
+	        return 'ios';
+	    } else if (/android/.test(ua)) {
+	        return 'android';
+	    }
+	};
