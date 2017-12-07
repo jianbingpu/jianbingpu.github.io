@@ -30,7 +30,7 @@ $(function() {
     var strArray = new Array("ʚ","ɞ","½","━","═","﹏","✎","©","℗","®","㊣","✆","℡","™","℠","♩","♫","♡","ღ","இ","จุ๊บ","િ","ી","▓","❀","✿","✙","✚","✛","✜","✞","✟","♂","♀","☻","♚","♛","☼","◯","▢","❅","✹","❆","※","⊙","✦","✧","•","◦","▣","▤","▥","▦","▧","▨","▩","◈","◇","■","□","の","✪","★","☆","✩","⋆","✓","✕","❜","❝","❞","█","[ə̲̅٨̲̅٥̲̅٦̲̅]","⚀","⚁","⚂","⚃","⚄","⚅","⇱","⇲","ཊ","ཏ","༐","༑","༺","༻","꧁","꧂","࿆","ྲྀ","༒","༗","࿈","༙྇","༔","༄","࿊","࿇","࿄","༓","༝","༚","࿏","༜","ྉ","༼","༽");
     var length = strArray.length;
     if (isAndroid()) {
-		//length = 72;
+		//length = 81;
     }
     var htmlCode = "";
     for (i=0; i<length; i++) {
@@ -55,7 +55,7 @@ $(function() {
 	    <div id="btnArea" style="width:100%;height:220px;overflow-y:auto;"></div>
 	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
 	    <!--<input onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" id="output" readonly >-->
-	    <textarea  class="tarea" id="output" readonly> </textarea>
+	    <textarea  class="tarea" id="output" readonly></textarea>
 	    <br><br>
 	    
 	    <button type="button" style="background-color:#FF851B; border-radius:20px;" id="delete">删除</button>
