@@ -151,7 +151,7 @@ body{
 
 .show .msg_input{
 	left: auto;
-	right: -0.07rem;
+	right: -0.08rem;
 	transform:rotate(180deg);
 	-ms-transform:rotate(180deg); 	/* IE 9 */
 	-moz-transform:rotate(180deg); 	/* Firefox */
