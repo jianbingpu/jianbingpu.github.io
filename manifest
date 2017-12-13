@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#v1.6.8
+#v1.6.9
 
 CACHE:
 
@@ -7,6 +7,8 @@ CACHE:
 /css/tool.css
 /css/animate.min.css
 /css/about.css
+/css/lt.css
+
 
 /img/blank.png
 /img/banner.jpg
@@ -16,6 +18,7 @@ CACHE:
 /img/phone.png
 /img/vip.png
 /img/wechat.png
+/img/weixinLogo.jpg
 /img/zhishu.png
 
 /js/base64.js
