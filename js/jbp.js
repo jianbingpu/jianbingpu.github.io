@@ -30,6 +30,20 @@
 		});
 	}
 	
+	function pop(title, msg) {
+		 //自定义标题风格
+		 layer.open({
+		 type: 1,
+		    title: [
+		     title,
+		      'margin-top:0px;border-radius:0px;background-color: #FFC74A; color:#fff;'
+		    ]
+		    ,content: msg
+		    ,time: 30
+		    ,btn: '我知道了'
+		  });
+	}
+	
  	function replaceAll(srcStr, aStr, bStr) {
 		srcStr = srcStr.replace(new RegExp(aStr,'gi'), bStr);
 		return srcStr;
@@ -110,3 +124,4 @@
 	    
 	    return false;
 	};
+	

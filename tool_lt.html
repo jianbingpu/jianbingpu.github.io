@@ -1,0 +1,188 @@
+﻿<!DOCTYPE HTML>
+<html manifest="manifest">
+<head>
+<meta charset="UTF-8">
+<link href="js/layer_mobile/need/layer.css" type="text/css" rel="stylesheet">
+<script src="js/layer_mobile/layer.js"></script>
+<script src="js/underscore-min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/json2.js"></script>
+<script src="js/clipboard.min.js"></script>
+<script src="js/jbp.js"></script>
+<link rel="stylesheet" type="text/css" href="css/tool.css" />
+<link rel="stylesheet" type="text/css" href="css/lt.css" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<title>智能机器人²</title>
+<meta name="keywords" content="微信透明, 透明头像, 透明昵称, 透明消息, 圆形头像, 圆形头像生成, 微信二维码名片, 二维码名片, 二维码生成, 微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
+<meta name="description" content="煎饼铺，一个有趣的公众号。微信透明, 透明头像, 透明昵称, 透明消息, 圆形头像, 圆形头像生成, 微信二维码名片, 二维码名片, 二维码生成, 微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
+
+<script>
+
+var urlStr = "http://www.tuling123.com/openapi/api?key=";
+var keyStr = "36f6d443eebb468194081058a118f14e";
+
+function tutorial() {
+	var cont = "<b>生活百科</b>：爱迪生的简介<br>";
+	cont += "<b>问答百科</b>：周杰伦是谁<br>";
+	cont += "<b>中英互译</b>：苹果英语怎么说<br>";
+	cont += "<b>数字计算</b>：3乘以3是多少<br>";
+	cont += "<b>聊天对话</b>：我生病了有点难受<br>";
+	cont += "<b>笑话大全</b>：讲个笑话<br>";
+	cont += "<b>故事大全</b>：讲个故事；讲个白雪公主的故事吧<br>";
+	cont += "<b>星座运势</b>：天蝎座资料；天蝎座运势；天蝎座性格<br>";
+	cont += "<b>脑筋急转弯</b>：脑筋急转弯<br>";
+	cont += "<b>歇后语</b>：歇后语<br>";
+	cont += "<b>绕口令</b>：绕口令<br>";
+	cont += "<b>顺口溜</b>：顺口溜<br>";
+	cont += "<b>天气查询</b>：北京天气；广东天气<br>";
+	cont += "<b>快递查询</b>：查询快递123456789<br>";
+	cont += "<b>日期查询</b>：今天农历多少；明年母亲节日期<br>";
+	cont += "<b>城市邮编</b>：北京邮编；包头邮编是什么";
+	pop("机器人教程", cont);
+}
+ 	
+ 	
+/*接受消息*/
+function show(str){
+	var html="<div class='send'><div class='time' style='display:none'>12/12 06:06</div><div class='msg'><img src='img/jbpLogo.png' />"+
+	"<p><i class='msg_input msg_arrow_show'></i>"+str+"</p></div></div>";
+	upView(html);
+}
+
+/*发送消息*/
+function send(str){
+	var html="<div class='show'><div class='time' style='display:none'>12/12 06:06</div><div class='msg'><img src='img/weixinLogo.jpg'/>"+
+	"<p style='background: #A3E56F;'><i class='msg_input msg_arrow_send'></i>"+str+"</p></div></div>";
+	upView(html);
+}
+
+/*更新视图*/
+function upView(html){
+	$('.message').append(html);
+	//$('body').animate({scrollTop:$('.message').outerHeight()-window.innerHeight},200);
+     	var speak_height = $('.message').height();
+	//window.scrollTo(0,document.body.scrollHeight); 
+	setTimeout(function(){
+		window.scrollTo(0, speak_height); 
+	},200);
+}
+
+ 
+ 
+function sj(){
+	return parseInt(Math.random()*10)
+}
+
+$(function(){
+	show("煎饼铺，一个有趣的公众号");
+	show("点击右上角的帮助，可以查看使用说明");
+	$('.footer').on('keyup','input',function(){
+		if($(this).val().length>0){
+			$("#send").css('background','#2ECC40').attr('disabled',false);
+		} else {
+			$("#send").css('background','#ddd').attr('disabled',true);
+		}
+	})
+	
+	$('#send').click(function(){
+			if($(this).attr("disabled") == "disabled") {
+			 		return;
+			}
+			
+			var inputStr = $("#input").val();
+			if ($.trim(inputStr) == "") {
+					tip("请输入内容");
+			 		return;	
+			}
+
+			send(inputStr);
+		 	var url = urlStr +keyStr+"&info="+encodeURI(inputStr);
+		 	
+		 	setTimeout(function(){
+		 	$.ajax({
+				  url: url,
+				  cache: false,
+				  type: 'get',
+				  dataType: 'JSON',//here
+				  beforeSend: function(){/*layer.open({type: 2})*/},
+				  complete: function(){/*layer.closeAll();*/},
+				  success: function (data) {
+				  	//var result =JSON.stringify(data);
+				  	//alert(data.code);
+				  	if(data.code == 40001) {
+				  		tip("参数key错误");
+				  		return;
+				  	} else if(data.code == 40002) {
+				  		tip("请求内容info为空");
+				  		return;
+				  	} else if(data.code == 40004) {
+				  		tip("当天请求次数已使用完");
+				  		return;
+				  	} else if(data.code == 40007) {
+				  		tip("数据格式异常/请按规定的要求进行加密");
+				  		return;
+				  	} else {
+
+				  		//tip("请求成功");
+						if(!!data.text) {
+							show(data.text);
+						}
+						
+						if(!!data.url) {
+							show(data.url);
+						}
+						
+				  		if(!!data.list) {
+				  			var lst = data.list;
+				  			var result = "";
+							$.each(lst, function(idx, obj) {
+								result+=(obj.article+"\n"+obj.source+"\n"+obj.detailurl);
+							});
+							show(result);
+						}
+				  	}
+				  }
+			});
+			
+			},sj()*200);
+
+	})
+})
+
+
+show("煎饼铺，一个有趣的公众号");
+  (function (doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                if(clientWidth>=720){
+                    docEl.style.fontSize = '100px';
+                }else{
+                    docEl.style.fontSize = 100 * (clientWidth / 720) + 'px';
+                }
+            };
+
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+ })(document, window);
+</script>
+</head>
+<body>
+<header class="header">
+	<div class="back" onclick="back()">返回</div>
+	<h5 class="tit">煎饼铺</h5>
+	<div class="right" onclick="tutorial()">帮助</div>
+</header>
+<div class="message" id="message">
+
+</div>
+<div class="footer">
+	<input type="text" style="width:70%;margin-top: 12px " id="input" value="故事">
+	<p id="send" disabled>发送</p>
+</div>
+
+</body>
+</html>
