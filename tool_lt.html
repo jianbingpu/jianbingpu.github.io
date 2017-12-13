@@ -80,7 +80,7 @@ function selectText(element) {
  	
 /*接受消息*/
 function show(str){
-	var html="<div class='send'><div class='time' style='display:none'>12/12 06:06</div><div class='msg'><img src='img/jbpLogo.png' />"+
+	var html="<div class='send'><div class='time' style='display:none'>12/12 06:06</div><div class='msg' data-clipboard-target="this" ><img src='img/jbpLogo.png' />"+
 	"<p><i class='msg_input msg_arrow_show'></i>"+str+"</p></div></div>";
 	upView(html);
 }
@@ -93,7 +93,7 @@ function toUrl(url){
 
 /*发送消息*/
 function send(str){
-	var html="<div class='show'><div class='time' style='display:none'>12/12 06:06</div><div class='msg'><img src='img/weixinLogo.jpg'/>"+
+	var html="<div class='show'><div class='time' style='display:none'>12/12 06:06</div><div class='msg' data-clipboard-target="this" ><img src='img/weixinLogo.jpg'/>"+
 	"<p style='background: #A3E56F;'><i class='msg_input msg_arrow_send'></i>"+str+"</p></div></div>";
 	upView(html);
 }
