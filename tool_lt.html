@@ -92,6 +92,12 @@ function sj(){
 $(function(){
 	show("煎饼铺，一个有趣的公众号");
 	show("点击右上角的帮助，可以查看使用说明");
+	$('#input').on('focus',function(){
+		var _this = this;
+		setTimeout(function() {
+			_this.scrollIntoViewIfNeeded();
+		},200);
+	})
 	/*$('.footer').on('keyup','input',function(){
 		if($(this).val().length>0){
 			$("#send").css('background','#2ECC40').attr('disabled',false);
