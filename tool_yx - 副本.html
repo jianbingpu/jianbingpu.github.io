@@ -48,12 +48,10 @@ $(function() {
 	        2、长按图片保存到手机，发送时选择原图
 	    </p>
 	    <p>输入：<button type="button" id="btn" onclick="toFile()" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;">上传图片</button><input type="file" id="file" style="display:none;"  accept="image/*"/ onchange="fileChange(this)"> <img  id='imgView' style="width:22px;height:22px;background-color:#fff;vertical-align: top;margin: 10px; "/></p>
-	    <p>输出：（<input type="radio" id="isTran" name="bgColor" value="" checked style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="isTran">透明</label>
-	    &nbsp;<input type="radio" id="isWhite" name="bgColor" value="#ffffff" style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="isWhite">白色</label>
-	    &nbsp;<input type="radio" id="isBlack" name="bgColor" value="#000000" style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="isBlack">黑色</label>)</p>
+	    <p>输出：</p>
 	    <br>
 	    <!--<div id="prev" style="display:none"><canvas id="canvas" width="400" height="400"></canvas></div>-->
-	    <img id='preImg' style="display:none;max-width:100%; border: 1px solid rgb(208, 208, 209); box-shadow: rgba(7, 1, 3, 0.4) 2px 2px 5px; padding: 5px; border-radius: 0px;border-radius:50%;"/>
+	    <img  id='preImg' style="display:none;max-width:100%; border: 1px solid rgb(208, 208, 209); box-shadow: rgba(7, 1, 3, 0.4) 2px 2px 5px; padding: 5px; border-radius: 0px;border-radius:50%;"/>
 	    <br><br>
 	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">生成</button>
 	    <button type="button" style="background-color:#FF4500; border-radius:20px;"  id="clear">清空</button>
@@ -223,14 +221,7 @@ $(function() {
 	function circleImg(ctx, img, x, y, r) {
 	   // 开始绘制
 	   //ctx.beginPath();
-	   
-	   var bgColor = $("input[name='bgColor']:checked").val();
-	   // 透明不执行
-	   if (bgColor != "") {
-			ctx.fillStyle = bgColor;
-			ctx.fillRect(0,0,600,600);
-	   }
-	   
+	   //ctx.fillStyle = 'rgba(255, 255, 155, 0)';
 	   //ctx.globalAlpha=0.2;
 	    ctx.save();
 	    var d =2 * r;
@@ -238,7 +229,6 @@ $(function() {
 	    var cy = y + r;
 	    ctx.arc(cx, cy, r, 0, 2 * Math.PI);
 	    ctx.clip();
-	   
 	    ctx.drawImage(img, x, y, d, d);
 	    ctx.restore();
 	    //ctx.closePath();
