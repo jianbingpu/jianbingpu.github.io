@@ -123,11 +123,12 @@ $(function(){
           
 	$('#input').on('focus',function(){
 		var _this = this;
-		goToBottom();
+		
 		setTimeout(function() {
 			_this.scrollIntoView(true);
 			_this.scrollIntoViewIfNeeded();
-		},100);
+			goToBottom();
+		},500);
 	})
 	
 	/*$('.footer').on('keyup','input',function(){
