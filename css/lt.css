@@ -282,7 +282,7 @@ body{
 	color:#fff;
 	border-radius:5px;
 	border:0;
-	height:30px;
+	height:38px;
 	display:block;
 	/*font-family:"Î¢ÈíÑÅºÚ";*/
 	font-size:15px;
@@ -292,6 +292,7 @@ body{
 .left {
 	float:left;
 }
+
 .right {
 	float:right;
 }
