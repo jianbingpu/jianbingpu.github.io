@@ -10,7 +10,7 @@
 <script src="js/jbp.js"></script>
 <link rel="stylesheet" type="text/css" href="css/tool.css" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-<title>微信彩色昵称+标记生成工具</title>
+<title>撤回整蛊昵称生成工具</title>
 <meta name="keywords" content="微信透明, 透明头像, 透明昵称, 透明消息, 圆形头像, 圆形头像生成, 微信二维码名片, 二维码名片, 二维码生成, 微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
 <meta name="description" content="煎饼铺，一个有趣的公众号。微信透明, 透明头像, 透明昵称, 透明消息, 圆形头像, 圆形头像生成, 微信二维码名片, 二维码名片, 二维码生成, 微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
 <script>
@@ -33,68 +33,46 @@ $(function() {
 <body  oncontextmenu="return true;">
 	    <button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
 	<div id="container">
-	<h3>微信彩色昵称+标记生成工具</h3><hr>
+	<h3>撤回整蛊昵称生成工具</h3><hr>
 	    <p id="info">
-	        1、输入想要的名字（例如：love1314），点击生成 <br><br>
-	        2、点击复制按钮，会复制输出的内容<br><br>
+	        1、输入想要的名字<br><br>
+	        2、输入想要的后缀话语，点击生成<br><br>
+	        3、点击复制按钮，会复制输出的内容
 	    </p>
-	    <p>输入：</p>
-	    <input type="text" name="name" id="input" maxlength="25">
+	    <p>名字：</p>
+	    <input type="text" name="name" id="name" maxlength="25" placeholder="煎饼铺">
+	    <p>后缀：</p>
+	    <input type="text" name="name" id="suffix" maxlength="25" placeholder="并亲了你一下">
 	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
 	    <!--<input onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" id="output" readonly >-->
 	    <input id="output"  value=" " readonly onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);">
 	    <br><br>
-	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="createUp">生成¹³¹⁴</button>
-	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="createDn">生成₁₃₁₄</button>
+	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">生成</button>
 	    <button type="button" style="background-color:#FF4500; border-radius:20px;"  id="clear">清空</button>
 	   
 	</div>
 </body>
  <script>
-
-       var numUp=new Array("⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹");
-       var numDn=new Array("₀","₁","₂","₃","₄","₅","₆","₇","₈","₉");
-       var strAzColor=new Array("🇦","🇧","🇨","🇩","🇪","🇫","🇬","🇭","🇮","🇯","🇰","🇱","🇲","🇳","🇴","🇵","🇶","🇷","🇸","🇹","🇺","🇻","🇼","🇽","🇾","🇿");
-       var strAz = generateSmall();
-       var $content=$("#input");
-	 var $result=$("#output");
-	 $("#createUp").on("click",function(e){
+       var $name=$("#name");
+       var $suffix=$("#suffix");
+	var $result=$("#output");
+	 $("#create").on("click",function(e){
 	 	$result.val('');
 		e.preventDefault();
-		var str = $content.val().toLowerCase();
-		// 替换数字
-		for (i=0; i<10; i++) {
-			str = replaceAll(str, i, numUp[i]);
-		}
-
-		// 替换字母
-		for (i=0; i<26; i++) {
-			str = replaceAll(str, strAz[i], strAzColor[i]+" ");
-		}
+		var strName = $name.val();
+		var strSuffix = $suffix.val();
+		var strFz = String.fromCharCode(65257);
+		$result.val(strFz + strSuffix + strFz + strName);
 		
-		$result.val(str);
+		//var strFz = String.fromCharCode(65197);
+		//$result.val(strFz+strSuffix+strFz+strName);
         });
         
-        $("#createDn").on("click",function(e){
-        	$result.val('');
-		e.preventDefault();
-		var str = $content.val().toLowerCase();
-		// 替换数字
-		for (i=0; i<10; i++) {
-			str = replaceAll(str, i, numDn[i]);
-		}
-		
-		// 替换字母
-		for (i=0; i<26; i++) {
-			str = replaceAll(str, strAz[i], strAzColor[i]+" ");
-		}
-		
-		$result.val(str);
-        });
-        
+   
         $("#clear").on("click",function(e){
        	e.preventDefault();
-       	$("#input").val('');
+       	$("#name").val('');
+       	$("#suffix").val('');
       	$("#output").val(' ');
       	tip("已清空");
         });

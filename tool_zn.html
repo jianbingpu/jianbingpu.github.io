@@ -79,7 +79,7 @@ $(function() {
 	    <button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#outputPlus"  id="copyPlus">累加复制</button>
 	    <button type="button" style="width:60px;height:22px;font-size:10px;background-color:#FF4500; border-radius:10px;"  id="clearPlus">清空累加</button>
 	    </p>
-	    <textarea  class="tarea" id="output" readonly> </textarea>
+	    <textarea  class="tarea" id="output" readonly onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);"> </textarea>
 	    <textarea  class="tarea" id="outputPlus" readonly style="display:none"> </textarea>
 	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="send">发送</button>
 	    <button type="button" style="background-color:#FF4500; border-radius:20px;"  id="clear">清空</button>

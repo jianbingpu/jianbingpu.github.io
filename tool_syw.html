@@ -43,7 +43,7 @@ $(function() {
 	    <input type="text" name="name" id="input" maxlength="25">
 	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
 	    <!--<input onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" id="output" readonly >-->
-	    <input id="output" readonly value=" ">
+	    <input id="output" value=" " readonly  onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);">
 	    <br><br>
 	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="createSmall">生成ʲᵒᵉ</button>
 	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="createBig">生成ᴶᴼᴱ</button>
