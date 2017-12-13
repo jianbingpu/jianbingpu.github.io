@@ -63,6 +63,12 @@ function show(str){
 	upView(html);
 }
 
+/*url消息*/
+function toUrl(url){
+	var html="<a href='"+url+"' target='_blank'>"+url+"</a>";
+	return html;
+}
+
 /*发送消息*/
 function send(str){
 	var html="<div class='show'><div class='time' style='display:none'>12/12 06:06</div><div class='msg'><img src='img/weixinLogo.jpg'/>"+
@@ -80,9 +86,7 @@ function upView(html){
 function goToBottom() {
     var speak_height = $('.message').height();
 	//window.scrollTo(0,document.body.scrollHeight); 
-	setTimeout(function(){
-		window.scrollTo(0, speak_height); 
-	},100);
+	window.scrollTo(0, speak_height); 
 }
 
 function sj(){
@@ -122,12 +126,10 @@ $(function(){
 	});*/
           
 	$('#input').on('focus',function(){
-		var _this = this;
 		goToBottom();
-		setTimeout(function() {
-			_this.scrollIntoView(true);
-			_this.scrollIntoViewIfNeeded();
-		},0);
+		var _this = this;
+		_this.scrollIntoView(true);
+		_this.scrollIntoViewIfNeeded();
 	})
 	
 	/*$('.footer').on('keyup','input',function(){
@@ -191,14 +193,14 @@ function sendMsg(inputStr) {
 					}
 					
 					if(!!data.url) {
-						show(data.url);
+						show(toUrl(data.url));
 					}
 					
 			  		if(!!data.list) {
 			  			var lst = data.list;
 			  			var result = "";
 						$.each(lst, function(idx, obj) {
-							result+=(obj.article+"\n"+obj.source+"\n"+obj.detailurl);
+							result+=(obj.article+"\n"+obj.source+"\n"+toUrl(obj.detailurl));
 						});
 						show(result);
 					}
