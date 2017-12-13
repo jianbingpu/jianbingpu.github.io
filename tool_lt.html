@@ -74,14 +74,14 @@ function selectText(element) {
             selection.setBaseAndExtent(text, 0, text, 1);
         }*/
     } else {
-        tip("不支持选中，手动选择");
+        //tip("不支持选中，手动选择");
     }
 }
  	
 /*接受消息*/
 function show(str){
-	var html="<div class='send'><div class='time' style='display:none'>12/12 06:06</div><div class='msg'><img src='img/jbpLogo.png' />"+
-	"<p onclick='selectText(this)'><i class='msg_input msg_arrow_show'></i>"+str+"</p></div></div>";
+	var html="<div class='send'><div class='time' style='display:none'>12/12 06:06</div><div class='msg'data-clipboard-target='this'><img src='img/jbpLogo.png' />"+
+	"<p><i class='msg_input msg_arrow_show'></i>"+str+"</p></div></div>";
 	upView(html);
 }
 
@@ -94,7 +94,7 @@ function toUrl(url){
 /*发送消息*/
 function send(str){
 	var html="<div class='show'><div class='time' style='display:none'>12/12 06:06</div><div class='msg'><img src='img/weixinLogo.jpg'/>"+
-	"<p style='background: #A3E56F;'  onclick='selectText(this)'><i class='msg_input msg_arrow_send'></i>"+str+"</p></div></div>";
+	"<p style='background: #A3E56F;'><i class='msg_input msg_arrow_send'></i>"+str+"</p></div></div>";
 	upView(html);
 }
 
@@ -119,6 +119,24 @@ function sj(){
 
 $(function(){
 
+    var clipboard = new Clipboard('.msg', {
+    	// 通过target指定要复印的节点
+        target: function(e) {
+                   return e;
+              }
+    })
+
+    clipboard.on('success', function(e) {
+    	e.clearSelection();
+    	tip("拷贝成功");
+    });
+
+    clipboard.on('error', function(e) {
+    	e.clearSelection();
+    	tip("拷贝失败，请手动复制");
+    });
+    
+    
 	setTimeout(function() {
 		show("煎饼铺，一个有趣的公众号");
 	},100);
