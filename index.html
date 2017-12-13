@@ -15,6 +15,7 @@
 
 $(function() {
 	addAnimate("jbpLogo", animated[Math.floor(Math.random() * animated.length)]);
+	addAnimate("jbpLogoBig", animated[Math.floor(Math.random() * animated.length)]);
 });
 
 </script>
@@ -24,7 +25,7 @@ $(function() {
 <body oncontextmenu="return false" onselectstart="return false">
 
 	<div class="nav" >
-    	<img src="img/jbpLogo.png"  class="logo" id="jbpLogo" onclick="javascript:window.location.href='about.html?v=1123'">
+    	<img src="img/jbpLogo.png"  class="logo" id="jbpLogo" onclick="jump('about.html')">
 
         <span class="menu">
         	<span class="list"><a class="list_a" href="index.html" id="select">首页</a></span>
@@ -37,12 +38,12 @@ $(function() {
     <img src="img/banner.jpg"  class="banner">
     
     <div class="user_bg">
-    	    <div class="user_bg_top"></div>
+    	    <div class="user_bg_top" id="jbpLogoBig" onclick="jump('tool_lt.html')"></div>
     </div>
     
     <a class="text">煎饼铺，一个有趣的公众号</a>
     
-    <img src="img/jbpQR2.jpg"  class="code">
+    <img src="img/jbpQR2.jpg" class="code">
     <br>
     <div class="border">
     	<a class="code_num">公众号：bj-_-jb</a>
