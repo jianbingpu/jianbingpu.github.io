@@ -78,28 +78,31 @@ function sj(){
 $(function(){
 	show("煎饼铺，一个有趣的公众号");
 	show("点击右上角的帮助，可以查看使用说明");
-	$('.footer').on('keyup','input',function(){
+	/*$('.footer').on('keyup','input',function(){
 		if($(this).val().length>0){
 			$("#send").css('background','#2ECC40').attr('disabled',false);
 		} else {
 			$("#send").css('background','#ddd').attr('disabled',true);
 		}
-	})
+	})*/
 	
 	$('#send').click(function(){
-			if($(this).attr("disabled") == "disabled") {
-			 		return;
-			}
+		/*	if($(this).attr("disabled") == "disabled") {
+		 		return;
+			}*/
 			
 			var inputStr = $("#input").val();
+			
 			if ($.trim(inputStr) == "") {
-					tip("请输入内容");
-			 		return;	
+				tip("请输入内容");
+		 		return;	
 			}
 
 			send(inputStr);
+			$("#input").val("");
+			
 		 	var url = urlStr +keyStr+"&info="+encodeURI(inputStr);
-		 	
+
 		 	setTimeout(function(){
 		 	$.ajax({
 				  url: url,
@@ -142,6 +145,7 @@ $(function(){
 							});
 							show(result);
 						}
+						
 				  	}
 				  }
 			});
@@ -188,7 +192,7 @@ show("煎饼铺，一个有趣的公众号");
             <input type="text" class="left" placeholder="请输入关键字" id="input">
         </div>
     </div>
-    <div class="wenwen_help right">
+    <div class="wenwen_send right">
         <button  class="right" id="send">发送</button>
     </div>
 
