@@ -60,6 +60,10 @@ function send(str){
 function upView(html){
 	$('.message').append(html);
 	//$('body').animate({scrollTop:$('.message').outerHeight()-window.innerHeight},200);
+	goToBottom();
+}
+
+function goToBottom() {
      	var speak_height = $('.message').height();
 	//window.scrollTo(0,document.body.scrollHeight); 
 	setTimeout(function(){
@@ -67,8 +71,6 @@ function upView(html){
 	},200);
 }
 
- 
- 
 function sj(){
 	return parseInt(Math.random()*10)
 }
@@ -179,10 +181,24 @@ show("煎饼铺，一个有趣的公众号");
 <div class="message" id="message">
 
 </div>
-<div class="footer">
-	<input type="text" style="width:70%;margin-top: 12px " id="input" value="故事">
-	<p id="send" disabled>发送</p>
+
+<div class="wenwen-footer">
+    <div class="wenwen_text left">
+        <div class="write_box">
+            <input type="text" class="left" placeholder="请输入关键字" id="input">
+        </div>
+    </div>
+    <div class="wenwen_help right">
+        <button  class="right" id="send">发送</button>
+    </div>
+
 </div>
 
+<!--
+<div class="footer">
+	<input type="text" style="width:70%;margin-top: 12px " id="input" onfocus="goToBottom()" placeholder="请输入关键字">
+	<p id="send" disabled>发送</p>
+</div>
+-->
 </body>
 </html>
