@@ -20,7 +20,7 @@
 
 var urlStr = "http://www.tuling123.com/openapi/api?key=";
 var keyStr = "36f6d443eebb468194081058a118f14e";
-
+/*
 var winHeight = $(window).height(); //获取当前页面高度  
 $(window).resize(function() {  
   var thisHeight = $(this).height();  
@@ -33,7 +33,7 @@ $(window).resize(function() {
       //当软键盘收起，在此处操作  
       $('body').css('height', '100%');  
   }  
-});
+});*/
 
 function tutorial() {
 	var cont = "<b>生活百科</b>：爱迪生的简介<br>";
@@ -96,6 +96,7 @@ $(function(){
 		var _this = this;
 		goToBottom();
 		setTimeout(function() {
+			_this.scrollIntoView(true);
 			_this.scrollIntoViewIfNeeded();
 		},100);
 	})
