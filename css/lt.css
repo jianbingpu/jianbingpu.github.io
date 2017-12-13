@@ -17,7 +17,7 @@ body{
 }
 .header{
 	border-bottom: 1px solid #dfdfdf;
-	padding:0 0.2rem;
+	padding:0 0.4rem;
 	height: 1rem;
 	line-height: 1rem;
 	background: #fff;
@@ -89,17 +89,17 @@ body{
 
 }
 .footer p{
-   width:1.2rem;
-    height:0.68rem;
-    font-size:0.3rem;
-    color:#fff;
-    line-height:0.68rem;
-    text-align:center;
-    background-color:#ddd;
-    border-radius: 0.1rem;
-    float:right;
-    margin-top:0.2rem;
-    margin-right:0.2rem;
+   	width:1.2rem;
+	height:0.68rem;
+	font-size:0.3rem;
+	color:#fff;
+	line-height:0.68rem;
+	text-align:center;
+	background-color:#ddd;
+	border-radius: 0.1rem;
+	float:right;
+	margin-top:0.2rem;
+	margin-right:0.2rem;
 }
 .send:after,.show:after,.msg:after{
 	content: "";
@@ -113,7 +113,7 @@ body{
 }
 .msg>p{
 	float: left;
-	margin: 0.2rem;
+	margin:0 0.2rem;
 	padding: 0.25rem;
 	background: #fff;
 	font-size: 0.3rem;
@@ -131,7 +131,7 @@ body{
 	border-top:6px solid transparent;
 	border-bottom:6px solid transparent;
 	position:absolute;
-	top:12px;
+	top:15px;
 }
 
 .msg_arrow_show{
@@ -141,7 +141,7 @@ body{
 
 .msg_arrow_send{
 	border-right:8px solid #A3E56F;
-	left:6px;
+	left:8px;
 }
 
 .show .msg img,.show .msg p,.show .msg{
@@ -151,7 +151,7 @@ body{
 
 .show .msg_input{
 	left: auto;
-	right: -0.08rem;
+	right: -0.07rem;
 	transform:rotate(180deg);
 	-ms-transform:rotate(180deg); 	/* IE 9 */
 	-moz-transform:rotate(180deg); 	/* Firefox */
