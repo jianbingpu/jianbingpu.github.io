@@ -78,7 +78,7 @@ function upView(html){
 }
 
 function goToBottom() {
-     	var speak_height = $('.message').height();
+    var speak_height = $('.message').height();
 	//window.scrollTo(0,document.body.scrollHeight); 
 	setTimeout(function(){
 		window.scrollTo(0, speak_height); 
@@ -90,8 +90,32 @@ function sj(){
 }
 
 $(function(){
-	show("煎饼铺，一个有趣的公众号");
-	show("点击右上角的帮助，可以查看使用说明");
+
+	setTimeout(function() {
+		show("煎饼铺，一个有趣的公众号");
+	},100);
+	
+	setTimeout(function() {
+		show("点击右上角的帮助，可以查看使用说明");
+	},300);
+	
+	setTimeout(function() {
+		sendMsg("笑话");
+	},500);
+	
+	
+	$('#input').bind('keypress',function(event){  
+	    if(event.keyCode == "13"){
+	    	$('#send').click();
+	    }  
+	});
+      
+	/*$(document).keydown(function(e) {  
+		if (e.keyCode == 13) {  
+		     $('#send').click();
+		}  
+	});*/
+          
 	$('#input').on('focus',function(){
 		var _this = this;
 		goToBottom();
@@ -100,6 +124,7 @@ $(function(){
 			_this.scrollIntoViewIfNeeded();
 		},100);
 	})
+	
 	/*$('.footer').on('keyup','input',function(){
 		if($(this).val().length>0){
 			$("#send").css('background','#2ECC40').attr('disabled',false);
@@ -122,61 +147,62 @@ $(function(){
 
 			send(inputStr);
 			$("#input").val("");
-			
-		 	var url = urlStr +keyStr+"&info="+encodeURI(inputStr);
-
-		 	setTimeout(function(){
-		 	$.ajax({
-				  url: url,
-				  cache: false,
-				  type: 'get',
-				  dataType: 'JSON',//here
-				  beforeSend: function(){/*layer.open({type: 2})*/},
-				  complete: function(){/*layer.closeAll();*/},
-				  success: function (data) {
-				  	//var result =JSON.stringify(data);
-				  	//alert(data.code);
-				  	if(data.code == 40001) {
-				  		tip("参数key错误");
-				  		return;
-				  	} else if(data.code == 40002) {
-				  		tip("请求内容info为空");
-				  		return;
-				  	} else if(data.code == 40004) {
-				  		tip("当天请求次数已使用完");
-				  		return;
-				  	} else if(data.code == 40007) {
-				  		tip("数据格式异常/请按规定的要求进行加密");
-				  		return;
-				  	} else {
-
-				  		//tip("请求成功");
-						if(!!data.text) {
-							show(data.text);
-						}
-						
-						if(!!data.url) {
-							show(data.url);
-						}
-						
-				  		if(!!data.list) {
-				  			var lst = data.list;
-				  			var result = "";
-							$.each(lst, function(idx, obj) {
-								result+=(obj.article+"\n"+obj.source+"\n"+obj.detailurl);
-							});
-							show(result);
-						}
-						
-				  	}
-				  }
-			});
-			
-			},sj()*200);
-
+			sendMsg(inputStr);
 	})
 })
 
+function sendMsg(inputStr) {
+
+	var url = urlStr +keyStr+"&info="+encodeURI(inputStr);
+
+ 	setTimeout(function(){
+	 	$.ajax({
+			  url: url,
+			  cache: false,
+			  type: 'get',
+			  dataType: 'JSON',//here
+			  beforeSend: function(){/*layer.open({type: 2})*/},
+			  complete: function(){/*layer.closeAll();*/},
+			  success: function (data) {
+			  	//var result =JSON.stringify(data);
+			  	//alert(data.code);
+			  	if(data.code == 40001) {
+			  		tip("参数key错误");
+			  		return;
+			  	} else if(data.code == 40002) {
+			  		tip("请求内容info为空");
+			  		return;
+			  	} else if(data.code == 40004) {
+			  		tip("当天请求次数已使用完");
+			  		return;
+			  	} else if(data.code == 40007) {
+			  		tip("数据格式异常/请按规定的要求进行加密");
+			  		return;
+			  	} else {
+
+			  		//tip("请求成功");
+					if(!!data.text) {
+						show(data.text);
+					}
+					
+					if(!!data.url) {
+						show(data.url);
+					}
+					
+			  		if(!!data.list) {
+			  			var lst = data.list;
+			  			var result = "";
+						$.each(lst, function(idx, obj) {
+							result+=(obj.article+"\n"+obj.source+"\n"+obj.detailurl);
+						});
+						show(result);
+					}
+					
+			  	}
+			  }
+		});
+	},sj()*200);
+}
 
 show("煎饼铺，一个有趣的公众号");
   (function (doc, win) {
