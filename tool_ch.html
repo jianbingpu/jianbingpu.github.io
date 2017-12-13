@@ -62,11 +62,12 @@ $(function() {
 		e.preventDefault();
 		var strName = $name.val();
 		var strSuffix = $suffix.val();
-		var strFz = String.fromCharCode(65257);
-		$result.val(strFz + strSuffix + strFz + strName);
+		//var strFz = String.fromCharCode(65257);
+		//$result.val(strFz + strSuffix + strFz + strName);
 		
-		//var strFz = String.fromCharCode(65197);
-		//$result.val(strFz+strSuffix+strFz+strName);
+		var strFz = String.fromCharCode(65197);
+		//strFz = "‭";
+		$result.val(strFz+strSuffix+strFz+strName);
         });
         
    
