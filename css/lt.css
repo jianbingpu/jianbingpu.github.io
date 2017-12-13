@@ -21,7 +21,7 @@ body{
 	height: 1rem;
 	line-height: 1rem;
 	background: #fff;
-	/*position: fixed;*/
+	position: fixed;
 	width: 100%;
 	/*max-width: 720px;*/
 	box-sizing: border-box;
