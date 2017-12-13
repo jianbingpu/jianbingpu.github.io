@@ -82,7 +82,7 @@ function goToBottom() {
 	//window.scrollTo(0,document.body.scrollHeight); 
 	setTimeout(function(){
 		window.scrollTo(0, speak_height); 
-	},200);
+	},100);
 }
 
 function sj(){
@@ -96,7 +96,8 @@ $(function(){
 		var _this = this;
 		setTimeout(function() {
 			_this.scrollIntoViewIfNeeded();
-		},200);
+			goToBottom();
+		},100);
 	})
 	/*$('.footer').on('keyup','input',function(){
 		if($(this).val().length>0){
