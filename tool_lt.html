@@ -106,9 +106,11 @@ function upView(html){
 }
 
 function goToBottom() {
-    var speak_height = $('.message').height();
-	//window.scrollTo(0,document.body.scrollHeight); 
-	window.scrollTo(0, speak_height); 
+	setTimeout(function(){
+	    var speak_height = $('.message').height();
+		//window.scrollTo(0,document.body.scrollHeight); 
+		window.scrollTo(0, speak_height);
+	},200) 
 }
 
 function sj(){
@@ -153,7 +155,7 @@ $(function(){
 			var _this = this;
 			this.scrollIntoView(true);
 			_this.scrollIntoViewIfNeeded();
-		},600)
+		},500)
 	})
 	
 	/*$('.footer').on('keyup','input',function(){
