@@ -56,11 +56,31 @@ function tutorial() {
 	cont += "<b>城市邮编</b>：北京邮编；包头邮编是什么";
 	pop("机器人教程", cont);
 }
- 	
+
+
+function selectText(element) {
+    //var text = document.getElementById(element);
+    if (document.body.createTextRange) {
+        var range = document.body.createTextRange();
+        range.moveToElementText(element);
+        range.select();
+    } else if (window.getSelection) {
+        var selection = window.getSelection();
+        var range = document.createRange();
+        range.selectNodeContents(element);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        /*if(selection.setBaseAndExtent){
+            selection.setBaseAndExtent(text, 0, text, 1);
+        }*/
+    } else {
+        tip("不支持选中，手动选择");
+    }
+}
  	
 /*接受消息*/
 function show(str){
-	var html="<div class='send'><div class='time' style='display:none'>12/12 06:06</div><div class='msg'><img src='img/jbpLogo.png' />"+
+	var html="<div class='send'><div class='time' style='display:none'>12/12 06:06</div><div class='msg' onclick='selectText(this)'><img src='img/jbpLogo.png' />"+
 	"<p><i class='msg_input msg_arrow_show'></i>"+str+"</p></div></div>";
 	upView(html);
 }
@@ -73,7 +93,7 @@ function toUrl(url){
 
 /*发送消息*/
 function send(str){
-	var html="<div class='show'><div class='time' style='display:none'>12/12 06:06</div><div class='msg'><img src='img/weixinLogo.jpg'/>"+
+	var html="<div class='show'><div class='time' style='display:none'>12/12 06:06</div><div class='msg' onclick='selectText(this)'><img src='img/weixinLogo.jpg'/>"+
 	"<p style='background: #A3E56F;'><i class='msg_input msg_arrow_send'></i>"+str+"</p></div></div>";
 	upView(html);
 }
@@ -103,7 +123,7 @@ $(function(){
 	
 	setTimeout(function() {
 		show("点击右上角的帮助，可以查看使用说明");
-	},500);
+	},300);
 	
 	/*
 	setTimeout(function() {
@@ -112,8 +132,8 @@ $(function(){
 	
 	setTimeout(function() {
 		sendMsg("笑话");
-	},500);*/
-	
+	},500);
+	*/
 	
 	$('#input').bind('keypress',function(event){  
 	    if(event.keyCode == "13"){
@@ -129,9 +149,11 @@ $(function(){
           
 	$('#input').on('focus',function(){
 		goToBottom();
-		var _this = this;
-		_this.scrollIntoView(true);
-		_this.scrollIntoViewIfNeeded();
+		setTimeout(function(){
+			var _this = this;
+			this.scrollIntoView(true);
+			_this.scrollIntoViewIfNeeded();
+		},600)
 	})
 	
 	/*$('.footer').on('keyup','input',function(){
