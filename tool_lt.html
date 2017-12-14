@@ -169,9 +169,10 @@ $(function(){
           
 	$('#input').on('focus',function(){
 		goToBottom();
+
+		var _this = this;
 		setTimeout(function(){
-			var _this = this;
-			this.scrollIntoView(true);
+			_this.scrollIntoView(true);
 			_this.scrollIntoViewIfNeeded();
 		},500)
 	})
