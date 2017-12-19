@@ -309,10 +309,10 @@ default = {
 								if (e) {
 									alert(3);
 									try{
-									i.toBlob(function(e) {
-										t.img = getObjectURL(e),
+								//	i.toBlob(function(e) {
+										t.img = i.toDataURL(),
 										n.clearRect(0, 0, i.clientWidth, i.clientHeight)
-									});
+								//	});
 								}catch(e){alert(e)}
 								}
 							}
