@@ -281,10 +281,9 @@ default = {
 					n = i.getContext("2d");
 				
 					new Promise(function(t, o) {
-					
 						var r = new Image;
 						r.onload = function() {
-							alert(2)
+							alert(1)
 							var e = r.width,
 							o = r.height,
 							a = e / o,
@@ -296,17 +295,16 @@ default = {
 							a < s ? (l = 0, c = (o - (d = (p = e) / s)) / 2) : (d = o, c = 0, l = (e - (p = o * s)) / 2),
 							/*alert("l:"+l+" c:"+c+" p:"+p+" d:"+d+ " i.clientWidth:"+i.clientWidth+"i.clientHeight:"+i.clientHeight);*/
 							n.drawImage(r, l, c, p, d, 0, 0, i.clientWidth, i.clientHeight),
+									alert(2);
 							t(!0)
 						},
 						setTimeout(function() {
-							alert(e);
 							r.src = e
-							alert(1);
-						},500);
+						},200);
 					}).then(function(e) {
 						e && i.toBlob(function(e) {
 							setTimeout(function() {
-							alert(URL.createObjectURL(e));
+							alert(4);
 							t.img = URL.createObjectURL(e),
 							n.clearRect(0, 0, i.clientWidth, i.clientHeight)
 							},300);
@@ -502,7 +500,7 @@ function(e, t) {
 			},
 				[i("h3", [e._v("选择模板：")]), e._v(" "), i("button", {
 				attrs: {
-					disabled: !(null != e.styleIndex && e.img)
+					disabled: !((null != e.styleIndex && e.img) && alert(e.styleIndex) && alert(e.img) )
 				},
 				on: {
 					click: function(t) {
