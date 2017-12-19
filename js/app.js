@@ -507,7 +507,7 @@ function(e, t) {
 			},
 				[i("h3", [e._v("选择模板：")]), e._v(" "), i("button", {
 				attrs: {
-					disabled: !((null != e.styleIndex && e.img) && alert(e.styleIndex) && alert(e.img) )
+					disabled: !((null != e.styleIndex && e.img))
 				},
 				on: {
 					click: function(t) {
