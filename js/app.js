@@ -284,6 +284,7 @@ default = {
 					
 						var r = new Image;
 						r.onload = function() {
+							alert(2)
 							var e = r.width,
 							o = r.height,
 							a = e / o,
@@ -297,15 +298,18 @@ default = {
 							n.drawImage(r, l, c, p, d, 0, 0, i.clientWidth, i.clientHeight),
 							t(!0)
 						},
-
-						r.src = e
+						setTimeout(function() {
+							alert(e);
+							r.src = e
+							alert(1);
+						},500);
 					}).then(function(e) {
 						e && i.toBlob(function(e) {
 							setTimeout(function() {
 							alert(URL.createObjectURL(e));
 							t.img = URL.createObjectURL(e),
 							n.clearRect(0, 0, i.clientWidth, i.clientHeight)
-							},200);
+							},300);
 						})
 					})
 				})
