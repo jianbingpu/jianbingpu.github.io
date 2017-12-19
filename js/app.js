@@ -282,6 +282,7 @@ default = {
 					new Promise(function(t, o) {
 						var r = new Image;
 						r.onload = function() {
+							alert(1);
 							var e = r.width,
 							o = r.height,
 							a = e / o,
@@ -290,13 +291,15 @@ default = {
 							c = void 0,
 							d = void 0,
 							p = void 0;
+							setTimeout(function() {
 							a < s ? (l = 0, c = (o - (d = (p = e) / s)) / 2) : (d = o, c = 0, l = (e - (p = o * s)) / 2),
 							n.drawImage(r, l, c, p, d, 0, 0, i.clientWidth, i.clientHeight),
 							t(!0)
+							},200);
 						},
-						setTimeout(function() {
-							r.src = e
-						},500);
+						
+						r.src = e
+						
 					}).then(function(e) {
 						e && i.toBlob(function(e) {
 							t.img = URL.createObjectURL(e),
