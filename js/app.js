@@ -283,7 +283,6 @@ default = {
 					new Promise(function(t, o) {
 						var r = new Image;
 						r.onload = function() {
-							alert(1)
 							var e = r.width,
 							o = r.height,
 							a = e / o,
@@ -295,7 +294,6 @@ default = {
 							a < s ? (l = 0, c = (o - (d = (p = e) / s)) / 2) : (d = o, c = 0, l = (e - (p = o * s)) / 2),
 							/*alert("l:"+l+" c:"+c+" p:"+p+" d:"+d+ " i.clientWidth:"+i.clientWidth+"i.clientHeight:"+i.clientHeight);*/
 							n.drawImage(r, l, c, p, d, 0, 0, i.clientWidth, i.clientHeight),
-									alert(2);
 							t(!0)
 						},
 
@@ -307,13 +305,10 @@ default = {
 							t.img = getObjectURL(e),
 							n.clearRect(0, 0, i.clientWidth, i.clientHeight)})*/
 								if (e) {
-									alert(3);
 									try{
-								//	i.toBlob(function(e) {
 										t.img = i.toDataURL(),
 										n.clearRect(0, 0, i.clientWidth, i.clientHeight)
-								//	});
-								}catch(e){alert(e)}
+									}catch(e){alert(e)}
 								}
 							}
 							)
@@ -327,10 +322,14 @@ default = {
 				new Promise(function(t, o) {
 					var r = new Image;
 					r.onload = function() {
+						alert(1)
 						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 						t(!0)
 					},
-					r.src = e.img
+							
+					setTimeout(function() {
+						r.src = e.img
+					},200);
 				}).then(function(o) {
 					o && new Promise(function(e, o) {
 						var r = new Image;
