@@ -84,6 +84,17 @@ var temp = '<label>'+
 '	<input type="radio" value="#id">'+
 '</label>';
 
+function getObjectURL(file) {
+    var url = null ; 
+    if (window.createObjectURL!=undefined) { // basic
+        url = window.createObjectURL(file) ;
+    } else if (window.URL!=undefined) { // mozilla(firefox)
+        url = window.URL.createObjectURL(file) ;
+    } else if (window.webkitURL!=undefined) { // webkit or chrome
+        url = window.webkitURL.createObjectURL(file) ;
+    }
+    return url ;
+}
 $(function(){ 
 	for (i=0;i<templete.length;i++) {
 		result += replaceAll(temp, "#id", i);

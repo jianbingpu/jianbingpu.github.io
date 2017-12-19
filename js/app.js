@@ -275,7 +275,7 @@ default = {
 				var t = this;
 				new Promise(function(t, i) {
 					var n = e.srcElement.files[0];
-					n && t(URL.createObjectURL(n))
+					n && t(getObjectURL(n))
 				}).then(function(e) {
 					var i = document.querySelector("canvas"),
 					n = i.getContext("2d");
@@ -298,14 +298,15 @@ default = {
 									alert(2);
 							t(!0)
 						},
+
 						setTimeout(function() {
-							r.src = e
+							 r.src = e
 						},200);
 					}).then(function(e) {
 						e && i.toBlob(function(e) {
 							setTimeout(function() {
-							alert(4);
-							t.img = URL.createObjectURL(e),
+							alert(3);
+							t.img = getObjectURL(e),
 							n.clearRect(0, 0, i.clientWidth, i.clientHeight)
 							},300);
 						})
