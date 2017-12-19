@@ -279,7 +279,9 @@ default = {
 				}).then(function(e) {
 					var i = document.querySelector("canvas"),
 					n = i.getContext("2d");
+				
 					new Promise(function(t, o) {
+						setTimeout(function() {
 						var r = new Image;
 						r.onload = function() {
 							var e = r.width,
@@ -290,16 +292,14 @@ default = {
 							c = void 0,
 							d = void 0,
 							p = void 0;
-							alert (a<s)
-							//setTimeout(function() {
-							a < s ? (l = 0, c = (o - (d = (p = e) / s)) / 2) : (d = o, c = 0, l = (e - (p = o * s)) / 2),alert("l:"+l+" c:"+c+" p:"+p+" d:"+d+ " i.clientWidth:"+i.clientWidth+"i.clientHeight:"+i.clientHeight);
+							a < s ? (l = 0, c = (o - (d = (p = e) / s)) / 2) : (d = o, c = 0, l = (e - (p = o * s)) / 2),
+							/*alert("l:"+l+" c:"+c+" p:"+p+" d:"+d+ " i.clientWidth:"+i.clientWidth+"i.clientHeight:"+i.clientHeight);*/
 							n.drawImage(r, l, c, p, d, 0, 0, i.clientWidth, i.clientHeight),
 							t(!0)
-								
-							//},200);
 						},
-						
-						r.src = e
+
+						r.src = e;
+						},200);
 						
 					}).then(function(e) {
 						e && i.toBlob(function(e) {
@@ -331,6 +331,7 @@ default = {
 						r.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1125 2436"><path d="' + t.svg_path + '"/></svg>'
 					}).then(function(o) {
 						e.resultUrl = i.toDataURL(),
+							alert(i.toDataURL());
 						n.clearRect(0, 0, i.clientWidth, i.clientHeight),
 						axios.put("/temp/" + t.id)
 					})
