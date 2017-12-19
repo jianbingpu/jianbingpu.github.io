@@ -281,7 +281,7 @@ default = {
 					n = i.getContext("2d");
 				
 					new Promise(function(t, o) {
-						setTimeout(function() {
+					
 						var r = new Image;
 						r.onload = function() {
 							var e = r.width,
@@ -298,13 +298,14 @@ default = {
 							t(!0)
 						},
 
-						r.src = e;
-						},200);
-						
+						r.src = e
 					}).then(function(e) {
 						e && i.toBlob(function(e) {
+							setTimeout(function() {
+							alert(URL.createObjectURL(e));
 							t.img = URL.createObjectURL(e),
 							n.clearRect(0, 0, i.clientWidth, i.clientHeight)
+							},200);
 						})
 					})
 				})
@@ -331,7 +332,6 @@ default = {
 						r.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1125 2436"><path d="' + t.svg_path + '"/></svg>'
 					}).then(function(o) {
 						e.resultUrl = i.toDataURL(),
-							alert(i.toDataURL());
 						n.clearRect(0, 0, i.clientWidth, i.clientHeight),
 						axios.put("/temp/" + t.id)
 					})
