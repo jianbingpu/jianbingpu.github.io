@@ -303,14 +303,20 @@ default = {
 							 r.src = e
 						},200);
 					}).then(function(e) {
-						e && i.toBlob(function(e) {
-							setTimeout(function() {
-							alert(3);
+					/*e && i.toBlob(function(e) {
 							t.img = getObjectURL(e),
-							n.clearRect(0, 0, i.clientWidth, i.clientHeight)
-							},300);
-						})
-					})
+							n.clearRect(0, 0, i.clientWidth, i.clientHeight)})*/
+								if (e) {
+									alert(3);
+									try{
+									i.toBlob(function(e) {
+										t.img = getObjectURL(e),
+										n.clearRect(0, 0, i.clientWidth, i.clientHeight)
+									});
+								}catch(e){alert(e)}
+								}
+							}
+							)
 				})
 			},
 			bulid: function() {
