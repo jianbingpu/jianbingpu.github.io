@@ -322,23 +322,27 @@ default = {
 				new Promise(function(t, o) {
 					var r = new Image;
 					r.onload = function() {
-						alert(1)
+						alert(11)
 						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 						t(!0)
 					},
 							
 					setTimeout(function() {
 						r.src = e.img
-					},200);
+					},300);
 				}).then(function(o) {
 					o && new Promise(function(e, o) {
 						var r = new Image;
 						r.onload = function() {
+							alert(22)
 							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 							e(!0)
 						},
-						r.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1125 2436"><path d="' + t.svg_path + '"/></svg>'
+						setTimeout(function() {
+							r.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1125 2436"><path d="' + t.svg_path + '"/></svg>'
+						},300);
 					}).then(function(o) {
+								alert(33),
 						e.resultUrl = i.toDataURL(),
 						n.clearRect(0, 0, i.clientWidth, i.clientHeight),
 						axios.put("/temp/" + t.id)
