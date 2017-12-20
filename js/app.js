@@ -282,37 +282,37 @@ default = {
 					var i = document.querySelector("canvas"),
 					n = i.getContext("2d");
 					new Promise(function(t, o) {
-						var r = new Image;
-						var rr = new Image;
+
 						var reader = new FileReader();
+						reader.addEventListener('loadend', function (e) {
+							if (e.target.readyState == FileReader.DONE) {
+									var r = new Image;
+									var rr = new Image;alert(123);
+									r.onload = function() {
+										var e = r.width,
+										o = r.height,
+										a = e / o,
+										s = i.clientWidth / i.clientHeight,
+										l = void 0,
+										c = void 0,
+										d = void 0,
+										p = void 0;
+										a < s ? (l = 0, c = (o - (d = (p = e) / s)) / 2) : (d = o, c = 0, l = (e - (p = o * s)) / 2),
+										/*alert("l:"+l+" c:"+c+" p:"+p+" d:"+d+ " i.clientWidth:"+i.clientWidth+"i.clientHeight:"+i.clientHeight);*/
+										n.drawImage(r, l, c, p, d, 0, 0, i.clientWidth, i.clientHeight),
+										t(!0)
+									},
+									rr.onload = function() {
+										setTimeout(function() {
+											var ss = modifyImg(n,rr);
+											//console.log(ss);
+											r.src = ss;
+										},100);
+									}
+									rr.src = this.result;
+							}
+						}, false);
 						reader.readAsDataURL(e);
-						r.onload = function() {
-							var e = r.width,
-							o = r.height,
-							a = e / o,
-							s = i.clientWidth / i.clientHeight,
-							l = void 0,
-							c = void 0,
-							d = void 0,
-							p = void 0;
-							a < s ? (l = 0, c = (o - (d = (p = e) / s)) / 2) : (d = o, c = 0, l = (e - (p = o * s)) / 2),
-							/*alert("l:"+l+" c:"+c+" p:"+p+" d:"+d+ " i.clientWidth:"+i.clientWidth+"i.clientHeight:"+i.clientHeight);*/
-							n.drawImage(r, l, c, p, d, 0, 0, i.clientWidth, i.clientHeight),
-							t(!0)
-						},
-						rr.onload = function() {
-							//setTimeout(function() {
-								var ss = modifyImg(n,rr);
-								console.log(ss);
-							r.src = ss;
-							//},100);
-						},
-						reader.onload = function(e) {
-							//alert(this.result);
-							rr.src = this.result;
-						}
-
-
 					}).then(function(e) {
 					/*e && i.toBlob(function(e) {
 							t.img = getObjectURL(e),
