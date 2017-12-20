@@ -322,32 +322,28 @@ default = {
 				new Promise(function(t, o) {
 					var r = new Image;
 					r.onload = function() {
-						alert(11)
 						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 						t(!0)
 					},
 							
 					setTimeout(function() {
 						r.src = e.img
-					},300);
+					},100);
 				}).then(function(o) {
 					o && new Promise(function(e, o) {
 						var r = new Image;
 						r.onload = function() {
-							alert(22)
 							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 							e(!0)
 						},
 						setTimeout(function() {
 							r.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1125 2436"><path d="' + t.svg_path + '"/></svg>'
-						},300);
+						},100);
 					}).then(function(o) {
-						alert(33),
-							
 						setTimeout(function() {
-							try {
-							e.resultUrl = i.toDataURL(),
-							alert(i.toDataURL()),
+							try {alert(i.toDataURL('image/jpg')),
+							e.resultUrl = i.toDataURL('image/jpg'),
+							alert(33)
 							n.clearRect(0, 0, i.clientWidth, i.clientHeight),
 							alert(44)
 								}catch(e){alert(e)}
