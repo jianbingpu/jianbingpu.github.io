@@ -394,7 +394,7 @@ function(e, t, i) {
 		return t("p", {
 			staticClass: "tip"
 		},
-			[t("span", [this._v("长按图片保存到手机")]), this._v(" "), t("span", [this._v("更多功能，请关注我们的微信公众号")]), this._v(" "), t("a", {
+			[t("span", [this._v("长按图片保存到手机")]), this._v(" "), t("span", [this._v("更多功能，请关微信公众号:煎饼铺")]), this._v(" "), t("a", {
 			attrs: {
 				href: "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI4NjYxMTk5Mw==&scene=4#wechat_redirect"
 			}
