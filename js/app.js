@@ -318,7 +318,7 @@ default = {
 			bulid: function() {
 				var e = this,
 				t = this.styleList[this.styleIndex],
-				i = document.querySelector("canvas"),
+				i = document.getElementById("c2");//document.querySelector("canvas"),
 				n = i.getContext("2d");
 				new Promise(function(t, o) {
 					var r = new Image;
@@ -341,12 +341,12 @@ default = {
 
 					}).then(function(o) {
 						setTimeout(function() {
-							try {alert(333),
+							try {alert(3),
 							e.resultUrl = i.toDataURL('image/jpg'),
 							//e.resultUrl = e.img,
-							
+							alert(3.5),
 							n.clearRect(0, 0, i.clientWidth, i.clientHeight),
-							alert(44)
+							alert(4)
 								}catch(e){alert(e)}
 							//axios.put("/temp/" + t.id)
 							},300);
@@ -582,7 +582,7 @@ function(e, t) {
 			[t("canvas", {
 				attrs: {
 					width: "1125",
-					height: "2436"
+					height: "2436",
 				}
 			})])
 		}]
