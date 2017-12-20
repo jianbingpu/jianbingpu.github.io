@@ -343,12 +343,15 @@ default = {
 						},300);
 					}).then(function(o) {
 						alert(33),
-						setTimeout(function() {			
+							
+						setTimeout(function() {
+							try {
 							e.resultUrl = i.toDataURL(),
 							n.clearRect(0, 0, i.clientWidth, i.clientHeight),
 							alert(44)
+								}catch(e){alert(e)}
 							//axios.put("/temp/" + t.id)
-							},300);
+},300);
 					})
 				})
 			}
