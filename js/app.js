@@ -347,6 +347,7 @@ default = {
 						setTimeout(function() {
 							try {
 							e.resultUrl = i.toDataURL(),
+							alert(i.toDataURL()),
 							n.clearRect(0, 0, i.clientWidth, i.clientHeight),
 							alert(44)
 								}catch(e){alert(e)}
