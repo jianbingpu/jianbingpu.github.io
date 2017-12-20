@@ -150,7 +150,10 @@ function modifyImg(file,image,Orientation) {
 		canvas.height = expectHeight;
 
 		//document.body.appendChild(canvas);
-		ctx.drawImage(img, 0, 0, expectWidth, expectHeight);
+		setTimeout(function() {
+			ctx.drawImage(img, 0, 0, expectWidth, expectHeight);
+			tip("ok");
+		},200);
 		// 修复android
 		if (navigator.userAgent.match(/Android/i)) {
 			/*var encoder = new JPEGEncoder();

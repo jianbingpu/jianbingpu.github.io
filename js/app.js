@@ -284,11 +284,12 @@ default = {
 		
 				//获取照片方向角属性，用户旋转控制
 				EXIF.getData(e.srcElement.files[0], function() {
+				
 					// alert(EXIF.pretty(this));
 					EXIF.getAllTags(this); 
 					//alert(EXIF.getTag(this, 'Orientation')); 
 					var Orientation = EXIF.getTag(this, 'Orientation');
-
+					tip("获取照片方向角");
 					new Promise(function(t, i) {
 						var n = e.srcElement.files[0];
 						 n && t(n)
@@ -301,8 +302,10 @@ default = {
 							if (ee.target.readyState == FileReader.DONE) {
 									var r = new Image;
 									r.src = ee.target.result;
+									tip("设定完成");
 									setTimeout(function() {
 										r.onload = function() {
+											tip("加载完成");
 											var e = r.width,
 											o = r.height,
 											a = e / o,
@@ -318,8 +321,8 @@ default = {
 										}
 										
 										var aa =  modifyImg(e,r,Orientation);
-										r.src =aa;
-									},100);
+										r.src = aa;
+									},200);
 
 								}
 							}, false);
