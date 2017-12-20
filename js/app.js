@@ -189,10 +189,10 @@ function(e, t, i) {
 	});
 	var n = i(36),
 	o = i.n(n);
-	window.axios = i(1),
+	/*window.axios = i(1),
 	window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 	var r = document.head.querySelector('meta[name="csrf-token"]');
-	r && (window.axios.defaults.headers.common["X-CSRF-TOKEN"] = r.content),
+	r && (window.axios.defaults.headers.common["X-CSRF-TOKEN"] = r.content),*/
 	window.Vue = i(10),
 	Vue.config.productionTip = !1,
 	new Vue({
@@ -274,6 +274,7 @@ default = {
 		methods: {
 			chooseImg: function(e) {
 				var t = this;
+				layer.open({type: 2});
 				new Promise(function(t, i) {
 					var n = e.srcElement.files[0];
 					n && t(getObjectURL(n))
@@ -310,10 +311,12 @@ default = {
 									n.clearRect(0, 0, i.clientWidth, i.clientHeight)
 								}catch(e){alert(e)}
 							}
+							layer.closeAll();
 					})
 				})
 			},
 			bulid: function() {
+				layer.open({type: 2});
 				var e = this,
 				t = this.styleList[this.styleIndex],
 				i = document.createElement("canvas"),
@@ -349,6 +352,7 @@ default = {
 							}catch(e){alert(e)}
 							
 						},100);
+						layer.closeAll();
 					})
 				})
 			}
