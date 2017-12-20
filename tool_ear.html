@@ -151,8 +151,8 @@ function modifyImg(file,image,Orientation) {
 
 		//document.body.appendChild(canvas);
 		setTimeout(function() {
+			tip(expectWidth+":"+expectHeight);
 			ctx.drawImage(img, 0, 0, expectWidth, expectHeight);
-			tip("ok");
 		},200);
 		// 修复android
 		if (navigator.userAgent.match(/Android/i)) {
