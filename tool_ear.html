@@ -172,15 +172,15 @@ function modifyImg(file,img) {
 				//tip('自动旋转处理');
 				switch(Orientation){
 				 	case 6://需要顺时针（向左）90度旋转
-				 		//tip('自动旋转处理，需要顺时针（向左）90度旋转');
+				 		alert('自动旋转处理，需要顺时针（向左）90度旋转');
 				 		rotateImg(img,'left',canvas);
 				 		break;
 				 	case 8://需要逆时针（向右）90度旋转
-				 		//tip('自动旋转处理，需要顺时针（向右）90度旋转');
+				 		alert('自动旋转处理，需要顺时针（向右）90度旋转');
 				 		rotateImg(img,'right',canvas);
 				 		break;
 				 	case 3://需要180度旋转
-				 		//tip('自动旋转处理，需要180度旋转');
+				 		alert('自动旋转处理，需要180度旋转');
 						rotateImg(img,'right',canvas);//转两次
 						rotateImg(img,'right',canvas);
 						break;

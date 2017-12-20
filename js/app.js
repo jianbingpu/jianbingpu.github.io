@@ -303,7 +303,6 @@ default = {
 						rr.onload = function() {
 							//setTimeout(function() {
 								var ss = modifyImg(n,rr);
-								alert(ss );
 								console.log(ss);
 							r.src = ss;
 							//},100);
