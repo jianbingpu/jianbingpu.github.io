@@ -274,6 +274,12 @@ default = {
 		methods: {
 			chooseImg: function(e) {
 				var t = this;
+				var file = e.srcElement.files[0];
+				if(!file || !/image\/\w+/.test(file.type)){   
+					tip("请上传图片"); 
+					return false; 
+				}
+				
 				layer.open({type: 2});
 		
 				//获取照片方向角属性，用户旋转控制
