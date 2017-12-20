@@ -102,14 +102,13 @@ $(function() {
 			var Orientation = null;
 			var expectWidth = img.naturalWidth;
 			var expectHeight = img.naturalHeight;
-			alert(expectWidth);
 			//获取照片方向角属性，用户旋转控制
 			EXIF.getData(file, function() {
 			   // alert(EXIF.pretty(this));
 			    EXIF.getAllTags(this); 
 			    //alert(EXIF.getTag(this, 'Orientation')); 
 			    Orientation = EXIF.getTag(this, 'Orientation');
-			    alert(Orientation);
+			    //alert("Orientation1:"+Orientation);
 			    //return;
 			});
 			
@@ -135,7 +134,7 @@ $(function() {
 				base64 = canvas.toDataURL("image/jpeg");
 			// 修复iOS or other
 			} else {
-				//alert(Orientation);
+				//alert("Orientation2:"+Orientation);
 				if(Orientation != "" && Orientation != 1){
 					//tip('自动旋转处理');
 					switch(Orientation){

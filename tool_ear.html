@@ -131,37 +131,26 @@ function rotateImg(img, direction, canvas) {
         }  
     } 
 	    
-function modifyImg(file,img) {
+function modifyImg(file,image,Orientation) {
 		// 图片方向角
-		var Orientation = null;
+		var img = image;
 		var expectWidth = img.naturalWidth;
 		var expectHeight = img.naturalHeight;
-		alert(expectWidth);
-		//获取照片方向角属性，用户旋转控制
-		EXIF.getData(file, function() {
-		   // alert(EXIF.pretty(this));
-		    EXIF.getAllTags(this); 
-		    //alert(EXIF.getTag(this, 'Orientation')); 
-		    Orientation = EXIF.getTag(this, 'Orientation');
-		    alert(Orientation);
-		    //return;
-		});
-		
-		if (img.naturalWidth > img.naturalHeight && img.naturalWidth > 800) {
-			expectWidth = 800;
-			expectHeight = expectWidth * img.naturalHeight / img.naturalWidth;
-		} else if (img.naturalHeight > img.naturalWidth && img.naturalHeight > 1200) {
+		var base64 = null;
+		if (expectWidth > expectHeight && expectWidth > 800) {
+				expectWidth = 800;
+				expectHeight = expectWidth * expectHeight / expectWidth;
+		} else if (expectHeight > expectWidth && expectHeight > 1200) {
 			expectHeight = 1200;
-			expectWidth = expectHeight * img.naturalWidth / img.naturalHeight;
+			expectWidth = expectHeight * expectWidth / expectHeight;
 		}
 		var canvas = document.createElement("canvas");
 		var ctx = canvas.getContext("2d");
 		canvas.width = expectWidth;
 		canvas.height = expectHeight;
+
 		//document.body.appendChild(canvas);
 		ctx.drawImage(img, 0, 0, expectWidth, expectHeight);
-		var base64 = null;
-
 		// 修复android
 		if (navigator.userAgent.match(/Android/i)) {
 			/*var encoder = new JPEGEncoder();
@@ -169,20 +158,19 @@ function modifyImg(file,img) {
 			base64 = canvas.toDataURL("image/jpeg");
 		// 修复iOS or other
 		} else {
-			alert(Orientation);
 			if(Orientation != "" && Orientation != 1){
 				//tip('自动旋转处理');
 				switch(Orientation){
 				 	case 6://需要顺时针（向左）90度旋转
-				 		alert('自动旋转处理，需要顺时针（向左）90度旋转');
+				 		//tip('自动旋转处理，需要顺时针（向左）90度旋转');
 				 		rotateImg(img,'left',canvas);
 				 		break;
 				 	case 8://需要逆时针（向右）90度旋转
-				 		alert('自动旋转处理，需要顺时针（向右）90度旋转');
+				 		//tip('自动旋转处理，需要顺时针（向右）90度旋转');
 				 		rotateImg(img,'right',canvas);
 				 		break;
 				 	case 3://需要180度旋转
-				 		alert('自动旋转处理，需要180度旋转');
+				 		//tip('自动旋转处理，需要180度旋转');
 						rotateImg(img,'right',canvas);//转两次
 						rotateImg(img,'right',canvas);
 						break;
@@ -191,7 +179,7 @@ function modifyImg(file,img) {
 			
 			base64 = canvas.toDataURL("image/jpeg");
 		}
-		
+
 		return base64;
 }
 
@@ -253,7 +241,7 @@ $(function(){
 					</path>
 				</svg>
 			</figure>
-			<input type="file" accept="image/*" hidden="hidden">
+			<input type="file" accept="image/*" hidden="hidden" id="upload">
 		</label>
 		<p class="tip">
 			<span>
@@ -277,8 +265,8 @@ $(function(){
 	<!---->
 </div>
 
-  <script src="js/manifest.js?v=1220_2"></script>
-  <script src="js/vendor.js?v=1220_2"></script>
-  <script src="js/app.js?v=1220_2"></script>
+  <script src="js/manifest.js?v=1220_3"></script>
+  <script src="js/vendor.js?v=1220_3"></script>
+  <script src="js/app.js?v=1220_3"></script>
 </body>
 </html>

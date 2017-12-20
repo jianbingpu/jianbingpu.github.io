@@ -275,63 +275,69 @@ default = {
 			chooseImg: function(e) {
 				var t = this;
 				layer.open({type: 2});
-				new Promise(function(t, i) {
-					var n = e.srcElement.files[0];
-					n && t(n)
-					}).then(function(e) {
-					var i = document.querySelector("canvas"),
-					n = i.getContext("2d");
-					new Promise(function(t, o) {
+		
+				//获取照片方向角属性，用户旋转控制
+				EXIF.getData(e.srcElement.files[0], function() {
+					// alert(EXIF.pretty(this));
+					EXIF.getAllTags(this); 
+					//alert(EXIF.getTag(this, 'Orientation')); 
+					var Orientation = EXIF.getTag(this, 'Orientation');
 
-						var reader = new FileReader();
-						reader.addEventListener('loadend', function (e) {
-							if (e.target.readyState == FileReader.DONE) {
+					new Promise(function(t, i) {
+						var n = e.srcElement.files[0];
+						 n && t(n)
+						}).then(function(e) {
+						var i = document.querySelector("canvas"),
+						n = i.getContext("2d");
+						new Promise(function(t, o) {
+							var reader = new FileReader();
+							reader.addEventListener('loadend', function (ee) {
+							if (ee.target.readyState == FileReader.DONE) {
 									var r = new Image;
-									var rr = new Image;alert(123);
-									r.onload = function() {
-										var e = r.width,
-										o = r.height,
-										a = e / o,
-										s = i.clientWidth / i.clientHeight,
-										l = void 0,
-										c = void 0,
-										d = void 0,
-										p = void 0;
-										a < s ? (l = 0, c = (o - (d = (p = e) / s)) / 2) : (d = o, c = 0, l = (e - (p = o * s)) / 2),
-										/*alert("l:"+l+" c:"+c+" p:"+p+" d:"+d+ " i.clientWidth:"+i.clientWidth+"i.clientHeight:"+i.clientHeight);*/
-										n.drawImage(r, l, c, p, d, 0, 0, i.clientWidth, i.clientHeight),
-										t(!0)
-									},
-									rr.onload = function() {
-										setTimeout(function() {
-											var ss = modifyImg(n,rr);
-											//console.log(ss);
-											r.src = ss;
-										},100);
-									}
-									rr.src = this.result;
-							}
-						}, false);
-						reader.readAsDataURL(e);
-					}).then(function(e) {
-					/*e && i.toBlob(function(e) {
-							t.img = getObjectURL(e),
-							n.clearRect(0, 0, i.clientWidth, i.clientHeight)})*/
-							if (e) {
-								try{
-									t.img = i.toDataURL('image/jpg'),
-									n.clearRect(0, 0, i.clientWidth, i.clientHeight)
-								}catch(e){alert(e)}
-							}
-							layer.closeAll();
+									r.src = ee.target.result;
+									setTimeout(function() {
+										r.onload = function() {
+											var e = r.width,
+											o = r.height,
+											a = e / o,
+											s = i.clientWidth / i.clientHeight,
+											l = void 0,
+											c = void 0,
+											d = void 0,
+											p = void 0;
+											a < s ? (l = 0, c = (o - (d = (p = e) / s)) / 2) : (d = o, c = 0, l = (e - (p = o * s)) / 2),
+											/*alert("l:"+l+" c:"+c+" p:"+p+" d:"+d+ " i.clientWidth:"+i.clientWidth+"i.clientHeight:"+i.clientHeight);*/
+											n.drawImage(r, l, c, p, d, 0, 0, i.clientWidth, i.clientHeight),
+											t(!0)
+										}
+										
+										var aa =  modifyImg(e,r,Orientation);
+										r.src =aa;
+									},100);
+
+								}
+							}, false);
+							reader.readAsDataURL(e);
+
+						}).then(function(e) {
+						/*e && i.toBlob(function(e) {
+								t.img = getObjectURL(e),
+								n.clearRect(0, 0, i.clientWidth, i.clientHeight)})*/
+								if (e) {
+									try{
+										t.img = i.toDataURL('image/jpg'),
+										n.clearRect(0, 0, i.clientWidth, i.clientHeight)
+									}catch(e){alert(e)}
+								}
+								layer.closeAll();
+						})
 					})
-				})
+				});
 			},
 			bulid: function() {
 				layer.open({type: 2});
 				var e = this,
 				t = this.styleList[this.styleIndex],
-				i = document.createElement("canvas"),
 				i = document.querySelector("canvas"),
 				n = i.getContext("2d");
 				new Promise(function(t, o) {
