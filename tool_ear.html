@@ -137,23 +137,32 @@ function modifyImg(file,image,Orientation) {
 		var expectWidth = img.naturalWidth;
 		var expectHeight = img.naturalHeight;
 		var base64 = null;
-		/*if (expectWidth > expectHeight && expectWidth > 800) {
-				expectWidth = 800;
+		/*if (expectWidth > expectHeight && expectWidth > 1125) {
+				expectWidth = 1125;
 				expectHeight = expectWidth * expectHeight / expectWidth;
-		} else if (expectHeight > expectWidth && expectHeight > 1200) {
-			expectHeight = 1200;
+		} else if (expectHeight > expectWidth && expectHeight > 2436) {
+			expectHeight = 2436;
 			expectWidth = expectHeight * expectWidth / expectHeight;
 		}*/
+		
+		if (expectWidth > 1125) {
+			expectWidth = 1125;
+		}
+		
+		if (expectHeight > 2436) {
+			expectHeight = 2436;
+		}
+		
 		var canvas = document.createElement("canvas");
 		var ctx = canvas.getContext("2d");
 		canvas.width = expectWidth;
 		canvas.height = expectHeight;
 
 		//document.body.appendChild(canvas);
-		setTimeout(function() {
-			tip(expectWidth+":"+expectHeight);
-			ctx.drawImage(img, 0, 0, expectWidth, expectHeight);
-		},200);
+
+		//tip(expectWidth+":"+expectHeight);
+		ctx.drawImage(img, 0, 0, expectWidth, expectHeight);
+
 		// 修复android
 		if (navigator.userAgent.match(/Android/i)) {
 			/*var encoder = new JPEGEncoder();
@@ -268,8 +277,8 @@ $(function(){
 	<!---->
 </div>
 
-  <script src="js/manifest.js?v=1220_7"></script>
-  <script src="js/vendor.js?v=1220_7"></script>
-  <script src="js/app.js?v=1220_7"></script>
+  <script src="js/manifest.js?v=1220_8"></script>
+  <script src="js/vendor.js?v=1220_8"></script>
+  <script src="js/app.js?v=1220_8"></script>
 </body>
 </html>
