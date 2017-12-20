@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#v=1220_6
+#v=1220_7
 
 CACHE:
 /css/jbp.css
@@ -18,6 +18,7 @@ CACHE:
 /img/wechat.png
 /img/weixinLogo.jpg
 /img/zhishu.png
+/img/default.jpg
 
 /js/base64.js
 /js/clipboard.min.js
