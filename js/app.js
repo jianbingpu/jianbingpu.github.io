@@ -277,12 +277,15 @@ default = {
 				layer.open({type: 2});
 				new Promise(function(t, i) {
 					var n = e.srcElement.files[0];
-					n && t(getObjectURL(n))
-				}).then(function(e) {
+					n && t(n)
+					}).then(function(e) {
 					var i = document.querySelector("canvas"),
 					n = i.getContext("2d");
 					new Promise(function(t, o) {
 						var r = new Image;
+						var rr = new Image;
+						var reader = new FileReader();
+						reader.readAsDataURL(e);
 						r.onload = function() {
 							var e = r.width,
 							o = r.height,
@@ -297,10 +300,17 @@ default = {
 							n.drawImage(r, l, c, p, d, 0, 0, i.clientWidth, i.clientHeight),
 							t(!0)
 						},
+						rr.onload = function() {
+							//setTimeout(function() {
+							r.src = modifyImg(n,rr);
+							//},100);
+						},
+						reader.onload = function(e) {
+							//alert(this.result);
+							rr.src = this.result;
+						}
 
-						//setTimeout(function() {
-							 r.src = e
-						//},100);
+
 					}).then(function(e) {
 					/*e && i.toBlob(function(e) {
 							t.img = getObjectURL(e),
