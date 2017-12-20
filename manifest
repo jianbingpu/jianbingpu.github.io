@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#v=1220_3
+#v=1220_4
 
 CACHE:
 /css/jbp.css
@@ -30,6 +30,9 @@ CACHE:
 /js/jbp.js
 /js/libcanvas.js
 /js/exif.js
+/js/app.js
+/js/vendor.js
+/js/manifest.js
 
 /js/layer_mobile/layer.js
 /js/layer_mobile/need/layer.css
