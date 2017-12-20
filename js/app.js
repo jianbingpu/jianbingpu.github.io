@@ -298,9 +298,9 @@ default = {
 							t(!0)
 						},
 
-						setTimeout(function() {
+						//setTimeout(function() {
 							 r.src = e
-						},100);
+						//},100);
 					}).then(function(e) {
 					/*e && i.toBlob(function(e) {
 							t.img = getObjectURL(e),
@@ -329,9 +329,9 @@ default = {
 						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 						t(!0)
 					},
-					setTimeout(function() {	
+					//setTimeout(function() {	
 						r.src = e.img
-					},100);
+					//},100);
 				}).then(function(o) {
 					o && new Promise(function(e, o) {
 						var r = new Image;
@@ -340,18 +340,18 @@ default = {
 							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 							e(!0)
 						},
-					setTimeout(function() {
+					//setTimeout(function() {
 						r.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1125 2436"><path d="' + t.svg_path + '"/></svg>'
-					},100);
+					//},100);
 					}).then(function(o) {
-						setTimeout(function() {
+						//setTimeout(function() {
 							try {
 								e.resultUrl = i.toDataURL('image/jpg'),
 								n.clearRect(0, 0, i.clientWidth, i.clientHeight)
 								//axios.put("/temp/" + t.id)
 							}catch(e){alert(e)}
 							
-						},100);
+						//},100);
 						layer.closeAll();
 					})
 				})
