@@ -318,7 +318,10 @@ default = {
 			bulid: function() {
 				var e = this,
 				t = this.styleList[this.styleIndex],
-				i = document.getElementById("c2");//document.querySelector("canvas"),
+				i = document.createElement("canvas"),
+				
+				
+				//i = document.querySelector("canvas"),
 				n = i.getContext("2d");
 				new Promise(function(t, o) {
 					var r = new Image;
