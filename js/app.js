@@ -302,7 +302,10 @@ default = {
 						},
 						rr.onload = function() {
 							//setTimeout(function() {
-							r.src = modifyImg(n,rr);
+								var ss = modifyImg(n,rr);
+								alert(ss );
+								console.log(ss);
+							r.src = ss;
 							//},100);
 						},
 						reader.onload = function(e) {
