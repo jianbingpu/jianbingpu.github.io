@@ -7,7 +7,7 @@
   <title>耳朵壁纸生成工具</title>
   <meta name="description" content="耳朵壁纸生成工具">
   <meta name="keywords" content="耳朵壁纸生成工具">
-
+  <script src="js/jquery.js?v=1220"></script>
   <script>
 var templete = [{
 	"id": 1,
@@ -96,13 +96,14 @@ function getObjectURL(file) {
     return url ;
 }
 $(function(){ 
-	for (i=0;i<templete.length;i++) {
+	alert("ok");
+	/*for (i=0;i<templete.length;i++) {
 		result += replaceAll(temp, "#id", i);
 		result += replaceAll(temp, "#name", templete[i][name]);
-		result += replaceAll(temp, "#path", templete[i][path]);
+		result += replaceAll(temp, "#path", templete[i][svg_path]);
 	}
-	$(".wrap").html(result);
-	alert("ok")
+	$(".wrap").html(result);*/
+
 });
 </script>
 </head>
@@ -144,7 +145,7 @@ $(function(){
 	</div>
 	<!---->
 </div>
-  <script src="js/jquery.js?v=1220"></script>
+
   <script src="js/manifest.js?v=1220"></script>
   <script src="js/vendor.js?v=1220"></script>
   <script src="js/app.js?v=1220"></script>
