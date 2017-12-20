@@ -341,9 +341,9 @@ default = {
 
 					}).then(function(o) {
 						setTimeout(function() {
-							try {alert(33),
-							//e.resultUrl = i.toDataURL('image/jpg'),
-							e.resultUrl = e.img,
+							try {alert(333),
+							e.resultUrl = i.toDataURL('image/jpg'),
+							//e.resultUrl = e.img,
 							
 							n.clearRect(0, 0, i.clientWidth, i.clientHeight),
 							alert(44)
