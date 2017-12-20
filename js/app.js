@@ -343,9 +343,9 @@ r.src = logo;
 						},100);
 					}).then(function(o) {
 						setTimeout(function() {
-							try {alert(i.toDataURL('image/jpg')),
+							try {alert(33),
 							e.resultUrl = i.toDataURL('image/jpg'),
-							alert(33)
+							
 							n.clearRect(0, 0, i.clientWidth, i.clientHeight),
 							alert(44)
 								}catch(e){alert(e)}
