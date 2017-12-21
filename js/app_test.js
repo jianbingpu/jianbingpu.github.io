@@ -367,6 +367,7 @@ default = {
 							e(!0)
 						};
 						setTimeout(function() {
+							r.src = "",
 							r.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1125 2436"><path d="' + t.svg_path + '"/></svg>'
 						},100);
 					}).then(function(o) {
