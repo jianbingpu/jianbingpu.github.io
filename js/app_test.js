@@ -351,14 +351,17 @@ default = {
 					var r = new Image;
 					r.crossOrigin = "Anonymous";
 					r.onload = function() {
-						tip("a11");
+						tip("aa11");
 						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 						t(!0)
 					},
-					setTimeout(function() {
-						tip("a1");
-						r.src = e.img
-					},200);
+						//setTimeout(function() {
+						tip("aa1");
+						try {
+							r.src = e.img
+						}catch(e){alert(e)}
+						tip("aa2");
+					//},200);
 				}).then(function(o) {
 					o && new Promise(function(e, o) {
 						var r = new Image;
