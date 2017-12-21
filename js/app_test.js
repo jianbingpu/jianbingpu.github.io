@@ -351,31 +351,31 @@ default = {
 					var r = new Image;
 					r.crossOrigin = "Anonymous";
 					r.onload = function() {
-						tip("11");
+						tip("a11");
 						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 						t(!0)
 					},
 					setTimeout(function() {
-						tip("1");
+						tip("a1");
 						r.src = e.img
-					},100);
+					},200);
 				}).then(function(o) {
 					o && new Promise(function(e, o) {
 						var r = new Image;
 						r.crossOrigin = "Anonymous";
 						r.onload = function() {
-							tip("22");
+							tip("a22");
 							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 							e(!0)
 						},
 					setTimeout(function() {
-						tip("2");
+						tip("a2");
 						r.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1125 2436"><path d="' + t.svg_path + '"/></svg>'
-					},100);
+					},200);
 					}).then(function(o) {
 						setTimeout(function() {
 							try {
-								tip("33");
+								tip("a33");
 								e.resultUrl = i.toDataURL('image/jpg'),
 								n.clearRect(0, 0, i.clientWidth, i.clientHeight)
 								//axios.put("/temp/" + t.id)
