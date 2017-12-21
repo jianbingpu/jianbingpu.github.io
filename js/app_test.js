@@ -296,8 +296,6 @@ default = {
 						}).then(function(e) {
 						var i = document.querySelector("canvas"),
 						n = i.getContext("2d");
-						// 每次开始清理画布
-						n.clearRect(0, 0, i.clientWidth, i.clientHeight);
 						new Promise(function(t, o) {
 							var reader = new FileReader();
 							reader.addEventListener('loadend', function (ee) {
@@ -317,13 +315,12 @@ default = {
 											a < s ? (l = 0, c = (o - (d = (p = e) / s)) / 2) : (d = o, c = 0, l = (e - (p = o * s)) / 2),
 											/*alert("l:"+l+" c:"+c+" p:"+p+" d:"+d+ " i.clientWidth:"+i.clientWidth+"i.clientHeight:"+i.clientHeight);*/
 											n.drawImage(r, l, c, p, d, 0, 0, i.clientWidth, i.clientHeight),
-											//n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 											t(!0)
 										}
 										
 										var newImg =  modifyImg(e,r,Orientation);
 										r.src = newImg;
-									},150);
+									},100);
 
 								}
 							}, false);
@@ -335,8 +332,8 @@ default = {
 								n.clearRect(0, 0, i.clientWidth, i.clientHeight)})*/
 								if (e) {
 									try{
-										t.img = i.toDataURL('image/jpg')
-										//n.clearRect(0, 0, i.clientWidth, i.clientHeight)
+										t.img = i.toDataURL('image/jpg'),
+										n.clearRect(0, 0, i.clientWidth, i.clientHeight)
 									}catch(e){alert(e)}
 								}
 								layer.closeAll();
@@ -351,7 +348,16 @@ default = {
 				i = document.querySelector("canvas"),
 				n = i.getContext("2d");
 				new Promise(function(t, o) {
-					t(!0)
+					var r = new Image;
+					r.crossOrigin = "Anonymous";
+					r.onload = function() {
+						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
+						t(!0)
+					};
+					setTimeout(function() {
+						r.src = "",
+						r.src = e.img
+					},100);
 				}).then(function(o) {
 					o && new Promise(function(e, o) {
 						var r = new Image;
@@ -359,19 +365,20 @@ default = {
 						r.onload = function() {
 							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 							e(!0)
-						},
+						};
 						setTimeout(function() {
 							r.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1125 2436"><path d="' + t.svg_path + '"/></svg>'
 						},100);
 					}).then(function(o) {
 						setTimeout(function() {
 							try {
-								e.resultUrl = i.toDataURL('image/jpg')
-								//n.clearRect(0, 0, i.clientWidth, i.clientHeight)
+								layer.closeAll();
+								e.resultUrl = i.toDataURL('image/jpg'),
+								n.clearRect(0, 0, i.clientWidth, i.clientHeight)
 								//axios.put("/temp/" + t.id)
 							}catch(e){alert(e)}
 						},100);
-						layer.closeAll();
+						
 					})
 				})
 			}

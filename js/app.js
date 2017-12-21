@@ -318,8 +318,8 @@ default = {
 											t(!0)
 										}
 										
-										var aa =  modifyImg(e,r,Orientation);
-										r.src =aa;
+										var newImg =  modifyImg(e,r,Orientation);
+										r.src = newImg;
 									},100);
 
 								}
