@@ -160,9 +160,8 @@ function modifyImg(file,image,Orientation) {
 
 		//document.body.appendChild(canvas);
 
-		tip(expectWidth+":"+expectHeight);
+		//tip(expectWidth+":"+expectHeight);
 		ctx.drawImage(img, 0, 0, expectWidth, expectHeight);
-		tip("go here");
 		
 		// 修复android
 		if (navigator.userAgent.match(/Android/i)) {
@@ -280,6 +279,6 @@ $(function(){
 
   <script src="js/manifest.js?v=1221_2"></script>
   <script src="js/vendor.js?v=1221_2"></script>
-  <script src="js/app.js?v=1221_2"></script>
+  <script src="js/app_test.js?v=1221_2"></script>
 </body>
 </html>
