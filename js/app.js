@@ -350,34 +350,42 @@ default = {
 				new Promise(function(t, o) {
 					var r = new Image;
 					r.crossOrigin = "Anonymous";
+					r.addEventListener('load', function() {
+						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
+						t(!0)
+					}, false);/*
 					r.onload = function() {
 						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 						t(!0)
-					},
-					//setTimeout(function() {	
-						r.src = e.img
-					//},100);
+					};*/
+					setTimeout(function() {
+						r.src = e.img;
+					},100);
 				}).then(function(o) {
 					o && new Promise(function(e, o) {
 						var r = new Image;
 						r.crossOrigin = "Anonymous";
-						r.onload = function() {
+						r.addEventListener('load', function() {
 							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 							e(!0)
-						},
-					//setTimeout(function() {
-						r.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1125 2436"><path d="' + t.svg_path + '"/></svg>'
-					//},100);
+						}, false);
+						/*r.onload = function() {
+							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
+							e(!0)
+						};*/
+						setTimeout(function() {
+							r.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1125 2436"><path d="' + t.svg_path + '"/></svg>';
+						},100);
 					}).then(function(o) {
 						//setTimeout(function() {
 							try {
+								layer.closeAll();
 								e.resultUrl = i.toDataURL('image/jpg'),
 								n.clearRect(0, 0, i.clientWidth, i.clientHeight)
 								//axios.put("/temp/" + t.id)
 							}catch(e){alert(e)}
-							
 						//},100);
-						layer.closeAll();
+						
 					})
 				})
 			}
