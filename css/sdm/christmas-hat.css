@@ -279,14 +279,14 @@ margin-left:-100px;margin-top:-100px;
 	height: 100%
 }
 
-.view-jike img {
+.view-jb img {
 	display: block;
 	width: 100px;
 	height: 100px;
 	margin: 50px auto
 }
 
-.view-jike .output-jike {
+.view-jb .output-jb {
 	width: 60px;
 	height: 60px;
 	border: 1px solid #ccc;
@@ -294,7 +294,7 @@ margin-left:-100px;margin-top:-100px;
 	margin: 0 auto
 }
 
-.view-jike h1 {
+.view-jb h1 {
 	font-size: 18px;
 	line-height: 2;
 	color: #333;

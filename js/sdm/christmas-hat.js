@@ -8681,144 +8681,7 @@ function(t, e, n) {
         value: !0
     }),
     e.zhHans = {
-        action: {
-            uploading: "上传中……",
-            ok: "知道了"
-        },
-        symbol: {
-            colon: "：",
-            ellipsis: "。。。"
-        },
-        magi: {},
-        verifyAccount: {
-            title: "{{type}}人设申请",
-            kol: "领域专家",
-            org: "机构",
-            job: "个人",
-            action: {
-                submit: "提交申请",
-                next: "下一步"
-            },
-            form: {
-                infoUsername: "姓名",
-                infoUsernamePl: "输入姓名",
-                infoPhone: "手机号",
-                infoPhonePl: "输入 11 位手机号",
-                infoIdCard: "身份证",
-                identity: "身份类型",
-                identityPl: "选择身份类型",
-                infoIdCardPl: "输入 15／18 位身份证号",
-                industry: "行业",
-                industryPl: "选择行业类型",
-                location: "所在地",
-                locationPl: "选择所在地",
-                domain: "申请领域",
-                domainPl: "选择申请领域",
-                orgName: "单位／组织",
-                orgNamePl: "输入单位或组织的名称",
-                verifyPicture: "证明材料",
-                verifyMessage: "自定义人设说明",
-                verifyMessageTips: "自定义人设需要审核。审核不通过则保留默认说明。建议采用「有趣的描述」+「默认说明」的格式。例：{{example}}",
-                verifyMessagePreview: "人设预览",
-                verifyMessageDiy: "我想完全自定义",
-                verifyMessageDesc: "填写一个有趣的描述（选填）",
-                pending: "申请正在审核中",
-                successSubmit: "提交成功，请等候审核消息 :)",
-                errorRetry: "提交出错，请重试 :("
-            },
-            formJob: {
-                orgJobTitle: "职位／称号",
-                orgJobTitlePl: "输入职位或称号",
-                verifyPictureTips: "能够证明职业身份的材料，例如工卡照、聘书或其他材料。",
-                verifyMessageExample: "爱用户的即刻 CEO"
-            },
-            formKol: {
-                verifyPictureTips: "能够证明领域达人身份的材料，例如外部平台的认证账号、相关行业从业证明、领域内的权威证明信息或其他材料。",
-                verifyMessageExample: "爱即刻的游戏达人"
-            },
-            formOrg: {
-                officialTag: "官方",
-                verifyPicture: "企业工商营业执照",
-                verifyMessageExample: "爱用户的即刻官方帐号",
-                orgFullName: "企业名称",
-                orgFullNamePl: "输入企业名称",
-                orgBusinessLicence: "营业执照注册号",
-                orgBusinessLicencePl: "输入营业执照注册号",
-                orgOperationName: "运营者姓名",
-                orgOperationNamePl: "输入运营者姓名",
-                orgOperationPhone: "运营者手机号码",
-                orgOperationPhonePl: "输入手机号码",
-                orgOperationLandlane: "运营者座机",
-                orgOperationLandlanePl: "输入座机号码"
-            },
-            completeProfile: "资料填写"
-        },
-        amazing: {
-            name: "Amazing Jike",
-            $prelude: "Prelude",
-            $explore: "Explore",
-            $labyrinth: "Labyrinth",
-            share: {
-                title: "只有成年人才能看见的迷宫",
-                description: "你知道吗？硬币有 3 个面，而不是 2 个面，迷宫亦是如此"
-            },
-            john: {
-                name: "John"
-            },
-            joe: {
-                name: "Joe"
-            },
-            player: {
-                name: "The Chosen One"
-            },
-            aside: {
-                name: "Uncyclopedia"
-            },
-            labyrinth: {
-                title: "There Is No 迷宫",
-                description: "你好，我是成人生活小秘书 John No。如老字号招牌所示，每一个迷茫的成年人，都会在这找到明确的方向。你遇到了生活选择难题吗？跟小秘说说你的焦虑吧！",
-                yes: "Yes",
-                no: "No",
-                questionNormal: "另外你知道我哥哥 Joe Yes 在哪吗？",
-                questionReverse: "？吗「南司外城」去要想你那",
-                questionRhetorical: "你难道真的不想去「城外司南」吗？",
-                startButton: "Start",
-                remixButton: "JJ Labyrinth",
-                parallelButton: "Nothing",
-                johnButton: "$t(amazing.john.name) Noooooooo",
-                joeButton: "$t(amazing.joe.name) Yeeeeeeees",
-                gotoActivityMessage: "查看活动主题",
-                returnToStart: "回到开始界面"
-            },
-            perfectLand: {
-                musicScore: "默契度：",
-                endPlay: "结束弹奏",
-                typeSplit: "1. 分岔的路",
-                typeRemix: "2. 是非迷宫",
-                typeParallel: "3. 终点",
-                endQuote: "Everything that has a beginning, has an end.",
-                whatsNext: "无中生有"
-            },
-            ending: {
-                title: "The End · 绝了",
-                description: "黄色的树林里 分出两条路 可惜我不能 同时去涉足 我在那路口 久久伫立 我向着一条路 极目望去 直到它消失在 丛林深处 但我却选了 另外一条路 它荒草萋萋 十分幽寂 显得更诱人 更美丽 虽然在这 两条小路上 都很少留下 旅人的足迹 虽然那天清晨 落叶满地 两条路都未经 脚印污染 留下一条路 等改日再见 但我知道路径 延绵无尽头 恐怕我难以 再回返 也许多少年后 在某个地方 我将轻声叹息 把往事回顾 一片树林里 分出两条路 而我选了人迹 更少的一条 从此决定了 我一生的道路",
-                analytics: "在过去的 <em>{{durationSeconds}}</em> 秒中，你与 John 肢体接触 <em>{{clickCount}}</em> 次，有 <em>{{captionCount}}</em> 条台词试图寄生到你脑海，它们会在你的「记忆迷宫」里迷路而终吗？",
-                question: "你认为生活是一座迷宫吗？"
-            },
-            diverge: {
-                title: "A Maze in Jike, in Your Life",
-                gotoJike: "去即刻吐槽 $t(amazing.john.name)",
-                credits: "背后的故事",
-                playAgain: "重新感受一次"
-            }
-        },
-        wechat: {
-            share: {
-                moment: "分享到朋友圈",
-                message: "分享到会话"
-            }
-        },
-        language: "中文"
+        
     }
 },
 function(t, e, n) {
@@ -9567,55 +9430,13 @@ function(t, e, n) {
             })
         },
         t.prototype.toast = function(t, e, n) {
-            void 0 === e && (e = "success"),
-            void 0 === n && (n = 3e3),
-            window.location.href = "jike://ui.jk/toast/show?message=" + t + "&status=" + e + "&duration=" + n
+            /*void 0 === e && (e = "success"),
+            void 0 === n && (n = 3e3)
+            window.location.href = "jike://ui.jk/toast/show?message=" + t + "&status=" + e + "&duration=" + n*/
         },
         t
     } ();
     new p;
-    document.addEventListener("DOMContentLoaded",
-    function() {
-        a.weChat.isInWeChat() && a.weChat.initialize({
-            initCallback: function() {
-                setTimeout(function() {
-                    var t = {
-                        title: "官方指定头像圣诞帽制作器",
-                        desc: "一键生成你的圣诞头像",
-                        imgUrl: n(851)
-                    };
-                    a.weChat.sdk.onMenuShareTimeline(r.__assign({},
-                    t, {
-                        success: function() {
-                            i.JKA.event({
-                                action: "分享到朋友圈"
-                            })
-                        },
-                        cancel: function() {
-                            i.JKA.event({
-                                action: "取消分享到会话"
-                            })
-                        }
-                    })),
-                    a.weChat.sdk.onMenuShareAppMessage(r.__assign({},
-                    t, {
-                        success: function() {
-                            i.JKA.event({
-                                action: "分享到会话"
-                            })
-                        },
-                        cancel: function() {
-                            i.JKA.event({
-                                action: "取消分享到会话"
-                            })
-                        }
-                    }))
-                },
-                1e3)
-            }
-        }),
-        i.JKA.setCurrentPage("圣诞帽")
-    })
 },
 function(t, e) {
     t.exports = {
