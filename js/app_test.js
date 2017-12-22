@@ -351,8 +351,10 @@ default = {
 					var r = new Image;
 					r.addEventListener('load', function() {
 						r.crossOrigin = "Anonymous";
-						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
-						t(!0)
+						setTimeout(function() {
+							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
+							t(!0)
+						},100);
 					}, false);/*
 					r.onload = function() {
 						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
@@ -366,8 +368,10 @@ default = {
 						var r = new Image;
 						r.addEventListener('load', function() {
 							r.crossOrigin = "Anonymous";
-							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
-							e(!0)
+							setTimeout(function() {
+								n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
+								e(!0)
+							},100);
 						}, false);
 						/*r.onload = function() {
 							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
@@ -383,7 +387,7 @@ default = {
 								e.resultUrl = i.toDataURL('image/jpg'),
 								n.clearRect(0, 0, i.clientWidth, i.clientHeight)
 								//axios.put("/temp/" + t.id)
-							}catch(e){alert(e)}
+								}catch(e){alert("err:"+e)}
 						//},100);
 						
 					})
