@@ -365,7 +365,7 @@ default = {
 						if (goFlg == 0) {
 							alert("go here1");
 							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
-							e(!0)
+							t(!0)
 						}
 					},250);
 				}).then(function(o) {
