@@ -369,11 +369,11 @@ default = {
 							try {
 								tip("go here11");
 								var rr = new Image;
-								rr.src = r.src;
-								setTimeout(function() {
+								rr.onload = function() {
 									n.drawImage(rr, 0, 0, i.clientWidth, i.clientHeight),
 									t(!0)
-								},100);	
+								};
+								rr.src = r.src;
 							}catch(e){alert(e)}
 						}
 					},250);
@@ -399,11 +399,11 @@ default = {
 								try {
 									tip("go here22");
 									var rr = new Image;
-									rr.src = r.src;
-									setTimeout(function() {
+									rr.onload = function() {
 										n.drawImage(rr, 0, 0, i.clientWidth, i.clientHeight),
 										e(!0)
-									},100);	
+									};
+									rr.src = r.src;
 								}catch(e){alert(e)}
 							}
 						},250);
