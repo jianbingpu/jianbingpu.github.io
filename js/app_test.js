@@ -349,13 +349,7 @@ default = {
 				n = i.getContext("2d");
 				new Promise(function(t, o) {
 					var r = new Image;
-					r.crossOrigin = "Anonymous";
-					r.addEventListener('complete', function() {
-						alert("complete");
-						r.load();
-					}, false);
 					r.addEventListener('load', function() {
-						alert("load");
 						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 						t(!0)
 					}, false);/*
@@ -369,12 +363,7 @@ default = {
 				}).then(function(o) {
 					o && new Promise(function(e, o) {
 						var r = new Image;
-						r.crossOrigin = "Anonymous";
-						r.addEventListener('complete', function() {
-							alert("complete");
-							r.load();
-						}, false);
-						
+						r.crossOrigin = "anonymous";
 						r.addEventListener('load', function() {
 							alert("load");
 							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
@@ -391,7 +380,8 @@ default = {
 						//setTimeout(function() {
 							try {
 								layer.closeAll();
-								e.resultUrl = i.toDataURL('image/jpg'),
+								
+								i.toBlob(function(a) {e.resultUrl = getObjectURL(a)});
 								n.clearRect(0, 0, i.clientWidth, i.clientHeight)
 								//axios.put("/temp/" + t.id)
 								}catch(e){alert("err:"+e)}
