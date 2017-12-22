@@ -366,9 +366,11 @@ default = {
 					
 					setTimeout(function() {
 						if (goFlg == 0) {
-							tip("go here11");
 							try {
-								n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
+								tip("go here11");
+								var rr = new Image;
+								rr.src = r.src;
+								n.drawImage(rr, 0, 0, i.clientWidth, i.clientHeight),
 								t(!0)
 							}catch(e){alert(e)}
 						}
@@ -393,7 +395,10 @@ default = {
 						setTimeout(function() {
 							if (goFlg == 0) {
 								try {
-									n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
+									tip("go here22");
+									var rr = new Image;
+									rr.src = r.src;
+									n.drawImage(rr, 0, 0, i.clientWidth, i.clientHeight),
 									e(!0)
 								}catch(e){alert(e)}
 							}
