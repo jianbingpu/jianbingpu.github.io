@@ -36,7 +36,7 @@ function(t) {
     e.o = function(t, e) {
         return Object.prototype.hasOwnProperty.call(t, e)
     },
-    e.p = "http://www.jianbingpu.com/",
+    e.p = "",
     e(e.s = 815)
 } ([, , ,
 function(t, e, n) {
@@ -13531,7 +13531,7 @@ function(t, e, n) {
                 e.onDestory()
             }),
             this.$image = new Image,
-            this.$image.crossOrigin = "anonymous",
+            //this.$image.crossOrigin = "anonymous",
             this.$image.src = t.src,
             this.$el.appendChild(this.$image),
             t.$parent && (this.$parent = t.$parent, this.$parent.appendChild(this.$el)),
@@ -14535,10 +14535,10 @@ function(t, e, r) {
     }).call(this)
 },
 function(t, e, n) {
-    t.exports = n.p + "img/sdm/1.png"
+    t.exports = n.p + "./img/sdm/1.png"
 },
 function(t, e, n) {
-    t.exports = n.p + "img/sdm/2.png"
+    t.exports = n.p + "./img/sdm/2.png"
 },
 function(t, e, n) {
     t.exports = n.p + "img/sdm/3.png"
