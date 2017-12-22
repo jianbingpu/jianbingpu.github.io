@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>圣诞头像生成器</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link href="css/sdm/christmas-hat.css" rel="stylesheet">
+</head>
+<body class="page page-spa">
+<div class="site-layout base-layout mockup-wrapper">
+	<div class="site-content mockup mockup-white">
+		<div class="banner">
+			<a href="http://www.jianbingpu.com"><img src="img/jbpLogo.jpg">
+			<span>煎饼铺，一个有趣的公众号</span></a>
+		</div>
+		<div class="view-wrap">
+			<div class="view view-loading is-active">
+				<div class="loading">
+				</div>
+			</div>
+			<div class="view view-upload">
+				<p class="tip">
+					选择一张图片，开始制作圣诞头像
+				</p>
+				<div class="upload-btn">
+					<div class="content">
+						<h1>+</h1>
+						<p>
+							点击选择图片
+						</p>
+					</div>
+					<input class="file-input" type="file" name="" accept="image/*">
+				</div>
+			</div>
+			<div class="view view-edit">
+				<div class="loading-wrap">
+					圣诞头像生成中...
+				</div>
+				<div class="edit-wrap">
+					<img class="origin-image">
+				</div>
+				<div class="save-wrap">
+					<ul class="badge-list">
+					</ul>
+					<p class="warning">
+					</p>
+					<div class="btn btn-confirm-edit">
+						生成
+					</div>
+				</div>
+			</div>
+			<div class="view view-result">
+				<img class="output"><a class="btn btn-press" data-jka="{ action: '长按保存' }">长按图片，保存手机<img class="output2"></a>
+				<a class="btn btn-ghost btn-avatar" onclick="location.reload()" data-jka="{ action: '重新制作' }">再来一个</a>
+			</div>
+			<div class="view view-jike">
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="js/sdm/christmas-hat.js"></script>
+<script type="text/javascript" src="js/sdm/common.js"></script>
+</body>
+</html>
