@@ -360,10 +360,12 @@ default = {
 						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 						t(!0)
 					};*/
-					r.src = e.img;
+					setTimeout(function() {
+						r.src = e.img;
+					},100);
 					setTimeout(function() {
 						if (goFlg == 0) {
-							alert("go here1");
+							tip("go here11");
 							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 							t(!0)
 						}
@@ -382,10 +384,12 @@ default = {
 							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 							e(!0)
 						};*/
-						r.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1125 2436"><path d="' + t.svg_path + '"/></svg>';
+						setTimeout(function() {
+							r.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1125 2436"><path d="' + t.svg_path + '"/></svg>';
+						},100);
 						setTimeout(function() {
 							if (goFlg == 0) {
-								alert("go here2");
+								tip("go here22");
 								n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 								e(!0)
 							}
