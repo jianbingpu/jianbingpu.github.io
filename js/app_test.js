@@ -357,15 +357,14 @@ default = {
 						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 						t(!0)
 					};*/
-					setTimeout(function() {
-						r.src = e.img;
-					},100);
+					r.src = e.img;
 				}).then(function(o) {
 					o && new Promise(function(e, o) {
 						var r = new Image;
-						r.crossOrigin = "anonymous";
+						r.crossOrigin = "Anonymous";
+						var goFlg = 0;
 						r.addEventListener('load', function() {
-							alert("load");
+							goFlg = 1;
 							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 							e(!0)
 						}, false);
@@ -373,15 +372,19 @@ default = {
 							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 							e(!0)
 						};*/
+						r.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1125 2436"><path d="' + t.svg_path + '"/></svg>';
 						setTimeout(function() {
-							r.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1125 2436"><path d="' + t.svg_path + '"/></svg>';
-						},100);
+							if (goFlg == 0) {
+								alert("go here");
+								n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
+								e(!0)
+							}
+						},250);
 					}).then(function(o) {
 						//setTimeout(function() {
 							try {
 								layer.closeAll();
-								
-								i.toBlob(function(a) {e.resultUrl = getObjectURL(a)});
+								e.resultUrl = i.toDataURL('image/jpg', 0.8),
 								n.clearRect(0, 0, i.clientWidth, i.clientHeight)
 								//axios.put("/temp/" + t.id)
 								}catch(e){alert("err:"+e)}
