@@ -13,6 +13,7 @@ body,html {
 	border-radius: 50px;
 	background: #2ECC40;
 	color: #fff;
+	vertical-align:middle;
 	border: none;
 }
 
