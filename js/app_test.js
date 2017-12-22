@@ -349,8 +349,8 @@ default = {
 				n = i.getContext("2d");
 				new Promise(function(t, o) {
 					var r = new Image;
-					//r.crossOrigin = "Anonymous";
 					r.addEventListener('load', function() {
+						r.crossOrigin = "Anonymous";
 						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 						t(!0)
 					}, false);/*
@@ -364,8 +364,8 @@ default = {
 				}).then(function(o) {
 					o && new Promise(function(e, o) {
 						var r = new Image;
-						//r.crossOrigin = "Anonymous";
 						r.addEventListener('load', function() {
+							r.crossOrigin = "Anonymous";
 							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 							e(!0)
 						}, false);
