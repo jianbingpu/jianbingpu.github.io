@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#v=1223_01
+#v=1223_02
 
 CACHE:
 /css/jbp.css
@@ -7,6 +7,7 @@ CACHE:
 /css/animate.min.css
 /css/about.css
 /css/lt.css
+/css/sdm/christmas-hat.css
 
 /img/blank.png
 /img/banner.jpg
@@ -20,6 +21,14 @@ CACHE:
 /img/zhishu.png
 /img/default.jpg
 /img/lock.svg
+/img/sdm/1.png
+/img/sdm/2.png
+/img/sdm/3.png
+/img/sdm/4.png
+/img/sdm/5.png
+/img/sdm/6.png
+/img/sdm/7.png
+/img/sdm/8.png
 
 /js/base64.js
 /js/clipboard.min.js
@@ -35,6 +44,8 @@ CACHE:
 /js/app.js
 /js/vendor.js
 /js/manifest.js
+/js/sdm/christmas-hat.js
+/js/sdm/common.js
 
 /js/layer_mobile/layer.js
 /js/layer_mobile/need/layer.css
