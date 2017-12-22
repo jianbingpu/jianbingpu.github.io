@@ -296,7 +296,6 @@ default = {
 						}).then(function(e) {
 						var i = document.querySelector("canvas"),
 						n = i.getContext("2d");
-						//n.clearRect(0, 0, i.clientWidth, i.clientHeight);
 						new Promise(function(t, o) {
 							var reader = new FileReader();
 							reader.addEventListener('loadend', function (ee) {
@@ -351,10 +350,13 @@ default = {
 				new Promise(function(t, o) {
 					var r = new Image;
 					r.crossOrigin = "Anonymous";
+					var goFlg = 0;
 					r.addEventListener('load', function() {
+						goFlg = 1;
 						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 						t(!0)
-					}, false);/*
+					}, false);
+					/*
 					r.onload = function() {
 						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 						t(!0)
@@ -362,14 +364,30 @@ default = {
 					setTimeout(function() {
 						r.src = e.img;
 					},100);
+					
+					setTimeout(function() {
+						if (goFlg == 0) {
+							try {
+								var rr = new Image;
+								rr.onload = function() {
+									n.drawImage(rr, 0, 0, i.clientWidth, i.clientHeight),
+									t(!0)
+								};
+								rr.src = r.src;
+							}catch(e){alert(e)}
+						}
+					},250);
 				}).then(function(o) {
 					o && new Promise(function(e, o) {
 						var r = new Image;
 						r.crossOrigin = "Anonymous";
+						var goFlg = 0;
 						r.addEventListener('load', function() {
+							goFlg = 1;
 							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 							e(!0)
 						}, false);
+							
 						/*r.onload = function() {
 							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 							e(!0)
@@ -377,6 +395,18 @@ default = {
 						setTimeout(function() {
 							r.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1125 2436"><path d="' + t.svg_path + '"/></svg>';
 						},100);
+						setTimeout(function() {
+							if (goFlg == 0) {
+								try {
+									var rr = new Image;
+									rr.onload = function() {
+										n.drawImage(rr, 0, 0, i.clientWidth, i.clientHeight),
+										e(!0)
+									};
+									rr.src = r.src;
+								}catch(e){alert(e)}
+							}
+						},250);
 					}).then(function(o) {
 						//setTimeout(function() {
 							try {
@@ -384,7 +414,7 @@ default = {
 								e.resultUrl = i.toDataURL('image/jpg', 0.8),
 								n.clearRect(0, 0, i.clientWidth, i.clientHeight)
 								//axios.put("/temp/" + t.id)
-							}catch(e){alert(e)}
+								}catch(e){alert(e)}
 						//},100);
 						
 					})
