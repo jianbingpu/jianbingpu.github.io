@@ -355,7 +355,8 @@ default = {
 						goFlg = 1;
 						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 						t(!0)
-					}, false);/*
+					}, false);
+					/*
 					r.onload = function() {
 						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 						t(!0)
@@ -367,7 +368,6 @@ default = {
 					setTimeout(function() {
 						if (goFlg == 0) {
 							try {
-								tip("go here11");
 								var rr = new Image;
 								rr.onload = function() {
 									n.drawImage(rr, 0, 0, i.clientWidth, i.clientHeight),
@@ -387,6 +387,7 @@ default = {
 							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 							e(!0)
 						}, false);
+							
 						/*r.onload = function() {
 							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 							e(!0)
@@ -397,7 +398,6 @@ default = {
 						setTimeout(function() {
 							if (goFlg == 0) {
 								try {
-									tip("go here22");
 									var rr = new Image;
 									rr.onload = function() {
 										n.drawImage(rr, 0, 0, i.clientWidth, i.clientHeight),
@@ -414,7 +414,7 @@ default = {
 								e.resultUrl = i.toDataURL('image/jpg', 0.8),
 								n.clearRect(0, 0, i.clientWidth, i.clientHeight)
 								//axios.put("/temp/" + t.id)
-								}catch(e){alert("err:"+e)}
+								}catch(e){alert(e)}
 						//},100);
 						
 					})
