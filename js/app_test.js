@@ -370,8 +370,10 @@ default = {
 								tip("go here11");
 								var rr = new Image;
 								rr.src = r.src;
-								n.drawImage(rr, 0, 0, i.clientWidth, i.clientHeight),
-								t(!0)
+								setTimeout(function() {
+									n.drawImage(rr, 0, 0, i.clientWidth, i.clientHeight),
+									t(!0)
+								},100);	
 							}catch(e){alert(e)}
 						}
 					},250);
@@ -398,8 +400,10 @@ default = {
 									tip("go here22");
 									var rr = new Image;
 									rr.src = r.src;
-									n.drawImage(rr, 0, 0, i.clientWidth, i.clientHeight),
-									e(!0)
+									setTimeout(function() {
+										n.drawImage(rr, 0, 0, i.clientWidth, i.clientHeight),
+										e(!0)
+									},100);	
 								}catch(e){alert(e)}
 							}
 						},250);
