@@ -9527,7 +9527,7 @@ function(t, e, n) {
                 n.drawImage(s, 0, 0, u, l, -f / 2, -h / 2, f, h),
                 n.restore()
             }),
-            this.$output.src = e.$(".output2").src = e.$(".output-jike").src = t.toDataURL("image/jpeg", 1),
+            this.$output.src = e.$(".output2").src = t.toDataURL("image/jpeg", 1),
             l ? this.editAvatar(this.$output.src) : this.switchView("result")
         },
         t.prototype.requestProfile = function() {
