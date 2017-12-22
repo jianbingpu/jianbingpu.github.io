@@ -363,11 +363,14 @@ default = {
 					setTimeout(function() {
 						r.src = e.img;
 					},100);
+					
 					setTimeout(function() {
 						if (goFlg == 0) {
 							tip("go here11");
-							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
-							t(!0)
+							try {
+								n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
+								t(!0)
+							}catch(e){alert(e)}
 						}
 					},250);
 				}).then(function(o) {
@@ -389,9 +392,10 @@ default = {
 						},100);
 						setTimeout(function() {
 							if (goFlg == 0) {
-								tip("go here22");
-								n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
-								e(!0)
+								try {
+									n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
+									e(!0)
+								}catch(e){alert(e)}
 							}
 						},250);
 					}).then(function(o) {

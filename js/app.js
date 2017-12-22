@@ -296,6 +296,7 @@ default = {
 						}).then(function(e) {
 						var i = document.querySelector("canvas"),
 						n = i.getContext("2d");
+						//n.clearRect(0, 0, i.clientWidth, i.clientHeight);
 						new Promise(function(t, o) {
 							var reader = new FileReader();
 							reader.addEventListener('loadend', function (ee) {
@@ -341,7 +342,7 @@ default = {
 					})
 				});
 			},
-			bulid: function() {
+			build: function() {
 				layer.open({type: 2});
 				var e = this,
 				t = this.styleList[this.styleIndex],
@@ -380,7 +381,7 @@ default = {
 						//setTimeout(function() {
 							try {
 								layer.closeAll();
-								e.resultUrl = i.toDataURL('image/jpg'),
+								e.resultUrl = i.toDataURL('image/jpg', 0.8),
 								n.clearRect(0, 0, i.clientWidth, i.clientHeight)
 								//axios.put("/temp/" + t.id)
 							}catch(e){alert(e)}
@@ -554,7 +555,7 @@ function(e, t) {
 				},
 				on: {
 					click: function(t) {
-						e.bulid()
+						e.build()
 					}
 				}
 			},
