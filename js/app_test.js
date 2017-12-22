@@ -349,12 +349,15 @@ default = {
 				n = i.getContext("2d");
 				new Promise(function(t, o) {
 					var r = new Image;
+					r.crossOrigin = "Anonymous";
+					r.addEventListener('complete', function() {
+						alert("complete");
+						r.load();
+					}, false);
 					r.addEventListener('load', function() {
-						r.crossOrigin = "Anonymous";
-						setTimeout(function() {
-							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
-							t(!0)
-						},100);
+						alert("load");
+						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
+						t(!0)
 					}, false);/*
 					r.onload = function() {
 						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
@@ -366,12 +369,16 @@ default = {
 				}).then(function(o) {
 					o && new Promise(function(e, o) {
 						var r = new Image;
+						r.crossOrigin = "Anonymous";
+						r.addEventListener('complete', function() {
+							alert("complete");
+							r.load();
+						}, false);
+						
 						r.addEventListener('load', function() {
-							r.crossOrigin = "Anonymous";
-							setTimeout(function() {
-								n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
-								e(!0)
-							},100);
+							alert("load");
+							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
+							e(!0)
 						}, false);
 						/*r.onload = function() {
 							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
