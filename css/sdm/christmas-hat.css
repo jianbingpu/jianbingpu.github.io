@@ -16,8 +16,9 @@ body,html {
 }
 
 .btn.btn-ghost {
-	border: 1px solid #404040;
-	background: transparent
+	/*border: 1px solid #404040;
+	background: transparent*/
+	background: #F6BF1C;
 }
 
 .view-wrap {

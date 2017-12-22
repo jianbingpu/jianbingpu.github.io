@@ -14535,10 +14535,10 @@ function(t, e, r) {
     }).call(this)
 },
 function(t, e, n) {
-    t.exports = n.p + "./img/sdm/1.png"
+    t.exports = n.p + "img/sdm/1.png"
 },
 function(t, e, n) {
-    t.exports = n.p + "./img/sdm/2.png"
+    t.exports = n.p + "img/sdm/2.png"
 },
 function(t, e, n) {
     t.exports = n.p + "img/sdm/3.png"
