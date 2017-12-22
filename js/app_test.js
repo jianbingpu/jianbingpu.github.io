@@ -341,7 +341,7 @@ default = {
 					})
 				});
 			},
-			bulid: function() {
+			build: function() {
 				layer.open({type: 2});
 				var e = this,
 				t = this.styleList[this.styleIndex],
@@ -349,7 +349,7 @@ default = {
 				n = i.getContext("2d");
 				new Promise(function(t, o) {
 					var r = new Image;
-					r.crossOrigin = "Anonymous";
+					//r.crossOrigin = "Anonymous";
 					r.addEventListener('load', function() {
 						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 						t(!0)
@@ -364,7 +364,7 @@ default = {
 				}).then(function(o) {
 					o && new Promise(function(e, o) {
 						var r = new Image;
-						r.crossOrigin = "Anonymous";
+						//r.crossOrigin = "Anonymous";
 						r.addEventListener('load', function() {
 							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 							e(!0)
@@ -554,7 +554,7 @@ function(e, t) {
 				},
 				on: {
 					click: function(t) {
-						e.bulid()
+						e.build()
 					}
 				}
 			},
