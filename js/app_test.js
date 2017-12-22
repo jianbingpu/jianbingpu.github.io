@@ -349,7 +349,10 @@ default = {
 				n = i.getContext("2d");
 				new Promise(function(t, o) {
 					var r = new Image;
+					r.crossOrigin = "Anonymous";
+					var goFlg = 0;
 					r.addEventListener('load', function() {
+						goFlg = 1;
 						n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 						t(!0)
 					}, false);/*
@@ -358,6 +361,13 @@ default = {
 						t(!0)
 					};*/
 					r.src = e.img;
+					setTimeout(function() {
+						if (goFlg == 0) {
+							alert("go here1");
+							n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
+							e(!0)
+						}
+					},250);
 				}).then(function(o) {
 					o && new Promise(function(e, o) {
 						var r = new Image;
@@ -375,7 +385,7 @@ default = {
 						r.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1125 2436"><path d="' + t.svg_path + '"/></svg>';
 						setTimeout(function() {
 							if (goFlg == 0) {
-								alert("go here");
+								alert("go here2");
 								n.drawImage(r, 0, 0, i.clientWidth, i.clientHeight),
 								e(!0)
 							}
