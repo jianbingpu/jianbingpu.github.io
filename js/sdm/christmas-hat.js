@@ -9391,7 +9391,9 @@ function(t, e, n) {
                 n.restore()
             }),
             this.$output.src = e.$(".output2").src = t.toDataURL("image/jpeg", 1),
-            l ? this.editAvatar(this.$output.src) : this.switchView("result")
+            //l ? this.editAvatar(this.$output.src) : this.switchView("result")
+            this.switchView("result"),
+            this.switchView("jb");
         },
         t.prototype.requestProfile = function() {
             return window.fetch("", {
