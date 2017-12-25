@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#v=1225_4
+#v=1225_5
 
 CACHE:
 
@@ -34,6 +34,10 @@ CACHE:
 /img/sdm/22.png
 /img/sdm/33.png
 /img/sdm/44.png
+/img/sdm/snow/snow0.gif
+/img/sdm/snow/snow1.gif
+/img/sdm/snow/snow2.gif
+/img/sdm/snow/snow3.gif
 
 /js/base64.js
 /js/clipboard.min.js
@@ -51,6 +55,7 @@ CACHE:
 /js/manifest.js
 /js/sdm/christmas-hat.js
 /js/sdm/common.js
+/js/sdm/snow.js
 
 /js/layer_mobile/layer.js
 /js/layer_mobile/need/layer.css
