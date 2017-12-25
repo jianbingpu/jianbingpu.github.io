@@ -13366,7 +13366,7 @@ function(t, e, n) {
                 pinch: function(t) {
                     e.scale *= (t.zoom - 1) / 10 + 1,
                     e.scale < .5 && (e.scale = .5),
-                    e.scale > 2 && (e.scale = 2),
+                    e.scale > 3 && (e.scale = 3),
                     e.setStyle()
                 },
                 pressMove: function(t) {
