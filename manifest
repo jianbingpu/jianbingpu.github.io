@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#v=1225_1
+#v=1225_2
 
 CACHE:
 
@@ -30,6 +30,10 @@ CACHE:
 /img/sdm/6.png
 /img/sdm/7.png
 /img/sdm/8.png
+/img/sdm/11.png
+/img/sdm/22.png
+/img/sdm/33.png
+/img/sdm/44.png
 
 /js/base64.js
 /js/clipboard.min.js
