@@ -9392,8 +9392,7 @@ function(t, e, n) {
             }),
             this.$output.src = e.$(".output2").src = t.toDataURL("image/jpeg", 1),
             //l ? this.editAvatar(this.$output.src) : this.switchView("result")
-            this.switchView("result"),
-            this.switchView("jb");
+            this.switchView("result")
         },
         t.prototype.requestProfile = function() {
             return window.fetch("", {
