@@ -30,7 +30,7 @@ function redirectTo(page) {
 	if(!window.isPrivateMode && !!window.localStorage){
 		localStorage.setItem("jbp_tool_srcollTop", document.body.scrollTop);
 	}
-	jump(page+"?v=1225_5");
+	jump(page+"?v=1226");
 	//this.location.href = page;
 }
 </script>
@@ -39,12 +39,12 @@ function redirectTo(page) {
 
 <body oncontextmenu="return false" onselectstart="return false">
 	<div class="nav" >
-    	<img src="img/jbpLogo.png"  class="logo" id="jbpLogo" onclick="jump('about.html?v=1225_5')">
+    	<img src="img/jbpLogo.png"  class="logo" id="jbpLogo" onclick="jump('about.html?v=1226')">
         <span class="menu">
-        	<span class="list"><a class="list_a" href="index.html?v=1225_5">首页</a></span>
-             <span class="list"><a class="list_a" href="gj.html?v=1225_5" id="select">工具¹</a></span>
-             <span class="list"><a class="list_a" href="gj2.html?v=1225_5">工具²</a></span>
-             <span class="list"><a class="list_a" href="gz.html?v=1225_5">规则</a></span>
+        	<span class="list"><a class="list_a" href="index.html?v=1226">首页</a></span>
+             <span class="list"><a class="list_a" href="gj.html?v=1226" id="select">工具¹</a></span>
+             <span class="list"><a class="list_a" href="gj2.html?v=1226">工具²</a></span>
+             <span class="list"><a class="list_a" href="gz.html?v=1226">规则</a></span>
         </span>
     </div>
         
@@ -52,12 +52,32 @@ function redirectTo(page) {
     
     <div class="all" id="bg_XMAS_RED">
 		<span class="icon" id="icon_wechat"></span>
-        <span class="box">
+    	<span class="box">
         	<a class="name">圣诞帽头像生成工具</a><br>
             <a class="about">给头像加个圣诞帽...
         </span>
         <a class="btn"href="javascript:;" onclick="redirectTo('tool_sd.html')"  >点击进入</a>
         <a class="btn" href="http://mp.weixin.qq.com/s/mi4UFEtDpFfAJWBeUFZspg" target="_blank">使用教程</a>
+    </div>
+    
+    <div class="all" id="bg_FUCHSIA">
+		<span class="icon" id="icon_wechat"></span>
+        <span class="box">
+        	<a class="name">微信圆形头像生成工具</a><br>
+            <a class="about">上传图片，生成圆形头像
+        </span>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_yx.html')"  >点击进入</a>
+        <a class="btn" href="http://mp.weixin.qq.com/s/kmJuDxmX8c4qefhANABuqw" target="_blank">使用教程</a>
+    </div>
+    
+     <div class="all" id="bg_PURPLE">
+		<span class="icon" id="icon_wechat"></span>
+        <span class="box">
+        	<a class="name">微信透明头像、昵称、消息</a><br>
+            <a class="about">将自己隐身...
+        </span>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_tm.html')"  >点击进入</a>
+        <a class="btn" href="http://mp.weixin.qq.com/s/ebD4T-siwVmozseEvm_qjw" target="_blank">使用教程</a>
     </div>
     
     <div class="all" id="bg_LIME">
@@ -80,26 +100,15 @@ function redirectTo(page) {
         <a class="btn" href="http://mp.weixin.qq.com/s/AwA3V3GHhgebGdgCoJ8Fmg" target="_blank">使用教程</a>
     </div>
     	        
-     <div class="all" id="bg_PURPLE">
+    <div class="all" id="bg_MAROON">
 		<span class="icon" id="icon_wechat"></span>
         <span class="box">
-        	<a class="name">微信透明头像、昵称、消息</a><br>
-            <a class="about">将自己隐身...
+        	<a class="name">好玩的汉字昵称工具</a><br>
+            <a class="about">这里的汉字，你认识几个？
         </span>
-        <a class="btn" href="javascript:;" onclick="redirectTo('tool_tm.html')"  >点击进入</a>
-        <a class="btn" href="http://mp.weixin.qq.com/s/ebD4T-siwVmozseEvm_qjw" target="_blank">使用教程</a>
+        <a class="btn"href="javascript:;" onclick="redirectTo('tool_hz.html')"  >点击进入</a>   
     </div>
     
-    <div class="all" id="bg_FUCHSIA">
-		<span class="icon" id="icon_wechat"></span>
-        <span class="box">
-        	<a class="name">微信圆形头像生成工具</a><br>
-            <a class="about">上传图片，生成圆形头像
-        </span>
-        <a class="btn" href="javascript:;" onclick="redirectTo('tool_yx.html')"  >点击进入</a>
-        <a class="btn" href="http://mp.weixin.qq.com/s/kmJuDxmX8c4qefhANABuqw" target="_blank">使用教程</a>
-    </div>
-
     <div class="all" id="bg_BLUE">
 		<span class="icon" id="icon_wechat"></span>
         <span class="box">
@@ -221,7 +230,7 @@ function redirectTo(page) {
         	<a class="name">煎饼铺智能机器人</a><br>
             <a class="about">可以问我问题，我才1岁哦，不要问的太难!
         </span>
-        <a class="btn" href="javascript:;" onclick="redirectTo('tool_lt.html?v=1225_5')"  >点击进入</a>   
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_lt.html?v=1226')"  >点击进入</a>   
     </div>
 
 
