@@ -100,7 +100,7 @@ function decode() {
 				return escChars[c]
 			})
 		};
-		showDecodeSuccess("图片中隐藏的信息为：<span class='green'>" + escHtml(obj.text) + "</span>")
+		showDecodeSuccess("图片中隐藏的信息为:" + escHtml(obj.text))
 	}
 }
 var getBit = function(number, location) {
