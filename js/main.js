@@ -3,7 +3,12 @@ function $_(id) {
 	return document.getElementById(id)
 }
 function selectImage(that) {
+	  var filepath=$(that).val(); 
+        if (filepath == "") {  
+            return;  
+        }  
 	var reader = new FileReader();
+	layer.open({type: 2});
 	reader.onload = function(event) {
 		$_("secretTxt").value = "";
 		$_("secretPwd").value = "";
@@ -12,16 +17,28 @@ function selectImage(that) {
 		var img = new Image();
 		img.onload = function() {
 			var ctx = $_("canvasImg").getContext("2d");
+			ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 			ctx.canvas.width = img.width;
 			ctx.canvas.height = img.height;
-			var newImg = new Image();
-			newImg.onload = function() {
-				ctx.canvas.width = newImg.width;
-				ctx.canvas.height = newImg.height;
-				ctx.drawImage(newImg, 0, 0);
-				$('#imgView').attr('src', newImg.src);
+			var action = $("input[name='action']:checked").val();
+			// 加密时
+			if (action == 0) {
+				var newImg = new Image();
+				newImg.onload = function() {
+					ctx.canvas.width = newImg.width;
+					ctx.canvas.height = newImg.height;
+					ctx.drawImage(newImg, 0, 0);
+					layer.closeAll();
+					$('#imgView').attr('src', newImg.src);
+					tip("图片加载成功");
+				}
+				modifyImg(that.files[0], img, newImg);
+			} else {
+				layer.closeAll();
+				ctx.drawImage(img, 0, 0);
+				$('#imgView').attr('src', img.src);
+				tip("图片加载成功");
 			}
-			modifyImg(that.files[0], img, newImg);
 		};
 		img.src = event.target.result;
 	};
@@ -56,24 +73,24 @@ function encode() {
 	encodeMessage(imgData.data, sjcl.hash.sha256.hash(password), message);
 	ctx.putImageData(imgData, 0, 0);
 	setTimeout(function() {
-		$("#outImg").show();
 		layer.closeAll();
+		$("#outImg").show();
 		$("#outImg").attr('src', canvasImg.toDataURL('image/jpg'));
 		tip("加密图片已经生成，保存后发送给朋友吧！");
-		addAnimate("preImg", animated[Math.floor(Math.random() * animated.length)]);
+		addAnimate("outImg", animated[Math.floor(Math.random() * animated.length)]);
 	},200);
 
 }
 
 function decode() {
 	var password = $_("secretPwd").value;
-	var passwordFail = "密码错误，或者这张图片没有加密。";
+	var passwordFail = "密码错误，或者这张图片没有加密";
 	var ctx = $_("canvasImg").getContext("2d");
 	var imgData = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
 	var message = decodeMessage(imgData.data, sjcl.hash.sha256.hash(password));
 	var obj = null;
 	try {
-		obj = JSON.parse(message)
+		obj = JSON.parse(message);
 	} catch(e) {
 		//if (password.length > 0) {
 			showDecodeError(passwordFail)
@@ -82,7 +99,7 @@ function decode() {
 	if (obj) {
 		if (obj.ct) {
 			try {
-				obj.text = sjcl.decrypt(password, message)
+				obj.text = sjcl.decrypt(password, message);
 			} catch(e) {
 				showDecodeError(passwordFail)
 			}
@@ -102,7 +119,7 @@ function decode() {
 				return escChars[c]
 			})
 		};
-		showDecodeSuccess("图片中隐藏的信息为:" + escHtml(obj.text))
+		showDecodeSuccess("图片隐藏信息:" + escHtml(obj.text))
 	}
 }
 var getBit = function(number, location) {
@@ -189,8 +206,8 @@ var decodeMessage = function(colors, hash) {
 	return message.join("")
 };
 function showDecodeError(msg) {
-	tip(msg);
+	tip2(msg,3);
 }
 function showDecodeSuccess(msg) {
-	tip(msg);
+	tip2(msg,3);
 };
