@@ -78,6 +78,12 @@ $(function() {
 		reader.addEventListener('loadend', function (e) {
 			if (e.target.readyState == FileReader.DONE) {
 				var img = new Image();
+				img.onload = function () {
+					callback(img);
+				};
+				// 压缩后的图，自动修复了照片横置的问题
+				img.src = logo;
+				/*
 				// 用原图
 				img.src = e.target.result;
 				// 这里用timeout为了让第一次src的onload不响应
@@ -90,7 +96,8 @@ $(function() {
 					};
 					img.src = modifyImg(img);
 				},200);
-				
+				*/
+
 			}
 		}, false);
 
@@ -305,10 +312,10 @@ $(function() {
 		}*/
 		
 		file = that.files[0];
-		//以图片宽度为200进行压缩  
+		//以图片宽度为600进行压缩  
 		lrz(file, {  
-			width: 200,
-			height: 200
+			width: 600,
+			height: 600
 		}).then(function (rst) {  
 			logo = rst.base64;//压缩后的base值 
 			$('#imgView').attr('src', logo);
