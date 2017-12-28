@@ -3,10 +3,12 @@ function $_(id) {
 	return document.getElementById(id)
 }
 function selectImage(that) {
-	  var filepath=$(that).val(); 
-        if (filepath == "") {  
-            return;  
-        }  
+	var file=$(that).val(); 
+	if (file == "") {
+		tip("请上传图片"); 
+		return;  
+	}
+
 	var reader = new FileReader();
 	layer.open({type: 2});
 	reader.onload = function(event) {
@@ -14,6 +16,7 @@ function selectImage(that) {
 		$_("secretPwd").value = "";
 		$_("outImg").src = "";
 		$("#outImg").hide();
+
 		var img = new Image();
 		img.onload = function() {
 			var ctx = $_("canvasImg").getContext("2d");
@@ -23,24 +26,38 @@ function selectImage(that) {
 			var action = $("input[name='action']:checked").val();
 			// 加密时
 			if (action == 0) {
-				var newImg = new Image();
+				/*var newImg = new Image();
 				newImg.onload = function() {
 					ctx.canvas.width = newImg.width;
 					ctx.canvas.height = newImg.height;
 					ctx.drawImage(newImg, 0, 0);
 					layer.closeAll();
-					$('#imgView').attr('src', newImg.src);
+					//$('#imgView').attr('src', newImg.src);
 					tip("图片加载成功，点击相应按钮操作");
 				}
-				modifyImg(that.files[0], img, newImg);
+				modifyImg(that.files[0], img, newImg);*/
+				
+				layer.closeAll();
+				ctx.drawImage(img, 0, 0);
+				$('#imgView').attr('src', img.src);
+				tip("图片加载成功，点击[加密/解密]");
 			} else {
 				layer.closeAll();
 				ctx.drawImage(img, 0, 0);
 				$('#imgView').attr('src', img.src);
-				tip("图片加载成功，点击相应按钮操作");
+				tip("图片加载成功，点击[加密/解密]");
 			}
 		};
-		img.src = event.target.result;
+		
+		//以图片宽度为160进行压缩  
+		lrz(that.files[0], {  
+			width: 160,
+			height: 200
+		}).then(function (rst) {  
+			img.src =  rst.base64;
+		});
+		
+		//img.src = event.target.result;
 	};
 	reader.readAsDataURL($_("file").files[0])
 }

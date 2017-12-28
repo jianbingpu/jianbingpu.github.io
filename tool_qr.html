@@ -74,14 +74,18 @@ $(function() {
 	function fileChange(that){
 	        var filepath=$(that).val(); 
 	        if (filepath == "") {  
+	            tip("请上传图片"); 
 	            return;  
 	        }  
+	        
+	        /*
 	        var extStart=filepath.lastIndexOf(".");  
 	        var ext=filepath.substring(extStart,filepath.length).toUpperCase();  
 	        if(".jpg|.png|.bmp|.jpeg".toUpperCase().indexOf(ext.toUpperCase())==-1){  
 	           tip("只允许上传jpg、png、bmp、jpeg格式的图片");
 	           return false;  
-	        }  
+	        }  */
+	        
 		     //以图片宽度为200进行压缩  
 		    lrz(that.files[0], {  
 		         width: 200,
