@@ -65,7 +65,7 @@ function encode() {
 		return
 	}
 	if (message.length > maxMessageSize) {
-		tip("加密信息太长，最大为：" + maxMessageSize + ".");
+		tip("加密信息太长，最大为：" + maxMessageSize);
 		return
 	}
 	layer.open({type: 2});
