@@ -26,6 +26,7 @@ $(function() {
 		if(action ==1){
 		     $("#secretTxt").attr("disabled",true);
 		     $("#secretTxt").val("");
+		     $("#secretPwd").val("");
 		     $("#create").text("解密");
 		     $("#outImg").attr('src', '');
 		     $("#outImg").hide();
@@ -223,11 +224,12 @@ $(function() {
         
         $("#clear").on("click",function(e){
        	e.preventDefault();
-       	$("#file").attr('src', '');
+       	$('#file').val("");
       	$("#outImg").attr('src', '');
       	$("#secretTxt").val("");
       	$("#secretPwd").val("");
       	$("#outImg").hide();
+      	$('#imgView').attr('src', logo);
       	tip("已清空");
         });
         
