@@ -17,13 +17,13 @@ function selectImage(that) {
 		$_("outImg").src = "";
 		$("#outImg").hide();
 
+		var action = $("input[name='action']:checked").val();
 		var img = new Image();
 		img.onload = function() {
 			var ctx = $_("canvasImg").getContext("2d");
 			ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 			ctx.canvas.width = img.width;
 			ctx.canvas.height = img.height;
-			var action = $("input[name='action']:checked").val();
 			// 加密时
 			if (action == 0) {
 				/*var newImg = new Image();
@@ -48,19 +48,22 @@ function selectImage(that) {
 				tip("图片加载成功，点击[加密/解密]");
 			}
 		};
-		
-		//以图片宽度为160进行压缩  
-		lrz(that.files[0], {  
-			width: 160,
-			height: 200
-		}).then(function (rst) {  
-			img.src =  rst.base64;
-		}).catch(function(err) {
-			layer.closeAll();
-	        	tip("图片加载失败");
-	    	});
-		
-		//img.src = event.target.result;
+
+		// 加密时
+		if (action == 0) {
+			//以图片宽度为160进行压缩  
+			lrz(that.files[0], {  
+				width: 600,
+				height: 800
+			}).then(function (rst) {
+				img.src =  rst.base64;
+			}).catch(function(err) {
+				layer.closeAll();
+		        	tip("图片加载失败");
+		    	});
+	    	} else {
+			img.src = event.target.result;
+		}
 	};
 	reader.readAsDataURL($_("file").files[0])
 }
