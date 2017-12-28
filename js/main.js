@@ -30,14 +30,14 @@ function selectImage(that) {
 					ctx.drawImage(newImg, 0, 0);
 					layer.closeAll();
 					$('#imgView').attr('src', newImg.src);
-					tip("图片加载成功");
+					tip("图片加载成功，点击相应按钮操作");
 				}
 				modifyImg(that.files[0], img, newImg);
 			} else {
 				layer.closeAll();
 				ctx.drawImage(img, 0, 0);
 				$('#imgView').attr('src', img.src);
-				tip("图片加载成功");
+				tip("图片加载成功，点击相应按钮操作");
 			}
 		};
 		img.src = event.target.result;
