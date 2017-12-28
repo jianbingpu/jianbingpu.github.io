@@ -32,9 +32,13 @@ $(function() {
 		     $("#outImg").hide();
 		     $('#imgView').attr('src', logo);
 		     $('#file').val("");
-		}else{
+		} else {
 		    $("#secretTxt").attr("disabled",false);
+		    $("#secretTxt").val("");
+		    $("#secretPwd").val("");
 		    $("#create").text("加密");
+		    $('#imgView').attr('src', logo);
+		    $('#file').val("");
 		}
 	});
 });
