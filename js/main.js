@@ -12,9 +12,9 @@ function selectImage(that) {
 	var reader = new FileReader();
 	layer.open({type: 2});
 	reader.onload = function(event) {
-		$_("secretTxt").value = "";
-		$_("secretPwd").value = "";
-		$_("outImg").src = "";
+		//$_("secretTxt").value = "";
+		//$_("secretPwd").value = "";
+		$("#outImg").attr('src', '');
 		$("#outImg").hide();
 
 		var action = $("input[name='action']:checked").val();
