@@ -19,6 +19,16 @@
 <script>
 $(function() {   
 	$('#imgView').attr('src', logo);
+	$("input[name='action']").change(function(){
+		var action = $("input[name='action']:checked").val();
+		// 解密
+		if(action ==1){
+		     $("#secretTxt").attr("disabled",true);
+		     $("#secretTxt").val("");
+		}else{
+		    $("#secretTxt").attr("disabled",false);
+		}
+	});
 });
 </script>
 </head>
@@ -38,8 +48,8 @@ $(function() {
 	    &nbsp;<input type="radio" id="decode" name="action" value="1" style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="decode">解密</label>)</p>
 	    <br>
 	    <!--<div id="prev" style="display:none"><canvas id="canvas" width="400" height="400"></canvas></div>-->
-	    <canvas id="canvasImg" style="display:none" width="4032" height="3024"></canvas>
-	    <img id='outImg' style="display:none;max-width:100%;border: 1px solid rgb(208, 208, 209); box-shadow: rgba(7, 1, 3, 0.4) 2px 2px 5px; padding: 5px; border-radius: 0px;border-radius:0%;"/>
+	    <canvas id="canvasImg" style="display:none"></canvas>
+	    <img id='outImg'  style="display:none;max-width:100%;border: 1px solid rgb(208, 208, 209); box-shadow: rgba(7, 1, 3, 0.4) 2px 2px 5px; padding: 5px; border-radius: 0px;border-radius:0%;"/>
 	    
 	    <br><br>
 	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">操作</button>
@@ -71,13 +81,13 @@ $(function() {
 				//alert(EXIF.getTag(this, 'Orientation')); 
 				Orientation = EXIF.getTag(this, 'Orientation');
 				//alert("Orientation1:"+Orientation);
-				if (img.naturalWidth > img.naturalHeight && img.naturalWidth > 800) {
+			/*	if (img.naturalWidth > img.naturalHeight && img.naturalWidth > 800) {
 					expectWidth = 800;
 					expectHeight = expectWidth * img.naturalHeight / img.naturalWidth;
 				} else if (img.naturalHeight > img.naturalWidth && img.naturalHeight > 1200) {
 					expectHeight = 1200;
 					expectWidth = expectHeight * img.naturalWidth / img.naturalHeight;
-				}
+				}*/
 				var canvas = document.createElement("canvas");
 				var ctx = canvas.getContext("2d");
 				canvas.width = expectWidth;

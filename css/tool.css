@@ -45,7 +45,7 @@ table {
     }
 
     input {
-        width: 100%;
+        width: 95%;
         height: 40px;
         border-radius: 5px;
         border: none;
@@ -56,7 +56,7 @@ table {
     }
 
     textarea {
-        width: 100%;
+        width: 95%;
         height: 40px;
         border-radius: 5px;
         border: none;

@@ -16,6 +16,8 @@ function selectImage(that) {
 			ctx.canvas.height = img.height;
 			var newImg = new Image();
 			newImg.onload = function() {
+				ctx.canvas.width = newImg.width;
+				ctx.canvas.height = newImg.height;
 				ctx.drawImage(newImg, 0, 0);
 				$('#imgView').attr('src', newImg.src);
 			}
