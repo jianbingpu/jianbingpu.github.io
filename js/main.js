@@ -55,7 +55,10 @@ function selectImage(that) {
 			height: 200
 		}).then(function (rst) {  
 			img.src =  rst.base64;
-		});
+		}).catch(function(err) {
+			layer.closeAll();
+	        	tip("图片加载失败");
+	    	});
 		
 		//img.src = event.target.result;
 	};

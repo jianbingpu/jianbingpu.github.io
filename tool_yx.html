@@ -312,7 +312,10 @@ $(function() {
 		}).then(function (rst) {  
 			logo = rst.base64;//压缩后的base值 
 			$('#imgView').attr('src', logo);
-		});
+		}).catch(function(err) {
+			//layer.closeAll();
+	        	tip("图片加载失败");
+	    	});
 		
 		//createImg(file);
 	}

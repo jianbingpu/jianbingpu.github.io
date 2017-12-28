@@ -96,7 +96,10 @@ $(function() {
 		            if(!window.isPrivateMode && !!window.localStorage){
 		            	localStorage.setItem("jbp_tool_qrlogo", logo);
 		            }
-			 }); 
+			 }).catch(function(err) {
+				//layer.closeAll();
+		        	tip("图片加载失败");
+	    		}); 
 	}
 		
 	var $content=$("#input");
