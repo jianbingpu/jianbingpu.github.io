@@ -252,15 +252,15 @@ li{
 
 .tip{
 	display:block;
-	margin-top:100px;
+	margin-top:50px;
 	margin-left:50px;
 	margin-right:50px;
 	background-color:#f1f1f1;
 	height:100px;
 	line-height:100px;
-	text-align:center;
+	text-align:left;
 	border-radius:200px;
-	color:red;
+	color:#001f3f;
 	font-size:27px;
 	padding-left:10px;
 	padding-right:10px;

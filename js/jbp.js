@@ -9,7 +9,7 @@
 	}
 	
 	function back() {
-		this.location.href="gj.html?v=1228_12";
+		this.location.href="gj.html?v=1229";
 	}
 
 	function tip(msg) {
@@ -124,4 +124,16 @@
 	    
 	    return false;
 	};
+	
+	/**
+	 * 微信浏览器判断
+	 */
+	function isWeixin(){ 
+		var ua = window.navigator.userAgent.toLowerCase(); 
+		if(ua.match(/MicroMessenger/i) == 'micromessenger'){ 
+			return true; 
+		}else{ 
+			return false; 
+		} 
+	}
 	
