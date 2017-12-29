@@ -219,6 +219,10 @@ $(function() {
 		 var action = $("input[name='action']:checked").val();
 		 // 加密
 		 if (action == 0) {
+		 	if($("#secretTxt").val() == "") {
+				tip("请输入内容"); 
+				return; 
+		 	}
 			encode();
 		 } else {
 			decode();
