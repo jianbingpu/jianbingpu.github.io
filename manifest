@@ -37,10 +37,13 @@ CACHE:
 /img/sdm/snow/snow1.gif
 /img/sdm/snow/snow2.gif
 /img/sdm/snow/snow3.gif
+/img/v/yellow.png
+/img/v/blue.png
 
 /js/base64.js
 /js/clipboard.min.js
 /js/jquery.js
+/js/jquery2.1.4.js
 /js/jquery.qrcode.js
 /js/json2.js
 /js/lrz.all.bundle.js
@@ -57,6 +60,8 @@ CACHE:
 /js/sdm/snow.js
 /js/main.js
 /js/sjcl.js
+/js/hammer.js
+/js/iscroll-zoom.js
 
 /js/layer_mobile/layer.js
 /js/layer_mobile/need/layer.css

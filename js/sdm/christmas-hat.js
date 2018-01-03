@@ -9261,7 +9261,7 @@ function(t, e, n) {
     c = n(839),
     u = n(841),
     l = (window.tracking, window.html2canvas, window.navigator.userAgent.toLocaleLowerCase().indexOf("jike") >= 0),
-    f = [n(843), n(844), n(845), n(846), n(847), n(848), n(849), n(850), n(851), n(852), n(853), n(854)];
+    f = [n(843), n(844), n(845), n(846), n(847), n(848), n(849), n(850), n(851), n(852), n(853), n(854), n(855), n(856)];
     e.$ = function(t, e) {
         var n = (e || document).querySelectorAll(t);
         return 0 === n.length ? null: 1 === n.length ? n[0] : Array.prototype.slice.call(n)
@@ -14391,4 +14391,10 @@ function(t, e, n) {
 },
 function(t, e, n) {
     t.exports = n.p + "img/sdm/8.png"
+},
+function(t, e, n) {
+    t.exports = n.p + "img/v/yellow.png"
+},
+function(t, e, n) {
+    t.exports = n.p + "img/v/blue.png"
 }]);
