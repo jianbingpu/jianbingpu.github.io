@@ -62,6 +62,7 @@ CACHE:
 /js/sjcl.js
 /js/hammer.js
 /js/iscroll-zoom.js
+/js/jquery.photoClip.min.js
 
 /js/layer_mobile/layer.js
 /js/layer_mobile/need/layer.css
