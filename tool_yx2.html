@@ -93,6 +93,7 @@ $(function() {
 		},
 		clipFinish: function(dataURL) {
 			logo = dataURL;
+			alert(logo);
 		}
 	});
 
@@ -148,6 +149,7 @@ $(function() {
 					callback(img);
 				};
 				// 压缩后的图，自动修复了照片横置的问题
+				alert(logo);
 				img.src = logo;
 				/*
 				// 用原图
@@ -351,6 +353,7 @@ $(function() {
 				setTimeout(function() {
 					$("#preImg").show();
 					layer.closeAll();
+					alert(canvas.toDataURL('image/jpg'));
 					$("#preImg").attr('src', canvas.toDataURL('image/jpg'));
 					addAnimate("preImg", animated[Math.floor(Math.random() * animated.length)]);
 				},200);
