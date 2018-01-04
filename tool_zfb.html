@@ -48,7 +48,11 @@ $(function() {
     	tip("拷贝失败，请手动复制");
     });
 
-	$("#qrCode").val(getQueryString("qrCd"));
+	var qrCd = getQueryString("qrCd");
+	if (!!qrCd) {
+		$("#qrCode").val(qrCd);
+		$('.mask').show();
+	}
 	function getQueryString(name) {
 	    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
 	    var r = window.location.search.substr(1).match(reg);
@@ -80,7 +84,7 @@ $(function() {
 	<h3>支付宝领红包</h3><hr>
 	    <input type="text"   id="qrCode" value="KM4qEX88p3">
 	    <button  id="get" type="button" style="background-color:red; border-radius:20px;" data-clipboard-target="#output">领取</button>
-	    <button  id="share" type="button" style="background-color:#00C74A; border-radius:20px;" onclick="$('.mask').show();">分享</button>
+	    <button  id="share" type="button" style="background-color:#00C74A; border-radius:20px;" >分享</button>
 	</div>
 	
 	<div class="mask" onclick="$('.mask').hide();"></div>
