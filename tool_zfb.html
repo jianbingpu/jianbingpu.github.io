@@ -36,7 +36,7 @@
 
 <script>
 $(function() {
-    var clipboard = new Clipboard('body');
+    var clipboard = new Clipboard('#get');
 
     clipboard.on('success', function(e) {
     	e.clearSelection();
@@ -81,7 +81,7 @@ $('#get').trigger("click");
 });
 </script>
 </head>
-<body oncontextmenu="return true"; data-clipboard-target="#qrCode">
+<body oncontextmenu="return true";>
 	<button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
 	<div id="container">
 	<h3>支付宝领红包</h3><hr>
