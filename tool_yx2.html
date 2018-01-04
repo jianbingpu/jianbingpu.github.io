@@ -50,7 +50,6 @@
     padding: 10px 0px 10px 0px;
     text-align: center;
     height: 30px;
-    line-height: 30px;
     color: #fff;
 }
 #clipBtn,#subBtn{
@@ -87,6 +86,8 @@ $(function() {
 		view: "#view",
 		ok: "#clipBtn",
 		loadStart: function() {
+		alert($(document.body).outerHeight(true));
+			alert($(document).height());
 			$("#clipbox").height($(document).height());
 			$("#clipbox").show();
 			layer.open({type: 2});
@@ -358,7 +359,9 @@ $(function() {
 				setTimeout(function() {
 					$("#preImg").show();
 					layer.closeAll();
+					alert(3);
 					$("#preImg").attr('src', canvas.toDataURL('image/jpg'));
+					alert(4)
 					addAnimate("preImg", animated[Math.floor(Math.random() * animated.length)]);
 				},200);
 				}catch(e){alert(e)}
