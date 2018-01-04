@@ -86,10 +86,8 @@ $(function() {
 		view: "#view",
 		ok: "#clipBtn",
 		loadStart: function() {
-			alert($(document.body).outerHeight(true));
-			alert(screen.availHeight);
-			$("#clipbox").height(screen.availHeight);
 			$("#clipbox").show();
+			$("#clipbox").height(screen.availHeight+300);
 			layer.open({type: 2});
 		},
 		loadComplete: function() {
