@@ -86,9 +86,9 @@ $(function() {
 		view: "#view",
 		ok: "#clipBtn",
 		loadStart: function() {
-		alert($(document.body).outerHeight(true));
-			alert($(document).height());
-			$("#clipbox").height($(document).height());
+			alert($(document.body).outerHeight(true));
+			alert(screen.availHeight);
+			$("#clipbox").height(screen.availHeight);
 			$("#clipbox").show();
 			layer.open({type: 2});
 		},
@@ -344,7 +344,6 @@ $(function() {
 			// 读取背景图
 			// canvas = libcanvas.createCanvasBasedOnImg(img);
 			// canvas.id = "roundCanvas";
-			alert(img && canvas);
 			if (img && canvas) {
 			
 				// 生成圆角图片
@@ -355,17 +354,12 @@ $(function() {
 				var context = canvas.getContext("2d");
 				// 这里的半径是canvas宽的一半
 				circleImg(context, img, 0, 0, 300);
-				alert(2);
-				try{
 				setTimeout(function() {
 					$("#preImg").show();
 					layer.closeAll();
-					alert(3);
 					$("#preImg").attr('src', canvas.toDataURL('image/jpg'));
-					alert(4)
 					addAnimate("preImg", animated[Math.floor(Math.random() * animated.length)]);
 				},200);
-				}catch(e){alert(e)}
 			}
 		});
 	}
