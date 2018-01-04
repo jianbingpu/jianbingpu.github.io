@@ -48,10 +48,10 @@ $(function() {
     	//tip("拷贝失败，请手动复制");
     });
 	//$('#get').trigger("click");
-	var qrCd = getQueryString("qrCd");
+	/*var qrCd = getQueryString("qrCd");
 	if (!!qrCd) {
 		$("#qrCode").val(qrCd);
-	}
+	}*/
 	
 	function getQueryString(name) {
 	    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
@@ -61,6 +61,7 @@ $(function() {
 	    }
 	    return null;
 	}
+	
         $("#get").on("click",function(e){
        	e.preventDefault();
        	setTimeout(function() {
