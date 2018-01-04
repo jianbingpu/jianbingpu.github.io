@@ -148,6 +148,7 @@ $(function() {
 		reader.addEventListener('loadend', function (e) {
 			if (e.target.readyState == FileReader.DONE) {
 				var img = new Image();
+				img.setAttribute('crossOrigin', 'Anonymous');
 				img.onload = function () {
 					callback(img);
 				};
