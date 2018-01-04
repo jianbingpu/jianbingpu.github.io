@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#v=180104_3
+#v=180104_4
 
 CACHE:
 /css/jbp.css
@@ -39,6 +39,9 @@ CACHE:
 /img/sdm/snow/snow3.gif
 /img/v/yellow.png
 /img/v/blue.png
+/img/weinxin_share_dialog.png
+/img/shareMask.png
+/img/zfbhb.png
 
 /js/base64.js
 /js/clipboard.min.js
