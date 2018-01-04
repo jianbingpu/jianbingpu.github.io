@@ -36,6 +36,7 @@
 
 <script>
 $(function() {
+    var shareFlg = false;
     var clipboard = new Clipboard('#get');
 
     clipboard.on('success', function(e) {
@@ -49,7 +50,7 @@ $(function() {
     });
 
 	var qrCd = getQueryString("qrCd");
-	if (!!qrCd) {
+	if (!!qrCd && shareFlg) {
 		$("#qrCode").val(qrCd);
 		$('.mask').show();
 	}
@@ -72,6 +73,7 @@ $(function() {
          $("#share").on("click",function(e){
        	e.preventDefault();
        	setTimeout(function() {
+       		shareFlg = true;
 	 		location.href = location.href.split("?")[0]+ "?qrCd="+$("#qrCode").val();
  		},200);
         });
