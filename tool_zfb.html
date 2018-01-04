@@ -40,7 +40,7 @@ $(function() {
 
     clipboard.on('success', function(e) {
     	e.clearSelection();
-    	//tip("拷贝成功");
+    	tip("拷贝成功");
     });
 
     clipboard.on('error', function(e) {
@@ -65,7 +65,7 @@ $(function() {
        	e.preventDefault();
        	setTimeout(function() {
 	 		location.href="HTTPS://QR.ALIPAY.COM/";
- 		},250);
+ 		},300);
         });
         
          $("#share").on("click",function(e){
