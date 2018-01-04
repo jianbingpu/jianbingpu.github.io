@@ -148,7 +148,6 @@ $(function() {
 			if (e.target.readyState == FileReader.DONE) {
 				var img = new Image();
 				img.onload = function () {
-					alert("onload");
 					callback(img);
 				};
 				setTimeout(function() {
@@ -343,6 +342,7 @@ $(function() {
 			// 读取背景图
 			// canvas = libcanvas.createCanvasBasedOnImg(img);
 			// canvas.id = "roundCanvas";
+			alert(img && canvas);
 			if (img && canvas) {
 			
 				// 生成圆角图片
@@ -353,13 +353,15 @@ $(function() {
 				var context = canvas.getContext("2d");
 				// 这里的半径是canvas宽的一半
 				circleImg(context, img, 0, 0, 300);
-				
+				alert(2);
+				try{
 				setTimeout(function() {
 					$("#preImg").show();
 					layer.closeAll();
 					$("#preImg").attr('src', canvas.toDataURL('image/jpg'));
 					addAnimate("preImg", animated[Math.floor(Math.random() * animated.length)]);
 				},200);
+				}catch(e){alert(e)}
 			}
 		});
 	}
