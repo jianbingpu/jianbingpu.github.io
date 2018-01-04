@@ -25,14 +25,14 @@
 <meta name="description" content="煎饼铺，一个有趣的公众号。长耳朵壁纸,换发型壁纸,iPhone X换发型, iPhone X长耳朵,微信透明, 透明头像, 透明昵称, 透明消息, 圆形头像, 圆形头像生成, 微信二维码名片, 二维码名片, 二维码生成, 微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
 <style>
 
-#view {
+#view{
 	margin: 0 auto;
 	width: 200px;
 	height: 200px;
 	margin-top: 20px;
 }
 #clipArea {
-	margin: 20px;
+	margin: 10px;
 	height: 300px;
 }
 #clipbox{
@@ -41,20 +41,22 @@
 	left: 0;
 	right:0;
 	width: 100%;
+	height:100%; 
 	background-color: #787878;
 	display: none;
+	z-index: 9;
 }
 .btnarea{
-	text-align: center;
-    height: 50px;
-    line-height: 50px;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
     color: #fff;
 }
 #clipBtn,#subBtn{
-    padding: 10px 20px;
-    margin: 10px;
+    margin: 5px;
     width:60px;
-    height:22px;
+    height:30px;
     font-size:10px;
     background-color:#00C74A;
     border-radius:10px;
@@ -85,6 +87,7 @@ $(function() {
 		view: "#view",
 		ok: "#clipBtn",
 		loadStart: function() {
+			$("#clipbox").height($(document).height());
 			$("#clipbox").show();
 			layer.open({type: 2});
 		},
@@ -120,11 +123,11 @@ $(function() {
 	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">生成</button>
 	    <button type="button" style="background-color:#FF4500; border-radius:20px;"  id="clear">清空</button>
 	</div>
-    <div id="clipbox" style="display: none;">
-		<div id="clipArea" style="user-select: none; overflow: hidden; position: relative;"><div class="photo-clip-view" style="position: absolute; left: 50%; top: 50%; width: 200px; height: 200px; margin-left: -100px; margin-top: -100px;"><div class="photo-clip-moveLayer" style="transform-origin: 0px 0px 0px; transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) scale(1) translateZ(0px); touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><div class="photo-clip-rotateLayer"></div></div></div><div class="photo-clip-mask" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; pointer-events: none;"><div class="photo-clip-mask-left" style="position: absolute; left: 0px; right: 50%; top: 50%; bottom: 50%; width: auto; height: 200px; margin-right: 100px; margin-top: -100px; margin-bottom: -100px; background-color: rgba(0, 0, 0, 0.498039);"></div><div class="photo-clip-mask-right" style="position: absolute; left: 50%; right: 0px; top: 50%; bottom: 50%; margin-left: 100px; margin-top: -100px; margin-bottom: -100px; background-color: rgba(0, 0, 0, 0.498039);"></div><div class="photo-clip-mask-top" style="position: absolute; left: 0px; right: 0px; top: 0px; bottom: 50%; margin-bottom: 100px; background-color: rgba(0, 0, 0, 0.498039);"></div><div class="photo-clip-mask-bottom" style="position: absolute; left: 0px; right: 0px; top: 50%; bottom: 0px; margin-top: 100px; background-color: rgba(0, 0, 0, 0.498039);"></div><div class="photo-clip-area" style="border: 1px dashed rgb(221, 221, 221); position: absolute; left: 50%; top: 50%; width: 200px; height: 200px; margin-left: -101px; margin-top: -101px;"></div></div></div>
-		<div class="btnarea">第1步：<span id="clipBtn">截取</span></div>
+       <div id="clipbox" style="display: none;">
+		<div id="clipArea" ></div>
+		<div class="btnarea">第1步：<button type="button"  id="clipBtn">截取</button></div>
 		<div id="view" ></div>
-		<div class="btnarea" style="margin-top:20px">第2步：<span id="subBtn">确定</span></div>
+		<div class="btnarea">第2步：<button type="button"  id="subBtn">确定</button></div>
 	</div>
 </body>
 <script type="text/javascript">
@@ -145,10 +148,13 @@ $(function() {
 			if (e.target.readyState == FileReader.DONE) {
 				var img = new Image();
 				img.onload = function () {
+					alert("onload");
 					callback(img);
 				};
-				// 压缩后的图，自动修复了照片横置的问题
-				img.src = logo;
+				setTimeout(function() {
+					// 压缩后的图，自动修复了照片横置的问题
+					img.src = logo;
+				},200);
 				/*
 				// 用原图
 				img.src = e.target.result;
@@ -351,7 +357,6 @@ $(function() {
 				setTimeout(function() {
 					$("#preImg").show();
 					layer.closeAll();
-					alert(canvas.toDataURL('image/jpg'));
 					$("#preImg").attr('src', canvas.toDataURL('image/jpg'));
 					addAnimate("preImg", animated[Math.floor(Math.random() * animated.length)]);
 				},200);
