@@ -36,7 +36,6 @@
 
 <script>
 $(function() {
-    var shareFlg = false;
     var clipboard = new Clipboard('#get');
 
     clipboard.on('success', function(e) {
@@ -50,10 +49,10 @@ $(function() {
     });
 
 	var qrCd = getQueryString("qrCd");
-	if (!!qrCd && shareFlg) {
+	if (!!qrCd) {
 		$("#qrCode").val(qrCd);
-		$('.mask').show();
 	}
+	
 	function getQueryString(name) {
 	    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
 	    var r = window.location.search.substr(1).match(reg);
@@ -69,14 +68,15 @@ $(function() {
  		},200);
         });
         
-        
          $("#share").on("click",function(e){
        	e.preventDefault();
+       	$('.mask').show();
        	setTimeout(function() {
-       		shareFlg = true;
 	 		location.href = location.href.split("?")[0]+ "?qrCd="+$("#qrCode").val();
- 		},200);
+ 		},500);
         });
+        
+        
 });
 </script>
 </head>
