@@ -65,10 +65,12 @@ $(function() {
 	
         $("#get").on("click",function(e){
        	e.preventDefault();
-       	tip("恭喜，红包已领取，快打开支付宝看看吧！");
+       	layer.open({type: 2});
        	setTimeout(function() {
-	 		location.href="https://qr.alipay.com/c1x05636vpl422d8u1qq53b";
- 		},300);
+	 		//location.href="https://qr.alipay.com/c1x05636vpl422d8u1qq53b";
+	 		layer.closeAll();
+	 		tip2("恭喜，红包已领取。快打开支付宝看看抢了多少！",4);
+ 		},2000);
         });
         
          $("#share").on("click",function(e){
@@ -87,7 +89,7 @@ $(function() {
 <body oncontextmenu="return true";>
 	<button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
 	<div id="container">
-	<h3>支付宝领红包</h3><hr>
+	<h3>支付宝领红包工具</h3><hr>
 	     <img src="img/zfbhb.png" style="width:80%"><br><br>
 	     每天领红包，门店付款自动立减红包金额！<br><br>
 	    <div  id="qrCode" style="font-size:0px;color:#fff">KM4qEX88p3</div>
