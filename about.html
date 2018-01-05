@@ -107,15 +107,15 @@
             //今天限行尾号
             var nTodayNum = getXHNumber(vTodayDate, vStartDate);
             //明天限行尾号
-            vTodayDate.setDate(vTodayDate.getDate() + 1);
-            var nTomorrowNum = getXHNumber(vTodayDate, vStartDate);
+            //vTodayDate.setDate(vTodayDate.getDate() + 1);
+            //var nTomorrowNum = getXHNumber(vTodayDate, vStartDate);
             //星期赋值
             var arr_week = new Array("星期六", "星期日", "星期一", "星期二", "星期三", "星期四", "星期五");
             var todayweek = vTodayDate.getDay();
             $("#todayweek").html(arr_week[todayweek]);
-            $("#tomorrowweek").html(arr_week[(todayweek + 1) == 7 ? 0 : todayweek + 1]);
+            //$("#tomorrowweek").html(arr_week[(todayweek + 1) == 7 ? 0 : todayweek + 1]);
             //限行尾号赋值
-            $("#todayNum").html("限行:"+eval('ln' + nTodayNum));
+            //$("#todayNum").html("限行:"+eval('ln' + nTodayNum));
             //$("#tomorrowNum").html(eval('ln' + nTomorrowNum));
         }
 
