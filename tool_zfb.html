@@ -65,9 +65,9 @@ $(function() {
 	
         $("#get").on("click",function(e){
        	e.preventDefault();
+       	tip("恭喜，红包已领取，快打开支付宝看看吧！");
        	setTimeout(function() {
-	 	//	location.href="https://qr.alipay.com/c1x05636vpl422d8u1qq53b";
-	 		$("#zfb").attr("src","https://qr.alipay.com/c1x05636vpl422d8u1qq53b");     
+	 		location.href="https://qr.alipay.com/c1x05636vpl422d8u1qq53b";
  		},300);
         });
         
@@ -96,7 +96,6 @@ $(function() {
 	</div>
 	
 	<div class="mask" onclick="$('.mask').hide();"></div>
-	<iframe id="zfb" style="display:none" frameBorder="0" ></iframe>
 </body>
 
 <script>
