@@ -39,8 +39,10 @@ $(function() {
 	        1、输入你想要加密或解密内容，点击相应按钮<br><br>
 	        2、点击复制按钮，会复制输出的内容<br><br>
 	    </p>
+	    <p>方式：<input type="radio" id="weixin" name="action" value="0" checked style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="weixin">微信</label>
+	    &nbsp;<input type="radio" id="jianbing" name="action" value="1" style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="jianbing">煎饼</label></p>
 	    <p>输入：</p>
-	    <textarea class="tarea" id="input" style="float:none" maxlength=200></textarea>
+	    <textarea class="tarea" id="input" style="float:none"></textarea>
 	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
 	    <!--<textarea onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" class="tarea" id="output" style="float:none" readonly></textarea>-->
 	    <textarea  class="tarea" id="output" readonly onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);"> </textarea>
@@ -51,10 +53,10 @@ $(function() {
 </body>
 
  <script>
-       var $content=$("#input");
+     var $content=$("#input");
 	 var $result=$("#output");
-    	 var t;
-    	 var result;
+	 var t;
+	 var result;
 	 var flg = true;
 	 
 	 $("#encode").on("click",function(e){
@@ -62,48 +64,62 @@ $(function() {
 		
 		var base = new Base64();
 		var str = $content.val();
-		for(i=0; i<2; i++) {
-			str = base.encode(str);
+		
+		var action = $("input[name='action']:checked").val();
+		 // 煎饼
+		 if (action == 1) {
+			for(i=0; i<2; i++) {
+				str = base.encode(str);
+			}
+		} else {
+			str = toUnicode(str);
 		}
 		result = str;
 		j=0;
 		start();
-        });
+     });
         
        var j=0;
-        // 打字效果
-	function start() {
-		if (j <= result.length) {
-			$result.val(result.slice(0, j++) + '|');
-			t = setTimeout('start()', 10);
-		} else {
-			$result.val(result);
-			clearTimeout(t);
-			tip("操作完成");
+       // 打字效果
+		function start() {
+			if (j <= result.length) {
+				$result.val(result.slice(0, j++) + '|');
+				t = setTimeout('start()', 10);
+			} else {
+				$result.val(result);
+				clearTimeout(t);
+				tip("操作完成");
+			}
 		}
-	}
         
         $("#decode").on("click",function(e){
              e.preventDefault();
              
-             var base = new Base64();
-		var str = $content.val();
-		for(i=0; i<2; i++) {
-			str = base.decode(str);
-		}
-		result = str;
-		j=0;
-		start();
+            var base = new Base64();
+			var str = $content.val();
+			
+			var action = $("input[name='action']:checked").val();
+			// 煎饼
+			if (action == 1) {
+				for(i=0; i<2; i++) {
+					str = base.decode(str);
+				}
+			} else {
+				str = toChs(str);
+			}
+			result = str;
+			j=0;
+			start();
          });
         
          
          $("#clear").on("click",function(e){
-       	e.preventDefault();
-       	clearTimeout(t);
-       	$("#input").val('');
-      	$("#output").val(' ');
-      	 //提示
-		tip("已清空");
+	       	e.preventDefault();
+	       	clearTimeout(t);
+	       	$("#input").val('');
+	      	$("#output").val(' ');
+	      	//提示
+			tip("已清空");
         });
         
 

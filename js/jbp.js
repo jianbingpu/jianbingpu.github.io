@@ -9,7 +9,7 @@
 	}
 	
 	function back() {
-		this.location.href="gj.html?v=180111_1";
+		this.location.href="gj.html?v=180120";
 	}
 
 	function tip(msg) {
@@ -61,7 +61,7 @@
 		return srcStr;
 	}
 	
-       function generateSmall(){
+    function generateSmall(){
 	    var str = [];
 	    for(var i=97; i<123; i++){
 	        str.push(String.fromCharCode(i));
@@ -137,3 +137,26 @@
 		} 
 	}
 	
+	
+	function toUnicode(str) {
+		var temp,
+		i = 0,
+		r = '',
+		len = str.length;
+		 
+		for (; i < len; i++) {
+		temp = str.charCodeAt(i).toString(16);
+		 
+		while ( temp.length < 4 )
+		temp = '0' + temp;
+		 
+		r += '\\u' + temp;
+		};
+		 
+		return r;
+	}
+	
+	function toChs(str) {
+		str = unescape(str.replace(/\\u/g,"%u"));
+		return str;
+	}
