@@ -9,7 +9,7 @@
 	}
 	
 	function back() {
-		this.location.href="gj.html?v=180120";
+		this.location.href="gj.html?v=180122";
 	}
 
 	function tip(msg) {
