@@ -47,6 +47,7 @@ $(function() {
 		<option value="red">红色</option>
 		<option value="yellow">黄色</option>
 		<option value="blue">蓝色</option>
+		<option value="green">绿色</option>
 		<option value="white">白色</option>
 		</select></p>
 	    <p>输入：</p>
@@ -125,7 +126,7 @@ $(function() {
 
 
 
-   				ctx.textAlign = "start";
+   				ctx.textAlign = "left";
 	    			var fontColor = $("#fontColor").val();
    				ctx.fillStyle = fontColor;
    				ctx.font = "bold "+fontSize + "px " + defaults.fontFamily;
