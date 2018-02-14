@@ -38,8 +38,10 @@ $(function() {
 	        1、选择样式，输入想要的内容<br><br>
 	        2、点击生成，长按保存图片<br><br>
 	    </p>
-	    <p>背景色：<input type="radio" id="white"  onclick = "pyqGavatar.gernate($content.val());" name="action" value="#fff" checked style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="white">白色</label>
-	    &nbsp;<input type="radio" id="black"   onclick = "pyqGavatar.gernate($content.val());" name="action" value="#000" style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="black">黑色</label>
+	   <p>背景色：<input type="radio" id="white"  onclick = "pyqGavatar.gernate($content.val());" name="bgColor" value="#fff" checked style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="white">白色</label>
+	    &nbsp;<input type="radio" id="black"   onclick = "pyqGavatar.gernate($content.val());" name="bgColor" value="#000" style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="black">黑色</label>
+	    <p>字体大小：<input type="radio" id="same"  onclick = "pyqGavatar.gernate($content.val());" name="fontSize" value="0"  style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="same">同等</label>
+	    &nbsp;<input type="radio" id="bigger"   onclick = "pyqGavatar.gernate($content.val());" name="fontSize" value="1" checked style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="bigger">渐大</label>
 	    <p>字体颜色：<select id="fontColor" style="width:120px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" onchange="pyqGavatar.gernate($content.val());">
 		<option value="black" selected >黑色</option>
 		<option value="red">红色</option>
@@ -89,7 +91,7 @@ $(function() {
     			canvas.width = defaults.width;
     			canvas.height = defaults.height;
     			
-    			ctx.fillStyle=$("input[name='action']:checked").val();
+    			ctx.fillStyle=$("input[name='bgColor']:checked").val();
     			ctx.fillRect(0,0,canvas.width,canvas.height);
     			
     			var text = texts || defaults.text;
@@ -99,16 +101,30 @@ $(function() {
     				text = textArr[k];
 	    			width = defaults.width;
 	    			height = defaults.height;
-	    			fontSize = 30+(k*3.5);
+	    			
+	    			// 字体大小:同等
+	    			if($("input[name='fontSize']:checked").val() == 0) {
+	    				fontSize = 43;
+	    			}else {
+	    				fontSize = 30+(k*3.5);
+	    			}
+	    			
 	    			var x = 5;
 	    			if (k != 0) {
 	    				x = totalSize+5;
 	    			}
 	    			totalSize+=fontSize;
+	    			// 字体大小:同等
+	    			if($("input[name='fontSize']:checked").val() == 0) {
+	    				var y = height / 2;
+	    				ctx.textBaseline = "middle";
+	    			} else {
+	    				var y = height / 3;
+	    				ctx.textBaseline = "top";
+	    			}
 
-	    			var y = height / 3;
 
-   				ctx.textBaseline = "top";
+
    				ctx.textAlign = "start";
 	    			var fontColor = $("#fontColor").val();
    				ctx.fillStyle = fontColor;
@@ -146,7 +162,8 @@ $(function() {
         $("#clear").on("click",function(e){
        	e.preventDefault();
        	$("#input").val('');
-       	$("input[name='action']").get(0).checked=true;
+       	$("input[name='bgColor']").get(0).checked=true;
+       	$("input[name='fontSize']").get(1).checked=true;
        	$("#fontColor").find("option[value='black']").attr("selected",true);
        	pyqGavatar.gernate($content.val());
       	tip("已清空");
