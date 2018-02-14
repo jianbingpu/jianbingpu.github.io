@@ -114,14 +114,6 @@ $(function() {
                     + "　　　{1}        {2}  　　　      {3}     {3}\n"
                     + "{1}{1}{1}{1}        {2}{2}{2}{2}          {3} {3}";
                     
-                    
-var template2 = ""+
-"{1}{1}{1}{1}        {2}{2}{2}{2}          {3} {3}"+"\n"+
-"{1}                              {2}         {3}     {3}"+"\n"+
-"{1}{1}{1}{1}        {2}{2}{2}{2}        {3}      {3}"+"\n"+
-"            {1}        {2}                   {3}     {3}"+"\n"+
-"{1}{1}{1}{1}        {2}{2}{2}{2}          {3} {3}"+"\n"
-
        var $content=$("#input");
         $("#create").on("click",function(e){
         	if($content.val() =="" || $content.val().length<3) {
@@ -134,7 +126,7 @@ var template2 = ""+
         	for (i=0;i<strArr.length;i++) {
         		result = replaceAllChar(result,"{"+(i+1)+"}",strArr[i]);
         	}*/
-        	var result = template2;
+        	var result = template;
         	result = replaceAllChar(result,"{"+(1)+"}",converStr.slice(0,1));
         	result = replaceAllChar(result,"{"+(2)+"}",converStr.slice(1,2));
         	result = replaceAllChar(result,"{"+(3)+"}",converStr.slice(2,3));
