@@ -35,8 +35,8 @@ $(function() {
 	<div id="container">
 	<h3>尖叫字体生成工具</h3><hr>
 	    <p id="info">
-	        1、选择样式，输入想要的内容<br><br>
-	        2、点击生成，长按图片保存到手机<br><br>
+	        1、选择样式，输入文字，点击生成<br><br>
+	        2、长按图片保存，发表到朋友圈即可<br><br>
 	    </p>
 	   <p>背景色：<input type="radio" id="white"  onclick = "pyqGavatar.gernate($content.val());" name="bgColor" value="#fff" checked style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="white">白色</label>
 	    &nbsp;<input type="radio" id="black"   onclick = "pyqGavatar.gernate($content.val());" name="bgColor" value="#000" style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="black">黑色</label>
@@ -140,13 +140,13 @@ $(function() {
 						fontSize=28+(k*5);
 					}
 					if (k == textArr.length-1) {
-						fontSize=32+(k*5);
+						fontSize=38+(k*5);
 					}
 	    			}
 	    			console.log("fontSize："+fontSize);
 	    			var x = 5;
 	    			if (k != 0) {
-	    				x = totalSize+5;
+	    				x = totalSize+x;
 	    			}
 	    			totalSize+=fontSize;
 	    			// 字体大小:同等
