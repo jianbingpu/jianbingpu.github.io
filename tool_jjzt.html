@@ -201,7 +201,7 @@ $(function() {
         $("#clear").on("click",function(e){
        	e.preventDefault();
        	$("#input").val('');
-       	$("input[name='bgColor']").get(0).checked=true;
+       	$("#bgColor").find("option[value='white']").attr("selected",true);
        	$("input[name='fontSize']").get(1).checked=true;
        	$("#fontColor").find("option[value='black']").attr("selected",true);
        	pyqGavatar.gernate($content.val());
