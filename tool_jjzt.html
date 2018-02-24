@@ -38,6 +38,8 @@ $(function() {
 	        1、选择样式，输入文字，点击生成<br><br>
 	        2、长按图片保存，发表到朋友圈即可<br><br>
 	    </p>
+	    <p>字体大小：<input type="radio" id="same"  onclick = "pyqGavatar.gernate($content.val());" name="fontSize" value="0"  style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="same">同等</label>
+	    &nbsp;<input type="radio" id="bigger"   onclick = "pyqGavatar.gernate($content.val());" name="fontSize" value="1" checked style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="bigger">渐大</label></p>
 	   <p>背景颜色：<select id="bgColor" style="width:120px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" onchange="pyqGavatar.gernate($content.val());">
 		<option value="black" >黑色</option>
 		<option value="red">红色</option>
@@ -46,8 +48,6 @@ $(function() {
 		<option value="green">绿色</option>
 		<option value="white" selected>白色</option>
 		</select></p>
-	    <p>字体大小：<input type="radio" id="same"  onclick = "pyqGavatar.gernate($content.val());" name="fontSize" value="0"  style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="same">同等</label>
-	    &nbsp;<input type="radio" id="bigger"   onclick = "pyqGavatar.gernate($content.val());" name="fontSize" value="1" checked style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="bigger">渐大</label></p>
 	    <p>字体颜色：<select id="fontColor" style="width:120px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" onchange="pyqGavatar.gernate($content.val());">
 		<option value="black" selected >黑色</option>
 		<option value="red">红色</option>
