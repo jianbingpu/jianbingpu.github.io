@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#v=180226
+#v=180228
 
 CACHE:
 /css/jbp.css
@@ -8,6 +8,7 @@ CACHE:
 /css/about.css
 /css/lt.css
 /css/sdm/christmas-hat.css
+/css/tl/tl.css
 
 /img/blank.png
 /img/banner.jpg
@@ -42,6 +43,33 @@ CACHE:
 /img/weinxin_share_dialog.png
 /img/shareMask.png
 /img/zfbhb.png
+/img/sdm/1.png
+/img/sdm/2.png
+/img/sdm/3.png
+/img/sdm/4.png
+/img/sdm/5.png
+/img/sdm/6.png
+/img/sdm/7.png
+/img/sdm/8.png
+/img/sdm/11.png
+/img/sdm/22.png
+/img/sdm/33.png
+/img/sdm/44.png
+
+/img/tl/mz/1.png
+/img/tl/mz/2.png
+/img/tl/mz/3.png
+/img/tl/mj/1.png
+/img/tl/mj/2.png
+/img/tl/mj/3.png
+/img/tl/mj/4.png
+/img/tl/mj/5.png
+/img/tl/mj/6.png
+/img/tl/mj/7.png
+/img/tl/qt/1.png
+/img/tl/qt/2.png
+/img/tl/qt/3.png
+
 
 /js/base64.js
 /js/clipboard.min.js
@@ -61,6 +89,7 @@ CACHE:
 /js/sdm/christmas-hat.js
 /js/sdm/common.js
 /js/sdm/snow.js
+/js/tl/tl.js
 /js/main.js
 /js/sjcl.js
 /js/hammer.js
