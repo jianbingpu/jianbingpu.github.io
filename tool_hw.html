@@ -79,7 +79,12 @@ $(function() {
 			str = deleteAll(str, " ");
 
 			if (str  != "" && str != "\r" && str != "\n") {
-				result += str+type;
+				if (type=="꯭") {
+					result +=type+str;
+				} else {
+					result += str+type;
+				}
+				
 			} else {
 				result += str;
 			}
