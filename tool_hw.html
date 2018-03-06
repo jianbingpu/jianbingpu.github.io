@@ -36,12 +36,12 @@ $(function() {
 	    <p id="info">
 	        1、输入关键词内容，点击转换<br><br>
 	        2、点击复制按钮，会复制输出的内容<br><br>
-	        3、这里会部分显示不正确，设定到QQ昵称，微信昵称，编辑内容等，若正常显示即可<br><br>
+	        3、<font color=red>这里会部分手机显示不正确，在QQ、微信里若正常显示即可</font><br><br>
 	    </p>
 	    <p>输入：
 	    <select id="type" style="width:120px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" >
-		<option value="⃓" selected >分裂字样</option>
-		<option value="꯭">下划线字样</option>
+		<option value="꯭" selected>下划线字样</option>
+		<option value="⃓" >分裂字样</option>
 		<option value="҈">出汗字样</option>
 		<option value="̄">上横线字样</option>
 		<option value="⃛">上点点字样</option>
@@ -80,7 +80,7 @@ $(function() {
 
 			if (str  != "" && str != "\r" && str != "\n") {
 				if (type=="꯭") {
-					result +=type+str;
+					result += type+str;
 				} else {
 					result += str+type;
 				}
@@ -90,8 +90,11 @@ $(function() {
 			}
 		
 		}
-	
-		$result.val(result);
+		if (type=="꯭") {
+			$result.val(result+type);
+		} else {
+			$result.val(result);
+		}
 	
         });
         
