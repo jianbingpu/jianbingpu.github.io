@@ -40,8 +40,8 @@ $(function() {
 	    </p>
 	    <p>输入：
 	    <select id="type" style="width:120px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" >
-	    <option value="ॣ ॣ ॣ">微信停止字符</option>
-		<option value="꯭" selected>下划线字样</option>
+	    <option value="ॣॣॣ" selected>微信停止字符</option>
+		<option value="꯭">下划线字样</option>
 		<option value="⃓" >分裂字样</option>
 		<option value="҈">出汗字样</option>
 		<option value="̄">上横线字样</option>
@@ -74,24 +74,26 @@ $(function() {
 		var rowArrays = $content.val().split("");
 		var type = $("#type").val();
 		var result="";
-		for (i=0; i<rowArrays.length; i++) {
-			var str =rowArrays[i];
-			str = deleteAll(str, "\r");
-			str = deleteAll(str, " ");
-
-			if (str  != "" && str != "\r" && str != "\n") {
-				if (type=="꯭") {
-					result += type+str;
-				} else if(type=="ॣ ॣ ॣ") {
-					result = str+type;
-				}else{
-					result += str+type;
-				}
-				
-			} else {
-				result += str;
-			}
 		
+		if(type=="ॣॣॣ") {
+			result = $content.val()+" "+type;
+		} else {
+			for (i=0; i<rowArrays.length; i++) {
+				var str =rowArrays[i];
+				str = deleteAll(str, "\r");
+				str = deleteAll(str, " ");
+
+				if (str  != "" && str != "\r" && str != "\n") {
+					if (type=="꯭") {
+						result += type+str;
+					}else{
+						result += str+type;
+					}
+					
+				} else {
+					result += str;
+				}
+			}
 		}
 		if (type=="꯭") {
 			$result.val(result+type);
