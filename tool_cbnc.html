@@ -34,14 +34,15 @@ $(function() {
 	<div id="container">
 	<h3>翅膀昵称生成工具</h3><hr>
 	    <p id="info">
-	        1、选择翅膀昵称模板，目前就一种<br><br>
+	        1、选择翅膀昵称模板<br><br>
 	        2、输入关键词内容，点击转换<br><br>
 	        3、点击复制按钮，粘贴到微信即可<br><br>
 	    </p>
 	    <p>输入：
 	    <select id="type" style="width:120px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" >
 	    <option value="꧁꫞꯭煎꯭饼꯭铺꯭꫞꧂" selected>꧁꫞꯭煎꯭饼꯭铺꯭꫞꧂</option>
-
+		<option value="ʚ煎꯭饼꯭铺꯭ɞ" selected>ʚ煎꯭饼꯭铺꯭ɞ</option>
+		<option value="ʚ煎饼铺ɞ" selected>ʚ煎饼铺ɞ</option>
 		</select>
 	    </p>
 	    <input type="text" id="input" maxlength="50">
@@ -70,7 +71,7 @@ $(function() {
 				name+=str+"꯭";
 			}
 
-			var result= type.replace("煎꯭饼꯭铺꯭",name);
+			var result= type.replace("煎꯭饼꯭铺꯭",name).replace("煎饼铺",$content.val());
 			$result.val(result);
 	});
         
