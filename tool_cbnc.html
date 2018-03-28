@@ -40,9 +40,9 @@ $(function() {
 	    </p>
 	    <p>输入：
 	    <select id="type" style="width:120px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" >
-	    <option value="꧁꫞꯭煎꯭饼꯭铺꯭꫞꧂" selected>꧁꫞꯭煎꯭饼꯭铺꯭꫞꧂</option>
-		<option value="ʚ煎꯭饼꯭铺꯭ɞ" selected>ʚ煎꯭饼꯭铺꯭ɞ</option>
-		<option value="ʚ煎饼铺ɞ" selected>ʚ煎饼铺ɞ</option>
+	    <option value="꧁꫞꯭꯭煎꯭饼꯭铺꯭꫞꧂" selected>꧁꫞꯭꯭煎꯭饼꯭铺꯭꫞꧂</option>
+		<option value="ʚ꯭煎꯭饼꯭铺꯭ɞ" >ʚ꯭煎꯭饼꯭铺꯭ɞ</option>
+		<option value="ʚ煎饼铺ɞ" >ʚ煎饼铺ɞ</option>
 		</select>
 	    </p>
 	    <input type="text" id="input" maxlength="50">
@@ -68,10 +68,10 @@ $(function() {
 			var name = "";
 			for (i=0; i<rowArrays.length; i++) {
 				var str = rowArrays[i];
-				name+=str+"꯭";
+				name+="꯭"+str;
 			}
-
-			var result= type.replace("煎꯭饼꯭铺꯭",name).replace("煎饼铺",$content.val());
+			name+="꯭";
+			var result= type.replace("꯭煎꯭饼꯭铺꯭",name).replace("煎饼铺",$content.val());
 			$result.val(result);
 	});
         
