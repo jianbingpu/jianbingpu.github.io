@@ -66,29 +66,29 @@ $(function() {
 </body>
 
  <script>
-       var $content=$("#input");
+     var $content=$("#input");
 	 var $result=$("#output");
+
 	 $("#create").on("click",function(e){
-		e.preventDefault();
-		
-		var rowArrays = $content.val().split("");
-		var type = $("#type").val();
-		var result=" {\\__/}\n";
-		
-		result += $("#type").val()+"\n";
-		result += "/つ"+$content.val();
-		$result.val(result);
-	
-        });
+			e.preventDefault();
+			
+			var rowArrays = $content.val().split("");
+			var type = $("#type").val();
+			var result=" {\\__/}\n";
+			
+			result += $("#type").val()+"\n";
+			result += "/つ"+$content.val();
+			$result.val(result);
+	});
         
          
-         $("#clear").on("click",function(e){
+    $("#clear").on("click",function(e){
 	       	e.preventDefault();
 	       	$("#input").val('');
 	      	$("#output").val(' ');
 	      	 //提示
 			tip("已清空");
-        });
+    });
         
 </script>
 <script>
