@@ -85,7 +85,7 @@ $(function() {
 				str = deleteAll(str, " ");
 
 				if (str  != "" && str != "\r" && str != "\n") {
-					if (type=="꯭" || type=="̶") {
+					if (type=="꯭") {
 						result += type+str;
 					}else{
 						result += str+type;
@@ -96,7 +96,7 @@ $(function() {
 				}
 			}
 		}
-		if (type=="꯭" || type=="̶") {
+		if (type=="꯭") {
 			$result.val(result+type);
 		} else {
 			$result.val(result);
