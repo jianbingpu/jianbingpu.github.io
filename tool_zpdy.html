@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html manifest="manifest">
+<head>
+<meta charset="UTF-8">
+<link href="js/layer_mobile/need/layer.css" type="text/css" rel="stylesheet">
+<script src="js/layer_mobile/layer.js"></script>
+<script src="js/underscore-min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/clipboard.min.js"></script>
+<script src="js/jbp.js"></script>
+<link rel="stylesheet" type="text/css" href="css/tool.css" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<title>抖音照片电影辅助工具</title>
+<meta name="keywords" content="长耳朵壁纸,换发型壁纸,iPhone X换发型, iPhone X长耳朵,微信透明, 透明头像, 透明昵称, 透明消息, 圆形头像, 圆形头像生成, 微信二维码名片, 二维码名片, 二维码生成, 微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
+<meta name="description" content="煎饼铺，一个有趣的公众号。长耳朵壁纸,换发型壁纸,iPhone X换发型, iPhone X长耳朵,微信透明, 透明头像, 透明昵称, 透明消息, 圆形头像, 圆形头像生成, 微信二维码名片, 二维码名片, 二维码生成, 微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
+<script>
+$(function() {
+    var clipboard = new Clipboard('#copy');
+
+    clipboard.on('success', function(e) {
+    	e.clearSelection();
+    	tip("拷贝成功");
+    });
+
+    clipboard.on('error', function(e) {
+    	e.clearSelection();
+    	tip("拷贝失败，请手动复制");
+    });
+    
+});
+</script>
+</head>
+<body  oncontextmenu="return true;">
+	    <button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
+	<div id="container">
+	<h3>抖音照片电影辅助工具</h3><hr>
+	    <p id="info">
+	        1、选择样式，输入文字，点击生成<br><br>
+	        2、长按图片保存，抖音里去选择图片即可<br><br>
+	    </p>
+	   <p>背景颜色：<select id="bgColor" style="width:120px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" onchange="pyqGavatar.gernate($content.val());">
+		<option value="black" >黑色</option>
+		<option value="red">红色</option>
+		<option value="yellow">黄色</option>
+		<option value="blue">蓝色</option>
+		<option value="green">绿色</option>
+		<option value="white" selected>白色</option>
+		</select></p>
+	    <p>字体颜色：<select id="fontColor" style="width:120px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" onchange="pyqGavatar.gernate($content.val());">
+		<option value="black" selected >黑色</option>
+		<option value="red">红色</option>
+		<option value="yellow">黄色</option>
+		<option value="blue">蓝色</option>
+		<option value="green">绿色</option>
+		<option value="white">白色</option>
+		</select></p>
+	    <p>输入：</p>
+		<input type="text" name="name" id="input1" maxlength="9">
+		<input type="text" name="name" id="input2" maxlength="9">
+	    <input type="text" name="name" id="input3" maxlength="9">
+	    <p>输出：</p>
+		<div style="text-align: center">
+			<canvas id="gavatar" style="display:none;" ></canvas>
+			<img  id='resImg' style="display:none;max-height:200px;max-width:100%; border: 1px solid rgb(208, 208, 209); box-shadow: rgba(7, 1, 3, 0.4) 2px 2px 5px; padding: 5px; border-radius: 0px;"/>
+		</div>
+	    <br><br>
+	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">生成</button>
+	    <button type="button" style="background-color:#FF4500; border-radius:20px;"  id="clear">清空</button>
+	   
+	</div>
+</body>
+ <script>
+	var pyqGavatar  = (function(){
+    		var width,height,canvas,ctx,params;
+    		var defaults = {
+    			canvasId : '',
+    			text : '',
+    			width : 600,
+    			height : 600,
+    			backColor : '#fff',
+    			textColor : '#000',
+    			fontFamily : 'Arial'
+    		}
+    		
+    		function init(params){
+    			extend(defaults,params);
+    			if(!defaults.canvasId) { throw new Error("lack of gavatar element"); }
+
+    			gernate("煎饼铺","一个有趣的公众号","欢迎使用抖音辅助");
+    		}
+    		
+    		function gernate(text1,text2,text3){
+    			$('#resImg').attr('src', '');
+      			$("#resImg").show();
+				canvas = document.getElementById(defaults.canvasId);
+    			ctx = canvas.getContext("2d");
+    			canvas.width = defaults.width;
+    			canvas.height = defaults.height;
+    			
+    			ctx.fillStyle=$("#bgColor").val();
+    			ctx.fillRect(0,0,canvas.width,canvas.height);
+
+	    		var width = defaults.width;
+	    		var height = defaults.height;
+                var fontSize = 60;
+				var x = 20;
+				ctx.textBaseline = "middle";
+   				ctx.textAlign = "left";
+   				var fontColor = $("#fontColor").val();
+   				ctx.fillStyle = fontColor;
+   				ctx.font = "bold "+fontSize + "px " + defaults.fontFamily;
+                var y = height / 2;
+   				ctx.fillText(text1,x,y-(fontSize+x));
+                ctx.fillText(text2,x,y);
+                ctx.fillText(text3,x,y+fontSize+x);
+
+   				$('#resImg').attr('src', canvas.toDataURL('image/jpg'));
+				addAnimate("resImg",  animated[Math.floor(Math.random() * animated.length)]);
+    		}
+    		
+    		function extend(defaults,params){
+    			for(var index in params){
+    				defaults[index] = params[index];
+    			}
+    		}
+    		
+    		return { 
+    			init : init,
+    			gernate : gernate
+    		};
+    	})();
+    	
+    	pyqGavatar.init({
+    		canvasId : 'gavatar',
+    		text : '煎饼铺'
+    	});
+
+       	var $content1=$("#input1");
+    	var $content2=$("#input2");
+    	var $content3=$("#input3");
+        $("#create").on("click",function(e){
+        	pyqGavatar.gernate($content1.val(),$content2.val(),$content3.val());
+        });
+        
+        $("#clear").on("click",function(e){
+       	e.preventDefault();
+       	$("#input1").val('');
+       	$("#input2").val('');
+       	$("#input3").val('');
+       	//$("#bgColor").find("option[value='white']").attr("selected",true);
+        //$("#fontColor").find("option[value='black']").attr("selected",true);
+       	pyqGavatar.gernate("煎饼铺","一个有趣的公众号","欢迎使用抖音辅助");
+      	tip("已清空");
+        });
+
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?464d7e308b0fdd9fb407887891784488";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

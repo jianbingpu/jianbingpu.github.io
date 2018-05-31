@@ -31,7 +31,7 @@ function redirectTo(page) {
 	if(!window.isPrivateMode && !!window.localStorage){
 		localStorage.setItem("jbp_tool_srcollTop", document.body.scrollTop);
 	}
-	jump(page+"?v=180514");
+	jump(page+"?v=180531");
 	//this.location.href = page;
 }
 </script>
@@ -42,16 +42,27 @@ function redirectTo(page) {
 	<div class="nav" >
     	<img src="img/jbpLogo.png"  class="logo" id="jbpLogo" onclick="jump('about.html')">
         <span class="menu">
-        	<span class="list"><a class="list_a" href="index.html?v=180514">首页</a></span>
-             <span class="list"><a class="list_a" href="gj.html?v=180514" id="select">工具¹</a></span>
-             <span class="list"><a class="list_a" href="gj2.html?v=180514">工具²</a></span>
-             <span class="list"><a class="list_a" href="jx.html?v=180514">精选</a></span>
-             <!--<span class="list"><a class="list_a" href="gz.html?v=180514">规则</a></span>-->
-             <span class="list" id="zfb"><a class="list_a" href="tool_zfb.html?v=180514" style="color:red">红包</a></span>
+        	<span class="list"><a class="list_a" href="index.html?v=180531">首页</a></span>
+             <span class="list"><a class="list_a" href="gj.html?v=180531" id="select">工具¹</a></span>
+             <span class="list"><a class="list_a" href="gj2.html?v=180531">工具²</a></span>
+             <span class="list"><a class="list_a" href="jx.html?v=180531">精选</a></span>
+             <!--<span class="list"><a class="list_a" href="gz.html?v=180531">规则</a></span>-->
+             <span class="list" id="zfb"><a class="list_a" href="tool_zfb.html?v=180531" style="color:red">红包</a></span>
         </span>
     </div>
         
     <div class="space"></div>
+
+    <div class="all" id="bg_BLACK">
+        <span class="icon" id="icon_phone"></span>
+        <span class="box">
+        	<a class="name">抖音照片电影辅助工具</a><br>
+             <a  class="about">一键制作抖音素材</a>
+            </span>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_zpdy.html')">点击进入</a>
+        <a class="btn" href="http://mp.weixin.qq.com/s/yqrWfKNXq2jzPRfw5V94SA" target="_blank">使用教程</a>
+    </div>
+
     <div class="all" id="bg_YELLOW">
 		<span class="icon" id="icon_wechat"></span>
         <span class="box">
@@ -93,7 +104,7 @@ function redirectTo(page) {
         <a class="btn" href="http://mp.weixin.qq.com/s/9MLBM8uAZzhINIvEWcMAYQ" target="_blank">使用教程</a>
     </div>
     
-        <div class="all" id="bg_BLACK">
+    <div class="all" id="bg_BLACK">
 		<span class="icon" id="icon_wechat"></span>
         <span class="box">
         	<a class="name">微信尖叫字体生成工具</a><br>
