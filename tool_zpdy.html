@@ -84,13 +84,15 @@ $(function() {
 		</select>
 		</p>
 	    <p>字体风格：<select id="fontStyle" style="width:120px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" onchange="pyqGavatar.gernate($content1.val(),$content2.val(),$content3.val());">
-		<option value="宋体">宋体</option>
-		<option value="黑体">黑体</option>
-		<option value="幼圆">幼圆</option>
-		<option value="楷体">楷体</option>
-		<option value="仿宋">仿宋</option>
-		<option value="微软雅黑">微软雅黑</option>
-		<option value="华文细黑">华文细黑</option>
+		<option value="SimSun">SimSun</option>
+		<option value="SimHei">SimHei</option>
+		<option value="YouYuan">YouYuan</option>
+		<option value="KaiTi">KaiTi</option>
+		<option value="FangSong">FangSong</option>
+		<option value="STKaiti">STKaiti</option>
+		<option value="STSong">STSong</option>
+		<option value="STXihei">STXihei</option>
+		<option value="Microsoft YaHei">Microsoft YaHei</option>
 	
 		<option value="Arial">Arial</option>
 		<option value="Tahoma">Tahoma</option>
@@ -102,9 +104,9 @@ $(function() {
 		<input type="radio" id="onLeft" name="fontLocation" value="start" checked style="width:15px;height:15px;font-size:10px;background-color:#4682B4;" onchange="pyqGavatar.gernate($content1.val(),$content2.val(),$content3.val());"><label for="onLeft">居左</label>
 	    &nbsp;<input type="radio" id="onCenter" name="fontLocation" value="center" style="width:15px;height:15px;font-size:10px;background-color:#4682B4;" onchange="pyqGavatar.gernate($content1.val(),$content2.val(),$content3.val());"><label for="onCenter">居中</label>
 	    <p>输入：</p>
-		<input type="text" name="name" id="input1" maxlength="9"><br><br>
-		<input type="text" name="name" id="input2" maxlength="9"><br><br>
-	    <input type="text" name="name" id="input3" maxlength="9">
+		<input type="text" name="name" id="input1" maxlength="9" onchange="pyqGavatar.gernate($content1.val(),$content2.val(),$content3.val());"><br><br>
+		<input type="text" name="name" id="input2" maxlength="9" onchange="pyqGavatar.gernate($content1.val(),$content2.val(),$content3.val());"><br><br>
+	    <input type="text" name="name" id="input3" maxlength="9" onchange="pyqGavatar.gernate($content1.val(),$content2.val(),$content3.val());">
 	    <p>输出：</p>
 		<div style="text-align: center">
 			<canvas id="gavatar" style="display:none;" ></canvas>
