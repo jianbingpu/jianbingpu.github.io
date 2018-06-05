@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html manifest="manifest">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <link href="js/layer_mobile/need/layer.css" type="text/css" rel="stylesheet">
 <link href="css/animate.min.css" type="text/css" rel="stylesheet">
 <script src="js/layer_mobile/layer.js"></script>
@@ -9,27 +9,27 @@
 <script src="js/jbp.js"></script>
 <link rel="stylesheet" type="text/css" href="css/jbp.css" />
 <title>煎饼铺，一个有趣的公众号</title>
-<meta name="keywords" content="长耳朵壁纸,换发型壁纸,iphone x换发型, iphone x长耳朵,微信透明, 透明头像, 透明昵称, 透明消息, 圆形头像, 圆形头像生成, 微信二维码名片, 二维码名片, 二维码生成, 微信彩色昵称, qq彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
-<meta name="description" content="煎饼铺，一个有趣的公众号。长耳朵壁纸,换发型壁纸,iphone x换发型, iphone x长耳朵,微信透明, 透明头像, 透明昵称, 透明消息, 圆形头像, 圆形头像生成, 微信二维码名片, 二维码名片, 二维码生成, 微信彩色昵称, qq彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
+<meta name="keywords" content="长耳朵壁纸,换发型壁纸,iPhone X换发型, iPhone X长耳朵,微信透明, 透明头像, 透明昵称, 透明消息, 圆形头像, 圆形头像生成, 微信二维码名片, 二维码名片, 二维码生成, 微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
+<meta name="description" content="煎饼铺，一个有趣的公众号。长耳朵壁纸,换发型壁纸,iPhone X换发型, iPhone X长耳朵,微信透明, 透明头像, 透明昵称, 透明消息, 圆形头像, 圆形头像生成, 微信二维码名片, 二维码名片, 二维码生成, 微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
 <script>
 // 初期化
 $(function() {
-	if(!window.isprivatemode && !!window.localstorage){
-		var scrolltopval = localstorage.getitem("jbp_tool_srcolltop");
-		localstorage.setitem("jbp_tool_srcolltop","");
-		localstorage.removeitem("jbp_tool_srcolltop");
-		if (scrolltopval != undefined && scrolltopval != "" && scrolltopval != "") {
-	      	$("html,body").animate({scrolltop:scrolltopval + "px"}, 300);
+	if(!window.isPrivateMode && !!window.localStorage){
+		var scrollTopVal = localStorage.getItem("jbp_tool_srcollTop");
+		localStorage.setItem("jbp_tool_srcollTop","");
+		localStorage.removeItem("jbp_tool_srcollTop");
+		if (scrollTopVal != undefined && scrollTopVal != "" && scrollTopVal != "") {
+	      	$("html,body").animate({scrollTop:scrollTopVal + "px"}, 300);
 	      }
       }
-      addanimate("jbplogo", animated[math.floor(math.random() * animated.length)]);
-      addanimate("zfb", animated[math.floor(math.random() * animated.length)]);
+      addAnimate("jbpLogo", animated[Math.floor(Math.random() * animated.length)]);
+      addAnimate("zfb", animated[Math.floor(Math.random() * animated.length)]);
 });
 
 // 画面跳转
-function redirectto(page) {
-	if(!window.isprivatemode && !!window.localstorage){
-		localstorage.setitem("jbp_tool_srcolltop", document.body.scrolltop);
+function redirectTo(page) {
+	if(!window.isPrivateMode && !!window.localStorage){
+		localStorage.setItem("jbp_tool_srcollTop", document.body.scrollTop);
 	}
 	jump(page+"?v=180605");
 	//this.location.href = page;
@@ -40,7 +40,7 @@ function redirectto(page) {
 
 <body oncontextmenu="return false" onselectstart="return false">
 	<div class="nav" >
-    	<img src="img/jbplogo.png"  class="logo" id="jbplogo" onclick="jump('about.html')">
+    	<img src="img/jbpLogo.png"  class="logo" id="jbpLogo" onclick="jump('about.html')">
         <span class="menu">
         	<span class="list"><a class="list_a" href="index.html?v=180605">首页</a></span>
              <span class="list"><a class="list_a" href="gj.html?v=180605" id="select">工具¹</a></span>
@@ -53,283 +53,283 @@ function redirectto(page) {
 
     <div class="space"></div>
 
-    <div class="all" id="bg_black">
+    <div class="all" id="bg_BLACK">
         <span class="icon" id="icon_phone"></span>
         <span class="box">
         	<a class="name">抖音照片电影辅助工具</a><br>
              <a  class="about">一键制作抖音素材</a>
             </span>
-        <a class="btn" href="javascript:;" onclick="redirectto('tool_zpdy.html')">点击进入</a>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_zpdy.html')">点击进入</a>
         <a class="btn" href="https://mp.weixin.qq.com/s/gYczromy0MlLEV8bjuEqTA" target="_blank">使用教程</a>
     </div>
 
-    <div class="all" id="bg_yellow">
+    <div class="all" id="bg_YELLOW">
 		<span class="icon" id="icon_wechat"></span>
         <span class="box">
         	<a class="name">微信颜文字聊天生成工具</a><br>
             <a class="about">聊天都这么萌
         </span>
-        <a class="btn" href="javascript:;" onclick="redirectto('tool_yw.html')"  >点击进入</a>
-        <a class="btn" href="http://mp.weixin.qq.com/s/bnok0auvevcqgeu2usakzw" target="_blank">使用教程</a>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_yw.html')"  >点击进入</a>
+        <a class="btn" href="http://mp.weixin.qq.com/s/BnOK0AUvEvcQGEU2usAkzw" target="_blank">使用教程</a>
     </div>
 
-    <div class="all" id="bg_orange">
+    <div class="all" id="bg_ORANGE">
 		<span class="icon" id="icon_wechat"></span>
         <span class="box">
         	<a class="name">微信翅膀昵称生成工具</a><br>
             <a class="about">超级个性昵称，我们不一样
         </span>
-        <a class="btn" href="javascript:;" onclick="redirectto('tool_cbnc.html')"  >点击进入</a>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_cbnc.html')"  >点击进入</a>
         <!--<a class="btn" href="" target="_blank">使用教程</a>-->
     </div>
 
 
-    <div class="all" id="bg_navy">
+    <div class="all" id="bg_NAVY">
 		<span class="icon" id="icon_wechat"></span>
         <span class="box">
         	<a class="name">微信暴徒头像生成工具</a><br>
             <a class="about">帽子、墨镜、香烟、大金链子...
         </span>
-        <a class="btn" href="javascript:;" onclick="redirectto('tool_tl.html')"  >点击进入</a>
-        <a class="btn" href="http://mp.weixin.qq.com/s/wir0mo7-j8et5r-jylddha" target="_blank">使用教程</a>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_tl.html')"  >点击进入</a>
+        <a class="btn" href="http://mp.weixin.qq.com/s/WiR0mO7-J8ET5r-jyLDDHA" target="_blank">使用教程</a>
     </div>
 
-    <div class="all" id="bg_red">
+    <div class="all" id="bg_RED">
 		<span class="icon" id="icon_wechat"></span>
         <span class="box">
         	<a class="name">微信朋友圈520字体生成工具</a><br>
             <a class="about">朋友圈的模板字体矩阵
         </span>
-        <a class="btn" href="javascript:;" onclick="redirectto('tool_mbzt.html')"  >点击进入</a>
-        <a class="btn" href="http://mp.weixin.qq.com/s/9mlbm8uazzhinivewcmayq" target="_blank">使用教程</a>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_mbzt.html')"  >点击进入</a>
+        <a class="btn" href="http://mp.weixin.qq.com/s/9MLBM8uAZzhINIvEWcMAYQ" target="_blank">使用教程</a>
     </div>
 
-    <div class="all" id="bg_black">
+    <div class="all" id="bg_BLACK">
 		<span class="icon" id="icon_wechat"></span>
         <span class="box">
         	<a class="name">微信尖叫字体生成工具</a><br>
              <a  class="about">朋友圈的尖叫字体</a>
             </span>
-        <a class="btn" href="javascript:;" onclick="redirectto('tool_jjzt.html')">点击进入</a>
-        <a class="btn" href="http://mp.weixin.qq.com/s/lqxshh2kuhio547y_r512g" target="_blank">使用教程</a>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_jjzt.html')">点击进入</a>
+        <a class="btn" href="http://mp.weixin.qq.com/s/lQXShH2kuhio547Y_R512g" target="_blank">使用教程</a>
     </div>
 
 
-    <div class="all" id="bg_xmas_red">
+    <div class="all" id="bg_XMAS_RED">
 		<span class="icon" id="icon_wechat"></span>
     	<span class="box">
         	<a class="name">微信圣诞头像生成工具</a><br>
             <a class="about">给你的头像加个圣诞帽...
         </span>
-        <a class="btn"href="javascript:;" onclick="redirectto('tool_sd.html')"  >点击进入</a>
-        <a class="btn" href="http://mp.weixin.qq.com/s/mi4ufetdpffajwbeufzspg" target="_blank">使用教程</a>
+        <a class="btn"href="javascript:;" onclick="redirectTo('tool_sd.html')"  >点击进入</a>
+        <a class="btn" href="http://mp.weixin.qq.com/s/mi4UFEtDpFfAJWBeUFZspg" target="_blank">使用教程</a>
     </div>
 
-    <div class="all" id="bg_green">
+    <div class="all" id="bg_GREEN">
 		<span class="icon" id="icon_wechat"></span>
         <span class="box">
         	<a class="name">微信圆形头像生成工具（带剪裁）</a><br>
             <a class="about">上传图片，生成圆形头像
         </span>
-        <a class="btn" href="javascript:;" onclick="redirectto('tool_yx2.html')"  >点击进入</a>
-        <a class="btn" href="http://mp.weixin.qq.com/s/sfyb24jsgnxrsv_fbsfnxw" target="_blank">使用教程</a>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_yx2.html')"  >点击进入</a>
+        <a class="btn" href="http://mp.weixin.qq.com/s/SfYB24JsGnxrSv_fBsfNXw" target="_blank">使用教程</a>
     </div>
 
-    <div class="all" id="bg_fuchsia">
+    <div class="all" id="bg_FUCHSIA">
 		<span class="icon" id="icon_wechat"></span>
         <span class="box">
         	<a class="name">微信圆形头像生成工具</a><br>
             <a class="about">上传图片，生成圆形头像
         </span>
-        <a class="btn" href="javascript:;" onclick="redirectto('tool_yx.html')"  >点击进入</a>
-        <a class="btn" href="http://mp.weixin.qq.com/s/kmjudxmx8c4qefhanabuqw" target="_blank">使用教程</a>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_yx.html')"  >点击进入</a>
+        <a class="btn" href="http://mp.weixin.qq.com/s/kmJuDxmX8c4qefhANABuqw" target="_blank">使用教程</a>
     </div>
 
-     <div class="all" id="bg_purple">
+     <div class="all" id="bg_PURPLE">
 		<span class="icon" id="icon_wechat"></span>
         <span class="box">
         	<a class="name">微信透明头像、昵称、消息</a><br>
             <a class="about">将自己隐身...
         </span>
-        <a class="btn" href="javascript:;" onclick="redirectto('tool_tm.html')"  >点击进入</a>
-        <a class="btn" href="http://mp.weixin.qq.com/s/ebd4t-siwvmozseevm_qjw" target="_blank">使用教程</a>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_tm.html')"  >点击进入</a>
+        <a class="btn" href="http://mp.weixin.qq.com/s/ebD4T-siwVmozseEvm_qjw" target="_blank">使用教程</a>
     </div>
 
-    <div class="all" id="bg_lime">
+    <div class="all" id="bg_LIME">
 	  <span class="icon" id="icon_wechat"></span>
         <span class="box">
         	<a class="name">微信彩色昵称+数字标记生成工具</a><br>
-            <a class="about">彩色昵称+数字标记 <font color="blue">l o v e</font>¹³¹⁴ </a>
+            <a class="about">彩色昵称+数字标记 <font color="blue">L O V E</font>¹³¹⁴ </a>
         </span>
-         <a class="btn" href="javascript:;" onclick="redirectto('tool_csnc.html')">点击进入</a>
-         <a class="btn" href="http://mp.weixin.qq.com/s/lkyeue2muwqp5eo9gq5f7w" target="_blank">使用教程</a>
+         <a class="btn" href="javascript:;" onclick="redirectTo('tool_csnc.html')">点击进入</a>
+         <a class="btn" href="http://mp.weixin.qq.com/s/LkYeue2MuWQp5eo9GQ5f7w" target="_blank">使用教程</a>
     </div>
 
-    <div class="all" id="bg_black">
+    <div class="all" id="bg_BLACK">
 		<span class="icon" id="icon_wechat"></span>
         <span class="box">
         	<a class="name">微信个性昵称生成工具</a><br>
              <a  class="about">利用特殊字符生成自己的个性昵称、签名</a>
             </span>
-        <a class="btn" href="javascript:;" onclick="redirectto('tool_tz.html')">点击进入</a>
-        <a class="btn" href="http://mp.weixin.qq.com/s/awa3v3ghhgebgdgcoj8fmg" target="_blank">使用教程</a>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_tz.html')">点击进入</a>
+        <a class="btn" href="http://mp.weixin.qq.com/s/AwA3V3GHhgebGdgCoJ8Fmg" target="_blank">使用教程</a>
     </div>
 
-    <div class="all" id="bg_maroon">
+    <div class="all" id="bg_MAROON">
 		<span class="icon" id="icon_wechat"></span>
         <span class="box">
         	<a class="name">微信好玩的汉字昵称工具</a><br>
             <a class="about">这里的汉字，你认识几个？
         </span>
-        <a class="btn"href="javascript:;" onclick="redirectto('tool_hz.html')"  >点击进入</a>
+        <a class="btn"href="javascript:;" onclick="redirectTo('tool_hz.html')"  >点击进入</a>
     </div>
 
-    <div class="all" id="bg_blue">
+    <div class="all" id="bg_BLUE">
 		<span class="icon" id="icon_wechat"></span>
         <span class="box">
         	<a class="name">微信小英文字母生成工具</a><br>
             <a class="about">小号英文字母，例如：ᴶᴼᴱ
             </span>
-        <a class="btn" href="javascript:;" onclick="redirectto('tool_syw.html')" >点击进入</a>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_syw.html')" >点击进入</a>
     </div>
 
-    <div class="all" id="bg_aqua">
+    <div class="all" id="bg_AQUA">
 		<span class="icon" id="icon_wechat"></span>
         <span class="box">
         	<a class="name">微信竖排昵称生成工具</a><br>
             <a class="about">微信竖排昵称或者个性签名（仅支持安卓）
             </span>
-        <a class="btn" href="javascript:;" onclick="redirectto('tool_sp.html')" >点击进入</a>
-        <a class="btn" href="http://mp.weixin.qq.com/s/nyyeeg_tllrc0artndvuww" target="_blank">使用教程</a>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_sp.html')" >点击进入</a>
+        <a class="btn" href="http://mp.weixin.qq.com/s/nYyEeG_tllRC0artnDVUWw" target="_blank">使用教程</a>
     </div>
 
-    <div class="all" id="bg_navy">
+    <div class="all" id="bg_NAVY">
 		<span class="icon" id="icon_wechat"></span>
         <span class="box">
         	<a class="name">微信模糊文字生成工具</a><br>
             <a class="about">这个世界原来如此的看不清</a>
             </span>
-        <a class="btn" href="javascript:;" onclick="redirectto('tool_mh.html')">点击进入</a>
-        <a class="btn" href="http://mp.weixin.qq.com/s/92onw8qvh5a85wqdpsmjyg" target="_blank">使用教程</a>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_mh.html')">点击进入</a>
+        <a class="btn" href="http://mp.weixin.qq.com/s/92onw8QVh5a85wqDpsMjYg" target="_blank">使用教程</a>
     </div>
 
-    <div class="all" id="bg_silver_black">
+    <div class="all" id="bg_SILVER_BLACK">
 		<span class="icon" id="icon_wechat"></span>
         <span class="box">
         	<a class="name">微信颠倒文字生成工具</a><br>
             <a class="about">颠倒是非，混淆黑白</a>
             </span>
-        <a class="btn" href="javascript:;" onclick="redirectto('tool_dd.html')">点击进入</a>
-        <a class="btn" href="http://mp.weixin.qq.com/s/aniggrkvcfja5cktqvypqg" target="_blank">使用教程</a>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_dd.html')">点击进入</a>
+        <a class="btn" href="http://mp.weixin.qq.com/s/aNIgGRkVCFjA5CKTQVyPqg" target="_blank">使用教程</a>
     </div>
 
-    <div class="all" id="bg_gray">
+    <div class="all" id="bg_GRAY">
 	  <span class="icon" id="icon_phone"></span>
         <span class="box">
         	<a class="name">长耳朵、换发型壁纸生成工具</a><br>
-            <a class="about">给你的iphone换个发型吧（安卓也支持） </a>
+            <a class="about">给你的iPhone换个发型吧（安卓也支持） </a>
         </span>
-         <a class="btn" href="javascript:;" onclick="redirectto('tool_ear.html')">点击进入</a>
-         <a class="btn" href="http://mp.weixin.qq.com/s/lax7z3zxw85rabjycacqow" target="_blank">使用教程</a>
+         <a class="btn" href="javascript:;" onclick="redirectTo('tool_ear.html')">点击进入</a>
+         <a class="btn" href="http://mp.weixin.qq.com/s/LAX7Z3zXW85RaBjYcAcqow" target="_blank">使用教程</a>
     </div>
 
-     <div class="all" id="bg_teal">
+     <div class="all" id="bg_TEAL">
 		<span class="icon" id="icon_phone"></span>
         <span class="box">
         	<a class="name">表情爆炸工具</a><br>
-            <a class="about">快速爆炸表情文字(💥×n)
+            <a class="about">快速爆炸表情文字(💥×N)
         </span>
-        <a class="btn" href="javascript:;" onclick="redirectto('tool_bz.html')"  >点击进入</a>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_bz.html')"  >点击进入</a>
     </div>
 
-     <div class="all" id="bg_olive">
+     <div class="all" id="bg_OLIVE">
 		<span class="icon" id="icon_phone"></span>
         <span class="box">
         	<a class="name">随机抽取生成工具</a><br>
             <a class="about">吃什么太难抉择？用这个！(支持自定义)
         </span>
-        <a class="btn" href="javascript:;" onclick="redirectto('tool_sj.html')"  >点击进入</a>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_sj.html')"  >点击进入</a>
     </div>
 
-    <div class="all" id="bg_blue2">
+    <div class="all" id="bg_BLUE2">
 		<span class="icon" id="icon_phone"></span>
         <span class="box">
         	<a class="name">图片加密解密工具</a><br>
             <a class="about">把图片加密后，发微信给她/他。让图片替你传情达意！
         </span>
-        <a class="btn"href="javascript:;" onclick="redirectto('tool_jmimg.html')"  >点击进入</a>
-        <a class="btn" href="http://mp.weixin.qq.com/s/v40eqh2scsspuh-ciwscga" target="_blank">使用教程</a>
+        <a class="btn"href="javascript:;" onclick="redirectTo('tool_jmImg.html')"  >点击进入</a>
+        <a class="btn" href="http://mp.weixin.qq.com/s/V40eQH2ScSsPUH-cIWsCgA" target="_blank">使用教程</a>
     </div>
 
-    <div class="all" id="bg_green">
+    <div class="all" id="bg_GREEN">
 		<span class="icon" id="icon_phone"></span>
         <span class="box">
         	<a class="name">文字加密解密工具</a><br>
-             <a class="about">把文字加密后，发微信给她/他。例如：ntrxtzzhvzg=
+             <a class="about">把文字加密后，发微信给她/他。例如：NTRXTzZhVzg=
         </span>
 
-        <a class="btn"href="javascript:;" onclick="redirectto('tool_jm.html')"  >点击进入</a>
-        <a class="btn" href="http://mp.weixin.qq.com/s/su1dcf6z8mgqpno4r-k0jq" target="_blank">使用教程</a>
+        <a class="btn"href="javascript:;" onclick="redirectTo('tool_jm.html')"  >点击进入</a>
+        <a class="btn" href="http://mp.weixin.qq.com/s/Su1DcF6z8MgQPno4R-K0JQ" target="_blank">使用教程</a>
     </div>
 
 
-    <div class="all" id="bg_lime">
+    <div class="all" id="bg_LIME">
 		<span class="icon" id="icon_phone"></span>
         <span class="box">
         	<a class="name">花样文字生成工具</a><br>
             <a class="about">生成花样文字，例如：煎҉饼҉铺҉
         </span>
-        <a class="btn"href="javascript:;" onclick="redirectto('tool_hw.html')"  >点击进入</a>
-        <a class="btn" href="http://mp.weixin.qq.com/s/mejxsctyf6hthsa1tpoc6a" target="_blank">使用教程</a>
+        <a class="btn"href="javascript:;" onclick="redirectTo('tool_hw.html')"  >点击进入</a>
+        <a class="btn" href="http://mp.weixin.qq.com/s/mEjXSCTYf6HTHSA1tpOc6A" target="_blank">使用教程</a>
     </div>
 
-     <div class="all" id="bg_yellow">
+     <div class="all" id="bg_YELLOW">
 		<span class="icon" id="icon_phone"></span>
         <span class="box">
         	<a class="name">二维码生成工具</a><br>
             <a class="about">根据输入的内容，快速生成二维码
         </span>
-        <a class="btn" href="javascript:;" onclick="redirectto('tool_qr.html')"  >点击进入</a>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_qr.html')"  >点击进入</a>
     </div>
 
-     <div class="all" id="bg_orange">
+     <div class="all" id="bg_ORANGE">
 		<span class="icon" id="icon_phone"></span>
         <span class="box">
         	<a class="name">二维码名片生成工具</a><br>
             <a class="about">输入个人信息，快速生成二维码名片
         </span>
-        <a class="btn" href="javascript:;" onclick="redirectto('tool_qrmp.html')"  >点击进入</a>
-        <a class="btn" href="https://mp.weixin.qq.com/s/ldwa1xy7fbhyn8oeklik9q" target="_blank">使用教程</a>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_qrmp.html')"  >点击进入</a>
+        <a class="btn" href="https://mp.weixin.qq.com/s/Ldwa1xY7fBhYn8OeKliK9Q" target="_blank">使用教程</a>
     </div>
 
    <!--
-    <div class="all" id="bg_red">
+    <div class="all" id="bg_RED">
 		<span class="icon" id="icon_phone"></span>
         <span class="box">
         	<a class="name">智能机器人</a><br>
             <a class="about">可以问我问题，我才1岁哦，不要问的太难!
         </span>
-        <a class="btn" href="javascript:;" onclick="redirectto('tool_zn.html')"  >点击进入</a>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_zn.html')"  >点击进入</a>
     </div>
     -->
 
-    <div class="all" id="bg_red">
+    <div class="all" id="bg_RED">
 		<span class="icon" id="icon_phone"></span>
         <span class="box">
         	<a class="name">煎饼铺智能机器人</a><br>
             <a class="about">可以问我问题，我才1岁哦，不要问的太难!
         </span>
-        <a class="btn" href="javascript:;" onclick="redirectto('tool_lt.html')"  >点击进入</a>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_lt.html')"  >点击进入</a>
     </div>
 
     <!--
-    <div class="all" id="bg_green">
+    <div class="all" id="bg_GREEN">
 		<span class="icon" id="icon_wechat"></span>
         <span class="box">
         	<a class="name">微信公众号关键词工具</a><br>
             <a class="about">添加带超链接的回复&lt;a href=&quot;url&quot;&gt;点我&lt;/a&gt;
         </span>
-        <a class="btn"href="javascript:;" onclick="redirectto('tool_hf.html')"  >点击进入</a>
+        <a class="btn"href="javascript:;" onclick="redirectTo('tool_hf.html')"  >点击进入</a>
     </div>
     -->
 
@@ -338,10 +338,10 @@ function redirectto(page) {
 <script>
 var _hmt = _hmt || [];
 (function() {
-  var hm = document.createelement("script");
+  var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?464d7e308b0fdd9fb407887891784488";
-  var s = document.getelementsbytagname("script")[0];
-  s.parentnode.insertbefore(hm, s);
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
 })();
 </script>
 
