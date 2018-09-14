@@ -40,7 +40,8 @@ $(function() {
 	        2、选择边框样式，以及长度<br><br>
 	        3、生成竖排文字，可以作为微信个性签名或者消息<br><br>
 	    </p>
-	    <p>样式：
+	    <p>转换：<input type="checkbox" id="isJtoF" value="false" style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="isJtoF"> 简-繁</label><br><br>
+			样式：
 			<select id="borderStyle" style="width:80px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" >
 				<option value="0" selected >粗边框</option>
 				<option value="1">双边框</option>
@@ -73,8 +74,8 @@ $(function() {
 				<option value="100">100</option>
 				<option value="150">150</option>
 				<option value="200">200</option>
-			</select><br>
-		转换：<input type="checkbox" id="isJtoF" value="false" style="width:15px;height:15px;font-size:10px;background-color:#4682B4;"><label for="isJtoF"> 简-繁</label></p>
+			</select>
+		</p>
 	    <p>输入：</p>
 	    <textarea class="tarea" id="input" style="float:none"></textarea>
 	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
