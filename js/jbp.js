@@ -9,7 +9,7 @@
 	}
 	
 	function back() {
-		this.location.href="gj.html?v=181103";
+		this.location.href="gj.html?v=181204";
 	}
 
 	function tip(msg) {
@@ -160,3 +160,11 @@
 		str = unescape(str.replace(/\\u/g,"%u"));
 		return str;
 	}
+
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?464d7e308b0fdd9fb407887891784488";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
