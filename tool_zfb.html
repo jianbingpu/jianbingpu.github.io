@@ -47,13 +47,13 @@ $(function() {
     	e.clearSelection();
     	//tip("拷贝失败，请手动复制");
     });
-    
+
 	$('#get').trigger("click");
 	/*var qrCd = getQueryString("qrCd");
 	if (!!qrCd) {
 		$("#qrCode").val(qrCd);
 	}*/
-	
+
 	function getQueryString(name) {
 	    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
 	    var r = window.location.search.substr(1).match(reg);
@@ -62,26 +62,26 @@ $(function() {
 	    }
 	    return null;
 	}
-	
+
 	$("#get").on("click",function(e){
-       	e.preventDefault();
-       	layer.open({type: 2});
-       	setTimeout(function() {
-	 		//location.href="https://qr.alipay.com/c1x05636vpl422d8u1qq53b";
-	 		layer.closeAll();
-	 		tip2("搜索码已经复制，赶快打开支付宝粘贴搜索领取红包吧！",4);
- 		},2000);
+		e.preventDefault();
+		layer.open({type: 2});
+		setTimeout(function() {
+			//location.href="https://qr.alipay.com/c1x05636vpl422d8u1qq53b";
+			layer.closeAll();
+			tip2("搜索码已经复制，赶快打开支付宝粘贴搜索领取红包吧！",4);
+		},1000);
 	});
-        
-	$("#share").on("click",function(e){
+
+	 $("#share").on("click",function(e){
 		e.preventDefault();
 		$('.mask').show();
 		setTimeout(function() {
-		//location.href = location.href.split("?")[0]+ "?qrCd="+$("#qrCode").val();
+			//location.href = location.href.split("?")[0]+ "?qrCd="+$("#qrCode").val();
 		},500);
 	});
-        
-        
+
+
 
 });
 </script>
@@ -90,9 +90,8 @@ $(function() {
 	<button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
 	<div id="container">
 	<h3>支付宝领红包工具</h3><hr>
-	     <img src="img/zfbhb2.png" style="width:70%"><br><br>
-	     支付宝送超级大红包！支付宝扫一扫<br><br>
-	     或者点击复制，打开支付宝粘贴搜索8133488领取红包<br><br>
+	     <img src="img/zfbhb2.png" style="width:65%"><br><br>
+	     支付宝扫一扫或者点击复制，打开支付宝粘贴或者输入8133488，搜索领取超大红包<br><br>
 	    <div  id="qrCode" style="font-size:0px;color:#fff">8133488</div>
 	    <button  id="get" type="button" style="background-color:red; border-radius:20px;" data-clipboard-target="#qrCode">复制</button>
 	    <button  id="share" type="button" style="background-color:#00C74A; border-radius:20px;">分享</button>
