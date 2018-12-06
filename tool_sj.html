@@ -79,6 +79,7 @@ $(function() {
  		cont += "<br>";
  		cont += '<button type="button" style="width:60px;height:30px;background-color:#00C74A; border-radius:20px;" id="addMenu">添加</button>';
  		cont += '<button type="button" style="width:60px;height:30px;background-color:#FF4500; border-radius:20px;" id="clearMenu">清空</button>';
+        cont += '<button type="button" style="width:60px;height:30px;background-color:#FFC74A; border-radius:20px;" onclick="layer.closeAll()">关闭</button>';
  		pop("自定义数据", cont);
  		
  		if(!window.isPrivateMode && !!window.localStorage){
@@ -221,6 +222,7 @@ $(function() {
  	function pop(title, msg) {
 		 //自定义标题风格
 		 layer.open({
+			 style:"position:fixed; left:0; top:0; width:100%; height:100%; border: none; -webkit-animation-duration: .5s; animation-duration: .5s;",
 		    type: 3,
 		    title: [
 		     title,
