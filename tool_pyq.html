@@ -54,7 +54,7 @@ $(function() {
 		</p>
 	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
 	    <!--<textarea onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" class="tarea" id="output" style="float:none" readonly></textarea>-->
-	    <textarea  class="tarea" id="output" readonly onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);"> </textarea>
+	    <textarea  class="tarea" id="output"  onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);"> </textarea>
 	    <button id="create" type="button" style="background-color:#00C74A; border-radius:20px;" >转换</button>
 	    <button  id="clear" type="button" style="background-color:#FF4500; border-radius:20px;" >清空</button>
 	</div>
@@ -68,7 +68,7 @@ $(function() {
 
 		var type = $("#type").val();
 		var result="";
-		var temp1 = "*   .*  。 * 。   • *  。 .⭐️ *。.  •.    *。   ⭐️  。*  .  *  。⭐️ ️#data️⭐️     •*    *   •。*    . ⭐️ *   。 . *•⭐️*⭐️     .     。*  .  * ";
+		var temp1 = "*⭐  .*⭐ 。 *⭐。   • *⭐ 。 .⭐️ *。.  •.    *。   ⭐️  。*⭐ .  *⭐ 。⭐️ ️#data️⭐️     •*⭐   *⭐  •。*⭐   . ⭐️ *⭐  。 . *•⭐️*⭐️     .     。*⭐ .  *⭐";
 		var temp2 = "* 💵    •.  💵  °  *💵 。°💵。 *  。⭐️  *   。💵.  •   。*  💵   •* #data *  💵 •。*    . °⭐️ *  💵 。 . *•⭐️ *💵   .  💵  。 * 💵 .  *  ⭐️ *💵   .  💵 ";
 
 		if(type=="1") {
