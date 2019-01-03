@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html manifest="manifest">
+<head>
+<meta charset="UTF-8">
+<link href="js/layer_mobile/need/layer.css" type="text/css" rel="stylesheet">
+<script src="js/layer_mobile/layer.js"></script>
+<script src="js/underscore-min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/clipboard.min.js"></script>
+<script src="js/jbp.js"></script>
+<link rel="stylesheet" type="text/css" href="css/tool.css" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<title>花样文字生成工具</title>
+<meta name="keywords" content="长耳朵壁纸,换发型壁纸,iPhone X换发型, iPhone X长耳朵,微信透明, 透明头像, 透明昵称, 透明消息, 圆形头像, 圆形头像生成, 微信二维码名片, 二维码名片, 二维码生成, 微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
+<meta name="description" content="煎饼铺，一个有趣的公众号。长耳朵壁纸,换发型壁纸,iPhone X换发型, iPhone X长耳朵,微信透明, 透明头像, 透明昵称, 透明消息, 圆形头像, 圆形头像生成, 微信二维码名片, 二维码名片, 二维码生成, 微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
+<script>
+$(function() {
+    var clipboard = new Clipboard('#copy');
+
+    clipboard.on('success', function(e) {
+    	e.clearSelection();
+    	tip("拷贝成功");
+    });
+
+    clipboard.on('error', function(e) {
+    	e.clearSelection();
+    	tip("拷贝失败，请手动复制");
+    });
+});
+</script>
+</head>
+<body oncontextmenu="return true";>
+	<button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
+	<div id="container">
+	<h3>朋友圈许愿生成工具</h3><hr>
+	    <p id="info">
+	        1、输入许愿内容，选择模板点击转换<br><br>
+	        2、点击复制按钮，会复制输出的内容<br><br>
+	        3、下载模板图片，发朋友圈吧<br><br>
+	    </p>
+	    <p>输入：
+	    <select id="type" style="width:120px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" >
+	    <option value="1" selected>星星</option>
+	    <option value="2" >金钱</option>
+		</select>
+	    </p>
+		<input type="text" name="name" id="input" maxlength="9" ><br><br>
+	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
+	    <!--<textarea onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" class="tarea" id="output" style="float:none" readonly></textarea>-->
+	    <textarea  class="tarea" id="output" readonly onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);"> </textarea>
+	    <button id="create" type="button" style="background-color:#00C74A; border-radius:20px;" >转换</button>
+	    <button  id="clear" type="button" style="background-color:#FF4500; border-radius:20px;" >清空</button>
+	</div>
+</body>
+
+ <script>
+	 var $content=$("#input");
+	 var $result=$("#output");
+	 $("#create").on("click",function(e){
+		e.preventDefault();
+
+		var type = $("#type").val();
+		var result="";
+		var temp1 = "*   .*  。 * 。   • *  。 .#data⭐️ *。：.  •.     ⭐️ 。*  .  *  。⭐️    。. ：•   。*⭐️     •*    *   •。*    . ⭐️ *   。 . *•⭐️   *⭐️     .     。*  .  *    . *•⭐️   *. ：•";
+		var temp2 = "* 💵    •.  💵  °  *💵 。°#data💵。 *  。⭐️  *   。💵.  ：•   。*  💵   •*  *  💵 •。*    . °⭐️ *  💵 。 . *•⭐️ *💵   .  💵  。 * 💵 .  *  ⭐️ *💵   .  💵  。 * 💵 .  *  ";
+
+		if(type=="1") {
+            result =  replaceAll(temp1, "#data", $content.val());
+		} else {
+            result =  replaceAll(temp2, "#data", $content.val());
+		}
+         $result.val(result);
+	
+        });
+        
+         
+         $("#clear").on("click",function(e){
+			e.preventDefault();
+			$("#input").val('');
+			$("#output").val(' ');
+			 //提示
+			tip("已清空");
+        });
+        
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?464d7e308b0fdd9fb407887891784488";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>
