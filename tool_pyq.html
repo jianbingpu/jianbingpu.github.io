@@ -35,8 +35,8 @@ $(function() {
 	<h3>朋友圈许愿生成工具</h3><hr>
 	    <p id="info">
 	        1、输入许愿内容，选择模板点击转换<br><br>
-	        2、点击复制按钮，会复制输出的内容<br><br>
-	        3、下载模板图片，发朋友圈吧<br><br>
+	        2、长按保存模板图片到手机<br><br>
+	        3、点击复制按钮，会复制输出的内容<br><br>
 	    </p>
 	    <p>输入：
 	    <select id="type" style="width:120px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" >
@@ -45,13 +45,14 @@ $(function() {
 		</select>
 	    </p>
 		<input type="text" name="name" id="input" maxlength="5" ><br><br>
-	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button>
+		<p>图片：
 			<img src="img/pyq/pyq1.jpg" style="width:40px;height:40px;background-color:#fff;vertical-align: top;margin: 10px; " />
 			<img src="img/pyq/pyq2.jpg" style="width:40px;height:40px;background-color:#fff;vertical-align: top;margin: 10px; " />
 			<img src="img/pyq/pyq3.jpg" style="width:40px;height:40px;background-color:#fff;vertical-align: top;margin: 10px; " />
 			<img src="img/pyq/pyq4.jpg" style="width:40px;height:40px;background-color:#fff;vertical-align: top;margin: 10px; " />
 			<img src="img/pyq/pyq5.jpg" style="width:40px;height:40px;background-color:#fff;vertical-align: top;margin: 10px; " />
 		</p>
+	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
 	    <!--<textarea onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" class="tarea" id="output" style="float:none" readonly></textarea>-->
 	    <textarea  class="tarea" id="output" readonly onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);"> </textarea>
 	    <button id="create" type="button" style="background-color:#00C74A; border-radius:20px;" >转换</button>
