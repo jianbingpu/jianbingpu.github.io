@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#v=181226
+#v=190103
 
 CACHE:
 /css/jbp.css
@@ -61,6 +61,12 @@ CACHE:
 /img/tl/qt/4.png
 /img/tl/qt/5.png
 /img/tl/qt/6.png
+
+/img/pyq/pyq1.jpg
+/img/pyq/pyq2.jpg
+/img/pyq/pyq3.jpg
+/img/pyq/pyq4.jpg
+/img/pyq/pyq5.jpg
 
 /js/base64.js
 /js/clipboard.min.js

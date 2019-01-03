@@ -45,7 +45,13 @@ $(function() {
 		</select>
 	    </p>
 		<input type="text" name="name" id="input" maxlength="5" ><br><br>
-	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
+	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button>
+			<img src="img/pyq/pyq1.jpg" style="width:40px;height:40px;background-color:#fff;vertical-align: top;margin: 10px; " />
+			<img src="img/pyq/pyq2.jpg" style="width:40px;height:40px;background-color:#fff;vertical-align: top;margin: 10px; " />
+			<img src="img/pyq/pyq3.jpg" style="width:40px;height:40px;background-color:#fff;vertical-align: top;margin: 10px; " />
+			<img src="img/pyq/pyq4.jpg" style="width:40px;height:40px;background-color:#fff;vertical-align: top;margin: 10px; " />
+			<img src="img/pyq/pyq5.jpg" style="width:40px;height:40px;background-color:#fff;vertical-align: top;margin: 10px; " />
+		</p>
 	    <!--<textarea onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" class="tarea" id="output" style="float:none" readonly></textarea>-->
 	    <textarea  class="tarea" id="output" readonly onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);"> </textarea>
 	    <button id="create" type="button" style="background-color:#00C74A; border-radius:20px;" >转换</button>
@@ -61,7 +67,7 @@ $(function() {
 
 		var type = $("#type").val();
 		var result="";
-		var temp1 = "*   .*  。 * 。   • *  。 .⭐️ *。#data.  •.     ⭐️  。*  .  *  。⭐️    。. ：•   。*⭐️     •*    *   •。*    . ⭐️ *   。 . *•⭐️   *⭐️     .     。*  .  *    . *•⭐️   *. ";
+		var temp1 = "*   .*  。 * 。   • *  。 .⭐️ *。.  •.    *。   ⭐️  。*  .  *  。⭐️ ️#data️⭐️     •*    *   •。*    . ⭐️ *   。 . *•⭐️*⭐️     .     。*  .  * ";
 		var temp2 = "* 💵    •.  💵  °  *💵 。°💵。 *  。⭐️  *   。💵.  •   。*  💵   •* #data *  💵 •。*    . °⭐️ *  💵 。 . *•⭐️ *💵   .  💵  。 * 💵 .  *  ⭐️ *💵   .  💵 ";
 
 		if(type=="1") {
