@@ -17,15 +17,14 @@
 	    addAnimate("jbpLogo", animated[Math.floor(Math.random() * animated.length)]);
 	    addAnimate("zfb", animated[Math.floor(Math.random() * animated.length)]);
 	});
-	// 画面跳转
-	function redirectTo(page) {
-	       if(!(/(Safari)/i).test(window.navigator.userAgent)){
-	        	  // 信息框
-			  tip('请在Safari浏览器中打开此页面');
-			  return;
-	       }
-		this.location.href = page;
-	}
+    // 画面跳转
+    function redirectTo(page) {
+        if(!window.isPrivateMode && !!window.localStorage){
+            localStorage.setItem("jbp_tool_srcollTop", document.body.scrollTop);
+        }
+        jump(page+"?v=190110");
+        //this.location.href = page;
+    }
 </script>
 <style type="text/css">
 </style>

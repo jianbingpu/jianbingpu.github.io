@@ -19,6 +19,15 @@ $(function() {
     addAnimate("jbpLogo", animated[Math.floor(Math.random() * animated.length)]);
     addAnimate("zfb", animated[Math.floor(Math.random() * animated.length)]);
 });
+
+// 画面跳转
+function redirectTo(page) {
+    if(!window.isPrivateMode && !!window.localStorage){
+        localStorage.setItem("jbp_tool_srcollTop", document.body.scrollTop);
+    }
+    jump(page+"?v=190110");
+    //this.location.href = page;
+}
 </script>
 </head>
 
