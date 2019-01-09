@@ -37,7 +37,7 @@ $(function() {
 	<h3>微信同行天数解析工具</h3><hr>
 	    <p id="info">
 	        1、输入微信同行天数（例如：2674）<br><br>
-	        2、点击转换，得到注册时间(基于20181231)<br><br>
+	        2、点击转换，得到注册时间(基于20180930)<br><br>
 	        3、点击复制按钮，会复制输出的内容<br><br>
 	    </p>
 	    <p>输入：</p>
@@ -59,7 +59,7 @@ $(function() {
 			$result.val('');
 			e.preventDefault();
 			var str = $content.val();
-			$result.val(moment('2018-12-31').subtract(str, 'days').format('YYYY年MM月DD日'));
+			$result.val(moment('2018-09-30').subtract(str, 'days').format('YYYY年MM月DD日'));
 	 });
         
 	$("#clear").on("click",function(e){
