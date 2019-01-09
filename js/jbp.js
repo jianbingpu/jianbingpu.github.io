@@ -9,7 +9,7 @@
 	}
 	
 	function back() {
-		this.location.href="gj.html?v=190110";
+		this.location.href="gj.html?v=190111";
 	}
 
 	function tip(msg) {
@@ -160,6 +160,15 @@
 		str = unescape(str.replace(/\\u/g,"%u"));
 		return str;
 	}
+
+    // 画面跳转
+    function redirectTo(page) {
+        if(!window.isPrivateMode && !!window.localStorage){
+            localStorage.setItem("jbp_tool_srcollTop", document.body.scrollTop);
+        }
+        jump(page+"?v=190111");
+        //this.location.href = page;
+    }
 
     var _hmt = _hmt || [];
     (function() {
