@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#v=190109
+#v=190110
 
 CACHE:
 /css/jbp.css
@@ -92,6 +92,7 @@ CACHE:
 /js/hammer.js
 /js/iscroll-zoom.js
 /js/jquery.photoClip.min.js
+/js/moment-with-locales.min.js
 
 /js/layer_mobile/layer.js
 /js/layer_mobile/need/layer.css

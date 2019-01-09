@@ -33,7 +33,7 @@ function redirectTo(page) {
 	if(!window.isPrivateMode && !!window.localStorage){
 		localStorage.setItem("jbp_tool_srcollTop", document.body.scrollTop);
 	}
-	jump(page+"?v=190109");
+	jump(page+"?v=190110");
 	//this.location.href = page;
 }
 </script>
@@ -44,16 +44,26 @@ function redirectTo(page) {
 	<div class="nav" >
     	<img src="img/jbpLogo.png"  class="logo" id="jbpLogo" onclick="jump('about.html')">
         <span class="menu">
-        	<span class="list"><a class="list_a" href="index.html?v=190109">首页</a></span>
-             <span class="list"><a class="list_a" href="gj.html?v=190109" id="select">工具¹</a></span>
-             <span class="list"><a class="list_a" href="gj2.html?v=190109">工具²</a></span>
-             <span class="list"><a class="list_a" href="jx.html?v=190109">精选</a></span>
-             <!--<span class="list"><a class="list_a" href="gz.html?v=190109">规则</a></span>-->
+        	<span class="list"><a class="list_a" href="index.html?v=190110">首页</a></span>
+             <span class="list"><a class="list_a" href="gj.html?v=190110" id="select">工具¹</a></span>
+             <span class="list"><a class="list_a" href="gj2.html?v=190110">工具²</a></span>
+             <span class="list"><a class="list_a" href="jx.html?v=190110">精选</a></span>
+             <!--<span class="list"><a class="list_a" href="gz.html?v=190110">规则</a></span>-->
              <span class="list" id="zfb"><a class="list_a" href="https://mp.weixin.qq.com/mp/author?action=show&author_id=ofMoI43uR5KHPSrel2pJj0nmjUU8&rewardsn=2711bcfbe23699207df9&timestamp=1528297875&__biz=MzI4NjYxMTk5Mw==&appmsgid=2247486012&idx=1&scene=142&rscene=129" style="color:red">赞赏</a></span>
         </span>
     </div>
 
     <div class="space"></div>
+
+    <div class="all" id="bg_GREEN">
+        <span class="icon" id="icon_wechat"></span>
+        <span class="box">
+        	<a class="name">微信同行天数解析工具</a><br>
+             <a  class="about">查询微信注册日期</a>
+            </span>
+        <a class="btn" href="javascript:;" onclick="redirectTo('tool_wxday.html')">点击进入</a>
+        <a class="btn" href="https://support.weixin.qq.com/cgi-bin/mmsupport-bin/getopendays" target="_blank">查询天数</a>
+    </div>
 
     <div class="all" id="bg_RED">
         <span class="icon" id="icon_phone"></span>
@@ -64,7 +74,7 @@ function redirectTo(page) {
         <a class="btn" href="javascript:;" onclick="redirectTo('https://h5.m.jd.com/babelDiy/Zeus/3Rj3DPmTSeF2sB82ev2CQyYi8E7u/index.html?userCode=o3w6&from=groupmessage&isappinstalled=0')">点击进入</a>
     </div>
 
-    <div class="all" id="bg_GREEN">
+    <div class="all" id="bg_TEAL">
         <span class="icon" id="icon_phone"></span>
         <span class="box">
         	<a class="name">京东红包领取工具（秒提现）</a><br>
