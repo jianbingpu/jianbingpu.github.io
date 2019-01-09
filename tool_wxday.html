@@ -59,7 +59,8 @@ $(function() {
 			$result.val('');
 			e.preventDefault();
 			var str = $content.val();
-			$result.val(moment('2018-09-30').subtract(str, 'days').format('YYYY年MM月DD日'));
+            moment.locale("zh-cn");
+			$result.val(moment('2018-09-30').subtract(str, 'days').format('YYYY年MM月DD日 dddd'));
 	 });
         
 	$("#clear").on("click",function(e){
