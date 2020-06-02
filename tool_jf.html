@@ -1,0 +1,1300 @@
+<!DOCTYPE HTML>
+<html manifest="manifest">
+<head>
+<meta charset="UTF-8">
+<link href="js/layer_mobile/need/layer.css" type="text/css" rel="stylesheet">
+<script src="js/layer_mobile/layer.js"></script>
+<script src="js/underscore-min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/clipboard.min.js"></script>
+<script src="js/jbp.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/tool.css" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<title>家庭摇号政策积分推算工具</title>
+<meta name="keywords" content="长耳朵壁纸,换发型壁纸,iPhone X换发型, iPhone X长耳朵,微信透明, 透明头像, 透明昵称, 透明消息, 圆形头像, 圆形头像生成, 微信二维码名片, 二维码名片, 二维码生成, 微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
+<meta name="description" content="煎饼铺，一个有趣的公众号。长耳朵壁纸,换发型壁纸,iPhone X换发型, iPhone X长耳朵,微信透明, 透明头像, 透明昵称, 透明消息, 圆形头像, 圆形头像生成, 微信二维码名片, 二维码名片, 二维码生成, 微信彩色昵称, QQ彩色昵称, 彩色昵称, 微信昵称小尾巴, 微信小尾巴, 二维码合并, 收款码合并, 花样文字, 花样文字工具, 花样文字生成, 火星文生成, 火星文工具 角标, 微信标记, 小电话号码, 小号码, 电话标记, 随机工具, 今天吃什么, 随机抽取工具, 智能机器人, 公众号工具, 关键词回复工具, 关键词回复超链接, 公众号关键词回复, 微信公众号工具, workflow规则, workflow, 小程序, 小号英文">
+<script>
+$(function() {
+    var clipboard = new Clipboard('#copy');
+
+    clipboard.on('success', function(e) {
+    	e.clearSelection();
+    	tip("拷贝成功");
+    });
+
+    clipboard.on('error', function(e) {
+    	e.clearSelection();
+    	tip("拷贝失败，请手动复制");
+    });
+    
+});
+</script>
+</head>
+<body  oncontextmenu="return true;">
+	<button type="button" style="align:left;background-color:#FFC74A; border-radius:20px;" onclick="back()">返回</button>
+	<div id="container">
+	<h3>家庭摇号政策积分推算工具</h3><hr>
+	    <p id="info">
+	        1、填入申请人信息，以及家庭成员信息<br><br>
+	        2、信息填入正确后，点击开始，系统自动计算出家庭积分<br><br>
+	        3、点击复制可以复制总积分<br><br>
+			4、具体政策解读，查看<a href ="http://jtw.beijing.gov.cn/ztlm/bjxkczqyj/index.html">官网</a><br><br>
+	    </p>
+
+		<p><b>主申请人：</b><br>
+			个数：<select id="zcnt" style="width:40px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" disabled="disabled">
+				<option value=0>0</option>
+				<option value=1 selected>1</option>
+			</select>
+			指标：
+			<select id="zflg" style="width:80px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" onchange="ctrlJf(this,'zstep')">
+				<option value="0">未申指标</option>
+				<option value="1">已申指标</option>
+			</select>
+			积分：<select id="zstep" style="width:50px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" disabled="disabled">
+				<option value="0">0</option>
+				<option value=1>1</option>
+				<option value=2>2</option>
+				<option value=3>3</option>
+				<option value=4>4</option>
+				<option value=5>5</option>
+				<option value=6>6</option>
+				<option value=7>7</option>
+				<option value=8>8</option>
+				<option value=9>9</option>
+				<option value=10>10</option>
+				<option value=11>11</option>
+				<option value=12>12</option>
+				<option value=13>13</option>
+				<option value=14>14</option>
+				<option value=15>15</option>
+				<option value=16>16</option>
+				<option value=17>17</option>
+				<option value=18>18</option>
+				<option value=19>19</option>
+				<option value=20>20</option>
+				<option value=21>21</option>
+				<option value=22>22</option>
+				<option value=23>23</option>
+				<option value=24>24</option>
+				<option value=25>25</option>
+				<option value=26>26</option>
+				<option value=27>27</option>
+				<option value=28>28</option>
+				<option value=29>29</option>
+				<option value=30>30</option>
+				<option value=31>31</option>
+				<option value=32>32</option>
+				<option value=33>33</option>
+				<option value=34>34</option>
+				<option value=35>35</option>
+				<option value=36>36</option>
+				<option value=37>37</option>
+				<option value=38>38</option>
+				<option value=39>39</option>
+				<option value=40>40</option>
+				<option value=41>41</option>
+				<option value=42>42</option>
+				<option value=43>43</option>
+				<option value=44>44</option>
+				<option value=45>45</option>
+				<option value=46>46</option>
+				<option value=47>47</option>
+				<option value=48>48</option>
+				<option value=49>49</option>
+				<option value=50>50</option>
+				<option value=51>51</option>
+				<option value=52>52</option>
+				<option value=53>53</option>
+				<option value=54>54</option>
+				<option value=55>55</option>
+				<option value=56>56</option>
+				<option value=57>57</option>
+				<option value=58>58</option>
+				<option value=59>59</option>
+				<option value=60>60</option>
+				<option value=61>61</option>
+				<option value=62>62</option>
+				<option value=63>63</option>
+				<option value=64>64</option>
+				<option value=65>65</option>
+				<option value=66>66</option>
+				<option value=67>67</option>
+				<option value=68>68</option>
+				<option value=69>69</option>
+				<option value=70>70</option>
+				<option value=71>71</option>
+				<option value=72>72</option>
+				<option value=73>73</option>
+				<option value=74>74</option>
+				<option value=75>75</option>
+				<option value=76>76</option>
+				<option value=77>77</option>
+				<option value=78>78</option>
+				<option value=79>79</option>
+				<option value=80>80</option>
+				<option value=81>81</option>
+				<option value=82>82</option>
+				<option value=83>83</option>
+				<option value=84>84</option>
+				<option value=85>85</option>
+				<option value=86>86</option>
+				<option value=87>87</option>
+				<option value=88>88</option>
+				<option value=89>89</option>
+				<option value=90>90</option>
+				<option value=91>91</option>
+				<option value=92>92</option>
+				<option value=93>93</option>
+				<option value=94>94</option>
+				<option value=95>95</option>
+				<option value=96>96</option>
+				<option value=97>97</option>
+				<option value=98>98</option>
+				<option value=99>99</option>
+				<option value=100>100</option>
+			</select>
+		</p>
+
+		<p><b>配偶：</b><br>
+			个数：<select id="pcnt" style="width:40px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;">
+				<option value=0>0</option>
+				<option value=1>1</option>
+			</select>
+			指标：
+			<select id="pflg" style="width:80px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" onchange="ctrlJf(this,'pstep')">
+				<option value="0">未申指标</option>
+				<option value="1">已申指标</option>
+			</select>
+			积分：<select id="pstep" style="width:50px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" disabled="disabled">
+				<option value="0">0</option>
+				<option value=1>1</option>
+				<option value=2>2</option>
+				<option value=3>3</option>
+				<option value=4>4</option>
+				<option value=5>5</option>
+				<option value=6>6</option>
+				<option value=7>7</option>
+				<option value=8>8</option>
+				<option value=9>9</option>
+				<option value=10>10</option>
+				<option value=11>11</option>
+				<option value=12>12</option>
+				<option value=13>13</option>
+				<option value=14>14</option>
+				<option value=15>15</option>
+				<option value=16>16</option>
+				<option value=17>17</option>
+				<option value=18>18</option>
+				<option value=19>19</option>
+				<option value=20>20</option>
+				<option value=21>21</option>
+				<option value=22>22</option>
+				<option value=23>23</option>
+				<option value=24>24</option>
+				<option value=25>25</option>
+				<option value=26>26</option>
+				<option value=27>27</option>
+				<option value=28>28</option>
+				<option value=29>29</option>
+				<option value=30>30</option>
+				<option value=31>31</option>
+				<option value=32>32</option>
+				<option value=33>33</option>
+				<option value=34>34</option>
+				<option value=35>35</option>
+				<option value=36>36</option>
+				<option value=37>37</option>
+				<option value=38>38</option>
+				<option value=39>39</option>
+				<option value=40>40</option>
+				<option value=41>41</option>
+				<option value=42>42</option>
+				<option value=43>43</option>
+				<option value=44>44</option>
+				<option value=45>45</option>
+				<option value=46>46</option>
+				<option value=47>47</option>
+				<option value=48>48</option>
+				<option value=49>49</option>
+				<option value=50>50</option>
+				<option value=51>51</option>
+				<option value=52>52</option>
+				<option value=53>53</option>
+				<option value=54>54</option>
+				<option value=55>55</option>
+				<option value=56>56</option>
+				<option value=57>57</option>
+				<option value=58>58</option>
+				<option value=59>59</option>
+				<option value=60>60</option>
+				<option value=61>61</option>
+				<option value=62>62</option>
+				<option value=63>63</option>
+				<option value=64>64</option>
+				<option value=65>65</option>
+				<option value=66>66</option>
+				<option value=67>67</option>
+				<option value=68>68</option>
+				<option value=69>69</option>
+				<option value=70>70</option>
+				<option value=71>71</option>
+				<option value=72>72</option>
+				<option value=73>73</option>
+				<option value=74>74</option>
+				<option value=75>75</option>
+				<option value=76>76</option>
+				<option value=77>77</option>
+				<option value=78>78</option>
+				<option value=79>79</option>
+				<option value=80>80</option>
+				<option value=81>81</option>
+				<option value=82>82</option>
+				<option value=83>83</option>
+				<option value=84>84</option>
+				<option value=85>85</option>
+				<option value=86>86</option>
+				<option value=87>87</option>
+				<option value=88>88</option>
+				<option value=89>89</option>
+				<option value=90>90</option>
+				<option value=91>91</option>
+				<option value=92>92</option>
+				<option value=93>93</option>
+				<option value=94>94</option>
+				<option value=95>95</option>
+				<option value=96>96</option>
+				<option value=97>97</option>
+				<option value=98>98</option>
+				<option value=99>99</option>
+				<option value=100>100</option>
+			</select>
+		</p>
+
+		<p><b>子女1：</b><br>
+			个数：<select id="zncnt1" style="width:40px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;">
+				<option value=0>0</option>
+				<option value=1>1</option>
+				<option value=2>2</option>
+				<option value=3>3</option>
+				<option value=4>4</option>
+				<option value=5>5</option>
+				<option value=6>6</option>
+				<option value=7>7</option>
+				<option value=8>8</option>
+				<option value=9>9</option>
+				<option value=10>10</option>
+			</select>
+			指标：
+			<select id="znflg1" style="width:80px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" onchange="ctrlJf(this,'znstep1')">
+				<option value="0">未申指标</option>
+				<option value="1">已申指标</option>
+			</select>
+			积分：<select id="znstep1" style="width:50px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" disabled="disabled">
+				<option value="0">0</option>
+				<option value=1>1</option>
+				<option value=2>2</option>
+				<option value=3>3</option>
+				<option value=4>4</option>
+				<option value=5>5</option>
+				<option value=6>6</option>
+				<option value=7>7</option>
+				<option value=8>8</option>
+				<option value=9>9</option>
+				<option value=10>10</option>
+				<option value=11>11</option>
+				<option value=12>12</option>
+				<option value=13>13</option>
+				<option value=14>14</option>
+				<option value=15>15</option>
+				<option value=16>16</option>
+				<option value=17>17</option>
+				<option value=18>18</option>
+				<option value=19>19</option>
+				<option value=20>20</option>
+				<option value=21>21</option>
+				<option value=22>22</option>
+				<option value=23>23</option>
+				<option value=24>24</option>
+				<option value=25>25</option>
+				<option value=26>26</option>
+				<option value=27>27</option>
+				<option value=28>28</option>
+				<option value=29>29</option>
+				<option value=30>30</option>
+				<option value=31>31</option>
+				<option value=32>32</option>
+				<option value=33>33</option>
+				<option value=34>34</option>
+				<option value=35>35</option>
+				<option value=36>36</option>
+				<option value=37>37</option>
+				<option value=38>38</option>
+				<option value=39>39</option>
+				<option value=40>40</option>
+				<option value=41>41</option>
+				<option value=42>42</option>
+				<option value=43>43</option>
+				<option value=44>44</option>
+				<option value=45>45</option>
+				<option value=46>46</option>
+				<option value=47>47</option>
+				<option value=48>48</option>
+				<option value=49>49</option>
+				<option value=50>50</option>
+				<option value=51>51</option>
+				<option value=52>52</option>
+				<option value=53>53</option>
+				<option value=54>54</option>
+				<option value=55>55</option>
+				<option value=56>56</option>
+				<option value=57>57</option>
+				<option value=58>58</option>
+				<option value=59>59</option>
+				<option value=60>60</option>
+				<option value=61>61</option>
+				<option value=62>62</option>
+				<option value=63>63</option>
+				<option value=64>64</option>
+				<option value=65>65</option>
+				<option value=66>66</option>
+				<option value=67>67</option>
+				<option value=68>68</option>
+				<option value=69>69</option>
+				<option value=70>70</option>
+				<option value=71>71</option>
+				<option value=72>72</option>
+				<option value=73>73</option>
+				<option value=74>74</option>
+				<option value=75>75</option>
+				<option value=76>76</option>
+				<option value=77>77</option>
+				<option value=78>78</option>
+				<option value=79>79</option>
+				<option value=80>80</option>
+				<option value=81>81</option>
+				<option value=82>82</option>
+				<option value=83>83</option>
+				<option value=84>84</option>
+				<option value=85>85</option>
+				<option value=86>86</option>
+				<option value=87>87</option>
+				<option value=88>88</option>
+				<option value=89>89</option>
+				<option value=90>90</option>
+				<option value=91>91</option>
+				<option value=92>92</option>
+				<option value=93>93</option>
+				<option value=94>94</option>
+				<option value=95>95</option>
+				<option value=96>96</option>
+				<option value=97>97</option>
+				<option value=98>98</option>
+				<option value=99>99</option>
+				<option value=100>100</option>
+			</select>
+		</p>
+
+		<p><b>子女2：</b><br>
+			个数：<select id="zncnt2" style="width:40px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;">
+				<option value=0>0</option>
+				<option value=1>1</option>
+				<option value=2>2</option>
+				<option value=3>3</option>
+				<option value=4>4</option>
+				<option value=5>5</option>
+				<option value=6>6</option>
+				<option value=7>7</option>
+				<option value=8>8</option>
+				<option value=9>9</option>
+				<option value=10>10</option>
+			</select>
+			指标：
+			<select id="znflg2" style="width:80px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" onchange="ctrlJf(this,'znstep2')">
+				<option value="0">未申指标</option>
+				<option value="1">已申指标</option>
+			</select>
+			积分：<select id="znstep2" style="width:50px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" disabled="disabled">
+				<option value="0">0</option>
+				<option value=1>1</option>
+				<option value=2>2</option>
+				<option value=3>3</option>
+				<option value=4>4</option>
+				<option value=5>5</option>
+				<option value=6>6</option>
+				<option value=7>7</option>
+				<option value=8>8</option>
+				<option value=9>9</option>
+				<option value=10>10</option>
+				<option value=11>11</option>
+				<option value=12>12</option>
+				<option value=13>13</option>
+				<option value=14>14</option>
+				<option value=15>15</option>
+				<option value=16>16</option>
+				<option value=17>17</option>
+				<option value=18>18</option>
+				<option value=19>19</option>
+				<option value=20>20</option>
+				<option value=21>21</option>
+				<option value=22>22</option>
+				<option value=23>23</option>
+				<option value=24>24</option>
+				<option value=25>25</option>
+				<option value=26>26</option>
+				<option value=27>27</option>
+				<option value=28>28</option>
+				<option value=29>29</option>
+				<option value=30>30</option>
+				<option value=31>31</option>
+				<option value=32>32</option>
+				<option value=33>33</option>
+				<option value=34>34</option>
+				<option value=35>35</option>
+				<option value=36>36</option>
+				<option value=37>37</option>
+				<option value=38>38</option>
+				<option value=39>39</option>
+				<option value=40>40</option>
+				<option value=41>41</option>
+				<option value=42>42</option>
+				<option value=43>43</option>
+				<option value=44>44</option>
+				<option value=45>45</option>
+				<option value=46>46</option>
+				<option value=47>47</option>
+				<option value=48>48</option>
+				<option value=49>49</option>
+				<option value=50>50</option>
+				<option value=51>51</option>
+				<option value=52>52</option>
+				<option value=53>53</option>
+				<option value=54>54</option>
+				<option value=55>55</option>
+				<option value=56>56</option>
+				<option value=57>57</option>
+				<option value=58>58</option>
+				<option value=59>59</option>
+				<option value=60>60</option>
+				<option value=61>61</option>
+				<option value=62>62</option>
+				<option value=63>63</option>
+				<option value=64>64</option>
+				<option value=65>65</option>
+				<option value=66>66</option>
+				<option value=67>67</option>
+				<option value=68>68</option>
+				<option value=69>69</option>
+				<option value=70>70</option>
+				<option value=71>71</option>
+				<option value=72>72</option>
+				<option value=73>73</option>
+				<option value=74>74</option>
+				<option value=75>75</option>
+				<option value=76>76</option>
+				<option value=77>77</option>
+				<option value=78>78</option>
+				<option value=79>79</option>
+				<option value=80>80</option>
+				<option value=81>81</option>
+				<option value=82>82</option>
+				<option value=83>83</option>
+				<option value=84>84</option>
+				<option value=85>85</option>
+				<option value=86>86</option>
+				<option value=87>87</option>
+				<option value=88>88</option>
+				<option value=89>89</option>
+				<option value=90>90</option>
+				<option value=91>91</option>
+				<option value=92>92</option>
+				<option value=93>93</option>
+				<option value=94>94</option>
+				<option value=95>95</option>
+				<option value=96>96</option>
+				<option value=97>97</option>
+				<option value=98>98</option>
+				<option value=99>99</option>
+				<option value=100>100</option>
+			</select>
+		</p>
+
+		<p><b>子女3：</b><br>
+			个数：<select id="zncnt3" style="width:40px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;">
+				<option value=0>0</option>
+				<option value=1>1</option>
+				<option value=2>2</option>
+				<option value=3>3</option>
+				<option value=4>4</option>
+				<option value=5>5</option>
+				<option value=6>6</option>
+				<option value=7>7</option>
+				<option value=8>8</option>
+				<option value=9>9</option>
+				<option value=10>10</option>
+			</select>
+			指标：
+			<select id="znflg3" style="width:80px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" onchange="ctrlJf(this,'znstep3')">
+				<option value="0">未申指标</option>
+				<option value="1">已申指标</option>
+			</select>
+			积分：<select id="znstep3" style="width:50px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" disabled="disabled">
+				<option value="0">0</option>
+				<option value=1>1</option>
+				<option value=2>2</option>
+				<option value=3>3</option>
+				<option value=4>4</option>
+				<option value=5>5</option>
+				<option value=6>6</option>
+				<option value=7>7</option>
+				<option value=8>8</option>
+				<option value=9>9</option>
+				<option value=10>10</option>
+				<option value=11>11</option>
+				<option value=12>12</option>
+				<option value=13>13</option>
+				<option value=14>14</option>
+				<option value=15>15</option>
+				<option value=16>16</option>
+				<option value=17>17</option>
+				<option value=18>18</option>
+				<option value=19>19</option>
+				<option value=20>20</option>
+				<option value=21>21</option>
+				<option value=22>22</option>
+				<option value=23>23</option>
+				<option value=24>24</option>
+				<option value=25>25</option>
+				<option value=26>26</option>
+				<option value=27>27</option>
+				<option value=28>28</option>
+				<option value=29>29</option>
+				<option value=30>30</option>
+				<option value=31>31</option>
+				<option value=32>32</option>
+				<option value=33>33</option>
+				<option value=34>34</option>
+				<option value=35>35</option>
+				<option value=36>36</option>
+				<option value=37>37</option>
+				<option value=38>38</option>
+				<option value=39>39</option>
+				<option value=40>40</option>
+				<option value=41>41</option>
+				<option value=42>42</option>
+				<option value=43>43</option>
+				<option value=44>44</option>
+				<option value=45>45</option>
+				<option value=46>46</option>
+				<option value=47>47</option>
+				<option value=48>48</option>
+				<option value=49>49</option>
+				<option value=50>50</option>
+				<option value=51>51</option>
+				<option value=52>52</option>
+				<option value=53>53</option>
+				<option value=54>54</option>
+				<option value=55>55</option>
+				<option value=56>56</option>
+				<option value=57>57</option>
+				<option value=58>58</option>
+				<option value=59>59</option>
+				<option value=60>60</option>
+				<option value=61>61</option>
+				<option value=62>62</option>
+				<option value=63>63</option>
+				<option value=64>64</option>
+				<option value=65>65</option>
+				<option value=66>66</option>
+				<option value=67>67</option>
+				<option value=68>68</option>
+				<option value=69>69</option>
+				<option value=70>70</option>
+				<option value=71>71</option>
+				<option value=72>72</option>
+				<option value=73>73</option>
+				<option value=74>74</option>
+				<option value=75>75</option>
+				<option value=76>76</option>
+				<option value=77>77</option>
+				<option value=78>78</option>
+				<option value=79>79</option>
+				<option value=80>80</option>
+				<option value=81>81</option>
+				<option value=82>82</option>
+				<option value=83>83</option>
+				<option value=84>84</option>
+				<option value=85>85</option>
+				<option value=86>86</option>
+				<option value=87>87</option>
+				<option value=88>88</option>
+				<option value=89>89</option>
+				<option value=90>90</option>
+				<option value=91>91</option>
+				<option value=92>92</option>
+				<option value=93>93</option>
+				<option value=94>94</option>
+				<option value=95>95</option>
+				<option value=96>96</option>
+				<option value=97>97</option>
+				<option value=98>98</option>
+				<option value=99>99</option>
+				<option value=100>100</option>
+			</select>
+		</p>
+
+		<p><b>男方父亲：</b><br>
+			个数：<select id="nffqcnt" style="width:40px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;">
+				<option value=0>0</option>
+				<option value=1>1</option>
+			</select>
+			指标：
+			<select id="nffqflg" style="width:80px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" onchange="ctrlJf(this,'nffqstep')">
+				<option value="0">未申指标</option>
+				<option value="1">已申指标</option>
+			</select>
+			积分：<select id="nffqstep" style="width:50px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" disabled="disabled">
+				<option value="0">0</option>
+				<option value=1>1</option>
+				<option value=2>2</option>
+				<option value=3>3</option>
+				<option value=4>4</option>
+				<option value=5>5</option>
+				<option value=6>6</option>
+				<option value=7>7</option>
+				<option value=8>8</option>
+				<option value=9>9</option>
+				<option value=10>10</option>
+				<option value=11>11</option>
+				<option value=12>12</option>
+				<option value=13>13</option>
+				<option value=14>14</option>
+				<option value=15>15</option>
+				<option value=16>16</option>
+				<option value=17>17</option>
+				<option value=18>18</option>
+				<option value=19>19</option>
+				<option value=20>20</option>
+				<option value=21>21</option>
+				<option value=22>22</option>
+				<option value=23>23</option>
+				<option value=24>24</option>
+				<option value=25>25</option>
+				<option value=26>26</option>
+				<option value=27>27</option>
+				<option value=28>28</option>
+				<option value=29>29</option>
+				<option value=30>30</option>
+				<option value=31>31</option>
+				<option value=32>32</option>
+				<option value=33>33</option>
+				<option value=34>34</option>
+				<option value=35>35</option>
+				<option value=36>36</option>
+				<option value=37>37</option>
+				<option value=38>38</option>
+				<option value=39>39</option>
+				<option value=40>40</option>
+				<option value=41>41</option>
+				<option value=42>42</option>
+				<option value=43>43</option>
+				<option value=44>44</option>
+				<option value=45>45</option>
+				<option value=46>46</option>
+				<option value=47>47</option>
+				<option value=48>48</option>
+				<option value=49>49</option>
+				<option value=50>50</option>
+				<option value=51>51</option>
+				<option value=52>52</option>
+				<option value=53>53</option>
+				<option value=54>54</option>
+				<option value=55>55</option>
+				<option value=56>56</option>
+				<option value=57>57</option>
+				<option value=58>58</option>
+				<option value=59>59</option>
+				<option value=60>60</option>
+				<option value=61>61</option>
+				<option value=62>62</option>
+				<option value=63>63</option>
+				<option value=64>64</option>
+				<option value=65>65</option>
+				<option value=66>66</option>
+				<option value=67>67</option>
+				<option value=68>68</option>
+				<option value=69>69</option>
+				<option value=70>70</option>
+				<option value=71>71</option>
+				<option value=72>72</option>
+				<option value=73>73</option>
+				<option value=74>74</option>
+				<option value=75>75</option>
+				<option value=76>76</option>
+				<option value=77>77</option>
+				<option value=78>78</option>
+				<option value=79>79</option>
+				<option value=80>80</option>
+				<option value=81>81</option>
+				<option value=82>82</option>
+				<option value=83>83</option>
+				<option value=84>84</option>
+				<option value=85>85</option>
+				<option value=86>86</option>
+				<option value=87>87</option>
+				<option value=88>88</option>
+				<option value=89>89</option>
+				<option value=90>90</option>
+				<option value=91>91</option>
+				<option value=92>92</option>
+				<option value=93>93</option>
+				<option value=94>94</option>
+				<option value=95>95</option>
+				<option value=96>96</option>
+				<option value=97>97</option>
+				<option value=98>98</option>
+				<option value=99>99</option>
+				<option value=100>100</option>
+			</select>
+		</p>
+
+		<p><b>男方母亲：</b><br>
+			个数：<select id="nfmqcnt" style="width:40px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;">
+				<option value=0>0</option>
+				<option value=1>1</option>
+			</select>
+			指标：
+			<select id="nfmqflg" style="width:80px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" onchange="ctrlJf(this,'nfmqstep')">
+				<option value="0">未申指标</option>
+				<option value="1">已申指标</option>
+			</select>
+			积分：<select id="nfmqstep" style="width:50px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" disabled="disabled">
+				<option value="0">0</option>
+				<option value=1>1</option>
+				<option value=2>2</option>
+				<option value=3>3</option>
+				<option value=4>4</option>
+				<option value=5>5</option>
+				<option value=6>6</option>
+				<option value=7>7</option>
+				<option value=8>8</option>
+				<option value=9>9</option>
+				<option value=10>10</option>
+				<option value=11>11</option>
+				<option value=12>12</option>
+				<option value=13>13</option>
+				<option value=14>14</option>
+				<option value=15>15</option>
+				<option value=16>16</option>
+				<option value=17>17</option>
+				<option value=18>18</option>
+				<option value=19>19</option>
+				<option value=20>20</option>
+				<option value=21>21</option>
+				<option value=22>22</option>
+				<option value=23>23</option>
+				<option value=24>24</option>
+				<option value=25>25</option>
+				<option value=26>26</option>
+				<option value=27>27</option>
+				<option value=28>28</option>
+				<option value=29>29</option>
+				<option value=30>30</option>
+				<option value=31>31</option>
+				<option value=32>32</option>
+				<option value=33>33</option>
+				<option value=34>34</option>
+				<option value=35>35</option>
+				<option value=36>36</option>
+				<option value=37>37</option>
+				<option value=38>38</option>
+				<option value=39>39</option>
+				<option value=40>40</option>
+				<option value=41>41</option>
+				<option value=42>42</option>
+				<option value=43>43</option>
+				<option value=44>44</option>
+				<option value=45>45</option>
+				<option value=46>46</option>
+				<option value=47>47</option>
+				<option value=48>48</option>
+				<option value=49>49</option>
+				<option value=50>50</option>
+				<option value=51>51</option>
+				<option value=52>52</option>
+				<option value=53>53</option>
+				<option value=54>54</option>
+				<option value=55>55</option>
+				<option value=56>56</option>
+				<option value=57>57</option>
+				<option value=58>58</option>
+				<option value=59>59</option>
+				<option value=60>60</option>
+				<option value=61>61</option>
+				<option value=62>62</option>
+				<option value=63>63</option>
+				<option value=64>64</option>
+				<option value=65>65</option>
+				<option value=66>66</option>
+				<option value=67>67</option>
+				<option value=68>68</option>
+				<option value=69>69</option>
+				<option value=70>70</option>
+				<option value=71>71</option>
+				<option value=72>72</option>
+				<option value=73>73</option>
+				<option value=74>74</option>
+				<option value=75>75</option>
+				<option value=76>76</option>
+				<option value=77>77</option>
+				<option value=78>78</option>
+				<option value=79>79</option>
+				<option value=80>80</option>
+				<option value=81>81</option>
+				<option value=82>82</option>
+				<option value=83>83</option>
+				<option value=84>84</option>
+				<option value=85>85</option>
+				<option value=86>86</option>
+				<option value=87>87</option>
+				<option value=88>88</option>
+				<option value=89>89</option>
+				<option value=90>90</option>
+				<option value=91>91</option>
+				<option value=92>92</option>
+				<option value=93>93</option>
+				<option value=94>94</option>
+				<option value=95>95</option>
+				<option value=96>96</option>
+				<option value=97>97</option>
+				<option value=98>98</option>
+				<option value=99>99</option>
+				<option value=100>100</option>
+			</select>
+		</p>
+
+		<p><b>女方父亲：</b><br>
+			个数：<select id="nvffqcnt" style="width:40px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;">
+				<option value=0>0</option>
+				<option value=1>1</option>
+			</select>
+			指标：
+			<select id="nvffqflg" style="width:80px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" onchange="ctrlJf(this,'nvffqstep')">
+				<option value="0">未申指标</option>
+				<option value="1">已申指标</option>
+			</select>
+			积分：<select id="nvffqstep" style="width:50px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" disabled="disabled">
+				<option value="0">0</option>
+				<option value=1>1</option>
+				<option value=2>2</option>
+				<option value=3>3</option>
+				<option value=4>4</option>
+				<option value=5>5</option>
+				<option value=6>6</option>
+				<option value=7>7</option>
+				<option value=8>8</option>
+				<option value=9>9</option>
+				<option value=10>10</option>
+				<option value=11>11</option>
+				<option value=12>12</option>
+				<option value=13>13</option>
+				<option value=14>14</option>
+				<option value=15>15</option>
+				<option value=16>16</option>
+				<option value=17>17</option>
+				<option value=18>18</option>
+				<option value=19>19</option>
+				<option value=20>20</option>
+				<option value=21>21</option>
+				<option value=22>22</option>
+				<option value=23>23</option>
+				<option value=24>24</option>
+				<option value=25>25</option>
+				<option value=26>26</option>
+				<option value=27>27</option>
+				<option value=28>28</option>
+				<option value=29>29</option>
+				<option value=30>30</option>
+				<option value=31>31</option>
+				<option value=32>32</option>
+				<option value=33>33</option>
+				<option value=34>34</option>
+				<option value=35>35</option>
+				<option value=36>36</option>
+				<option value=37>37</option>
+				<option value=38>38</option>
+				<option value=39>39</option>
+				<option value=40>40</option>
+				<option value=41>41</option>
+				<option value=42>42</option>
+				<option value=43>43</option>
+				<option value=44>44</option>
+				<option value=45>45</option>
+				<option value=46>46</option>
+				<option value=47>47</option>
+				<option value=48>48</option>
+				<option value=49>49</option>
+				<option value=50>50</option>
+				<option value=51>51</option>
+				<option value=52>52</option>
+				<option value=53>53</option>
+				<option value=54>54</option>
+				<option value=55>55</option>
+				<option value=56>56</option>
+				<option value=57>57</option>
+				<option value=58>58</option>
+				<option value=59>59</option>
+				<option value=60>60</option>
+				<option value=61>61</option>
+				<option value=62>62</option>
+				<option value=63>63</option>
+				<option value=64>64</option>
+				<option value=65>65</option>
+				<option value=66>66</option>
+				<option value=67>67</option>
+				<option value=68>68</option>
+				<option value=69>69</option>
+				<option value=70>70</option>
+				<option value=71>71</option>
+				<option value=72>72</option>
+				<option value=73>73</option>
+				<option value=74>74</option>
+				<option value=75>75</option>
+				<option value=76>76</option>
+				<option value=77>77</option>
+				<option value=78>78</option>
+				<option value=79>79</option>
+				<option value=80>80</option>
+				<option value=81>81</option>
+				<option value=82>82</option>
+				<option value=83>83</option>
+				<option value=84>84</option>
+				<option value=85>85</option>
+				<option value=86>86</option>
+				<option value=87>87</option>
+				<option value=88>88</option>
+				<option value=89>89</option>
+				<option value=90>90</option>
+				<option value=91>91</option>
+				<option value=92>92</option>
+				<option value=93>93</option>
+				<option value=94>94</option>
+				<option value=95>95</option>
+				<option value=96>96</option>
+				<option value=97>97</option>
+				<option value=98>98</option>
+				<option value=99>99</option>
+				<option value=100>100</option>
+			</select>
+		</p>
+		<p><b>女方母亲：</b><br>
+			个数：<select id="nvfmqcnt" style="width:40px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;">
+				<option value=0>0</option>
+				<option value=1>1</option>
+			</select>
+			指标：
+			<select id="nvfmqflg" style="width:80px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" onchange="ctrlJf(this,'nvfmqstep')">
+				<option value="0">未申指标</option>
+				<option value="1">已申指标</option>
+			</select>
+			积分：<select id="nvfmqstep" style="width:50px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" disabled="disabled">
+				<option value="0">0</option>
+				<option value=1>1</option>
+				<option value=2>2</option>
+				<option value=3>3</option>
+				<option value=4>4</option>
+				<option value=5>5</option>
+				<option value=6>6</option>
+				<option value=7>7</option>
+				<option value=8>8</option>
+				<option value=9>9</option>
+				<option value=10>10</option>
+				<option value=11>11</option>
+				<option value=12>12</option>
+				<option value=13>13</option>
+				<option value=14>14</option>
+				<option value=15>15</option>
+				<option value=16>16</option>
+				<option value=17>17</option>
+				<option value=18>18</option>
+				<option value=19>19</option>
+				<option value=20>20</option>
+				<option value=21>21</option>
+				<option value=22>22</option>
+				<option value=23>23</option>
+				<option value=24>24</option>
+				<option value=25>25</option>
+				<option value=26>26</option>
+				<option value=27>27</option>
+				<option value=28>28</option>
+				<option value=29>29</option>
+				<option value=30>30</option>
+				<option value=31>31</option>
+				<option value=32>32</option>
+				<option value=33>33</option>
+				<option value=34>34</option>
+				<option value=35>35</option>
+				<option value=36>36</option>
+				<option value=37>37</option>
+				<option value=38>38</option>
+				<option value=39>39</option>
+				<option value=40>40</option>
+				<option value=41>41</option>
+				<option value=42>42</option>
+				<option value=43>43</option>
+				<option value=44>44</option>
+				<option value=45>45</option>
+				<option value=46>46</option>
+				<option value=47>47</option>
+				<option value=48>48</option>
+				<option value=49>49</option>
+				<option value=50>50</option>
+				<option value=51>51</option>
+				<option value=52>52</option>
+				<option value=53>53</option>
+				<option value=54>54</option>
+				<option value=55>55</option>
+				<option value=56>56</option>
+				<option value=57>57</option>
+				<option value=58>58</option>
+				<option value=59>59</option>
+				<option value=60>60</option>
+				<option value=61>61</option>
+				<option value=62>62</option>
+				<option value=63>63</option>
+				<option value=64>64</option>
+				<option value=65>65</option>
+				<option value=66>66</option>
+				<option value=67>67</option>
+				<option value=68>68</option>
+				<option value=69>69</option>
+				<option value=70>70</option>
+				<option value=71>71</option>
+				<option value=72>72</option>
+				<option value=73>73</option>
+				<option value=74>74</option>
+				<option value=75>75</option>
+				<option value=76>76</option>
+				<option value=77>77</option>
+				<option value=78>78</option>
+				<option value=79>79</option>
+				<option value=80>80</option>
+				<option value=81>81</option>
+				<option value=82>82</option>
+				<option value=83>83</option>
+				<option value=84>84</option>
+				<option value=85>85</option>
+				<option value=86>86</option>
+				<option value=87>87</option>
+				<option value=88>88</option>
+				<option value=89>89</option>
+				<option value=90>90</option>
+				<option value=91>91</option>
+				<option value=92>92</option>
+				<option value=93>93</option>
+				<option value=94>94</option>
+				<option value=95>95</option>
+				<option value=96>96</option>
+				<option value=97>97</option>
+				<option value=98>98</option>
+				<option value=99>99</option>
+				<option value=100>100</option>
+			</select>
+		</p>
+	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
+
+		<div id="calc"></div>
+	    <textarea  class="tarea" id="output" readonly style="font-size:70px;line-height:70px;"> </textarea>
+	    <button type="button" style="background-color:#00C74A; border-radius:20px;" id="create">开始</button>
+	    <button type="button" style="background-color:#4682B4; border-radius:20px;" id="diy">说明</button>
+	    <a id="down" src="" download="" style="display:none"></a>
+	</div>
+</body>
+ <script>
+ 
+ 	 var menu;
+ 	 var sysData=new Array("1","5","10","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","150","200");
+     var t;
+	 var $result=$("#output");
+     var $calc=$("#calc");
+	 var repeatItem;
+
+
+	 // 控制积分
+	 function ctrlJf(obj,jfObjNm) {
+         $("#"+jfObjNm).removeAttr("disabled");
+	     if (obj.value == 0) {
+             $("#"+jfObjNm).val(0);
+             $("#"+jfObjNm).attr("disabled","disabled");
+		 }
+	 }
+
+
+ 	function diy() {
+ 		var cont = '<p id="info">1、家庭总积分由每个家庭申请人的积分合计而成。家庭申请人积分由基础积分和阶梯(轮候)积分组成。其中，家庭主申请人的基础积分为2分，其他家庭申请人的基础积分为每人1分。家庭申请人已参加普通指标摇号的，按其累积的阶梯数每1阶梯加1分;正在轮侯新能源指标的，按其开始轮侯时间距离家庭提交申请的时间每满一年加1分，不足一年的部分按1年计算，以往参加摇号累积的阶梯数合并加分;没有参加摇号或轮候的，不加分<br><br>' +
+			'2、家庭申请人中包含家庭主申请人配偶的，家庭总积分按以下公式计算:总积分-(主申请人积分+配偶积分)×2+其他成员积分之和x家庭代际数。<br><br>' +
+			'3、家庭申请人中不包含家庭主申请人配偶的，家庭总积分按以下公式计算:总积分=(主申请人积分+其他成员积分之和)x家庭代际数<br><br>' +
+			'4、家庭代际数是指家庭申请人中包含有几代人，最多为3代</p><br>';
+        cont += '<button type="button" style="width:60px;height:30px;background-color:#FFC74A; border-radius:20px;" onclick="layer.closeAll()">关闭</button>';
+ 		pop("家庭总积分公式", cont);
+ 	}
+
+	  $("#diy").on("click",function(e){
+	  	diy();
+	  });
+
+	 $("#create").on("click",function(e){
+	 	e.preventDefault();
+	 	start();
+	 });
+       	
+      // 循环菜单
+	function start() {
+		/*menu = sysData;
+		i = Math.floor(Math.random() * menu.length);
+		$result.val(menu[i]);
+		t = setTimeout(start, 50);
+        setTimeout(stop,3000);*/
+
+        stop();
+	}
+
+	// 停止跳动
+	function stop() {
+		clearTimeout(t);
+
+		var zjichufen = 2;
+		var ojichufen = 1;
+		var gen = 1;
+		var calc = "";
+
+        var zcnt = parseInt($("#zcnt").val());
+        var zflg = parseInt($("#zflg").val());
+        var zstep = parseInt($("#zstep").val());
+        var zJf = zcnt * zstep  + zcnt * zjichufen;
+
+        calc +=(" 主:"+zJf);
+
+        var pcnt = parseInt($("#pcnt").val());
+        var pflg = parseInt($("#pflg").val());
+        var pstep = parseInt($("#pstep").val());
+
+        var pJf = pcnt *  pstep + pcnt * ojichufen;
+
+        calc +=(" 配:"+pJf);
+
+        var zncnt1 = parseInt($("#zncnt1").val());
+        var znflg1 = parseInt($("#znflg1").val());
+        var znstep1 = parseInt($("#znstep1").val());
+        var znJf1 = zncnt1 * znstep1 + zncnt1 * ojichufen;
+
+        calc +=(" 子女1:"+znJf1);
+
+        var zncnt2 = parseInt($("#zncnt2").val());
+        var znflg2 = parseInt($("#znflg2").val());
+        var znstep2 = parseInt($("#znstep2").val());
+        var znJf2 = zncnt2 * znstep2  + zncnt2 * ojichufen;
+
+        calc +=(" 子女2:"+znJf2);
+
+        var zncnt3 = parseInt($("#zncnt3").val());
+        var znflg3 = parseInt($("#znflg3").val());
+        var znstep3 = parseInt($("#znstep3").val());
+        var znJf3 = zncnt3 *  znstep3  + zncnt3 * ojichufen;
+
+        calc +=(" 子女3:"+znJf3);
+
+        if ((znJf1 + znJf2 + znJf3) > 0) {
+            gen++;
+		}
+
+        var nffqcnt = parseInt($("#nffqcnt").val());
+        var nffqflg = parseInt($("#nffqflg").val());
+        var nffqstep = parseInt($("#nffqstep").val());
+        var nffqJf = nffqcnt * nffqstep +  nffqcnt * ojichufen;
+
+        calc +=(" 男父:"+nffqJf);
+
+        var nfmqcnt = parseInt($("#nfmqcnt").val());
+        var nfmqflg = parseInt($("#nfmqflg").val());
+        var nfmqstep = parseInt($("#nfmqstep").val());
+        var nfmqJf = nfmqcnt * nfmqstep + nfmqcnt * ojichufen;
+
+        calc +=(" 男母:"+nfmqJf);
+
+        var nvffqcnt = parseInt($("#nvffqcnt").val());
+        var nvffqflg = parseInt($("#nvffqflg").val());
+        var nvffqstep = parseInt($("#nvffqstep").val());
+        var nvffqJf = nvffqcnt *  nvffqstep + nvffqcnt *ojichufen;
+
+        calc +=(" 女父:"+nvffqJf);
+
+        var nvfmqcnt = parseInt($("#nvfmqcnt").val());
+        var nvfmqflg = parseInt($("#nvfmqflg").val());
+        var nvfmqstep = parseInt($("#nvfmqstep").val());
+        var nvfmqJf = nvfmqcnt *  nvfmqstep + nvfmqcnt * ojichufen;
+        calc +=(" 女母:"+nvfmqJf);
+
+
+        if ((nffqJf + nfmqJf + nvffqJf + nvfmqJf) > 0) {
+            gen++;
+        }
+
+        calc +=(" 代际:"+gen);
+
+        var totalJf = 0;
+
+        //家庭申请人中包含家庭主申请人配偶的，家庭总积分按以下公式计算:总积分=(主申请人积分+配偶积分)×2+其他成员积分之和x家庭代际数。
+        //家庭申请人中不包含家庭主申请人配偶的，家庭总积分按以下公式计算:总积分=(主申请人积分+其他成员积分之和)x家庭代际数
+
+        // 没有配偶的情况
+        if (pcnt == 1) {
+            totalJf = ((zJf + pJf) * 2 + znJf1 + znJf2 + znJf3 + nffqJf + nfmqJf + nvffqJf + nvfmqJf) * gen;
+		} else {
+            totalJf = ((zJf + pJf)  + znJf1 + znJf2 + znJf3 + nffqJf + nfmqJf + nvffqJf + nvfmqJf) * gen;
+		}
+
+        $calc.html(calc);
+		$result.val('总积分：'+totalJf);
+		t = null;
+	}
+
+        
+        function tip(msg) {
+	          //提示
+		  layer.open({
+		    content: msg
+		    ,skin: 'msg'
+		    ,time: 2 //2秒后自动关闭
+		  });
+	}
+
+ 	function pop(title, msg) {
+		 //自定义标题风格
+		 layer.open({
+			 style:"position:fixed; left:0; top:0; width:100%; height:100%; border: none; -webkit-animation-duration: .5s; animation-duration: .5s;",
+		    type: 3,
+		    title: [
+		     title,
+		      'margin-top:0px;margin-bottom:0px;border-radius:0px;background-color: #FFC74A; color:#fff;'
+		    ]
+		    ,content: msg
+		    ,time: 0
+		    //,btn:"关闭"
+		  });
+	}
+
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?464d7e308b0fdd9fb407887891784488";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>
