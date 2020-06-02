@@ -9,7 +9,7 @@
 	}
 	
 	function back() {
-		this.location.href="gj.html?v=200604";
+		this.location.href="gj.html?v=200606";
 	}
 
 	function tip(msg) {
@@ -166,7 +166,7 @@
         if(!window.isPrivateMode && !!window.localStorage){
             localStorage.setItem("jbp_tool_srcollTop", document.body.scrollTop);
         }
-        jump(page+"?v=200604");
+        jump(page+"?v=200606");
         //this.location.href = page;
     }
 
