@@ -34,8 +34,9 @@ $(function() {
 	<div id="container">
 	<h3>朋友圈直升机生成工具</h3><hr>
 	    <p id="info">
-	        1、输入关键词内容，选择模板<br><br>
-	        2、点击复制按钮，会复制输出的内容<br><br>
+	        1、选择模板，输入关键词内容<br><br>
+			2、控制好内容，点击转换<br><br>
+	        3、点击复制按钮，会复制输出的内容<br><br>
 	    </p>
 	    <p>输入：
 	    <select id="type" style="width:120px;height:22px;font-size:10px;background-color:#e6e6e6;border-radius:10px;" >
@@ -77,7 +78,7 @@ $(function() {
 		var result="";
 		
 		if(type == 1) {
-            result =  replaceAll(temp1, "#msg", inputStr);
+            result =  replaceAll(temp1, "#msg", padRight(inputStr,10," "));
 		} else if(type == 2) {
             result =  replaceAll(temp2, "#msg", inputStr);
 		}
@@ -86,7 +87,19 @@ $(function() {
 
         });
         
-         
+
+	 function padRight(content,len,str) {
+
+	     if (content.length < len) {
+	         var cnt =   len -content.length;
+	         for (i=0;i<cnt;i++) {
+                 content+=" ";
+			 }
+		 }
+
+		 return content;
+	 }
+
 	 $("#clear").on("click",function(e){
        	e.preventDefault();
        	$("#input").val('');
