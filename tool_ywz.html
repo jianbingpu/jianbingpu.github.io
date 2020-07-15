@@ -78,7 +78,7 @@ $(function() {
 		var result="";
 		
 		if(type == 1) {
-            result =  replaceAll(temp1, "#msg", padRight(inputStr,4,"　"));
+            result =  replaceAll(temp1, "#msg", padRight(inputStr,8," "));
 		} else if(type == 2) {
             result =  replaceAll(temp2, "#msg", inputStr);
 		}
@@ -91,7 +91,7 @@ $(function() {
 	 function padRight(content,len,str) {
 
 	     if (content.length < len) {
-	         var cnt =   len -content.length;
+	         var cnt = len -content.length;
 	         for (i=0;i<cnt;i++) {
                  content+=" ";
 			 }
