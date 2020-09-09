@@ -1,117 +1,122 @@
 ﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META HTTP-EQUIV="MSThemeCompatible" CONTENT="Yes">
-<HTA:APPLICATION INNERBORDER="No"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<META HTTP-EQUIV="MSThemeCompatible" CONTENT="Yes">
+	<HTA:APPLICATION INNERBORDER="No"/>
 	<title>日期提取工具-JOE</title>
 	<style>
-	.button
-	{
-		FONT-SIZE:15px;
-		WIDTH:100px;
-		HEIGHT:30px;
-	}
+		.button
+		{
+			FONT-SIZE:15px;
+			WIDTH:100px;
+			HEIGHT:30px;
+		}
 	</style>
-	
+
 	<script>
-	resizeTo(1050, 600);
-	window.onerror=function(){return true;}
- 
-	
-	function getDate(html,array,idx) {
-		var word = '更新时间';
-		var sIdx = html.indexOf(word);
-		$("out").value += html.substr(sIdx+word.length,20) +"\n";
-		getHtml(array,idx+1);
-	}
-	
-	function getHtml(array, idx) {
-		if (idx>=array.length) {return false;}
-		var str =array[idx]
-		str = deleteAll(str, "\r");
-		str = deleteAll(str, "\n");
-		str = deleteAll(str, "\r\n");
-		$("ifr").src = str;
-		setTimeout(function(){getDate($("ifr").contentWindow.document.documentElement.outerHTML, array,idx)},3000)
-	}
-	
-	function doStart() {
-		try {
-			$("outlab").innerHTML = "OUT:（点击复制）";
-			$("out").value = "";
+        resizeTo(1050, 600);
+        window.onerror=function(){return true;}
+        var array;
 
-			if ($("inp").value == "请输入内容" ) {
-				alert("请输入网址");
-				return false;
-			}
-			var array = $("inp").value.split("\n");
-			getHtml(array,0);
-		}catch(err){
-			alert("遇到错误："+err.message);
-		}
-	}
+        function getDate(idx) {
+            var html = $("ifr").contentWindow.document.documentElement.outerHTML;
+            var word = '更新时间';
+            var sIdx = html.indexOf(word);
 
-	// 重复检测
-	function delRepeat(arr) {
-		var hash = {};
-		for (var i in arr) {
-			if (!hash[arr[i]]) {
-				hash[arr[i]] = true;
-			}
-		}
-		return hash;
-	}
+            var str = html.substr(sIdx+word.length,20) +"\n";
+            str = deleteAll(str, ">");
+            str = deleteAll(str, "<");
+            $("out").value += str;
+            getHtml(idx+1);
+        }
 
-	function deleteAll(srcStr, aStr) {
-		return replaceAllChar(srcStr, aStr, "");
-	}
-	
-	function replaceAllChar(srcStr, aStr, bStr) {
-		/*while (srcStr.indexOf(aStr) >= 0) {
-			srcStr = srcStr.replace(aStr, bStr);
-		}
-		
-		return srcStr;*/
-		srcStr = srcStr.replace(new RegExp(aStr,'gi'), bStr);
-		return srcStr;
-	}
+        function getHtml(idx) {
+            if (idx>=array.length) {return false;}
+            var str =array[idx]
+            str = deleteAll(str, "\r");
+            str = deleteAll(str, "\n");
+            str = deleteAll(str, "\r\n");
+            $("ifr").src =  str;
+            setTimeout(function(){getDate(idx)},3000)
+        }
 
-	function copy(obj){
-		obj.select();
-		js=obj.createTextRange();
-		js.execCommand("Copy");
-		$("outlab").innerHTML = "OUT:（复制成功）";
-	}
+        function doStart() {
+            try {
+                $("outlab").innerHTML = "OUT:（点击复制）";
+                $("out").value = "";
 
-	function $(id) {
-		return document.getElementById(id);
-	}
-	
+                if ($("inp").value == "请输入内容" ) {
+                    alert("请输入网址");
+                    return false;
+                }
+                array = $("inp").value.split("\n");
+                getHtml(0);
+            }catch(err){
+                alert("遇到错误："+err.message);
+            }
+        }
+
+        // 重复检测
+        function delRepeat(arr) {
+            var hash = {};
+            for (var i in arr) {
+                if (!hash[arr[i]]) {
+                    hash[arr[i]] = true;
+                }
+            }
+            return hash;
+        }
+
+        function deleteAll(srcStr, aStr) {
+            return replaceAllChar(srcStr, aStr, "");
+        }
+
+        function replaceAllChar(srcStr, aStr, bStr) {
+            /*while (srcStr.indexOf(aStr) >= 0) {
+                srcStr = srcStr.replace(aStr, bStr);
+            }
+
+            return srcStr;*/
+            srcStr = srcStr.replace(new RegExp(aStr,'gi'), bStr);
+            return srcStr;
+        }
+
+        function copy(obj){
+            obj.select();
+            js=obj.createTextRange();
+            js.execCommand("Copy");
+            $("outlab").innerHTML = "OUT:（复制成功）";
+        }
+
+        function $(id) {
+            return document.getElementById(id);
+        }
+
 	</script>
 </head>
 
 <body  oncontextmenu="return false;" onkeydown="if(event.keyCode==27)window.close()">
 <table border=1>
-<tr><td colspan="2">日期提取工具</td></tr>
-<tr>
-<td>IN:<br><textarea id="inp" rows="10" cols="60" onfocus="if(this.value=='请输入内容')this.value='';">请输入内容</textarea></td>
-<td><tt id="outlab">OUT:（点击复制）</tt><br><textarea id="out" rows="10" cols="60" onclick="copy(this)"></textarea></td>
-</tr>
-<tr><td colspan="2">
-<fieldset style="background-color:#AABBCC">
-回车形式输入网址后，点击【开始】
-<br>
-</fieldset>
-<br>
-<input type="button" value="开始" onclick="doStart()" class="button">
-<input type="button" value="清空" onclick="javascript:window.location.reload()" class="button">
-</td></tr>
-<tr>
-<td colspan="2">
-<iframe id= "ifr" width=1000 height=200 style="display:non2e">
-</td>
-</tr>
+	<tr><td colspan="2">日期提取工具</td></tr>
+	<tr>
+		<td>IN:<br><textarea id="inp" rows="10" cols="60" onfocus="if(this.value=='请输入内容')this.value='';">请输入内容</textarea></td>
+		<td><tt id="outlab">OUT:（点击复制）</tt><br><textarea id="out" rows="10" cols="60" onclick="copy(this)"></textarea></td>
+	</tr>
+	<tr><td colspan="2">
+		<fieldset style="background-color:#AABBCC">
+			回车形式输入网址后，点击【开始】
+			<br>
+		</fieldset>
+		<br>
+		<input type="button" value="开始" onclick="doStart()" class="button">
+		<input type="button" value="清空" onclick="javascript:window.location.reload()" class="button">
+	</td></tr>
+	<tr>
+		<td colspan="2">
+			<iframe id= "ifr" width=1000 height=200 style="display:non2e">
+		</td>
+	</tr>
 </table>
 </body>
 </html>
