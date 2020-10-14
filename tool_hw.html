@@ -89,8 +89,10 @@ $(function() {
 				if (str  != "" && str != "\r" && str != "\n") {
 					if (type=="꯭") {
 						result += type+str;
-					}else{
-						result += str+type;
+					}else if (type == "͟"){
+						result += type+str+type;
+					} else {
+                        result += str+type;
 					}
 					
 				} else {
