@@ -41,7 +41,7 @@ $(function() {
 	    </p>
 	    <p>输入：</p>
 	    <p style="align:left">歌名：<input type="text" name="name" id="input" maxlength="20" style="width:250px" value="我走后"></p>
-		<p style="align:left"><br>时长：<input type="text" name="time" id="time" maxlength="5" value="5:17" style="width:80px"></p>
+		<p style="align:left"><br>时长：<input type="text" name="time" id="time" maxlength="5" value="05:17" style="width:80px"></p>
 	    <p>输出：<button type="button" style="width:60px;height:22px;font-size:10px;background-color:#4682B4; border-radius:10px;" data-clipboard-target="#output"  id="copy">复制</button></p>
 	    <!--<input onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);" id="output" readonly >-->
 	    <textarea  class="tarea" id="output" readonly onclick="this.focus();this.select();this.setSelectionRange(0, this.value.length);"> </textarea>
@@ -75,7 +75,6 @@ $(function() {
         
         $("#clear").on("click",function(e){
        	e.preventDefault();
-       	$("#input").val('');
       	$("#output").val(' ');
       	tip("已清空");
         });
